@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*All devices*/
+.bg-purplegradient {
+    background: rgb(199, 125, 255);
+    background: -moz-linear-gradient(
+      81deg,
+      rgba(199, 125, 255, 1) -4%,
+      rgba(157, 78, 221, 1) 11%,
+      rgba(123, 44, 191, 1) 26%,
+      rgba(90, 24, 154, 1) 55%,
+      rgba(60, 9, 108, 1) 75%,
+      rgba(36, 0, 70, 1) 105%
+    );
+    background: -webkit-linear-gradient(
+      81deg,
+      rgba(199, 125, 255, 1) -4%,
+      rgba(157, 78, 221, 1) 11%,
+      rgba(123, 44, 191, 1) 26%,
+      rgba(90, 24, 154, 1) 55%,
+      rgba(60, 9, 108, 1) 75%,
+      rgba(36, 0, 70, 1) 105%
+    );
+    background: linear-gradient(
+      81deg,
+      rgba(199, 125, 255, 1) -4%,
+      rgba(157, 78, 221, 1) 11%,
+      rgba(123, 44, 191, 1) 26%,
+      rgba(90, 24, 154, 1) 55%,
+      rgba(60, 9, 108, 1) 75%,
+      rgba(36, 0, 70, 1) 105%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c77dff",endColorstr="#240046",GradientType=1);
+  }
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+}
+
+/* X-Large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+}
+
+/* XX-Large devices (larger desktops, 1400px and up)*/
+@media (min-width: 1400px) {
+}
