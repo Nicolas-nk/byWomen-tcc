@@ -6,9 +6,9 @@
 
 As seguintes ferramentas foram usadas até o momento na construção do projeto:
 
-* **[Visual Studio Code](https://code.visualstudio.com/){:target="_blank"}**
-* **[Bootstrap](https://getbootstrap.com/docs/5.1/getting-started/introduction/){:target="_blank"}**
-* **[Node.js](https://nodejs.org/en/){:target="_blank"}**
+* **[Visual Studio Code](https://code.visualstudio.com/)**
+* **[Bootstrap](https://getbootstrap.com/docs/5.1/getting-started/introduction/)**
+* **[Node.js](https://nodejs.org/en/)**
 
 E as linguagens utilizadas foram:
 
@@ -47,7 +47,7 @@ $ npm run start
 ```
 ## 🧩 layout
 
-O nosso wireframe está disponivel neste link: **[wireframe](https://xd.adobe.com/view/f48d1884-a164-4dc0-b773-a4cafae9f142-a1de/?fullscreen){:target="_blank"}**
+O nosso wireframe está disponivel neste link: **[wireframe](https://xd.adobe.com/view/f48d1884-a164-4dc0-b773-a4cafae9f142-a1de/?fullscreen)**
 
 ## ⏱  Atualizações por vim
 
