@@ -6,14 +6,61 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   padding-bottom: 68px;
 }
+
+.header-logo img, .header-components img{
+  padding: 8px 0 8px 0;
+}
+
+.header-navbar{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-items: center;
+}
+
+.carousel-inner{
+  position: relative;
+}
+
+.carousel-itens{
+  display: block;
+  width: 100vw;
+}
+
+.carousel-indicators{
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.carousel-indicators button{
+  width: 40px;
+}
+
 .nav-bottom {
   z-index: 100;
   height: 75px;
   border-radius: 10px 10px 0 0;
 }
+
 .search-div {
+  display: flex;
   height: 100px;
   background-color: #f9f2ff;
+  align-items: center;
+  width: 100vw;  
+}
+
+form.container{
+  width: 100vw;
+  align-items: center;
+}
+
+.search-div form{
+  display: flex;
+  justify-content: space-around;
 }
 
 .search-home {
@@ -21,15 +68,19 @@ body {
   border: 2px solid #3c096c;
   border-radius: 28px;
   background-color: transparent;
-  width: 90%;
+  width: 85%;
+  height: 40px;
   padding: 0.375rem 0.75rem;
 }
 
 .search-home::placeholder {
+  position: absolute;
   text-align: left;
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 600;
   color: #3c096c;
+  text-align: left;
+  bottom: 8px;
 }
 
 #lupa {
@@ -42,14 +93,81 @@ body {
   transition: all .1s ease-in;
 }
 
+.container-colaboradoras{
+  margin-top: 68px;
+  width: 100vw;
+}
+
+.colaboradora-text{
+  text-align: center;
+  color: #240046;
+  font-size: 26px;
+}
+
+hr{
+  width: 90%;
+}
+
+.owl-carousel{
+  max-width: 90%;
+  left: 50%;
+  transform: translate(-50%); 
+}
+
+.container-categorias{
+  margin-top: 68px;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.container-icons{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: auto;
+}
+
+.icons{
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 90%;
+}
+
+.container-icons img{
+  margin: 4px;
+  max-width: 300px;
+  min-width: 85px;
+}
+
+.text-categorias{
+  text-align: center;
+  color: #240046;
+  font-size: 26px;
+}
+
+.icon-bottom{
+  margin-top: 10px;
+}
+
+.btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .btn-roxo {
   background-color: #3c096c;
   color: white;
-  width: 70%;
+  width: 90%;
   height: 43px;
   border: 0;
   border-radius: 12px;
   margin-top: 52px;
+  font-size: 18px;
 }
 
 .owl-carousel.owl-theme {
@@ -57,13 +175,10 @@ body {
 }
 
 .text-center {
-  margin-top: 20px;
-  margin-left: 20px;
-  margin-right: 20px;
   color: #3c096c;
 }
 .text-center h2 {
-  font-size: 22px;
+  font-size: 26px;
 }
 .note img {
   width: 100vw;
@@ -87,17 +202,38 @@ body {
   background-position: top left;
   background-repeat: no-repeat;
   width: 100vw;
+  height: 380px;
+  margin-top: 68px;
 }
 
-
+.como-funciona h2{
+  font-size: 26px;
+  text-align: center;
+  padding-top: 5px;
+}
 
 .como-funciona h2,
 .como-funciona p {
-  color: #fff;
+  color: #fff;    
 }
+
+.como-funciona .container{
+  height: auto;
+}
+
 .como-funciona p {
-  font-size: 22px;
-  line-height: 30px;
+  font-size: 20px;
+  line-height: 22px;
+  text-align: center;
+}
+
+.icons-box{
+  margin-top: 10%;
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
 }
 
 .bg-purplegradient {
@@ -134,6 +270,31 @@ body {
 
 /*Small devices (landscape phones, 576px and up)*/
 @media (min-width: 576px) {
+  .como-funciona {
+    width: 100vw;
+    height: auto;
+    background: none;
+  }
+  .como-funciona h2, .como-funciona p{
+    color: #3c096c;
+  }
+  .icons-box{
+    display: flex;
+    justify-content: space-around;
+  }
+  .como-funciona .icon-cadeado-box, .icon-casa-box, .icon-mulheres-box{
+    background-color: #240046;
+    width: 150px;
+    height: 150px;
+    border-radius: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .como-funciona .icons-box p{
+    color: white;
+  }
 }
 
 /* Medium devices (tablets, 768px and up)*/
