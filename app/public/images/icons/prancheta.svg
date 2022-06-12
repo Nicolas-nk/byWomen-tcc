@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="33" height="44" viewBox="0 0 33 44">
+  <g id="Grupo_336" data-name="Grupo 336" transform="translate(-40 -158)">
+    <g id="Retângulo_191" data-name="Retângulo 191" transform="translate(40 161)" fill="#fff" stroke="#3c096c" stroke-width="1">
+      <rect width="33" height="41" rx="8" stroke="none"/>
+      <rect x="0.5" y="0.5" width="32" height="40" rx="7.5" fill="none"/>
+    </g>
+    <g id="Retângulo_192" data-name="Retângulo 192" transform="translate(45 160)" fill="#fff" stroke="#fff" stroke-width="1">
+      <rect width="23" height="5" stroke="none"/>
+      <rect x="0.5" y="0.5" width="22" height="4" fill="none"/>
+    </g>
+    <g id="Retângulo_193" data-name="Retângulo 193" transform="translate(48 161)" fill="#3c096c" stroke="#3c096c" stroke-width="1">
+      <rect width="17" height="6" rx="2" stroke="none"/>
+      <rect x="0.5" y="0.5" width="16" height="5" rx="1.5" fill="none"/>
+    </g>
+    <g id="Elipse_60" data-name="Elipse 60" transform="translate(53 158)" fill="#3c096c" stroke="#3c096c" stroke-width="1">
+      <circle cx="3.5" cy="3.5" r="3.5" stroke="none"/>
+      <circle cx="3.5" cy="3.5" r="3" fill="none"/>
+    </g>
+    <g id="Elipse_61" data-name="Elipse 61" transform="translate(54 159)" fill="#fff" stroke="#3c096c" stroke-width="1">
+      <circle cx="2.5" cy="2.5" r="2.5" stroke="none"/>
+      <circle cx="2.5" cy="2.5" r="2" fill="none"/>
+    </g>
+    <g id="Grupo_333" data-name="Grupo 333" transform="translate(46.484 180.047)">
+      <line id="Linha_100" data-name="Linha 100" x2="1.729" y2="1.297" transform="translate(0 3.458)" fill="none" stroke="#3c096c" stroke-linecap="round" stroke-width="1"/>
+      <line id="Linha_101" data-name="Linha 101" x1="4.323" y2="4.755" transform="translate(1.729 0)" fill="none" stroke="#3c096c" stroke-linecap="round" stroke-width="1"/>
+    </g>
+    <g id="Grupo_335" data-name="Grupo 335" transform="translate(46.484 170.969)">
+      <line id="Linha_100-2" data-name="Linha 100" x2="1.729" y2="1.297" transform="translate(0 3.458)" fill="none" stroke="#3c096c" stroke-linecap="round" stroke-width="1"/>
+      <line id="Linha_101-2" data-name="Linha 101" x1="4.323" y2="4.755" transform="translate(1.729)" fill="none" stroke="#3c096c" stroke-linecap="round" stroke-width="1"/>
+    </g>
+    <g id="Grupo_334" data-name="Grupo 334" transform="translate(46.484 189.125)">
+      <line id="Linha_100-3" data-name="Linha 100" x2="1.729" y2="1.297" transform="translate(0 3.458)" fill="none" stroke="#3c096c" stroke-linecap="round" stroke-width="1"/>
+      <line id="Linha_101-3" data-name="Linha 101" x1="4.323" y2="4.755" transform="translate(1.729)" fill="none" stroke="#3c096c" stroke-linecap="round" stroke-width="1"/>
+    </g>
+    <line id="Linha_102" data-name="Linha 102" x2="12" transform="translate(56.5 173.5)" fill="none" stroke="#3c096c" stroke-width="1"/>
+    <line id="Linha_103" data-name="Linha 103" x2="12" transform="translate(56.5 182.5)" fill="none" stroke="#3c096c" stroke-width="1"/>
+    <line id="Linha_104" data-name="Linha 104" x2="12" transform="translate(56.5 191.5)" fill="none" stroke="#3c096c" stroke-width="1"/>
+  </g>
+</svg>

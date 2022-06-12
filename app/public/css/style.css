@@ -7,9 +7,11 @@ body {
   padding-bottom: 68px;
 }
 
-.header-logo img, .header-components img{
+.header-logo img, .header-components img, .header-return img{
   padding: 8px 0 8px 0;
 }
+
+/*index*/
 
 .header-navbar{
   display: flex;
@@ -236,6 +238,107 @@ hr{
   width: 100%;
 }
 
+/*pedidosServiços*/
+
+.titulo{
+  width: 80vw;
+  margin-left: 10vw;
+  padding-top: 35px;
+}
+
+.titulo h1{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.titulo h2{
+  padding-top: 35px;
+  font-size: 18px;
+}
+
+section.container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.box{
+  width: 80vw;
+  height: 255px;
+}
+
+.box2 {
+width: 80%;
+height: 30vh;
+background-color: white;
+box-shadow: 1px 2px 13px 3px; 
+-webkit-box-shadow: 1px 2px 13px -5px; 
+-moz-box-shadow: 1px 2px 13px 3px;
+border-radius: 15px;
+position: relative;
+top: 30px;
+}
+
+.box h1{
+  color: #3c096c;
+  font-size: 25px;
+}
+
+.box span{
+  color: #3c096c;
+}
+
+.box1{
+  width: 80vw;
+  height: 30vh;
+  background-color: white;
+  box-shadow: 1px 2px 13px 3px; 
+  -webkit-box-shadow: 1px 2px 13px -5px; 
+  -moz-box-shadow: 1px 2px 13px 3px;
+  border-radius: 15px;
+}
+
+.analise{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prancheta{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prancheta img{
+  width: 33px;
+  height: 44px;
+}
+
+.analise img{
+  width: 38px;
+  height: 38px;
+}
+
+.box2, .box1{
+  padding-left: 15px;
+  padding-right: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 90%;
+  width: 100%;
+}
+
+.pedidos{
+  font-size: 26px;
+}
+
+.titulo h1, .titulo h2{
+  color: #3c096c;
+}
+
 .bg-purplegradient {
   background: rgb(199, 125, 255);
   background: -moz-linear-gradient(
@@ -283,9 +386,12 @@ hr{
     justify-content: space-around;
   }
   .como-funciona .icon-cadeado-box, .icon-casa-box, .icon-mulheres-box{
-    background-color: #240046;
-    width: 150px;
-    height: 150px;
+    background-image: url("../images/banners/comofuncionabg.png");
+    background-size: cover;
+    background-position: top left;
+    background-repeat: no-repeat;
+    width: 160px;
+    height: 160px;
     border-radius: 360px;
     display: flex;
     flex-direction: column;
