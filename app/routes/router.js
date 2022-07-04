@@ -6,11 +6,15 @@ router.get('/', function(req, res) {
 })
 
 router.get('/Pedidos', function(req, res) {
-    res.render('pages/pedidosServiços/pedidosServiços')
+    res.render('pages/pedidosServiços/index')
 })
 
 router.get('/Login', function(req, res) {
-    res.render('pages/login/login')
+    res.render('pages/login/index')
+})
+
+router.get('/Menu', function(req, res) {
+    res.render('components/menuHamburguer/index')
 })
 
 module.exports = router;
