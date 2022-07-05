@@ -13,6 +13,14 @@ router.get('/Login', function(req, res) {
     res.render('pages/login/index')
 })
 
+router.get('/Esqueci-Senha', function(req, res) {
+    res.render('pages/esqueciSenha/index')
+})
+
+router.get('/Recuperar-Senha', function(req, res) {
+    res.render('pages/esqueciSenha/index')
+})
+
 router.get('/Menu', function(req, res) {
     res.render('components/menuHamburguer/index')
 })
