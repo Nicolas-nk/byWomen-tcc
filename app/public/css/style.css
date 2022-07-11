@@ -7,12 +7,42 @@ body {
   padding-bottom: 68px;
 }
 
+.menu{
+  z-index: 100;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+  max-width: 768px;
+  width: 100%;
+  margin-top: 0;
+  border-radius: 10px 10px 0 0;
+}
+
+.menu-itens{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 5% 0 5%;
+  padding: 5px 0 10px 0;
+}
+
 .header-navbar{
   display: flex;
   justify-content: space-between;
   margin-left: 5%;
   margin-right: 5%;
   align-items: center;
+}
+
+.header-components{
+  display: flex;
+  align-items: center;
+}
+
+.header-components span{
+  margin-right: 10px;
 }
 
 .container{
@@ -51,6 +81,10 @@ body {
     rgba(36, 0, 70, 1) 105%
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c77dff",endColorstr="#240046",GradientType=1);
+}
+
+.bg-pink{
+  background-color: #F5E8FF;
 }
 
 /*Home*/
@@ -140,6 +174,10 @@ h1{
   text-align: center;
   color: #240046;
   font-size: 24px;
+}
+
+.item{
+  position: relative;
 }
 
 .owl-carousel{
@@ -241,7 +279,7 @@ p{
 
 #bg-purple {
   width: 100vw;
-  height: 100vh;
+  height: 105vh;
   background: rgb(199, 125, 255);
   background: -moz-linear-gradient(
       81deg,
@@ -274,7 +312,8 @@ p{
 }
 
 .logo-extenso{
-  margin-top: 20px;
+  margin-top: 0;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -286,6 +325,10 @@ fieldset{
   background: rgba(255, 255, 255, 0.32);
   border: 0;
   border-radius: 30px;
+}
+
+.form{
+  margin-top: 0;
 }
 
 fieldset form{
@@ -384,12 +427,6 @@ fieldset form .password a{
   color: white;
 }
 
-.screen-login{
-  position: relative;
-  top: 25%;
-  transform: translateY(-25%);
-}
-
 .screen-login p{
   display: none;
 }
@@ -422,7 +459,7 @@ h2{
 }
 
 .box{
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .requests{
@@ -442,6 +479,193 @@ h2{
   margin-right: 5%;
 }
 
+/*PerfilCliente*/
+
+.favorite{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.box-jobs{
+  margin-top: 100px;
+}
+
+.jobs-contract{
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wallpaper{
+  height: 175px;
+}
+
+.profile-image img{
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.slide{
+  max-width: 768px;
+  height: 113px;
+  overflow: hidden;
+}
+
+.banner-1, .banner-2, .banner3{
+  display: flex;
+}
+
+.banner{
+  max-width: 768px;
+  width: 34%;
+  position: relative;
+}
+
+.button-banner{
+  display: none;
+}
+
+#slide1:checked ~ .banners{
+  margin-left: 0;
+}
+
+#slide2:checked ~ .banners{
+  margin-left: -100%;
+}
+
+#slide3:checked ~ .banners{
+  margin-left: -200%;
+}
+
+.bar:hover{
+  background-color: white;
+}
+
+.banners{
+  display: flex;
+  width: 300%;
+  height: 100%;
+  transition: .6s;
+}
+
+.navigation{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -22px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.bar{
+  width: 10px;
+  height: 10px;
+  border: 2px solid white;
+  margin: 6px;
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+}
+
+.banner-bg{
+  width: 70%;
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.banners p, .banner-bg img {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.text-banner{
+  display: flex;
+}
+
+.banner-bg p, .banner-bg  h1{
+  text-align: start;
+  color: white;
+}
+
+.banner-bg h1{
+  margin-top: 0;
+}
+
+.banner-second-bg{
+  width: 30%;
+  border-radius: 0 10px 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-third{
+  width: 100%;
+  height: 113px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.midia-banners{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+  margin-top: 5px;
+}
+
+.banner-third p, .banner-third h1{
+  color: white;
+}
+
+.first-color{
+  background-color: #240046;
+}
+
+.second-color{
+  background-color: #9D4EDD;
+}
+
+.third-color{
+  background-color: #7B2CBF;
+}
+
+/*Menu*/
+
+.input span{
+  font-size: 22px;
+  color: #240046
+}
+
+.input hr{
+  margin: 10px 0 20px 0;
+}
+
+.input h1{
+  text-align: start;
+  color: #240046;
+  font-size: 24px;
+}
+
+.redes{
+  margin-left: 0;
+  margin-top: 30px;
+}
+
+.input-line{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /* Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
   .contents{
@@ -451,27 +675,17 @@ h2{
     position: relative;
     left: 50%;
     transform: translate(-50%);
+    margin: 0 0 0 0;
   }
   .carousel-itens {
     max-width: 768px;
-    margin-top: 20px;
-    border: 1px solid;
-    border-color: #240046;
-    border-radius: 10px 10px 10px 10px;
   }
   .search-div{
     max-width: 768px;
-    margin-top: 10px;
-    border: 1px solid;
-    border-color: #240046;
-    border-radius: 10px 10px 10px 10px;
   }
   .colaboradoras{
-    border: 1px solid;
-    border-color: #240046;
-    border-radius: 10px;
     width: 100%;
-    margin: 40px 0 0 0;
+    margin: 68px 0 0 0;
   }
   .owl-carousel{
     padding: 10px;
@@ -480,10 +694,7 @@ h2{
     padding: 10px 10px 0 10px;
   }
   .categories{
-    margin: 40px 0 0 0;
-    border: 1px solid;
-    border-color: rgb(37, 0, 71, 0.5);
-    border-radius: 10px;
+    margin: 68px 0 0 0;
     width: 100%;
     position: relative;
   }
@@ -494,9 +705,6 @@ h2{
     left: 50%;
     transform: translate(-50%);
     padding: 10px;
-  }
-  #bg-pink{
-    background-color: #F5E8FF;
   }
   .bw{
     flex-direction: row;
@@ -518,7 +726,7 @@ h2{
     display: flex;
     flex-direction: row;
     position: relative;
-    top: 15%;
+    top: 5%;
   }
   .logo-extenso{
     margin-top: 0;
@@ -539,11 +747,38 @@ h2{
   .form{
     margin-top: 0;
   }
+  .title{
+    position: relative;
+    left: 25%;
+    transform: translate(-25%);
+  }
   .contents-pedidos{
+    max-width: 620px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    margin-left: 0;
     display: flex;
     flex-direction: column;
+  } 
+  /*perfil cliente*/
+  .box-jobs{
+    max-width: 768px;
     position: relative;
-  }
+    left: 50%;
+    transform: translate(-50%);
+    margin-left: 0;
+    margin-right: 0;
+    }
+
+    /*Slide*/
+
+    .slide{
+      margin: 68px 0 0 0;
+      position: relative;
+      left: 50%;
+      transform: translate(-50%);
+    }
 }
 
 /* Large devices (desktops, 992px and up)*/

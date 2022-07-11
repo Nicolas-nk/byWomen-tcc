@@ -22,7 +22,11 @@ router.get('/Recuperar-Senha', function(req, res) {
 })
 
 router.get('/Menu', function(req, res) {
-    res.render('components/menuHamburguer/index')
+    res.render('components/menuHamburger/index')
+})
+
+router.get('/PerfilCliente', function(req, res){
+    res.render('pages/perfilCliente/index')
 })
 
 module.exports = router;

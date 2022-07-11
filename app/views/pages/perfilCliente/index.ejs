@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+    <header>
+        <div class="wallpaper bg-purplegradient">
+            <div class="profile navbar">
+                <nav class="header-navbar">
+                    <div class="header-components">
+                        <a href=""><img src="images/icons/return.svg" alt=""></a>
+                    </div>
+                    <div class="header-components">
+                        <a href=""><img src="images/icons/settings.svg" alt=""></a>
+                    </div>
+                </nav>
+        </div>
+        <div class="profile-image">
+            <img src="images/perfil.png" alt="">
+            <!--Nome colaboradora-->
+        </div>
+    </header>
+    <section class="box-jobs container">
+        <div class="favorite">
+            <img src="images/icons/clbfavoritas.svg" alt="">
+            <p>Escolher colaboradora favorita</p>
+            <img src="images/icons/seta.svg" alt="">
+        </div>
+        <hr>
+        <div class="jobs-contract">
+            <img src="images/icons/trabalhos.svg" alt="">
+            <p>Ver trabalhos já contratados</p>
+            <img src="images/icons/seta.svg" alt="">
+        </div>
+        <hr>
+    </section>
+    <section class="slide container">
+        <input type="radio" id="slide1" class="button-banner" name="slide" checked>
+        <input type="radio" id="slide2" class="button-banner" name="slide">
+        <input type="radio" id="slide3" class="button-banner" name="slide">
+        <div class="banners">
+            <div class="banner banner-1">
+                <div class="banner-bg first-color">
+                    <div class="">
+                        <h1 class="container">Faça sua escolha</h1>
+                    </div>
+                    <div class="text-banner">
+                        <p class="container">veja as colaboradoras</p>
+                        <img src="images/icons/seta-banner.svg" alt="">
+                    </div>
+                </div>
+                <div class="banner-second-bg second-color">
+                </div>
+            </div>
+            <div class="banner banner-2">
+                <div class="banner-bg second-color">
+                    <div>
+                        <h1 class="container">Trabalhe conosco</h1>
+                    </div>
+                    <div class="text-banner">
+                        <p class="container">se torne uma colaboradora</p>
+                        <img src="images/icons/seta-banner.svg" alt="">
+                    </div>
+                </div>
+                <div class="banner-second-bg third-color">
+                    <div>
+                        <img src="images/icons/trabalhe-conosco.svg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="banner">
+                <div class="banner-third third-color">
+                    <h1>Saiba mais sobre nós</h1>
+                    <p>nossas redes sociais</p>
+                    <div class="midia-banners">
+                        <img src="images/icons/instagram-banner.svg" alt="">
+                        <img src="images/icons/facebook-banner.svg" alt="">
+                        <img src="images/icons/youtube-banner.svg" alt="">
+                        <img src="images/icons/linkedin-banner.svg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <label class="bar" for="slide1"></label>
+        <label class="bar" for="slide2"></label>
+        <label class="bar" for="slide3"></label>
+    </div>
+    </section>
+    <section class="contents">
+        <%- include('./../../components/categories/index.ejs') %>
+    </section>
+    <script>
+    let contador = 1;
+
+    setInterval( function(){
+        document.getElementById('slide' + contador).checked = true;
+        contador ++;
+
+        if(contador > 3) {
+            contador = 1;
+        }
+    }, 4000);
+    </script>
+</body>
+</html>

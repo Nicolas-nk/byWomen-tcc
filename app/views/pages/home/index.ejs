@@ -23,7 +23,7 @@
     crossorigin="anonymous" />
 </head>
 
-<body id="bg-pink">
+<body>
   <header>
     <div class="navbar bg-purplegradient">
       <nav class="header-navbar">
@@ -37,6 +37,7 @@
       </nav>
     </div>
   </header>
+  <%- include("./../../components/menu/index.ejs") %>
     <main class="contents">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -93,43 +94,7 @@
           </div>
         </div>
       </div>
-      <div class="categories container">
-        <h1>PRINCIPAIS CATEGORIAS</h1>
-        <hr />
-        <div class="categories-icons">
-          <div class="icons-top">
-            <div class="icon">
-              <img src="/images/icons/categorias/reparos.svg" alt="" />
-              <p>Reparos</p>
-            </div>
-            <div class="icon">
-              <img src="images/icons/categorias/montagem.svg" alt="" />
-              <p>Montagem</p>
-            </div>
-            <div class="icon">
-              <img src="images/icons/categorias/pintura.svg" alt="" />
-              <p>Pintura</p>
-            </div>
-          </div>
-          <div class="icons-bottom">
-            <div class="icon">
-              <img src="images/icons/categorias/manutencao-eletrica.svg" alt="" />
-              <p>Manutenção elétrica</p>
-            </div>
-            <div class="icon">
-              <img src="images/icons/categorias/projetos.svg" alt="" />
-              <p>Projetos</p>
-            </div>
-            <div class="icon">
-              <img src="images/icons/categorias/construcao.svg" alt="" />
-              <p>Construção</p>
-            </div>
-          </div>
-        </div>
-        <div class="btn">
-          <button class="btn-home">Ver mais...</button>
-        </div>
-      </div>
+      <%- include('./../../components/categories/index.ejs') %>
       <div class="como-funciona container">
         <h1>O que é a ByWomen?</h1>
         <hr>

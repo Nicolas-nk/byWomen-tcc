@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="79.623" height="62.734" viewBox="0 0 79.623 62.734">
+  <g id="Grupo_392" data-name="Grupo 392" transform="translate(-677.981 -27.75)">
+    <line id="Linha_45" data-name="Linha 45" y1="12" x2="12" transform="translate(707.75 46.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="7"/>
+    <g id="Grupo_259" data-name="Grupo 259">
+      <g id="Grupo_257" data-name="Grupo 257" transform="translate(1 6.985)">
+        <line id="Linha_40" data-name="Linha 40" y1="18.514" x2="7.75" transform="translate(683.361 59.751)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="8"/>
+        <line id="Linha_41" data-name="Linha 41" y1="8.181" transform="translate(699.722 70.084)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="8"/>
+        <line id="Linha_42" data-name="Linha 42" x2="3.444" y2="9.472" transform="translate(696.278 59.32)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="8"/>
+        <g id="Retângulo_136" data-name="Retângulo 136" transform="translate(687 36.765)" fill="#fff" stroke="#fff" stroke-width="1">
+          <path d="M3,0h8a3,3,0,0,1,3,3V26a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V3A3,3,0,0,1,3,0Z" stroke="none"/>
+          <path d="M3,.5h8A2.5,2.5,0,0,1,13.5,3V25.5a0,0,0,0,1,0,0H.5a0,0,0,0,1,0,0V3A2.5,2.5,0,0,1,3,.5Z" fill="none"/>
+        </g>
+        <g id="Retângulo_138" data-name="Retângulo 138" transform="translate(716 36.765)" fill="#fff" stroke="#fff" stroke-width="1">
+          <path d="M3,0h8a3,3,0,0,1,3,3V26a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V3A3,3,0,0,1,3,0Z" stroke="none"/>
+          <path d="M3,.5h8A2.5,2.5,0,0,1,13.5,3V25.5a0,0,0,0,1,0,0H.5a0,0,0,0,1,0,0V3A2.5,2.5,0,0,1,3,.5Z" fill="none"/>
+        </g>
+        <line id="Linha_43" data-name="Linha 43" x1="7" y2="11.055" transform="translate(682.5 40.515)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="8"/>
+        <line id="Linha_49" data-name="Linha 49" x2="7.75" y2="11.139" transform="translate(727.75 40.375)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="8"/>
+        <line id="Linha_44" data-name="Linha 44" x2="8.611" y2="11.195" transform="translate(698 40.375)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="8"/>
+        <g id="Elipse_43" data-name="Elipse 43" transform="translate(687 20.765)" fill="#fff" stroke="#fff" stroke-width="1">
+          <circle cx="7" cy="7" r="7" stroke="none"/>
+          <circle cx="7" cy="7" r="6.5" fill="none"/>
+        </g>
+        <g id="Elipse_44" data-name="Elipse 44" transform="translate(716 20.765)" fill="#fff" stroke="#fff" stroke-width="1">
+          <circle cx="7" cy="7" r="7" stroke="none"/>
+          <circle cx="7" cy="7" r="6.5" fill="none"/>
+        </g>
+        <line id="Linha_46" data-name="Linha 46" y1="8" transform="translate(717 70.084)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="7"/>
+        <line id="Linha_47" data-name="Linha 47" x1="2.5" y2="8" transform="translate(717 62.084)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="7"/>
+        <line id="Linha_48" data-name="Linha 48" x1="4" y1="16" transform="translate(727 62.084)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="7"/>
+      </g>
+      <g id="Retângulo_137" data-name="Retângulo 137" transform="matrix(0.616, 0.788, -0.788, 0.616, 748.369, 56.5)" fill="#fff" stroke="#fff" stroke-width="1">
+        <rect width="15" height="19" stroke="none"/>
+        <rect x="0.5" y="0.5" width="14" height="18" fill="none"/>
+      </g>
+      <g id="Elipse_45" data-name="Elipse 45" transform="translate(733.509 63.124) rotate(-34)" fill="none" stroke="#fff" stroke-width="1">
+        <ellipse cx="6" cy="4.5" rx="6" ry="4.5" stroke="none"/>
+        <ellipse cx="6" cy="4.5" rx="5.5" ry="4" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>
