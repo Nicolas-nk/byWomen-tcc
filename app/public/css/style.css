@@ -664,6 +664,8 @@ h2{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-decoration: none;
+  cursor: pointer
 }
 
 /* Medium devices (tablets, 768px and up)*/

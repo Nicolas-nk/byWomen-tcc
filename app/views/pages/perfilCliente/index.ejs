@@ -14,7 +14,7 @@
             <div class="profile navbar">
                 <nav class="header-navbar">
                     <div class="header-components">
-                        <a href=""><img src="images/icons/return.svg" alt=""></a>
+                        <a href="javascript:void(0)" onClick="history.go(-1); return false;"><img src="images/icons/return.svg" alt=""></a>
                     </div>
                     <div class="header-components">
                         <a href=""><img src="images/icons/settings.svg" alt=""></a>
@@ -26,6 +26,7 @@
             <!--Nome colaboradora-->
         </div>
     </header>
+    <%- include("./../../components/menu/index.ejs") %>
     <section class="box-jobs container">
         <div class="favorite">
             <img src="images/icons/clbfavoritas.svg" alt="">
