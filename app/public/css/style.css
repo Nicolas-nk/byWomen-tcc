@@ -2,9 +2,45 @@
   box-sizing: border-box;
 }
 
+.bg-purple{
+  background: rgb(199, 125, 255);
+  background: -moz-linear-gradient(
+      81deg,
+      rgba(199, 125, 255, 1) -4%,
+      rgba(157, 78, 221, 1) 11%,
+      rgba(123, 44, 191, 1) 26%,
+      rgba(90, 24, 154, 1) 55%,
+      rgba(60, 9, 108, 1) 75%,
+      rgba(36, 0, 70, 1) 105%
+  );
+  background: -webkit-linear-gradient(
+      81deg,
+      rgba(199, 125, 255, 1) -4%,
+      rgba(157, 78, 221, 1) 11%,
+      rgba(123, 44, 191, 1) 26%,
+      rgba(90, 24, 154, 1) 55%,
+      rgba(60, 9, 108, 1) 75%,
+      rgba(36, 0, 70, 1) 105%
+  );
+  background: linear-gradient(
+      to top,
+      rgba(199, 125, 255, 1) -4%,
+      rgba(157, 78, 221, 1) 11%,
+      rgba(123, 44, 191, 1) 26%,
+      rgba(90, 24, 154, 1) 55%,
+      rgba(60, 9, 108, 1) 75%,
+      rgba(36, 0, 70, 1) 105%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c77dff",endColorstr="#240046",GradientType=1);
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   padding-bottom: 68px;
+}
+
+a{
+  text-decoration: none;
 }
 
 .menu{
@@ -474,7 +510,7 @@ h2{
   font-size: 16px;
 }
 
-.contents-pedidos{
+.contents-box{
   margin-left: 5%;
   margin-right: 5%;
 }
@@ -668,6 +704,160 @@ h2{
   cursor: pointer
 }
 
+/*Configurações*/
+
+.profile-picture{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.box-config{
+  background-color: #fff;
+  width: 100vw;
+  max-width: 768px;
+  margin-top: 30px;
+}
+
+.box-config form input{
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid #000;
+}
+
+.box-config form input:focus{
+  outline: 0;
+}
+
+.change{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.box-config .contents-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.btn-config {
+  background-color: #ffff;
+  color: #000;
+  width: 100%;
+  height: 43px;
+  border: 3px solid;
+  border-color: #240046;
+  border-radius: 25px;
+  font-size: 18px;
+  max-width: 600px;
+}
+
+/*Planos*/
+
+.service-plans h1{
+  font-size: 24px;
+}
+
+h1.container{
+  margin-right: 0;
+  text-align: start;
+  font-size: 24px;
+}
+
+.box-plans{
+  display: flex;
+  max-width: 835px;
+  width: 210%;
+  height: 100%;
+  transition: .6s;
+  margin-top: 68px;
+  touch-action: manipulation; 
+}
+
+.service-plans{
+  margin-left: 3%;
+  overflow: auto;
+}
+
+.plan{
+  max-width: 275px;
+  height: 275px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  margin: 0 10px 10px 5px;
+  -webkit-box-shadow: 0px 2px 16px 2px rgba(0,0,0,0.6); 
+  box-shadow: 0px 2px 16px 2px rgba(0,0,0,0.6);
+  border: none;
+  border-radius: 10px;
+  width: 33%;
+  position: relative;
+}
+
+.plan .value{
+  font-size: 64px;
+}
+
+.plan span{
+  color: #240046;
+}
+
+.btn-plan-purple{
+  background-color: #ffff;
+  color: #000;
+  width: 50%;
+  height: 35px;
+  border-radius: 25px;
+  font-size: 18px;
+  border: none;
+}
+
+.btn-plan{
+  background-color: #240046;
+  color: #fff;
+  width: 50%;
+  height: 35px;
+  border-radius: 25px;
+  font-size: 18px;
+  border: none;
+}
+
+.btn-plan:hover{
+  cursor: pointer;
+  transition: .6 ease;
+  background-color: #3C096C;
+}
+
+.btn-plan-purple:hover{
+  cursor: pointer;
+  transition: .6 ease;
+  background-color: #240046;
+  color: #fff;
+}
+
+.white{
+  color: white;
+}
+
+.white span{
+  color: white;
+}
+
+.price span.value-components{
+  margin-top: 10px;
+  font-size: 28px;
+}
+
+.price span{
+  float: left;
+}
+
 /* Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
   .contents{
@@ -777,6 +967,20 @@ h2{
 
     .slide{
       margin: 68px 0 0 0;
+      position: relative;
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    /*configuracao*/
+
+    .box-config{
+      position: relative;
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    .btn-config{
       position: relative;
       left: 50%;
       transform: translate(-50%);

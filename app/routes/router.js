@@ -29,4 +29,12 @@ router.get('/perfil', function(req, res){
     res.render('pages/perfilCliente/index')
 });
 
+router.get('/configuracao', function(req, res){
+    res.render('pages/configuracao/index')
+});
+
+router.get('/planos', function(req, res){
+    res.render('pages/planos/index')
+});
+
 module.exports = router;

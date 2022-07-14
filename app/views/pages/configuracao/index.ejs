@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />  
+    <title>Configurações</title>
+</head>
+<body class="bg-pink">
+    <header>
+        <div class="navbar bg-purplegradient">
+            <nav class="header-navbar">
+                <div class="header-components">
+                    <a href="javascript:void(0)" onClick="history.go(-1); return false;"><img src="/images/icons/return.svg" alt="" /></a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <div class="box-config">
+        <div class="contents-box">
+            <div class="profile-picture">
+                <img src="images/config-profile-pic.png" alt="">
+                <span>Alterar imagem de perfil</span>
+                <img src="images/icons/setapurple.svg" alt="">
+            </div>
+            <form action="">
+                <div class="change">
+                    <label for="">Nome</label>
+                    <input type="text">
+                </div>
+                <div class="change">
+                    <label for="">Sobrenome</label>
+                    <input type="text">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="box-config">
+        <div class="contents-box">
+            <form action="">
+                <div class="change">
+                    <label for="">Alterar número de telefone</label>
+                    <input type="tel">
+                </div>
+                <div class="change">
+                    <label for="">Alterar email</label>
+                    <input type="email">
+                </div>
+                <div class="change">
+                    <label for="">Alterar senha</label>
+                    <input type="password" name="" id="">
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="container">
+        <button class="btn-config">Concluido</button>
+    </div>
+        <%- include('./../../components/menu/index.ejs') %>
+</body>
+</html>

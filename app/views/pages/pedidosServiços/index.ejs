@@ -9,21 +9,9 @@
     <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <header>
-        <div class="navbar bg-purplegradient">
-            <div class="header-navbar">
-              <a href="/perfil" class="header-components">
-                <img src="/images/icons/return.svg" alt="" />
-              </a>
-              <div class="header-components">
-                <a href=""><img src="/images/icons/lupa.svg" alt="" /></a>
-                <a href=""><img src="/images/icons/usuario.svg" alt="" /></a>
-              </div>
-            </div>  
-          </div>
-    </header>
+    <%- include("./../../components/header/index.ejs") %>
     <%- include("./../../components/menu/index.ejs") %>
-    <section class="container contents-pedidos"> 
+    <section class="container contents-box"> 
         <div class="title">
             <h1 class="name">Olá,<!-- Nome colaboradora !--></h1>
             <h2>Pedidos de serviços</h2>
