@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
     <title>Nossos planos</title>
@@ -20,7 +24,7 @@
                     <span class="value">09</span>
                     <span class="value-components">,90</span>
                 </div>
-                <button class="btn-plan-purple">Saiba mais</button>
+                <button class="btn-plan-purple btn-text-1">Saiba mais</button>
             </div>
             <div class="plan">
                 <h1>2 semana</h1>
@@ -29,7 +33,7 @@
                     <span class="value">17</span>
                     <span class="value-components">,90</span>
                 </div>
-                <button class="btn-plan">Saiba mais</button>
+                <button class="btn-plan btn-text-2">Saiba mais</button>
             </div>
             <div class="plan bg-purple">
                 <h1 class="white">1 mês</h1>
@@ -38,9 +42,53 @@
                     <span class="value">32</span>
                     <span class="value-components">,99</span>
                 </div>
-                <button class="btn-plan-purple">Saiba mais</button>
+                <button class="btn-plan-purple btn-text-3">Saiba mais</button>
             </div>
         </div>
     </main>
+    <div class="plan-1">
+        <h1>Plano 1</h1>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        </p>
+    </div>
+    <div class="plan-2">
+        <h1>Plano 2</h1>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        </p>
+    </div>
+    <div class="plan-3">
+        <h1>Plano 3</h1>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        </p>
+    </div>
+    <script>
+        $('.plan-1').hide();
+        $('.plan-2').hide();
+        $('.plan-3').hide();
+        $(document).ready(function(){
+            $(".btn-text-1").click(function(){
+                $('.plan-1').toggle('1000')
+                $('.plan-2').hide('1000')
+                $('.plan-3').hide('1000')
+            });
+        });
+        $(document).ready(function(){
+            $(".btn-text-2").click(function(){
+                $('.plan-2').toggle('1000')
+                $('.plan-1').hide('1000')
+                $('.plan-3').hide('1000')
+            });
+        });
+        $(document).ready(function(){
+            $(".btn-text-3").click(function(){
+                $('.plan-3').toggle('1000')
+                $('.plan-2').hide('1000')
+                $('.plan-1').hide('1000')
+            });
+        });
+    </script>
 </body>
 </html>

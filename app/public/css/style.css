@@ -858,6 +858,12 @@ h1.container{
   float: left;
 }
 
+.plan-1 h1, .plan-1 p,.plan-2 h1, .plan-2 p,.plan-3 h1, .plan-3 p{
+  text-align: start;
+  margin-top: 20px;
+  margin-left: 5%;
+}
+
 /* Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
   .contents{
