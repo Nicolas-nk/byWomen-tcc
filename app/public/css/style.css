@@ -33,6 +33,37 @@
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c77dff",endColorstr="#240046",GradientType=1);
 }
+.mask{
+  background: rgb(199, 125, 255);
+  background: -moz-linear-gradient(
+      81deg,
+      rgba(199, 125, 255, .2) -4%,
+      rgba(157, 78, 221, .5) 11%,
+      rgba(123, 44, 191, .6) 26%,
+      rgba(90, 24, 154, 1) 55%,
+      rgba(60, 9, 108, 1) 75%,
+      rgba(36, 0, 70, 1) 105%
+  );
+  background: -webkit-linear-gradient(
+      81deg,
+      rgba(199, 125, 255, 1) -4%,
+      rgba(157, 78, 221, 1) 11%,
+      rgba(123, 44, 191, 1) 26%,
+      rgba(90, 24, 154, 1) 55%,
+      rgba(60, 9, 108, 1) 75%,
+      rgba(36, 0, 70, 1) 105%
+  );
+  background: linear-gradient(
+      to top,
+      rgba(199, 125, 255, 0.1) -4%,
+      rgba(157, 78, 221, 0.1) 11%,
+      rgba(123, 44, 191, .4) 26%,
+      rgba(90, 24, 154, 1) 55%,
+      rgba(60, 9, 108, 1) 75%,
+      rgba(36, 0, 70, 1) 105%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c77dff",endColorstr="#240046",GradientType=1);
+}
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -84,7 +115,7 @@ a{
 .container{
   margin-left: 5%;
   margin-right: 5%;
-  margin-top: 68px;
+  margin-top: 55px;
 }
 
 .bg-purplegradient {
@@ -251,12 +282,13 @@ h1{
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 768px;
 }
 
 .btn-home {
-  background-color: #ffff;
+  background-color: transparent;
   color: #000;
-  width: 100%;
+  width: 80%;
   height: 43px;
   border: 3px solid;
   border-color: #240046;
@@ -774,7 +806,7 @@ h1.container{
   width: 210%;
   height: 100%;
   transition: .6s;
-  margin-top: 68px;
+  margin-top: 30px;
   touch-action: manipulation; 
 }
 
@@ -862,6 +894,68 @@ h1.container{
   text-align: start;
   margin-top: 20px;
   margin-left: 5%;
+}
+
+/*Tela de Serviços*/
+
+.profession-pic{
+  background-image: url('/images/Montagem.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 450px;
+  max-width: 768px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.box-transparent{
+  width: 100vw;
+  max-width: 768px;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  opacity: .4;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.close{
+  margin-left: 5%;
+}
+
+.close img{
+  padding: 10px 0 10px 0;
+}
+
+.profession{
+  width: 100vw;
+  height: 40px;
+  max-width: 768px;
+  -webkit-box-shadow: 0px 7px 8px 1px rgba(36, 0, 70, 0.58);
+  box-shadow: 0px 7px 8px 1px rgba(36, 0, 70, 0.58);
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+}
+
+.profession h1{
+  text-align: end;
+  width: 100%;
+  margin: 0 5%;
+  font-size: 20px;
+  font-weight: 200;
+  color: #3C096C;
+}
+
+.test{
+  width: 100vw;
+  height: 5000px;
 }
 
 /* Medium devices (tablets, 768px and up)*/

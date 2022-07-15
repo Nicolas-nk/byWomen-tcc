@@ -37,4 +37,8 @@ router.get('/planos', function(req, res){
     res.render('pages/planos/index')
 });
 
+router.get('/servicos', function(req, res){
+    res.render('pages/serviços/index')
+});
+
 module.exports = router;
