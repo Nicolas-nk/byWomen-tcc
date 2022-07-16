@@ -10,19 +10,41 @@
 </head>
 <body class="bg-pink">
     <%- include("./../../components/menu/index.ejs") %>
-    <main class="">
+    <section>
         <div class="profession-pic">
             <div class="box-transparent mask">
                 <div class="close"><img src="images/icons/close.svg" alt=""></div>
             </div>
         </div>
+    </section>
+    <main>
         <div class="profession">
             <h1>Montagem</h1>
         </div>
         <div class="btn">
-            <button class="btn-home">Solicitar serviço</button>
+            <button class="btn-servico">Solicitar serviço</button>
+        </div>
+        <hr>
+        <div class="text">
+            <h1>ESCOLHA SUA PROFISSIONAL<br>DESTAQUE</h1>
         </div>
         <div class="test"></div>
     </main>
+    <script>
+        const servico=document.getElementsByClassName("profession")[0];
+        const topoMain=servico.offsetTop;
+
+        window.onscroll=function(){
+            fixarNoTopo();
+        }
+
+        function fixarNoTopo(){
+            if(window.pageYOffset >= topoMain){
+                servico.classList.add("fixed");
+            }else{
+                servico.classList.remove("fixed");
+            }
+        }
+    </script>
 </body>
 </html>
