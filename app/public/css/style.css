@@ -240,12 +240,15 @@ input.search::placeholder {
   background: #fff;
   margin-top: 68px;
   width: 90%;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 h1{
   text-align: center;
   color: #240046;
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .item{
@@ -261,6 +264,10 @@ h1{
 .categories{
   width: 90%;
   background-color: #fff;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 30px;
 }
 
 .icons-top{
@@ -352,7 +359,7 @@ p{
 
 #bg-purple {
   width: 100vw;
-  height: 105vh;
+  height: 100vh;
   background: rgb(199, 125, 255);
   background: -moz-linear-gradient(
       81deg,
@@ -394,18 +401,29 @@ p{
 
 fieldset{
   margin-top: 30px;
-  height: 365px;
   background: rgba(255, 255, 255, 0.32);
   border: 0;
   border-radius: 30px;
 }
 
+.box-form fieldset{
+  max-width: 325px;
+}
+
 .form{
   margin-top: 0;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 fieldset form{
-  margin: 15px;
+  margin: 15px 15px 30px 15px;
+  max-width: 300px;
+}
+
+fieldset form hr{
+  width: auto;
 }
 
 fieldset form .title h1{
@@ -557,7 +575,7 @@ h2{
 .favorite{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .box-jobs{
@@ -568,7 +586,7 @@ h2{
   margin-top: 30px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .wallpaper{
@@ -738,7 +756,8 @@ h2{
   justify-content: space-between;
   align-items: center;
   text-decoration: none;
-  cursor: pointer
+  cursor: pointer;
+  max-width: 768px;
 }
 
 /*Configurações*/
@@ -997,6 +1016,62 @@ h1.container{
   color: white;
   transition: all 0.2s ease;
   cursor: pointer;
+}
+
+/*perfil colaboradora*/
+
+.your-profile{
+  color: #fff;
+  font-size: 22px;
+  font-weight: 300;
+}
+
+/*recuperar senha*/
+
+.number-tel input{
+  width: 98%;
+  height: 35px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 30px;
+  background: none;
+  margin-top: 20px;
+}
+
+.or{
+  font-size: 22px;
+  color: #fff;
+  margin-top: 20px;
+  font-weight: 400;
+}
+
+/*cadastre-se*/
+
+.name-cad input{
+  width: 98%;
+  height: 35px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 30px;
+  background: none;
+  margin-top: 20px; 
+}
+
+.log-into{
+  margin-top: 10px;
+  text-align: center;
+  color: white;
+  font-size: 14px;
+}
+
+.log-into a{
+  text-decoration: underline;
+  color: white;
+}
+
+.screen-login{
+  position: relative;
+  top: 5%;
 }
 
 /* Medium devices (tablets, 768px and up)*/

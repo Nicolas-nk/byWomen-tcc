@@ -17,16 +17,16 @@ router.get('/esqueci-senha', function(req, res) {
     res.render('pages/esqueciSenha/index')
 });
 
-router.get('/recuperar-senha', function(req, res) {
-    res.render('pages/esqueciSenha/index')
-});
-
 router.get('/menu', function(req, res) {
-    res.render('components/menuHamburger/index')
+    res.render('pages/menuHamburger-logoff/index')
 });
 
 router.get('/perfil', function(req, res){
     res.render('pages/perfilCliente/index')
+});
+
+router.get('/perfil-colaboradora', function(req, res){
+    res.render('pages/perfilColaboradora/index')
 });
 
 router.get('/configuracao', function(req, res){
@@ -39,6 +39,26 @@ router.get('/planos', function(req, res){
 
 router.get('/servicos', function(req, res){
     res.render('pages/serviços/index')
+});
+
+router.get('/menu-logon', function(req, res){
+    res.render('pages/menuHamburger-logado/index')
+});
+
+router.get('/recuperar-senha', function(req, res){
+    res.render('pages/recuperar/index')
+});
+
+router.get('/recuperar-senha-passo2', function(req, res){
+    res.render('pages/recuperar-passo2/index')
+});
+
+router.get('/cadastro', function(req, res){
+    res.render('pages/cadastre-se/index')
+});
+
+router.get('/cadastro-passo2', function(req, res){
+    res.render('pages/cadastre-se2/index')
 });
 
 module.exports = router;
