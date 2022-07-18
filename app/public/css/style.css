@@ -1,10 +1,75 @@
 * {
   box-sizing: border-box;
 }
+/*Global style*/
+.bg-pink{
+  background-color: #F5E8FF;
+}
 
-hr{
-  width: 90vw;
-  max-width: 768px;
+#bg-purple {
+  width: 100vw;
+  height: 105vh;
+  background: rgb(199, 125, 255);
+  background: -moz-linear-gradient(
+      81deg,
+      rgba(199, 125, 255, 1) -4%,
+      rgba(157, 78, 221, 1) 11%,
+      rgba(123, 44, 191, 1) 26%,
+      rgba(90, 24, 154, 1) 55%,
+      rgba(60, 9, 108, 1) 75%,
+      rgba(36, 0, 70, 1) 105%
+  );
+  background: -webkit-linear-gradient(
+      81deg,
+      rgba(199, 125, 255, 1) -4%,
+      rgba(157, 78, 221, 1) 11%,
+      rgba(123, 44, 191, 1) 26%,
+      rgba(90, 24, 154, 1) 55%,
+      rgba(60, 9, 108, 1) 75%,
+      rgba(36, 0, 70, 1) 105%
+  );
+  background: linear-gradient(
+      to top,
+      rgba(199, 125, 255, 1) -4%,
+      rgba(157, 78, 221, 1) 11%,
+      rgba(123, 44, 191, 1) 26%,
+      rgba(90, 24, 154, 1) 55%,
+      rgba(60, 9, 108, 1) 75%,
+      rgba(36, 0, 70, 1) 105%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c77dff",endColorstr="#240046",GradientType=1);
+}
+
+.bg-purplegradient {
+  background: rgb(199, 125, 255);
+  background: -moz-linear-gradient(
+    81deg,
+    rgba(199, 125, 255, 1) -4%,
+    rgba(157, 78, 221, 1) 11%,
+    rgba(123, 44, 191, 1) 26%,
+    rgba(90, 24, 154, 1) 55%,
+    rgba(60, 9, 108, 1) 75%,
+    rgba(36, 0, 70, 1) 105%
+  );
+  background: -webkit-linear-gradient(
+    81deg,
+    rgba(199, 125, 255, 1) -4%,
+    rgba(157, 78, 221, 1) 11%,
+    rgba(123, 44, 191, 1) 26%,
+    rgba(90, 24, 154, 1) 55%,
+    rgba(60, 9, 108, 1) 75%,
+    rgba(36, 0, 70, 1) 105%
+  );
+  background: linear-gradient(
+    81deg,
+    rgba(199, 125, 255, 1) -4%,
+    rgba(157, 78, 221, 1) 11%,
+    rgba(123, 44, 191, 1) 26%,
+    rgba(90, 24, 154, 1) 55%,
+    rgba(60, 9, 108, 1) 75%,
+    rgba(36, 0, 70, 1) 105%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c77dff",endColorstr="#240046",GradientType=1);
 }
 
 .bg-purple{
@@ -38,6 +103,7 @@ hr{
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c77dff",endColorstr="#240046",GradientType=1);
 }
+
 .mask{
   background: rgb(199, 125, 255);
   background: -moz-linear-gradient(
@@ -79,6 +145,11 @@ a{
   text-decoration: none;
 }
 
+hr{
+  width: 90vw;
+  max-width: 768px;
+}
+
 .menu{
   z-index: 100;
   position: fixed;
@@ -117,53 +188,54 @@ a{
   margin-right: 10px;
 }
 
+.header-components img{
+  padding: 8px 0 8px 0;
+}
+
 .container{
   margin-left: 5%;
   margin-right: 5%;
   margin-top: 55px;
 }
 
-.bg-purplegradient {
-  background: rgb(199, 125, 255);
-  background: -moz-linear-gradient(
-    81deg,
-    rgba(199, 125, 255, 1) -4%,
-    rgba(157, 78, 221, 1) 11%,
-    rgba(123, 44, 191, 1) 26%,
-    rgba(90, 24, 154, 1) 55%,
-    rgba(60, 9, 108, 1) 75%,
-    rgba(36, 0, 70, 1) 105%
-  );
-  background: -webkit-linear-gradient(
-    81deg,
-    rgba(199, 125, 255, 1) -4%,
-    rgba(157, 78, 221, 1) 11%,
-    rgba(123, 44, 191, 1) 26%,
-    rgba(90, 24, 154, 1) 55%,
-    rgba(60, 9, 108, 1) 75%,
-    rgba(36, 0, 70, 1) 105%
-  );
-  background: linear-gradient(
-    81deg,
-    rgba(199, 125, 255, 1) -4%,
-    rgba(157, 78, 221, 1) 11%,
-    rgba(123, 44, 191, 1) 26%,
-    rgba(90, 24, 154, 1) 55%,
-    rgba(60, 9, 108, 1) 75%,
-    rgba(36, 0, 70, 1) 105%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c77dff",endColorstr="#240046",GradientType=1);
+.categories{
+  width: 90%;
+  max-width: 768px;
+  background-color: #fff;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 30px;
 }
 
-.bg-pink{
-  background-color: #F5E8FF;
+.icons-top{
+  margin-top: 34px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.icons-bottom{
+  margin-top: 17px;
+  display: flex;
+  justify-content: space-around;  
+}
+
+.icon{
+  flex: 1;
+  max-width: 160px;
+  min-width: 85px;
+  text-align: center;
+  margin: 2px;
+}
+
+.btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 768px;
 }
 
 /*Home*/
-
-.header-components img{
-  padding: 8px 0 8px 0;
-}
 
 .carousel-inner{
   position: relative;
@@ -172,6 +244,10 @@ a{
 .carousel-itens{
   display: block;
   width: 100vw;
+  max-width: 768px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .carousel-indicators{
@@ -196,7 +272,11 @@ a{
   height: 100px;
   background-color: #f9f2ff;
   align-items: center;
-  width: 100vw;  
+  width: 100vw;
+  max-width: 768px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);  
 }
 
 .search-form{
@@ -240,6 +320,7 @@ input.search::placeholder {
   background: #fff;
   margin-top: 68px;
   width: 90%;
+  max-width: 768px;
   position: relative;
   left: 50%;
   transform: translate(-50%);
@@ -259,42 +340,6 @@ h1{
   max-width: 90%;
   left: 50%;
   transform: translate(-50%); 
-}
-
-.categories{
-  width: 90%;
-  background-color: #fff;
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
-  margin-top: 30px;
-}
-
-.icons-top{
-  margin-top: 34px;
-  display: flex;
-  justify-content: space-around;
-}
-
-.icons-bottom{
-  margin-top: 17px;
-  display: flex;
-  justify-content: space-around;  
-}
-
-.icon{
-  flex: 1;
-  max-width: 160px;
-  min-width: 85px;
-  text-align: center;
-  margin: 2px;
-}
-
-.btn{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 768px;
 }
 
 .btn-home {
@@ -327,6 +372,10 @@ p{
   flex-direction: column;
   align-items: center;
   width: 100%;
+  max-width: 768px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .bw span{
@@ -350,6 +399,13 @@ p{
   align-items: center;
 }
 
+.como-funciona p{
+  max-width: 768px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
 .bw-icons img{
   width: 106px;
   height: 106px;
@@ -357,41 +413,7 @@ p{
 
 /*Tela de Login*/
 
-#bg-purple {
-  width: 100vw;
-  height: 100vh;
-  background: rgb(199, 125, 255);
-  background: -moz-linear-gradient(
-      81deg,
-      rgba(199, 125, 255, 1) -4%,
-      rgba(157, 78, 221, 1) 11%,
-      rgba(123, 44, 191, 1) 26%,
-      rgba(90, 24, 154, 1) 55%,
-      rgba(60, 9, 108, 1) 75%,
-      rgba(36, 0, 70, 1) 105%
-  );
-  background: -webkit-linear-gradient(
-      81deg,
-      rgba(199, 125, 255, 1) -4%,
-      rgba(157, 78, 221, 1) 11%,
-      rgba(123, 44, 191, 1) 26%,
-      rgba(90, 24, 154, 1) 55%,
-      rgba(60, 9, 108, 1) 75%,
-      rgba(36, 0, 70, 1) 105%
-  );
-  background: linear-gradient(
-      to top,
-      rgba(199, 125, 255, 1) -4%,
-      rgba(157, 78, 221, 1) 11%,
-      rgba(123, 44, 191, 1) 26%,
-      rgba(90, 24, 154, 1) 55%,
-      rgba(60, 9, 108, 1) 75%,
-      rgba(36, 0, 70, 1) 105%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c77dff",endColorstr="#240046",GradientType=1);
-}
-
-.logo-extenso{
+.logo-extensive{
   margin-top: 0;
   margin-bottom: 20px;
   display: flex;
@@ -551,6 +573,8 @@ h2{
 
 .box{
   margin-top: 50px;
+  padding: 0 5%;
+  max-width: 600px;
 }
 
 .requests{
@@ -757,7 +781,10 @@ h2{
   align-items: center;
   text-decoration: none;
   cursor: pointer;
-  max-width: 768px;
+}
+
+.line hr{
+  max-width: 90vw;
 }
 
 /*Configurações*/
@@ -923,7 +950,7 @@ h1.container{
 /*Tela de Serviços*/
 
 .profession-pic{
-  background-image: url('/images/Montagem.jpg');
+  background-image: url('/images/montagem.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
@@ -1074,6 +1101,176 @@ h1.container{
   top: 5%;
 }
 
+/*Categorias*/
+
+.works{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-left: 5%;
+}
+
+.title-works{
+  display: flex;
+  margin-left: 5%;
+  width: 100%;
+  max-width: 768px;
+}
+
+.title-works h1{
+  font-size: 22px;
+  color: #3C096C;
+  text-align: start;
+  width: 100%;
+}
+
+.work-pic{
+  height: 256px;
+  width: 90%;
+  max-width: 400px;
+  margin-top: 50px;
+  border-radius: 20px 20px 0 0;
+}
+
+.tag-work{
+  position: relative;
+  top: 226px;
+  height: 53px;
+  width: 100%;
+  border-radius: 0 0 20px 20px;
+  background-color: #F5E8FF;
+  display: flex;
+  align-items: center;
+}
+
+.tag-work span{
+  width: 100%;
+  text-align: end;
+  margin-right: 10px;
+  color: #3C096C;
+  font-size: 20px;
+}
+
+.obra{
+  background-image: url('/images/obra.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.encanamento{
+  background-image: url('/images/encanamento.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.marmoria{
+  background-image: url('/images/marmoria.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.vidracaria{
+  background-image: url('/images/vidracaria.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.arquitetura{
+  background-image: url('/images/arquitetura.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.eletricista{
+  background-image: url('/images/eletricista.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.mudanca{
+  background-image: url('/images/mudanca.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.manutencao-pcs{
+  background-image: url('/images/manutencao-pcs.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.sonorizacao{
+  background-image: url('/images/sonorizacao.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.antenista{
+  background-image: url('/images/antenista.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.pintura-parede{
+  background-image: url('/images/pintura-parede.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.montagem{
+  background-image: url('/images/montagem.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.toldo{
+  background-image: url('/images/toldo.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.rede-protecao{
+  background-image: url('/images/rede-seguranca.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.seguranca-perimetral{
+  background-image: url('/images/seguranca-perimetral.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.manutencao-piscina{
+  background-image: url('/images/manutencao-piscina.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.limpeza-pos-obra{
+  background-image: url('/images/limpeza-pos-obra.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.solda{
+  background-image: url('/images/solda.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.chaveiro{
+  background-image: url('/images/chaveiro.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.azulejo{
+  background-image: url('/images/manutencao-azulejo.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 /* Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
   .contents{
@@ -1083,7 +1280,7 @@ h1.container{
     position: relative;
     left: 50%;
     transform: translate(-50%);
-    margin: 0 0 0 0;
+    margin: 0 5%;
   }
   .carousel-itens {
     max-width: 768px;
@@ -1201,8 +1398,6 @@ h1.container{
       left: 50%;
       transform: translate(-50%);
     }
-
-    /*serviços*/
 }
 
 /* Large devices (desktops, 992px and up)*/

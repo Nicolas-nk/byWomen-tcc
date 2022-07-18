@@ -61,4 +61,24 @@ router.get('/cadastro-passo2', function(req, res){
     res.render('pages/cadastre-se2/index')
 });
 
+router.get('/construcao', function(req, res){
+    res.render('pages/construção/index')
+});
+
+router.get('/reparo', function(req, res){
+    res.render('pages/reparos/index')
+});
+
+router.get('/projetos', function(req, res){
+    res.render('pages/projetos/index')
+});
+
+router.get('/montagem', function(req, res){
+    res.render('pages/montagem/index')
+});
+
+router.get('/manutencao', function(req, res){
+    res.render('pages/manutencao-eletrica/index')
+});
+
 module.exports = router;
