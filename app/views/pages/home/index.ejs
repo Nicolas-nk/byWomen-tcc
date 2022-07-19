@@ -38,7 +38,7 @@
     </div>
   </header>
   <%- include("./../../components/menu/index.ejs") %>
-    <main class="">
+    <main class="Home-content">
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img src="/images/banners/torne-seColaboradora.png" class="carousel-itens" alt="..." usemap="#image-map" />
@@ -64,8 +64,8 @@
           <button type="submit" id="lupa" onclick="alert('Está funcionando');"><img src="/images/icons/lupa-pesquisar.svg"></button>
         </form>
       </div>
-      <div class="colaboradoras">
-        <h1 class="colaboradora-text">COLABORADORAS DESTAQUE</h1>
+      <div class="contributor">
+        <h1 class="contributor-text">COLABORADORAS DESTAQUE</h1>
         <hr />
         <div class="owl-carousel owl-theme">
           <div class="item">
@@ -95,7 +95,7 @@
         </div>
       </div>
       <%- include('./../../components/categories/index.ejs') %>
-      <div class="como-funciona container">
+      <div class="who-we-are">
         <h1>O que é a ByWomen?</h1>
         <hr>
         <div>
@@ -153,9 +153,6 @@
           },
           600: {
             items: 6,
-          },
-          1000: {
-            items: 8,
           },
         },
       });
