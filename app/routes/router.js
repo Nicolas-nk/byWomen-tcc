@@ -81,4 +81,8 @@ router.get('/manutencao', function(req, res){
     res.render('pages/manutencao-eletrica/index')
 });
 
+router.get('/certificacao', function(req, res){
+    res.render('pages/certificacao/index')
+});
+
 module.exports = router;
