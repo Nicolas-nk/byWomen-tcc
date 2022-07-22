@@ -147,7 +147,7 @@ h1 {
 }
 
 p {
-  font-size: 18px;
+  font-size: 16px;
   color: #240046;
 }
 
@@ -189,7 +189,6 @@ a {
 
 .navbar,
 .wallpaper {
-  max-width: 540px;
   position: relative;
   left: 50%;
   transform: translate(-50%);
@@ -200,7 +199,6 @@ a {
   justify-content: space-between;
   align-items: center;
   width: 90vw;
-  max-width: 513px;
   position: relative;
   left: 50%;
   transform: translate(-50%);
@@ -457,6 +455,7 @@ fieldset {
 }
 
 .box-form fieldset {
+  width: 90vw;
   max-width: 325px;
 }
 
@@ -624,7 +623,6 @@ fieldset form .password a {
 
 .screen-login {
   position: relative;
-  top: 5%;
 }
 
 /*Pedidos de serviços*/
@@ -1430,6 +1428,7 @@ h1.container {
   }
   .screen-login {
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
     position: relative;
     top: 5%;
