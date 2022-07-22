@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastre-se</title>
     <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/style.css" />  
+    <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body id="bg-purple">
     <header class="header-navbar">
         <a href="javascript:void(0)" onClick="history.go(-1); return false;" class="header-components">
@@ -21,7 +23,7 @@
         </div>
         <div class="box-form">
             <fieldset class="form">
-                <form action="">
+                <form action="/auth/register" method="POST">
                     <div class="title">
                         <h1>Cadastre-se</h1>
                     </div>
@@ -32,15 +34,22 @@
                     <div class="number-tel">
                         <input type="tel" placeholder="Número de telefone">
                     </div>
+                    <div class="email">
+                        <input type="email" placeholder="E-mail">
+                    </div>
+                    <div class="password">
+                        <input type="password" placeholder="Senha">
+                    </div>
                     <div class="button">
-                        <button>Próximo</button>
+                        <button type="submit">Finalizar</button>
                     </div>
                 </form>
             </fieldset>
             <div class="log-into">
-                <span>Já tem uma conta? <a href="">Entrar</a></span>
+                <span>Já tem uma conta? <a href="/login">Entrar</a></span>
             </div>
         </div>
     </main>
 </body>
+
 </html>

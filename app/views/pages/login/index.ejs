@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="css/style.css" />
 </head>
 
-<body>
-    <div id="bg-purple" class="container-contends">
+<body id="bg-purple">
+    <div class="container-contends">
         <header class="header-navbar">
             <a href="javascript:void(0)" onClick="history.go(-1); return false;" class="header-components">
                 <img src="images/icons/return.svg" alt="">
@@ -24,7 +24,7 @@
             </div>
             <div class="box-form">
                 <fieldset class="form">
-                    <form action="">
+                    <form action="/auth/login" method="GET">
                         <div class="title">
                             <h1>Login</h1>
                         </div>
@@ -48,7 +48,7 @@
                     </form>
                 </fieldset>
                 <div class="register">
-                    <span>Ainda não tem uma conta? <a href="">Cadastre-se</a></span>
+                    <span>Ainda não tem uma conta? <a href="/cadastre-se">Cadastre-se</a></span>
                 </div>
             </div>
         </main>
