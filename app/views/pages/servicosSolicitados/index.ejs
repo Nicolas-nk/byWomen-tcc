@@ -6,36 +6,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serviços solicitados</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
 </head>
 <body>
     <%- include("./../../components/header/index.ejs") %>
         <%- include("./../../components/menu/index.ejs") %>
             <section class="container contents">
                 <div class="title">
-                    <h1 class="name"><!-- Nome cliente --></h1>
+                    <h1 class="name">Olá,<!-- Nome cliente --></h1>
                 </div>
-                <div class="box">
-                    <div class="services-request">
-                        <h1>Nome cliente</h1>               
-                        <h2>Contato (Telefone ou Email)</h2>                  
-                        <input placeholder="Mensagem" type="text"></input>                  
-                        <input placeholder="Prazo" type="date"></input>
-                        <input placeholder="Soliticado em dd/mm/aaaa" type="date"></input>
-                    </div>
-                    <button>Aceitar</button>
-                    <button>Recusar</button>
-            </section>
-            <section class="container contents">
-                <div class="box">
+                <div class="box-solicitados">
                     <div class="services-request">
                         <h1>Nome cliente</h1>
                         <h2>Contato (Telefone ou Email)</h2>
-                        <input placeholder="Mensagem" type="text"></input>
-                        <input placeholder="Prazo" type="date"></input>
-                        <input placeholder="Soliticado em dd/mm/aaaa" type="date"></input>
+                        <!--Mensagem cliente-->
+                        <p>Mensagem</p>
+                        <!--Prazo da necessidade-->
+                        <p>Prazo</p>
+                        <!--Data da solicitação-->
+                        <p>Solicitado em dd/mm/aaaa</p>
                     </div>
-                    <button class="" >Aceitar</button>
-                    <button class="">Recusar</button>
+                    <div class="btn-requests">
+                        <button class="btn-services-requests-purple">Aceitar</button>
+                        <button class="btn-services-requests">Recusar</button>
+                    </div>
+            </section>
+            <section class="container contents">
+                <div class="box-solicitados">
+                    <div class="services-request">
+                        <h1>Nome cliente</h1>
+                        <h2>Contato (Telefone ou Email)</h2>
+                        <!--Mensagem cliente-->
+                        <p>Mensagem</p>
+                        <!--Prazo da necessidade-->
+                        <p>Prazo</p>
+                        <!--Data da solicitação-->
+                        <p>Solicitado em dd/mm/aaaa</p>
+                    </div>
+                    <div class="btn-requests">
+                        <button class="btn-services-requests-purple">Aceitar</button>
+                        <button class="btn-services-requests">Recusar</button>
+                    </div>
          </section>
 </body>
 

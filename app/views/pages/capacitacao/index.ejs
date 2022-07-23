@@ -6,38 +6,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>documento de capacitação</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
 </head>
 
 <body class="bg-pink">
-    <div>
         <div class="header-navbar">
             <a href="javascript:void(0)" onClick="history.go(-1); return false;" class="header-components">
                 <img src="images/icons/returnpurple.svg" alt="voltar">
             </a>
+        </div>
+    <div class="container">
+        <div class="add">
             <div class="text-form">
                 <h1>Adicione um documento de capacitação</h1>
             </div>
-           <img src="images/icons/capacitacao.jpg" alt="">
+            <img class="add-pic" src="images/capacitacao.svg" alt="">
             <form action="">
                 <div class="input-margin">
-                <label>Data de Emissão do Certificado</label>
-            <div class="data">
-                <input type="date">
-            </div>
+                    <div class="input-cad">
+                        <input type="text" placeholder="Atividade realizada">
+                    </div>
+                </div>
+                <div class="input-margin">
+                    <div class="input-cad">
+                        <input type="date" placeholder="Data de Emissão do Certificado">
+                    </div>
+                </div>
+                <div class="input-margin">
+                    <div class="input-cad">
+                        <input type="text" placeholder="Orgão emissor">
+                    </div>
+                </div>
+                <div class="inf-cad">
+                    <div class="anexar-img">
+                        <span>Anexar imagem</span>
+                    </div>
+                    <p>Adicione uma imagem do seu certificado</p>
+                </div>
+                <button class="btn-cad bg-purplegradient">Cadastrar</button>
+            </form>
         </div>
-        <div class="input-margin">
-            <label>Código de validação do Certificado</label>
-            <div class="código">
-                <input type="text">
-            </div>
-        </div>
-        <div class="input-margin">
-            <label>Sua especialização</label>
-            <div class="especializacao">
-                <input type="text">
-            </div>
-        </div>
-            <button>Cadastrar</button>
-         </form>
+     </div>
 
 </html>
