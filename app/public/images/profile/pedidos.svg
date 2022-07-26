@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="49.048" height="51.783" viewBox="0 0 49.048 51.783">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Retângulo_214" data-name="Retângulo 214" width="49.048" height="51.783" transform="translate(-3 -2.356)" fill="none" stroke="#3c096c" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Grupo_343" data-name="Grupo 343" transform="translate(-6.942 -9.755)">
+    <g id="Grupo_342" data-name="Grupo 342" transform="translate(9.942 12.111)" clip-path="url(#clip-path)">
+      <path id="Caminho_246" data-name="Caminho 246" d="M16.046,12.469a7.211,7.211,0,0,1-7.124,7.294A7.21,7.21,0,0,1,1.8,12.469,7.21,7.21,0,0,1,8.922,5.175,7.211,7.211,0,0,1,16.046,12.469Z" transform="translate(2.138 5.903)" fill="none" stroke="#3c096c" stroke-miterlimit="10" stroke-width="1"/>
+      <path id="Caminho_248" data-name="Caminho 248" d="M27.612,10.025l-.046-.011a1.419,1.419,0,0,0-1.726,1.027l-1.726,6.8-8.933,3.577a6.483,6.483,0,0,0-2.726-.614H7.03A6.529,6.529,0,0,0,.5,27.33V41.663H18.986V27.33a6.483,6.483,0,0,0-.087-.859l6.6-4.685a1.6,1.6,0,0,0,1.1-1.126l2.2-8.651A1.632,1.632,0,0,0,27.612,10.025Z" transform="translate(1.387 6.306)" fill="none" stroke="#3c096c" stroke-miterlimit="10" stroke-width="1"/>
+      <path id="Caminho_250" data-name="Caminho 250" d="M17.123,12.552l.2-5.766" transform="translate(11.901 4.292)" fill="none" stroke="#3c096c" stroke-miterlimit="10" stroke-width="1"/>
+      <rect id="Retângulo_211" data-name="Retângulo 211" width="26.201" height="12.092" transform="translate(16.059 -1.014)" fill="none" stroke="#3c096c" stroke-miterlimit="10" stroke-width="1"/>
+      <path id="Caminho_251" data-name="Caminho 251" d="M18.772,7.8,17.1,7.677l-.6-6.216h2.75Z" transform="translate(11.284 -0.958)" fill="#fff" stroke="#3c096c" stroke-width="0.5"/>
+      <g id="Retângulo_215" data-name="Retângulo 215" transform="translate(28.182 7.542)" fill="#fff" stroke="#3c096c" stroke-width="0.5">
+        <rect width="2.018" height="2.018" stroke="none"/>
+        <rect x="0.25" y="0.25" width="1.518" height="1.518" fill="none"/>
+      </g>
+    </g>
+  </g>
+</svg>

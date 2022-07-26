@@ -159,7 +159,6 @@ a {
   position: relative;
   left: 50%;
   transform: translate(-50%);
-  margin-top: 50px;
   width: 90vw;
   max-width: 540px;
 }
@@ -192,16 +191,18 @@ a {
   position: relative;
   left: 50%;
   transform: translate(-50%);
+  max-width: 540px;
 }
 
 .header-navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90vw;
+  width: 90%;
   position: relative;
   left: 50%;
   transform: translate(-50%);
+  max-width: 540px;
 }
 
 .header-components {
@@ -336,6 +337,7 @@ input.search::placeholder {
   margin: 8px;
   padding: 0;
   transition: all 0.1s ease-in;
+  background-color: transparent;
 }
 
 .contributor {
@@ -595,6 +597,7 @@ fieldset form .password a {
   color: #fff;
   margin-top: 20px;
   font-weight: 400;
+  text-align: center;
 }
 
 /*Cadastre-se*/
@@ -654,9 +657,9 @@ h2 {
 }
 
 .box {
-  margin-top: 50px;
   padding: 0px 5%;
   max-width: 400px;
+  margin: 50px 5%;
 }
 
 .requests {
@@ -934,6 +937,7 @@ h2 {
   border-radius: 25px;
   font-size: 18px;
   max-width: 400px;
+  margin-top: 50px;
 }
 
 /*Planos*/
@@ -948,10 +952,14 @@ h1.container {
   font-size: 24px;
 }
 
+.service-plans::-webkit-scrollbar{
+  display: none;
+}
+
 .box-plans {
   display: flex;
   max-width: 835px;
-  width: 210%;
+  width: 300%;
   height: 100%;
   transition: 0.6s;
   margin-top: 30px;
@@ -959,7 +967,6 @@ h1.container {
 }
 
 .service-plans {
-  margin-left: 3%;
   overflow: auto;
 }
 
@@ -1053,13 +1060,28 @@ h1.container {
 
 .services hr {
   max-width: 540px;
+}
+.service-details input{
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid #000;
+  color: #000;
+  background: none;
+  margin-top: 30px;
   position: relative;
   left: 50%;
   transform: translate(-50%);
+  width: 100%;
+  max-width: 540px;
+}
+
+.service-details input::placeholder{
+  color: #000;
 }
 
 .profession-pic {
-  background-image: url("/images/montagem.jpg");
+  background-image: url("/images/trabalhos/montagem.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
@@ -1087,7 +1109,7 @@ h1.container {
 }
 
 .close img {
-  padding: 10px 0 10px 0;
+  padding: 10px 0 0 0;
 }
 
 .profession {
@@ -1158,10 +1180,177 @@ h1.container {
 
 /*Perfil Colaboradora*/
 
+.badges{
+  width: 90vw;
+  max-width: 540px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 90px;
+}
+
+.badge{
+  background: #9d4edd;
+  color: #3c096c;
+  padding: 5px;
+  border-radius: 5px;
+  min-width: 90px;
+  height: 26px;
+  text-align: center;
+}
+
+.announce-work{
+  display: flex;
+  width: 100vw;
+  max-width: 540px;
+  background-color: #F5E8FF;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.announce-work span{
+  color: #240046;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.request-service{
+  display: flex;
+  width: 100vw;
+  max-width: 540px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: #fff;
+  margin-top: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.request-service span{
+  color: #240046;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.description{
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 90vw;
+  max-width: 540px;
+  margin-top: 20px;
+}
+
+.description p{
+  font-weight: 200;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.description span{
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.redes-profile{
+  margin-top: 5px;
+}
+
+.redes-profile img{
+  max-width: 30px;
+}
+
+.box-text{
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  width: 90vw;
+  max-width: 450px;
+}
+
+.text-work{
+  font-weight: 300;
+  font-size: 24px;
+  color: #000;
+  text-align: start;
+  margin: 5%;
+}
+
+.your-work{
+  background-image: url("/images/trabalho.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 90%;
+  max-width: 450px;
+  height: 500px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.info-work{
+  position: relative;
+  top: 92%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.info-work span{
+  color: #fff;
+}
+
+.info-work img{
+  margin: 5px;
+}
+
 .your-profile {
   color: #fff;
   font-size: 22px;
   font-weight: 300;
+}
+.your-licenses::-webkit-scrollbar{
+  display: none;
+}
+
+
+.your-licenses{
+  width: 90%;
+  max-width: 450px;
+  height: 180px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  margin-top: 30px;
+}
+
+.box-licenses{
+  display: flex;
+  width: 500px;
+  height: 100%;
+  transition: 0.6s;
+  margin-top: 30px;
+  touch-action: manipulation;
+  justify-content: space-around;
+}
+
+.license{
+  height: 150px;
+  width: 150px;
+  background-color: #3c096c;
+  border-radius: 15px;
 }
 
 .text-edit{
@@ -1241,32 +1430,69 @@ h1.container {
 /*Categorias*/
 
 .works {
+  flex-wrap: wrap;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  gap: 10px;
+  max-width: 540px;
+}
+
+.categories-slide{
+  width: 100vw;
+  max-width: 540px;
+  overflow-x: scroll;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.categories-slide::-webkit-scrollbar{
+    display: none;
+}
+
+.slide-works{
+  width: 321%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #5A189A;
+  touch-action: manipulation;
+}
+
+.slide-tag span{
+  width: 150px;
+  display: flex;
+  justify-content: center;  
+}
+
+.slide-tag-work{
+  width: 160px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  background-color: #7b2cbf;
+}
+
+.slide-tag:hover{
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
+  align-items: center;
+  cursor: pointer;
 }
 
-.title-works {
-  display: flex;
-  margin-left: 5%;
-  width: 100%;
-  max-width: 768px;
-}
-
-.title-works h1 {
-  font-size: 22px;
-  color: #3c096c;
-  text-align: start;
-  width: 100%;
+.slide-tag span{
+  color: #fff;
 }
 
 .work-pic {
   height: 256px;
-  width: 90%;
+  width: 100%;
   max-width: 400px;
   margin-top: 50px;
-  border-radius: 20px 20px 0 0;
+  border-radius: 20px;
   align-items: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1292,84 +1518,90 @@ h1.container {
   font-size: 20px;
 }
 
+.construcao, .montagem, .manutencao, .reparos, .projetos{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .obra {
-  background-image: url("/images/obra.jpg");
+  background-image: url("/images/trabalhos/obra.jpg");
 }
 
 .encanamento {
-  background-image: url("/images/encanamento.jpg");
+  background-image: url("/images/trabalhos/encanamento.jpg");
 }
 
 .marmoria {
-  background-image: url("/images/marmoria.jpg");
+  background-image: url("/images/trabalhos/marmoria.jpg");
 }
 
 .vidracaria {
-  background-image: url("/images/vidracaria.jpg");
+  background-image: url("/images/trabalhos/vidracaria.jpg");
 }
 
 .arquitetura {
-  background-image: url("/images/arquitetura.jpg");
+  background-image: url("/images/trabalhos/arquitetura.jpg");
 }
 
 .eletricista {
-  background-image: url("/images/eletricista.jpg");
+  background-image: url("/images/trabalhos/eletricista.jpg");
 }
 
 .mudanca {
-  background-image: url("/images/mudanca.jpg");
+  background-image: url("/images/trabalhos/mudanca.jpg");
 }
 
 .manutencao-pcs {
-  background-image: url("/images/manutencao-pcs.jpg");
+  background-image: url("/images/trabalhos/manutencao-pcs.jpg");
 }
 
 .sonorizacao {
-  background-image: url("/images/sonorizacao.jpg");
+  background-image: url("/images/trabalhos/sonorizacao.jpg");
 }
 
 .antenista {
-  background-image: url("/images/antenista.jpg");
+  background-image: url("/images/trabalhos/antenista.jpg");
 }
 
 .pintura-parede {
-  background-image: url("/images/pintura-parede.jpg");
+  background-image: url("/images/trabalhos/pintura-parede.jpg");
 }
 
-.montagem {
-  background-image: url("/images/montagem.jpg");
+.montagem-work {
+  background-image: url("/images/trabalhos/montagem.jpg");
 }
 
 .toldo {
-  background-image: url("/images/toldo.jpg");
+  background-image: url("/images/trabalhos/toldo.jpg");
 }
 
 .rede-protecao {
-  background-image: url("/images/rede-seguranca.jpg");
+  background-image: url("/images/trabalhos/rede-seguranca.jpg");
 }
 
 .seguranca-perimetral {
-  background-image: url("/images/seguranca-perimetral.jpg");
+  background-image: url("/images/trabalhos/seguranca-perimetral.jpg");
 }
 
 .manutencao-piscina {
-  background-image: url("/images/manutencao-piscina.jpg");
+  background-image: url("/images/trabalhos/manutencao-piscina.jpg");
 }
 
 .limpeza-pos-obra {
-  background-image: url("/images/limpeza-pos-obra.jpg");
+  background-image: url("/images/trabalhos/limpeza-pos-obra.jpg");
 }
 
 .solda {
-  background-image: url("/images/solda.jpg");
+  background-image: url("/images/trabalhos/solda.jpg");
 }
 
 .chaveiro {
-  background-image: url("/images/chaveiro.jpg");
+  background-image: url("/images/trabalhos/chaveiro.jpg");
 }
 
 .azulejo {
-  background-image: url("/images/manutencao-azulejo.jpg");
+  background-image: url("/images/trabalhos/manutencao-azulejo.jpg");
 }
 
 /*Cadastro Colaboradora*/
@@ -1418,6 +1650,7 @@ h1.container {
 
 .anexar-img{
   width: 90vw;
+  max-width: 400px;
   height: 40px;
   display: flex;
   position: relative;
@@ -1441,6 +1674,7 @@ h1.container {
   color: #fff;
   text-align: center;
   width: 90vw;
+  max-width: 400px;
   height: 40px;
 }
 
@@ -1495,8 +1729,8 @@ h1.container {
 /*Serviços solicitados*/
 
 .box-solicitados{
-  margin-top: 50px;
   padding: 5%;
+  margin: 50px 5%;
   max-width: 400px;
   box-shadow: 0px 5px 15px -3px rgba(0,0,0,0.3);
   border: none;
@@ -1634,14 +1868,6 @@ h1.container {
     transform: translate(-50%);
   }
  /*  __________________________________________________________________ */
-  .services-request {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin-top: 0;
-    height: 225px;
-    padding: 20px 0 25px 0;
-  }
   .img-displayed2 {
     display: block;
     margin-left: auto;

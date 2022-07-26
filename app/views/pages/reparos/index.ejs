@@ -6,41 +6,207 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
-    <title>Reparo</title>
+    <title>Serviços</title>
+    <script
+    src="https://code.jquery.com/jquery-2.2.4.min.js"
+    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+    crossorigin="anonymous"></script>
 </head>
 <body>
     <%- include('./../../components/header/index') %>
-    <section class="container">
-        <div class="title-works">
-            <h1>Serviços de reparos</h1>
+    <div class="categories-slide">
+        <div class="slide-works">
+            <div class="slide-tag reparos-screen slide-tag-work"><span>Reparos</span></div>
+            <div class="slide-tag pintura-screen"><span>Pintura</span></div>
+            <div class="slide-tag manutencao-screen"><span>Manutenção-elétrica</span></div>
+            <div class="slide-tag projetos-screen"><span>Projetos</span></div>
+            <div class="slide-tag montagem-screen"><span>Montagem</span></div>
+            <div class="slide-tag construcao-screen"><span>Construção</span></div>
         </div>
-        <div class="works">
-            <div class="work-pic manutencao-piscina">
-                <div class="tag-work">
-                    <span>Manutenção de piscina</span>
+    </div>
+    <section class="container">
+        <div>
+            <div class="construcao">
+                <div class="work-pic obra">
+                    <div class="tag-work">
+                        <span>Obras</span>
+                    </div>
+                </div>
+                <div class="work-pic encanamento">
+                    <div class="tag-work">
+                        <span>Encanamento</span>
+                    </div>
+                </div>
+                <div class="work-pic marmoria">
+                    <div class="tag-work">
+                        <span>Marmoria</span>
+                    </div>
+                </div>
+                <div class="work-pic vidracaria">
+                    <div class="tag-work">
+                        <span>Vidraçaria</span>
+                    </div>
                 </div>
             </div>
-            <div class="work-pic limpeza-pos-obra">
-                <div class="tag-work">
-                    <span>Limpeza pós obra</span>
+            <div class="projetos">
+                <div class="work-pic arquitetura">
+                    <div class="tag-work">
+                        <span>Arquitetura</span>
+                    </div>
+                </div>
+                <div class="work-pic eletricista">
+                    <div class="tag-work">
+                        <span>Eletricista</span>
+                    </div>
+                </div>
+                <div class="work-pic mudanca">
+                    <div class="tag-work">
+                        <span>Mudança</span>
+                    </div>
                 </div>
             </div>
-            <div class="work-pic solda">
-                <div class="tag-work">
-                    <span>Solda</span>
+            <div class="montagem">
+                <div class="work-pic montagem-work">
+                    <div class="tag-work">
+                        <span>Montagem</span>
+                    </div>
+                </div>
+                <div class="work-pic toldo">
+                    <div class="tag-work">
+                        <span>Toldo e cobertura</span>
+                    </div>
+                </div>
+                <div class="work-pic rede-protecao">
+                    <div class="tag-work">
+                        <span>Rede de proteção</span>
+                    </div>
+                </div>
+                <div class="work-pic seguranca-perimetral">
+                    <div class="tag-work">
+                        <span>Segurança perimetral</span>
+                    </div>
                 </div>
             </div>
-            <div class="work-pic chaveiro">
-                <div class="tag-work">
-                    <span>Chaveiro</span>
+            <div class="reparos">
+                <div class="work-pic manutencao-piscina">
+                    <div class="tag-work">
+                        <span>Manutenção de piscina</span>
+                    </div>
+                </div>
+                <div class="work-pic limpeza-pos-obra">
+                    <div class="tag-work">
+                        <span>Limpeza pós obra</span>
+                    </div>
+                </div>
+                <div class="work-pic solda">
+                    <div class="tag-work">
+                        <span>Solda</span>
+                    </div>
+                </div>
+                <div class="work-pic chaveiro">
+                    <div class="tag-work">
+                        <span>Chaveiro</span>
+                    </div>
+                </div>
+                <div class="work-pic azulejo">
+                    <div class="tag-work">
+                        <span>Manutenção de azulejo</span>
+                    </div>
                 </div>
             </div>
-            <div class="work-pic azulejo">
-                <div class="tag-work">
-                    <span>Manutenção de azulejo</span>
+            <div class="manutencao">
+                <div class="work-pic manutencao-pcs">
+                    <div class="tag-work">
+                        <span>Manutenção de pc's</span>
+                    </div>
+                </div>
+                <div class="work-pic sonorizacao">
+                    <div class="tag-work">
+                        <span>Sonorização</span>
+                    </div>
+                </div>
+                <div class="work-pic antenista">
+                    <div class="tag-work">
+                        <span>Antenista</span>
+                    </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
+    <script>
+        $('.construcao').hide();
+        $('.projetos').hide();
+        $('.montagem').hide();
+        $('.reparos').show();
+        $('.manutencao').hide();
+
+    $(document).ready(function(){
+        $('.construcao-screen').click(function(){
+            $('.construcao').show();
+            $('.construcao-screen').addClass('slide-tag-work')
+            $('.projetos').hide();
+            $('.projetos-screen').removeClass('slide-tag-work')
+            $('.montagem').hide();
+            $('.montagem-screen').removeClass('slide-tag-work')
+            $('.reparos').hide();
+            $('.reparos-screen').removeClass('slide-tag-work')
+            $('.manutencao').hide();
+            $('.manutencao-screen').removeClass('slide-tag-work')
+        })
+
+        $('.projetos-screen').click(function(){
+            $('.construcao').hide();
+            $('.construcao-screen').removeClass('slide-tag-work')
+            $('.projetos').show();
+            $('.projetos-screen').addClass('slide-tag-work')
+            $('.montagem').hide();
+            $('.montagem-screen').removeClass('slide-tag-work')
+            $('.reparos').hide();
+            $('.reparos-screen').removeClass('slide-tag-work')
+            $('.manutencao').hide();
+            $('.manutencao-screen').removeClass('slide-tag-work')
+        })
+
+        $('.montagem-screen').click(function(){
+            $('.construcao').hide();
+            $('.construcao-screen').removeClass('slide-tag-work')
+            $('.projetos').hide();
+            $('.projetos-screen').removeClass('slide-tag-work')
+            $('.montagem').show();
+            $('.montagem-screen').addClass('slide-tag-work')
+            $('.reparos').hide();
+            $('.reparos-screen').removeClass('slide-tag-work')
+            $('.manutencao').hide();
+            $('.manutencao-screen').removeClass('slide-tag-work')
+        })
+
+        $('.reparos-screen').click(function(){
+            $('.construcao').hide();
+            $('.construcao-screen').removeClass('slide-tag-work')
+            $('.projetos').hide();
+            $('.projetos-screen').removeClass('slide-tag-work')
+            $('.montagem').hide();
+            $('.montagem-screen').removeClass('slide-tag-work')
+            $('.reparos').show();
+            $('.reparos-screen').addClass('slide-tag-work')
+            $('.manutencao').hide();
+            $('.manutencao-screen').removeClass('slide-tag-work')
+        })
+
+        $('.manutencao-screen').click(function(){
+            $('.construcao').hide();
+            $('.construcao-screen').removeClass('slide-tag-work')
+            $('.projetos').hide();
+            $('.projetos-screen').removeClass('slide-tag-work')
+            $('.montagem').hide();
+            $('.montagem-screen').removeClass('slide-tag-work')
+            $('.reparos').hide();
+            $('.reparos-screen').removeClass('slide-tag-work')
+            $('.manutencao').show();
+            $('.manutencao-screen').addClass('slide-tag-work')
+        });
+    });
+    </script>
 </body>
 </html>
