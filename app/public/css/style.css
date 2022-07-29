@@ -146,6 +146,19 @@ h1 {
   font-size: 22px;
 }
 
+h1.title {
+  margin-top: 30px;
+  text-align: start;
+  font-size: 24px;
+}
+
+h1.subtitle{
+  margin-top: 55px;
+  text-align: start;
+  font-size: 18px;
+  font-weight: 300;
+}
+
 p {
   font-size: 16px;
   color: #240046;
@@ -159,8 +172,8 @@ a {
   position: relative;
   left: 50%;
   transform: translate(-50%);
-  width: 90vw;
-  max-width: 540px;
+  width: 90%;
+  max-width: 500px;
 }
 
 /*Components*/
@@ -938,17 +951,14 @@ h2 {
   font-size: 18px;
   max-width: 400px;
   margin-top: 50px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 /*Planos*/
 
 .service-plans h1 {
-  font-size: 24px;
-}
-
-h1.container {
-  margin-right: 0;
-  text-align: start;
   font-size: 24px;
 }
 
@@ -1061,6 +1071,11 @@ h1.container {
 .services hr {
   max-width: 540px;
 }
+
+.margin{
+  margin-top: 70px;
+}
+
 .service-details input{
   border-top: 0;
   border-left: 0;
@@ -1068,8 +1083,8 @@ h1.container {
   border-bottom: 1px solid #000;
   color: #000;
   background: none;
-  margin-top: 30px;
   position: relative;
+  margin-top: 30px;
   left: 50%;
   transform: translate(-50%);
   width: 100%;
@@ -1253,7 +1268,7 @@ h1.container {
 .description p{
   font-weight: 200;
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   color: #000;
 }
 
@@ -1323,7 +1338,6 @@ h1.container {
   display: none;
 }
 
-
 .your-licenses{
   width: 90%;
   max-width: 450px;
@@ -1341,7 +1355,7 @@ h1.container {
   width: 500px;
   height: 100%;
   transition: 0.6s;
-  margin-top: 30px;
+  margin: auto;
   touch-action: manipulation;
   justify-content: space-around;
 }
@@ -1426,6 +1440,8 @@ h1.container {
   background-color: #240046;
   color: #fff;
 }
+
+/*Perfil Profissional - visão cliente*/
 
 /*Categorias*/
 
@@ -1789,6 +1805,61 @@ h1.container {
   max-width: 400px;
 }
 
+/*Todas Categorias*/
+
+.categories-line{
+  display: flex;
+  align-items: center;
+  max-width: 540px;
+  margin-left: 5%;
+  margin-top: 20px;
+}
+
+.categories-line img{
+  max-width: 95px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.categories-line span{
+  font-weight: 600;
+}
+
+.title-categories{
+  font-size: 24px;
+  margin-top: 30px;
+  margin-left: 5%;
+  color: #000;
+}
+
+/*Favoritos*/
+
+.favorites{
+  overflow: auto;
+  margin-top: 15px;
+}
+
+.favorites::-webkit-scrollbar{
+  display: none;
+}
+
+.favorite-box{
+  display: flex;
+  max-width: 600px;
+  width: 400%;
+  height: 100%;
+  transition: 0.6s;
+  touch-action: manipulation;
+}
+
+.contents-favorite{
+  width: 25%;
+  height: 150px;
+  border-radius: 10px;
+  margin: 0 10px 0 0;
+  background-color: #240046;
+}
+
 /* Medium devices (tablets, 768px and up)*/
 @media (min-width: 768px) {
   .contents {
@@ -1883,9 +1954,6 @@ h1.container {
 
 /* Large devices (desktops, 992px and up)*/
 @media (min-width: 992px) {
-  .container-contend {
-    display: none;
-  }
 }
 
 /* X-Large devices (large desktops, 1200px and up)*/

@@ -99,5 +99,19 @@ router.get('/selecioneProf', function(req, res){
 router.get('/editarperfil', function(req, res){
     res.render('pages/editarperfil/index')
 });
+router.get('/todasCategorias', function(req, res){
+    res.render('pages/todasCategorias/index')
+});
+router.get('/todosServicos', function(req, res){
+    res.render('pages/todosServiços/index')
+});
+
+router.get('/perfilColaboradora', function(req, res){
+    res.render('pages/perfilColaboradora-visãoCliente/index')
+});
+
+router.get('/favoritos', function(req, res){
+    res.render('pages/favoritos/index')
+}); 
 
 module.exports = router;
