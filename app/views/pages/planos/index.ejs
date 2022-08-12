@@ -1,96 +1,101 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
     <title>Nossos planos</title>
 </head>
+
 <body>
     <%- include("./../../components/header/index.ejs") %>
     <section class="container">
         <h1 class="title">Conheça nossos planos</h1>
-    <div class="service-plans">
-        <div class="box-plans">
-            <div class="plan" >
-                <h1>1 semana</h1>
-                <div class="price">
-                    <span class="value-components">R$</span>
-                    <span class="value">09</span>
-                    <span class="value-components">,90</span>
+        <div class="service-plans">
+            <div class="box-plans">
+                <div class="plan">
+                    <h1>1 semana</h1>
+                    <div class="price">
+                        <span class="value-components">R$</span>
+                        <span class="value">09</span>
+                        <span class="value-components">,90</span>
+                    </div>
+                    <button class="btn-plan btn-text-1">Saiba mais</button>
                 </div>
-                <button class="btn-plan btn-text-1">Saiba mais</button>
-            </div>
-            <div class="plan bg-purple">
-                <h1 class="white">2 semana</h1>
-                <div class="price white">
-                    <span class="value-components">R$</span>
-                    <span class="value">17</span>
-                    <span class="value-components">,90</span>
+                <div class="plan bg-purple">
+                    <h1 class="white">2 semana</h1>
+                    <div class="price white">
+                        <span class="value-components">R$</span>
+                        <span class="value">17</span>
+                        <span class="value-components">,90</span>
+                    </div>
+                    <button class="btn-plan-purple btn-text-2">Saiba mais</button>
                 </div>
-                <button class="btn-plan-purple btn-text-2">Saiba mais</button>
-            </div>
-            <div class="plan">
-                <h1>1 mês</h1>
-                <div class="price">
-                    <span class="value-components">R$</span>
-                    <span class="value">32</span>
-                    <span class="value-components">,99</span>
+                <div class="plan">
+                    <h1>1 mês</h1>
+                    <div class="price">
+                        <span class="value-components">R$</span>
+                        <span class="value">32</span>
+                        <span class="value-components">,99</span>
+                    </div>
+                    <button class="btn-plan btn-text-3">Saiba mais</button>
                 </div>
-                <button class="btn-plan btn-text-3">Saiba mais</button>
             </div>
         </div>
-    </div>
     </section>
+    <div class="plan-text">
+        <h1>Informações do plano:</h1>
+    </div>
     <div class="plan-1">
-        <h1>1 semana</h1>
-        <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+        <p>Valor fixo de R$ 09,90 á vista. Após assinar o plano, você terá como principal benefício um destaque na área
+            escolhida,
+            fazendo com que seu trabalho tenha mais visibilidade durante o período definido do plano que você solicitou.
         </p>
     </div>
     <div class="plan-2">
-        <h1>2 semanas</h1>
         <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+            Valor modificado de 17,99 á vista, alteração no valor com desconto de 10% do valor fixo. Após assinar o
+            plano, você terá como principal benefício um destaque na área escolhida, fazendo com que seu trabalho tenha
+            mais visibilidade durante o período definido do plano que você solicitou.
         </p>
     </div>
     <div class="plan-3">
-        <h1>1 mês</h1>
         <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-        </p>
+            Valor modificado de 32,99 á vista, alteração no valor com desconto de 30% do valor fixo. Após assinar o
+            plano, você terá como principal benefício um destaque na área escolhida, fazendo com que seu trabalho tenha
+            mais visibilidade durante o período definido do plano que você solicitou. </p>
     </div>
     <script>
         $('.plan-1').hide();
         $('.plan-2').hide();
         $('.plan-3').hide();
-        $(document).ready(function(){
-            $(".btn-text-1").click(function(){
-                $('.plan-1').toggle('1000')
-                $('.plan-2').hide('1000')
-                $('.plan-3').hide('1000')
+        $(document).ready(function () {
+            $(".btn-text-1").click(function () {
+                $('.plan-1').toggle(100)
+                $('.plan-2').hide(100)
+                $('.plan-3').hide(100)
             });
         });
-        $(document).ready(function(){
-            $(".btn-text-2").click(function(){
-                $('.plan-2').toggle('1000')
-                $('.plan-1').hide('1000')
-                $('.plan-3').hide('1000')
+        $(document).ready(function () {
+            $(".btn-text-2").click(function () {
+                $('.plan-2').toggle(100)
+                $('.plan-1').hide(100)
+                $('.plan-3').hide(100)
             });
         });
-        $(document).ready(function(){
-            $(".btn-text-3").click(function(){
-                $('.plan-3').toggle('1000')
-                $('.plan-2').hide('1000')
-                $('.plan-1').hide('1000')
+        $(document).ready(function () {
+            $(".btn-text-3").click(function () {
+                $('.plan-3').toggle(100)
+                $('.plan-2').hide(100)
+                $('.plan-1').hide(100)
             });
         });
     </script>
 </body>
+
 </html>

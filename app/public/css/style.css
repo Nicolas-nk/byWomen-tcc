@@ -971,6 +971,7 @@ h2 {
   max-width: 835px;
   width: 300%;
   height: 100%;
+  padding: 20px 10px;
   transition: 0.6s;
   margin-top: 30px;
   touch-action: manipulation;
@@ -1055,11 +1056,9 @@ h2 {
   float: left;
 }
 
-.plan-1 h1,
+.plan-text h1,
 .plan-1 p,
-.plan-2 h1,
 .plan-2 p,
-.plan-3 h1,
 .plan-3 p {
   text-align: start;
   margin-top: 20px;
