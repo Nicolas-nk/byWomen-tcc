@@ -958,6 +958,12 @@ h2 {
 
 /*Planos*/
 
+hr.title{
+  border: 2px solid #3c096c;
+  width: 60px;
+  margin: 0;
+}
+
 .service-plans h1 {
   font-size: 24px;
 }
@@ -971,7 +977,7 @@ h2 {
   max-width: 835px;
   width: 300%;
   height: 100%;
-  padding: 20px 10px;
+  padding: 20px 2px;
   transition: 0.6s;
   margin-top: 30px;
   touch-action: manipulation;
@@ -988,10 +994,9 @@ h2 {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0px 5px 15px -3px rgba(0,0,0,0.5);
   padding: 20px 0;
   margin: 0 10px 10px 5px;
-  -webkit-box-shadow: 0px 2px 16px 2px rgba(0, 0, 0, 0.6);
-  box-shadow: 0px 2px 16px 2px rgba(0, 0, 0, 0.6);
   border: none;
   border-radius: 10px;
   width: 33%;
@@ -1062,7 +1067,6 @@ h2 {
 .plan-3 p {
   text-align: start;
   margin-top: 20px;
-  margin-left: 5%;
 }
 
 /*Tela de Serviços*/
@@ -1807,27 +1811,33 @@ h2 {
 /*Todas Categorias*/
 
 .categories-line{
+  width: 150px;
+  margin-top: 40px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  max-width: 540px;
-  margin-left: 5%;
-  margin-top: 20px;
+}
+
+.categories-contents{
+  display: flex;
+  column-gap: 20px;
+  flex-wrap: wrap;
 }
 
 .categories-line img{
-  max-width: 95px;
-  border-radius: 50%;
-  margin-right: 10px;
+  width: 145px;
 }
 
 .categories-line span{
   font-weight: 600;
+  text-align: center;
+  margin-top: 5px;
+  color: #240046;
 }
 
 .title-categories{
   font-size: 24px;
   margin-top: 30px;
-  margin-left: 5%;
   color: #000;
 }
 
