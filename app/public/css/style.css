@@ -959,8 +959,8 @@ h2 {
 /*Planos*/
 
 hr.title{
-  border: 2px solid #3c096c;
-  width: 60px;
+  border: 56px solid #3c096c;
+  width: 56px;
   margin: 0;
 }
 
@@ -977,7 +977,7 @@ hr.title{
   max-width: 835px;
   width: 300%;
   height: 100%;
-  padding: 20px 2px;
+  padding: 20px 5px;
   transition: 0.6s;
   margin-top: 30px;
   touch-action: manipulation;
@@ -1915,11 +1915,6 @@ hr.title{
   }
   .form {
     margin-top: 0;
-  }
-  .title {
-    position: relative;
-    left: 25%;
-    transform: translate(-25%);
   }
   .contents-pedidos {
     max-width: 620px;
