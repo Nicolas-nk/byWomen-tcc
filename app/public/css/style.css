@@ -156,7 +156,6 @@ h1.subtitle{
   margin-top: 55px;
   text-align: start;
   font-size: 18px;
-  font-weight: 300;
 }
 
 p {
@@ -959,7 +958,7 @@ h2 {
 /*Planos*/
 
 hr.title{
-  border: 56px solid #3c096c;
+  border: 1px solid #3c096c;
   width: 56px;
   margin: 0;
 }
@@ -1842,6 +1841,16 @@ hr.title{
 }
 
 /*Favoritos*/
+
+.banner-favorite{
+  width: 100%;
+  max-width: 540px;
+  margin-top: -40px;
+}
+
+.banner-favorite img{
+  width: 100%;
+}
 
 .favorites{
   overflow: auto;
