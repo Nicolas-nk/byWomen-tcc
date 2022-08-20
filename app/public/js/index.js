@@ -1,0 +1,25 @@
+function addStateConstrucao() {
+    let stateObj = { id: "100"};
+
+    window.history.pushState(stateObj, "Construcao", "/Construcao");
+}
+function addStateReparo() {
+    let stateObj = { id: "100"};
+
+    window.history.pushState(stateObj, "Reparo", "/Reparo");
+}
+function addStateManutencao() {
+    let stateObj = { id: "100"};
+
+    window.history.pushState(stateObj, "Manutencao-eletrica", "/Manutencao-eletrica");
+}
+function addStateMontagem() {
+    let stateObj = { id: "100"};
+
+    window.history.pushState(stateObj, "Montagem", "/Montagem");
+}
+function addStateProjeto() {
+    let stateObj = { id: "100"};
+
+    window.history.pushState(stateObj, "Projreto", "/Projeto");
+}

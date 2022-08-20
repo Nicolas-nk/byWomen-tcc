@@ -65,7 +65,7 @@ router.get('/reparo', function(req, res){
     res.render('pages/reparos/index');
 });
 
-router.get('/projetos', function(req, res){
+router.get('/projeto', function(req, res){
     res.render('pages/projetos/index');
 });
 
@@ -73,7 +73,7 @@ router.get('/montagem', function(req, res){
     res.render('pages/montagem/index');
 });
 
-router.get('/manutencao', function(req, res){
+router.get('/manutencao-eletrica', function(req, res){
     res.render('pages/manutencao-eletrica/index');
 });
 

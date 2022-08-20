@@ -108,9 +108,9 @@
   background: rgb(199, 125, 255);
   background: -moz-linear-gradient(
     81deg,
-    rgba(199, 125, 255, 0.2) -4%,
-    rgba(157, 78, 221, 0.5) 11%,
-    rgba(123, 44, 191, 0.6) 26%,
+    rgba(199, 125, 255, 1) -4%,
+    rgba(157, 78, 221, 1) 11%,
+    rgba(123, 44, 191, 1) 26%,
     rgba(90, 24, 154, 1) 55%,
     rgba(60, 9, 108, 1) 75%,
     rgba(36, 0, 70, 1) 105%
@@ -126,13 +126,14 @@
   );
   background: linear-gradient(
     to top,
-    rgba(199, 125, 255, 0.1) -4%,
-    rgba(157, 78, 221, 0.1) 11%,
-    rgba(123, 44, 191, 0.4) 26%,
-    rgba(90, 24, 154, 1) 55%,
-    rgba(60, 9, 108, 1) 75%,
-    rgba(36, 0, 70, 1) 105%
+    rgba(199, 125, 255, .1) -4%,
+    rgba(157, 78, 221, .1) 11%,
+    rgba(123, 44, 191, .2) 26%,
+    rgba(90, 24, 154, .3) 55%,
+    rgba(60, 9, 108, .4) 75%,
+    rgba(36, 0, 70, .6) 105%
   );
+  box-shadow: 0px 19px 37px 0px rgba(199, 125, 255, .1);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#c77dff",endColorstr="#240046",GradientType=1);
 }
 
@@ -148,14 +149,16 @@ h1 {
 
 h1.title {
   margin-top: 30px;
-  text-align: start;
-  font-size: 24px;
+  text-align: start;  
+  font-size: 20px;
+  color: #3c096c;
 }
 
 h1.subtitle{
   margin-top: 55px;
   text-align: start;
   font-size: 18px;
+  font-weight: 300;
 }
 
 p {
@@ -459,6 +462,10 @@ h1.contributor-text {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.logo-extensive img{
+  width: 200px;
 }
 
 fieldset {
@@ -959,7 +966,7 @@ h2 {
 
 hr.title{
   border: 1px solid #3c096c;
-  width: 56px;
+  width: 45px;
   margin: 0;
 }
 
@@ -1075,7 +1082,7 @@ hr.title{
 }
 
 .margin{
-  margin-top: 70px;
+  margin-top: 30px;
 }
 
 .service-details input{
@@ -1115,7 +1122,7 @@ hr.title{
   height: 60px;
   position: sticky;
   top: 0;
-  opacity: 0.4;
+  opacity: 1;
   display: flex;
   align-items: center;
   z-index: 2;
@@ -1123,21 +1130,23 @@ hr.title{
 
 .close {
   margin-left: 5%;
+  position: absolute;
+  z-index: 5;
 }
 
-.close img {
-  padding: 10px 0 0 0;
+.close span{
+  color: #fff;
+  font-size: 40px;
+  opacity: 1;
 }
 
 .profession {
-  width: 100vw;
+  width: 100%;
   height: 60px;
+  margin: 0 auto;
   max-width: 540px;
   -webkit-box-shadow: 0px 7px 8px 1px rgba(36, 0, 70, 0.58);
   box-shadow: 0px 7px 8px 1px rgba(36, 0, 70, 0.58);
-  position: relative;
-  left: 50%;
-  transform: translate(-50%);
   display: flex;
   align-items: center;
   background-color: #fff;
@@ -1157,7 +1166,7 @@ hr.title{
 }
 
 .text h1 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 300;
   text-align: center;
 }
@@ -1168,7 +1177,7 @@ hr.title{
 }
 
 .fixed {
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100vw;
   max-width: 540px;
@@ -1459,35 +1468,44 @@ hr.title{
 .categories-slide{
   width: 100vw;
   max-width: 540px;
-  overflow-x: scroll;
   position: relative;
   left: 50%;
   transform: translate(-50%);
 }
 
-.categories-slide::-webkit-scrollbar{
+.works-categories::-webkit-scrollbar{
     display: none;
 }
 
 .slide-works{
-  width: 321%;
+  width: 100%;
   height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   background-color: #5A189A;
+}
+
+.works-categories{
+  height: 100%;
+  align-items: center;
+  column-gap: 32px;
   touch-action: manipulation;
+  display: flex;
+  overflow-x: auto;
 }
 
 .slide-tag span{
-  width: 150px;
   display: flex;
   justify-content: center;  
 }
+.slide-tag{
+  margin: 0 15px;
+}
+
+span.manutecao-text{
+  width: 150px;
+}
 
 .slide-tag-work{
-  width: 160px;
-  height: 40px;
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center; 
@@ -1625,7 +1643,6 @@ hr.title{
 /*Cadastro Colaboradora*/
 
 .button-certificacao button {
-  width: 80%;
   max-width: 400px;
   height: 35px;
   border-radius: 30px;
@@ -1638,7 +1655,7 @@ hr.title{
 .button-certificacao {
   display: flex;
   justify-content: center;
-  margin-top: 80%;
+  margin-top: 50%;
 }
 
 .finish button {
@@ -1691,9 +1708,20 @@ hr.title{
   font-size: 18px;
   color: #fff;
   text-align: center;
-  width: 90vw;
-  max-width: 400px;
+  width: 100%;
+  max-width: 540px;
   height: 40px;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.inf-cad .anexar-img{
+  flex: 1;
+}
+
+.inf-cad p{
+  flex: 1;
 }
 
 /*Capacitação cad*/
@@ -1710,6 +1738,7 @@ hr.title{
   border-bottom: 1px solid #000;
   background: transparent;
   width: 90vw;
+  max-width: 540px;
   color: #000;
 }
 
@@ -1727,6 +1756,7 @@ hr.title{
   justify-content: center;
   align-items: center;
   width: 90vw;
+  max-width: 540px;
   position: relative;
   left: 50%;
   transform: translate(-50%);
@@ -1834,12 +1864,6 @@ hr.title{
   color: #240046;
 }
 
-.title-categories{
-  font-size: 24px;
-  margin-top: 30px;
-  color: #000;
-}
-
 /*Favoritos*/
 
 .banner-favorite{
@@ -1917,7 +1941,7 @@ hr.title{
     color: #fff;
     margin: 20px 0 0 0;
     text-align: start;
-    font-size: 20px;
+    font-size: 18px;
   }
   .box-form {
     flex: 1;

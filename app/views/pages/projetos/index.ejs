@@ -16,12 +16,14 @@
     <%- include('./../../components/header/index') %>
     <div class="categories-slide">
         <div class="slide-works">
-            <div class="slide-tag projetos-screen slide-tag-work"><span>Projetos</span></div>
-            <div class="slide-tag pintura-screen"><span>Pintura</span></div>
-            <div class="slide-tag manutencao-screen"><span>Manutenção-elétrica</span></div>
-            <div class="slide-tag montagem-screen"><span>Montagem</span></div>
-            <div class="slide-tag reparos-screen"><span>Reparos</span></div>
-            <div class="slide-tag construcao-screen"><span>Construção</span></div>
+            <div class="works-categories">
+                <div onclick="addStateProjeto()" class="slide-tag projetos-screen slide-tag-work"><span>Projetos</span></div>
+                <div onclick="" class="slide-tag pintura-screen"><span>Pintura</span></div>
+                <div onclick="addStateManutencao()" class="slide-tag manutencao-screen"><span class="manutecao-text">Manutenção-elétrica</span></div>
+                <div onclick="addStateMontagem()" class="slide-tag montagem-screen"><span>Montagem</span></div>
+                <div onclick="addStateReparo()" class="slide-tag reparos-screen"><span>Reparos</span></div>
+                <div onclick="addStateConstrucao()" class="slide-tag construcao-screen"><span>Construção</span></div>
+            </div>
         </div>
     </div>
     <section class="container">
@@ -208,5 +210,6 @@
         });
     });
     </script>
+    <script src="./../js/index.js"></script>
 </body>
 </html>
