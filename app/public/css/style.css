@@ -1554,6 +1554,11 @@ span.manutecao-text{
   font-size: 20px;
 }
 
+.construcao a, .montagem a, .manutencao a, .reparos a, .projetos a{
+  width: 80%;
+  margin: 0 auto;
+}
+
 .construcao, .montagem, .manutencao, .reparos, .projetos{
   display: flex;
   flex-direction: column;
