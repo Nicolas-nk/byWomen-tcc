@@ -24,7 +24,7 @@
 </head>
 
 <body>
-  <div>
+  <div class="container">
     <header>
       <div class="navbar bg-purplegradient">
         <nav class="header-navbar">
@@ -39,7 +39,7 @@
       </div>
     </header>
     <%- include("./../../components/menu/index.ejs") %>
-      <main class="container">
+      <main>
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="/images/banners/torne-seColaboradora.png" class="carousel-itens" alt="..." usemap="#image-map" />
@@ -155,12 +155,13 @@
               items: 4,
             },
             600: {
-              items: 6,
+              items: 4,
             },
           },
         });
       </script>
   </div>
+  <div class="fake-menu"></div>
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,49 +9,54 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
 </head>
-<body class="bg-pink">
-    <%- include("./../../components/menu/index.ejs") %>
-    <section>
-        <div class="profession-pic">
-            <div class="box-transparent mask">
-                <div class="close"> <a href="javascript:void(0)" onClick="history.go(-1); return false;"><span>X</span></a></div>
-            </div>
-        </div>
-    </section>
-    <section class="services">
-        <div class="profession">
-            <h1>Montagem</h1>
-        </div>
-        <div class="service-details margin">
-            <input type="text" placeholder="Especifique oque você precisa:">
-        </div>
-        <div class="service-details">
-            <input type="date" placeholder="Prazo para cumprimento do serviço:">
-        </div>
-        <div class="btn">
-            <button class="btn-servico">Solicitar serviço</button>
-        </div>
-        <hr>
-        <div class="text">
-            <h1>ESCOLHA SUA PROFISSIONAL<br>DESTAQUE</h1>
-        </div>
-        <div class="test"></div>
-    </section>
-    <script>
-        const servico=document.getElementsByClassName("profession")[0];
-        const topoMain=servico.offsetTop;
 
-        window.onscroll=function(){
+<body>
+    <div class="bg-pink">
+        <%- include("./../../components/menu/index.ejs") %>
+        <section>
+            <div class="profession-pic">
+                <div class="box-transparent mask">
+                    <div class="close"> <a href="javascript:void(0)"
+                            onClick="history.go(-1); return false;"><span>X</span></a></div>
+                </div>
+            </div>
+        </section>
+        <section class="services">
+            <div class="profession">
+                <h1>Montagem</h1>
+            </div>
+            <div class="service-details margin">
+                <input type="text" placeholder="Especifique oque você precisa:">
+            </div>
+            <div class="service-details">
+                <input type="date" placeholder="Prazo para cumprimento do serviço:">
+            </div>
+            <div class="btn">
+                <button class="btn-servico">Solicitar serviço</button>
+            </div>
+            <hr>
+            <div class="text">
+                <h1>ESCOLHA SUA PROFISSIONAL<br>DESTAQUE</h1>
+            </div>
+            <div class="test"></div>
+        </section>
+    </div>
+    <script>
+        const servico = document.getElementsByClassName("profession")[0];
+        const topoMain = servico.offsetTop;
+
+        window.onscroll = function () {
             fixarNoTopo();
         }
 
-        function fixarNoTopo(){
-            if(window.pageYOffset >= topoMain){
+        function fixarNoTopo() {
+            if (window.pageYOffset >= topoMain) {
                 servico.classList.add("fixed");
-            }else{
+            } else {
                 servico.classList.remove("fixed");
             }
         }
     </script>
 </body>
+
 </html>
