@@ -197,7 +197,7 @@ a {
   border-radius: 10px 10px 0 0;
 }
 .fake-menu{
-  margin-bottom: 68px;
+  padding-bottom: 68px;
 }
 .menu-itens {
   display: flex;
