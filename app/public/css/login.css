@@ -1,0 +1,331 @@
+/*Tela login*/
+
+.logo-extensive {
+    margin-top: 0;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .logo-extensive img{
+    width: 200px;
+  }
+  
+  fieldset {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.32);
+    border: 0;
+    border-radius: 30px;
+  }
+  
+  .box-form fieldset {
+    width: 90vw;
+    max-width: 325px;
+  }
+  
+  .form {
+    margin-top: 0;
+    position: relative;
+  }
+  
+  .form form {
+    margin: 15px 15px 30px 15px;
+    max-width: 300px;
+  }
+  
+  .form hr {
+    width: auto;
+    border: 1px solid;
+    color: #fff;
+    opacity: 1;
+    margin: 0;
+  }
+  
+  .form .title h1 {
+    padding-top: 5px;
+    padding-left: 15px;
+    text-align: start;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .form .email input,
+  .password input {
+    width: 98%;
+    height: 35px;
+    border-style: solid;
+    border-color: #fff;
+    border-radius: 30px;
+    background: none;
+  }
+  
+  input {
+    color: #fff;
+    padding-left: 12px;
+    font-size: 18px;
+  }
+  input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  input:focus-visible {
+    outline: none;
+  }
+  
+  fieldset form .email {
+    padding-top: 25px;
+  }
+  
+  fieldset form .password {
+    padding-top: 30px;
+  }
+  
+  fieldset form .password .link {
+    padding-top: 10px;
+    padding-left: 10px;
+    color: #fff;
+    font-size: 12px;
+  }
+  
+  fieldset form .password a {
+    text-decoration: underline;
+    color: #fff;
+  }
+  
+  .check {
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    padding-top: 15px;
+  }
+  
+  .check input {
+    margin: 3px;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .check span {
+    margin-top: 3px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 100;
+  }
+  
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 35px;
+  }
+  
+  .button button {
+    width: 98%;
+    height: 35px;
+    border-radius: 30px;
+    background-color: #3c096c;
+    border: none;
+    color: white;
+    font-size: 18px;
+  }
+  
+  .register {
+    margin-top: 10px;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+  }
+  
+  .register a {
+    text-decoration: underline;
+    color: white;
+  }
+  
+  .screen-login p {
+    display: none;
+  }
+  
+  /*Recuperar Senha*/
+  
+  .number-tel input {
+    width: 98%;
+    height: 35px;
+    border-style: solid;
+    border-color: #fff;
+    border-radius: 30px;
+    background: none;
+    margin-top: 20px;
+  }
+  
+  .or {
+    font-size: 22px;
+    color: #fff;
+    margin-top: 20px;
+    font-weight: 400;
+    text-align: center;
+  }
+  
+  /*Cadastre-se*/
+  
+  .name-cad input {
+    width: 98%;
+    height: 35px;
+    border-style: solid;
+    border-color: #fff;
+    border-radius: 30px;
+    background: none;
+    margin-top: 20px;
+  }
+  
+  .log-into {
+    margin-top: 10px;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+  }
+  
+  .log-into a {
+    text-decoration: underline;
+    color: #fff;
+  }
+  
+  .screen-login {
+    position: relative;
+    transform: translate(0, 25%);
+  }
+  
+  /*Cadastro Colaboradora*/
+
+.button-certificacao button {
+  margin-top: 50%;
+  height: 35px;
+  border-radius: 30px;
+  background-color: #3c096c;
+  border: none;
+  color: white;
+  font-size: 18px;
+}
+
+.button-certificacao {
+  margin-top: 50%;
+  margin-bottom: 0;
+  border: none;
+  border-radius: 20px;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  height: 40px;
+  position: relative;
+}
+
+.finish button {
+  background: none;
+  color: #000;
+  border: none;
+  font-size: 18px;
+}
+
+.finish {
+  display: flex;
+  justify-content: center;  
+}
+
+/*Add imagem*/
+
+.add-pic{
+  margin-top: 30px;
+}
+
+.anexar-img{
+  width: 90vw;
+  max-width: 400px;
+  height: 40px;
+  display: flex;
+  position: relative;
+  background-color: #240046;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin-top: 50%;
+}
+
+.anexar-img span{
+  color: #fff;
+  font-size: 18px;
+}
+
+.btn-cad{
+  margin-top: 30px;
+  border: none;
+  border-radius: 20px;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  width: 90%;
+  max-width: 500px;
+  height: 40px;
+  position: relative;
+}
+
+.inf-cad .anexar-img{
+  flex: 1;
+}
+
+.inf-cad p{
+  flex: 1;
+}
+
+/*Capacitação cad*/
+
+.add h1{
+  text-align: center;
+  font-size: 22px;
+}
+
+.input-cad input{
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #000;
+  background: transparent;
+  width: 100%;
+  max-width: 540px;
+  color: #000;
+}
+
+.input-cad{
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.input-cad input::placeholder{
+  color: #000;
+  font-size: 15px;
+}
+
+.input-margin{
+  margin-top: 30px;
+}
+
+.inf-cad{
+  display: flex;
+  align-items: center;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  margin: 20px auto 0 auto;
+}
+
+.inf-cad .anexar-img{
+  margin: 0;
+  position: static;
+}
+
+.inf-cad p{
+  color: #000;
+  font-size: 15px;
+  margin-left: 5px;
+}

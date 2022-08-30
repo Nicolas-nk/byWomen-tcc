@@ -1,0 +1,50 @@
+.profile-picture {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.box-config {
+  background-color: #fff;
+  max-width: 540px;
+  margin-top: 30px;
+}
+
+.box-config form input {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid #000;
+}
+
+.box-config form input:focus {
+  outline: 0;
+}
+
+.change {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.box-config .contents-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.btn-config {
+  background: transparent;
+  color: #000;
+  width: 100%;
+  height: 43px;
+  border: 3px solid;
+  border-color: #240046;
+  border-radius: 25px;
+  font-size: 18px;
+  max-width: 400px;
+  margin-top: 50px;
+  position: relative;
+}

@@ -13,10 +13,6 @@ router.get('/login', function(req, res) {
     res.render('pages/login/index');
 });
 
-router.get('/esqueci-senha', function(req, res) {
-    res.render('pages/esqueciSenha/index');
-});
-
 router.get('/menu', function(req, res) {
     res.render('pages/menuHamburger-logoff/index');
 });
@@ -58,23 +54,23 @@ router.get('/cadastre-se', function(req, res){
 });
 
 router.get('/construcao', function(req, res){
-    res.render('pages/construção/index');
+    res.render('pages/subcategorias-servicos/construção/index');
 });
 
 router.get('/reparo', function(req, res){
-    res.render('pages/reparos/index');
+    res.render('pages/subcategorias-servicos/reparos/index');
 });
 
 router.get('/projeto', function(req, res){
-    res.render('pages/projetos/index');
+    res.render('pages/subcategorias-servicos/projetos/index');
 });
 
 router.get('/montagem', function(req, res){
-    res.render('pages/montagem/index');
+    res.render('pages/subcategorias-servicos/montagem/index');
 });
 
 router.get('/manutencao-eletrica', function(req, res){
-    res.render('pages/manutencao-eletrica/index');
+    res.render('pages/subcategorias-servicos/manutencao-eletrica/index');
 });
 
 router.get('/certificacao', function(req, res){

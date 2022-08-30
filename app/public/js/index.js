@@ -21,5 +21,5 @@ function addStateMontagem() {
 function addStateProjeto() {
     let stateObj = { id: "100"};
 
-    window.history.pushState(stateObj, "Projreto", "/Projeto");
+    window.history.pushState(stateObj, "Projeto", "/Projeto");
 }

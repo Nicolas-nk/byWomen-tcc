@@ -1,0 +1,37 @@
+/*Favoritos*/
+
+.banner-favorite{
+    width: 100%;
+    max-width: 540px;
+    margin-top: -40px;
+  }
+  
+  .banner-favorite img{
+    width: 100%;
+  }
+  
+  .favorites{
+    overflow: auto;
+    margin-top: 15px;
+  }
+  
+  .favorites::-webkit-scrollbar{
+    display: none;
+  }
+  
+  .favorite-box{
+    display: flex;
+    max-width: 600px;
+    width: 400%;
+    height: 100%;
+    transition: 0.6s;
+    touch-action: manipulation;
+  }
+  
+  .contents-favorite{
+    width: 25%;
+    height: 150px;
+    border-radius: 10px;
+    margin: 0 10px 0 0;
+    background-color: #240046;
+  }

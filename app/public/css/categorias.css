@@ -1,0 +1,185 @@
+/*Categorias*/
+
+.works {
+    flex-wrap: wrap;
+    position: relative;
+    gap: 10px;
+    max-width: 540px;
+  }
+  
+  .categories-slide{
+    position: relative;
+  }
+  
+  .works-categories::-webkit-scrollbar{
+      display: none;
+  }
+  
+  .slide-works{
+    width: 100%;
+    height: 50px;
+    background-color: #5A189A;
+  }
+  
+  .works-categories{
+    height: 100%;
+    align-items: center;
+    column-gap: 32px;
+    touch-action: manipulation;
+    display: flex;
+    overflow-x: auto;
+  }
+  
+  .slide-tag span{
+    display: flex;
+    justify-content: center;  
+  }
+  .slide-tag{
+    margin: 0 15px;
+  }
+  
+  span.manutecao-text{
+    width: 150px;
+  }
+  
+  .slide-tag-work{
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    background-color: #7b2cbf;
+  }
+  
+  .slide-tag:hover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .slide-tag span{
+    color: #fff;
+  }
+  
+  .work-pic {
+    height: 256px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 50px;
+    border-radius: 20px;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .tag-work {
+    position: relative;
+    top: 226px;
+    height: 53px;
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+    background-color: #f5e8ff;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 5px 15px -3px rgba(0,0,0,0.1);
+  }
+  
+  .tag-work span {
+    width: 100%;
+    text-align: end;
+    margin-right: 10px;
+    color: #3c096c;
+    font-size: 20px;
+  }
+  
+  .construcao a, .montagem a, .manutencao a, .reparos a, .projetos a{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .construcao, .montagem, .manutencao, .reparos, .projetos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .obra {
+    background-image: url("/images/trabalhos/obra.jpg");
+  }
+  
+  .encanamento {
+    background-image: url("/images/trabalhos/encanamento.jpg");
+  }
+  
+  .marmoria {
+    background-image: url("/images/trabalhos/marmoria.jpg");
+  }
+  
+  .vidracaria {
+    background-image: url("/images/trabalhos/vidracaria.jpg");
+  }
+  
+  .arquitetura {
+    background-image: url("/images/trabalhos/arquitetura.jpg");
+  }
+  
+  .eletricista {
+    background-image: url("/images/trabalhos/eletricista.jpg");
+  }
+  
+  .mudanca {
+    background-image: url("/images/trabalhos/mudanca.jpg");
+  }
+  
+  .manutencao-pcs {
+    background-image: url("/images/trabalhos/manutencao-pcs.jpg");
+  }
+  
+  .sonorizacao {
+    background-image: url("/images/trabalhos/sonorizacao.jpg");
+  }
+  
+  .antenista {
+    background-image: url("/images/trabalhos/antenista.jpg");
+  }
+  
+  .pintura-parede {
+    background-image: url("/images/trabalhos/pintura-parede.jpg");
+  }
+  
+  .montagem-work {
+    background-image: url("/images/trabalhos/montagem.jpg");
+  }
+  
+  .toldo {
+    background-image: url("/images/trabalhos/toldo.jpg");
+  }
+  
+  .rede-protecao {
+    background-image: url("/images/trabalhos/rede-seguranca.jpg");
+  }
+  
+  .seguranca-perimetral {
+    background-image: url("/images/trabalhos/seguranca-perimetral.jpg");
+  }
+  
+  .manutencao-piscina {
+    background-image: url("/images/trabalhos/manutencao-piscina.jpg");
+  }
+  
+  .limpeza-pos-obra {
+    background-image: url("/images/trabalhos/limpeza-pos-obra.jpg");
+  }
+  
+  .solda {
+    background-image: url("/images/trabalhos/solda.jpg");
+  }
+  
+  .chaveiro {
+    background-image: url("/images/trabalhos/chaveiro.jpg");
+  }
+  
+  .azulejo {
+    background-image: url("/images/trabalhos/manutencao-azulejo.jpg");
+  }
