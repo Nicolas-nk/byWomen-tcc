@@ -7,9 +7,7 @@
   }
   
   .box-jobs {
-    margin-top: 100px;
-    width: 90vw;
-    max-width: 540px;
+    margin-top: 50px;
     position: relative;
     margin-left: 0;
     margin-right: 0;
@@ -26,27 +24,25 @@
     height: 175px;
   }
   
-  .profile-image img {
+  .profile-image {
     position: relative;
   }
   
   .slide {
     max-width: 540px;
-    height: 113px;
     overflow: hidden;
-    position: relative;
-    margin-top: 50px;
+    margin-top: 150px;
+    border-radius: 10px;
   }
   
-  .banner-1,
-  .banner-2,
-  .banner-3 {
-    display: flex;
-  }
-  
-  .banner {
+.banner{
+  width: 100%;
+}
+
+  .banner img{
     max-width: 540px;
-    width: 34%;
+    width: 100%;
+    height: 100%;
     position: relative;
   }
   
@@ -170,14 +166,13 @@
   /*Perfil Colaboradora*/
 
 .badges{
-  width: 90vw;
+  width: 100%;
   max-width: 540px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
-  position: relative;
-  margin-top: 90px;
+  margin-top: 150px;
 }
 
 .badge{
@@ -190,44 +185,13 @@
   text-align: center;
 }
 
-.announce-work{
-  display: flex;
-  width: 100vw;
-  max-width: 540px;
-  background-color: #F5E8FF;
-  position: relative;
-  margin-top: 30px;
-  justify-content: center;
-  align-items: center;
-}
-
-.announce-work span{
-  color: #240046;
-  font-weight: 500;
-  font-size: 20px;
-}
-
-.request-service{
-  display: flex;
-  width: 100vw;
-  max-width: 540px;
-  position: relative;
-  background-color: #fff;
-  margin-top: 10px;
-  justify-content: center;
-  align-items: center;
-}
-
-.request-service span{
-  color: #240046;
-  font-weight: 500;
-  font-size: 20px;
+.profile-nav{
+  box-shadow: 0px 5px 15px -3px rgba(0,0,0,0.5);
+  border-radius: 7px;
 }
 
 .description{
   position: relative;
-  width: 90vw;
-  max-width: 540px;
   margin-top: 20px;
 }
 
@@ -251,27 +215,14 @@
   max-width: 30px;
 }
 
-.box-text{
-  position: relative;
-  width: 90vw;
-  max-width: 450px;
-}
-
-.text-work{
-  font-weight: 300;
-  font-size: 24px;
-  color: #000;
-  text-align: start;
-  margin: 5%;
-}
-
 .your-work{
   background-image: url("/images/trabalho.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  width: 90%;
-  max-width: 450px;
+  width: 100%;
   height: 500px;
+  box-shadow: 0px 5px 15px -3px rgba(0,0,0,0.5);
+  border-radius: 5px;
   position: relative;
 }
 
@@ -301,8 +252,7 @@
 }
 
 .your-licenses{
-  width: 90%;
-  max-width: 450px;
+  width: 100%;
   height: 180px;
   overflow-x: auto;
   overflow-y: hidden;
@@ -314,10 +264,9 @@
   display: flex;
   width: 500px;
   height: 100%;
-  transition: 0.6s;
-  margin: auto;
+  transition: 0.6s; 
   touch-action: manipulation;
-  justify-content: space-around;
+  gap: 10px;
 }
 
 .license{
