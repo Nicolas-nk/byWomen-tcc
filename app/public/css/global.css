@@ -1,6 +1,6 @@
 /* only mobile viwer */
 body {
-  max-width: 576px !important;
+  max-width: 540px !important;
   margin-left: auto !important;
   margin-right: auto !important;
 
@@ -150,7 +150,7 @@ body {
   z-index: 100;
   position: fixed;
   bottom: 0;
-  max-width: 576px;
+  max-width: 540px;
   width: 100%;
   border-radius: 10px 10px 0 0;
 }
@@ -169,7 +169,7 @@ body {
 .navbar,
 .wallpaper {
   position: relative;
-  max-width: 576px;
+  max-width: 540px;
 }
 
 .header-navbar {
@@ -178,7 +178,7 @@ body {
   align-items: center;
   position: relative;
   margin: 0 auto;
-  max-width: 576px;
+  max-width: 540px;
   width: 100%;
 }
 
@@ -239,8 +239,8 @@ body {
   justify-content: center;
 }
 
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
+/* Small devices (landscape phones, 540px and up) */
+@media (min-width: 540px) {
   .container {
     padding-right: calc(var(--bs-gutter-x) * 1.5) !important;
     padding-left: calc(var(--bs-gutter-x) * 1.5) !important;
