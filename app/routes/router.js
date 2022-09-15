@@ -2,8 +2,20 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res) {
+    if (req.session.autenticado) {
+        autenticado = { autenticado: req.session.usu_autenticado };
+        console.log("autenticado")
+      } else {
+        autenticado = { autenticado: null };
+        console.log("não autenticado")
+      }
     res.render('pages/home/index');
 });
+
+router.get("/sair", function (req, res) {
+    req.session.destroy();
+    res.redirect("/");
+  });
 
 router.get('/pedidos', function(req, res) {
     res.render('pages/pedidosServiços/index');

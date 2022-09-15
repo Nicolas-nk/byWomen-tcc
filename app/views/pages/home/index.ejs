@@ -25,7 +25,11 @@
           <img src="/images/logo/logo.svg" alt="" />
         </div>
         <div class="col-auto">
-          <a href="/login"><img src="/images/icons/header/usuario.svg" alt="" /></a>
+          <% if(autenticado){ %>
+            <a href="/perfil"><img src="/images/colaboradoras-exemplos/colaboradora.png" alt="" /></a>
+            <% }else{ %>
+              <a href="/login"><img src="/images/icons/header/usuario.svg" alt="" /></a>
+              <% } %>
         </div>
       </nav>
     </div>
@@ -192,7 +196,9 @@
 
 
   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script>
