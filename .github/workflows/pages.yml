@@ -33,7 +33,6 @@ jobs:
           node-version: 16.13.0
           architecture: 'x64' # optional, x64 or x86. If not specified, x64 will be used by default
       - run: npm ci
-      - run: npm test
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Build with Jekyll
