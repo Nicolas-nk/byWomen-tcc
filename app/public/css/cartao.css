@@ -1,0 +1,127 @@
+.option-card{
+    position: relative;
+    width: 320px;
+    margin: 30px 0;
+}
+
+span.cred, span.deb{
+    cursor: pointer;
+}
+
+.option-card::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    bottom: 0;
+    border-radius: 2px 2px 0 0;
+    background-color: #3C096C;
+    transition: all .45s ease-in-out;
+}
+
+.option-deb::after{
+    width: 45%;
+    left: 0;
+    transform: translate(5%);
+}
+
+.option-cred::after{
+    width: 45%;
+    left: 0;
+    transform: translate(168px);
+}
+
+.card-cred{
+    width: 320px;
+    height: 200px;
+    margin: 0 0 30px 0;
+    background: rgb(149,22,255);
+    background: linear-gradient(53deg, rgba(149,22,255,1) 0%, rgba(91,11,158,1) 50%, rgba(36,0,64,1) 100%);
+    border-radius: 25px;
+    box-shadow: 0px 5px 15px -3px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.inf-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inf-card label{
+    text-align: start;
+    width: 100%;
+    max-width: 320px;
+}
+
+.inf-card input{
+    width: 100%;
+    max-width: 320px;
+    border: #C5C5C5 0.5px solid;
+    border-radius: 10px;
+    height: 40px;
+}
+
+.date-cvv{
+    display: flex;
+    max-width: 320px;
+}
+
+.inf-card .date-cvv input{
+    width: 95%;
+}
+
+input:focus{
+    outline: none;
+}
+
+.name{
+    color: #fff;
+    position: absolute;
+    bottom: 15px;
+    left: 30px;
+}
+
+.number-card{
+    color: #fff;
+    position: absolute;
+    bottom: 60px;
+    left: 30px; 
+}
+
+.date{
+    color: #fff;
+    position: absolute;
+    right: 30px;
+    top: 15px; 
+}
+
+.circle{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    left: 30px;
+    top: 15px;
+    background-color: #fff;
+    opacity: 35%;
+}
+
+.second-circle{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    left: 45px;
+    top: 15px;
+    background-color: #fff;
+    opacity: 35%;
+}
+
+.save-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 30px;
+    width: 320px;
+}
+

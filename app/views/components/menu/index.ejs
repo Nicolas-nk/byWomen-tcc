@@ -1,8 +1,61 @@
 <nav class="menu bg-purplegradient">
-    <div class="menu-itens">
-      <a href="/" class=""><img src="images/icons/menu/home.svg" alt=""></a>
-      <a href="/todasCategorias" class="itens"><img src="images/icons/menu/categorias.svg" alt=""></a>
-      <a href="/favoritos" class="itens"><img src="images/icons/menu/favoritos.svg" alt=""></a>
-      <a href="/menu" class="itens"><img src="images/icons/menu/menu-hamburguer.svg" alt=""></a>
+  <div class="menu-itens">
+    <a href="/" class=""><img src="images/icons/menu/home.svg" alt="" /></a>
+    <a href="/todasCategorias" class="itens"><img src="images/icons/menu/categorias.svg" alt="" /></a>
+    <a href="/favoritos" class="itens"><img src="images/icons/menu/favoritos.svg" alt="" /></a>
+    <div class="itens" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+      <img src="images/icons/menu/menu-hamburguer.svg" alt="" />
     </div>
+  </div>
 </nav>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="width: 100vw;">
+  <div class="bg-pink container " style="height: 100vh; max-width: 540px;">
+    <div class="offcanvas-header px-0 py-4">
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <aside class="line">
+      <div class="input">
+        <a href="/perfil-colaboradora" class="input-line">
+          <span>Perfil</span>
+          <img src="images/icons/setapurple.svg" alt="" />
+        </a>
+        <hr />
+        <a href="/planos" class="input-line">
+          <span>Planos</span>
+          <img src="images/icons/setapurple.svg" alt="" />
+        </a>
+        <hr />
+        <a class="input-line" href="/configuracao">
+          <span>Configurações</span>
+          <img src="images/icons/setapurple.svg" alt="" />
+        </a>
+        <hr />
+        <a class="input-line">
+          <span>Termos de uso</span>
+          <img src="images/icons/setapurple.svg" alt="" />
+        </a>
+
+        <hr />
+        <a class="input-line">
+          <span>Política de privacidade</span>
+          <img src="images/icons/setapurple.svg" alt="" />
+        </a>
+
+        <hr />
+        <h1 class="text">
+          Siga nos em <br />
+          nossas<br />
+          <strong> redes socais </strong>
+        </h1>
+        <div class="redes">
+          <img src="images/icons/redes/instagram.svg" alt="" />
+          <img src="images/icons/redes/facebook.svg" alt="" />
+          <img src="images/icons/redes/youtube.svg" alt="" />
+          <img src="images/icons/redes/linkedin.svg" alt="" />
+        </div>
+        <hr style="padding-bottom: 60px; margin: 0" />
+      </div>
+    </aside>
+  </div>
+</div>

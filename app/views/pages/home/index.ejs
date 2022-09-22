@@ -1,252 +1,499 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>By Women</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/global.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>By Women</title>
-  <link rel="stylesheet" href="css/reset.css" />
-  <link rel="stylesheet" href="css/global.css" />
-  <link rel="stylesheet" href="css/home.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
-
-
-</head>
-
-<body>
-  <header class="bg-purplegradient">
-    <div class="container py-2">
-      <nav class="row align-items-center justify-content-between">
-        <div class="col-auto">
-          <img src="/images/logo/logo.svg" alt="" />
+  <body>
+    <div class="inf-bw">
+      <div class="contents-inf">
+        <div class="slide-inf image-inf"></div>
+        <div class="mask-gradient">
+          <div class="inf-contents">
+            <div class="inf-text oportunidade container">
+              <p class="fonts-2">
+                Oportunidades de trabalho e renda através de serviço autônomo
+              </p>
+              <p class="fonts-6">
+                Se torne uma parceira e comece <br />quando quiser
+              </p>
+            </div>
+            <div class="inf-text escolha-especialistas container">
+              <p class="fonts-2">
+                Consulte as categorias de serviço e escolha uma de nossas
+                especialistas
+              </p>
+              <p class="fonts-6">
+                Contrate agora uma de nossas <br />parceiras
+              </p>
+            </div>
+            <div class="inf-text proposito container">
+              <p class="fonts-2">
+                Temos como propósito ajudar você a encontrar o serviço desejado
+                com praticidade e segurança!
+              </p>
+              <p class="fonts-6">
+                Do seu jeito, da melhor forma e com <br />facilidade
+              </p>
+            </div>
+            <div class="nav-banner container">
+              <div class="nav-inf">
+                <input
+                  type="radio"
+                  id="slide1"
+                  class="button-banner"
+                  name="slide"
+                />
+                <input
+                  type="radio"
+                  id="slide2"
+                  class="button-banner"
+                  name="slide"
+                />
+                <input
+                  type="radio"
+                  id="slide3"
+                  class="button-banner"
+                  name="slide"
+                />
+                <div class="nav-button">
+                  <label for="slide" class="slide1 checked"></label>
+                  <label for="slide" class="slide2"></label>
+                  <label for="slide" class="slide3"></label>
+                </div>
+                <span class="fonts-6 text-center skip">Pular</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="col-auto">
-          <% if(autenticado){ %>
-            <a href="/perfil"><img src="/images/colaboradoras-exemplos/colaboradora.png" alt="" /></a>
-            <% }else{ %>
-              <a href="/login"><img src="/images/icons/header/usuario.svg" alt="" /></a>
+        <div class="header-mask container">
+          <div class="header-inf">
+            <img src="/images/logo/logo-extenso.svg" alt="" />
+            <a href="/login"><span>Entrar</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <header class="bg-purplegradient">
+      <div class="container py-2">
+        <nav class="row align-items-center justify-content-between">
+          <div class="col-auto">
+            <img src="/images/logo/logo.svg" alt="" />
+          </div>
+          <div class="col-auto">
+            <% if(autenticado===true){ %>
+            <a href="/perfil">
+              <% if(usu_autenticado_foto===null){ %>
+              <img src="/images/icons/header/usuario.svg" alt="" />
+              <% }else{ %>
+              <img src="" alt="" />
               <% } %>
-        </div>
-      </nav>
-    </div>
-  </header>
-  <main>
-    <div class="bg-purplegradient">
-      <div class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="/images/banners/banner-home1.png" class="img-fluid w-100" alt="..." usemap="#image-map" />
-
-            <map name="image-map">
-              <area target="_self" alt="torne-se colaboradora" title="torne-se colaboradora" href="..."
-                coords="20,137,165,195" shape="rect" />
-            </map>
+            </a>
+            <% }else if(autenticado !==true){ %>
+            <a href="/login"
+              ><img src="/images/icons/header/usuario.svg" alt=""
+            /></a>
+            <% } %>
           </div>
-          <div class="carousel-item active">
-            <img src="/images/banners/banner-home2.png" class="img-fluid w-100" alt="..." />
-          </div>
-          <div class="carousel-item active">
-            <img src="/images/banners/banner-home3.png" class="img-fluid w-100" alt="..." />
-          </div>
-        </div>
+        </nav>
       </div>
-      <div>
-        <div class="container text-white pb-5">
-          <div class="my-3">
-            <form class="search-form" onsubmit="alert('Pesquisa');">
-              <button type="submit" class="lupa"><img src="/images/icons/pesquisar-home.svg"></button>
-              <input class="search text-white" type="text" aria-label="Search" />
-            </form>
-          </div>
-          <div class="destaques-container text-center pb-5">
-            <h1 class="fonts-1">Nossas parceiras <br>
-              destaques</h1>
+    </header>
+    <main>
+      <div class="bg-purplegradient">
+        <div class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="/images/banners/banner-home1.png"
+                class="img-fluid w-100"
+                alt="..."
+                usemap="#image-map"
+              />
 
-            <div class="slider slider-parceiras">
-              <div class="mx-3 my-3" style="width: 115px;"><img src="/images/colaboradoras-exemplos/colaboradora.png"
-                  alt="" class=" mx-auto" /></div>
-              <div class="mx-3 my-3" style="width: 115px;"><img src="/images/colaboradoras-exemplos/colaboradora1.png"
-                  alt="" class=" mx-auto" /></div>
-              <div class="mx-3 my-3" style="width: 115px;"><img src="/images/colaboradoras-exemplos/colaboradora2.png"
-                  alt="" class=" mx-auto" /></div>
-              <div class="mx-3 my-3" style="width: 115px;"><img src="/images/colaboradoras-exemplos/colaboradora3.png"
-                  alt="" class=" mx-auto" /></div>
-              <div class="mx-3 my-3" style="width: 115px;"><img src="/images/colaboradoras-exemplos/colaboradora4.png"
-                  alt="" class=" mx-auto" /></div>
+              <map name="image-map">
+                <area
+                  target="_self"
+                  alt="torne-se colaboradora"
+                  title="torne-se colaboradora"
+                  href="..."
+                  coords="20,137,165,195"
+                  shape="rect"
+                />
+              </map>
             </div>
-            <div class="slider slider-for text-center">
-              <div>
-                <div>
-                  <img src="" alt="">
-                </div>
-                <div>
-                  <h2 class="fonts-2">Roberta Andrade</h2>
-                </div>
-                <div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget tellus ipsum. Curabitur
-                    blandit, turpis nec interdum fringilla, nisl nibh egestas ipsum, in tempus nisl enim ut quam.
-                    Integer gravida euismod velit, quis consequat arcu aliquet ac. Sed tortor dui, condimentum eu.</p>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <img src="" alt="">
-                </div>
-                <div>
-                  <h2 class="fonts-2">Matilde Lima</h2>
-                </div>
-                <div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget tellus ipsum. Curabitur
-                    blandit, turpis nec interdum fringilla, nisl nibh egestas ipsum, in tempus nisl enim ut quam.
-                    Integer gravida euismod velit, quis consequat arcu aliquet ac. Sed tortor dui, condimentum eu
-                    cursus vitae, bibendum nec libero.</p>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <img src="" alt="">
-                </div>
-                <div>
-                  <h2 class="fonts-2">Manuela Barros</h2>
-                </div>
-                <div>
-                  <p>Lorem ipsum dolor sit amet,
-                    blandit, turpis nec interdum fringilla, nisl nibh egestas ipsum, in tempus nisl enim ut quam.
-                    Integer gravida euismod velit, quis consequat arcu aliquet ac. Sed tortor dui, condimentum eu
-                    cursus vitae, bibendum nec libero.</p>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <img src="" alt="">
-                </div>
-                <div>
-                  <h2 class="fonts-2">Fernanda Lopes</h2>
-                </div>
-                <div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget tellus ipsum. Curabitur
-                    blandit, turpis nec interdum fringilla, nisl nibh egestas ipsum, in tempus nisl enim ut quam.
-                    Integer gravida euismod velit, quis consequat arcu aliquet ac. Sed tortor dui, condimentum eu
-                    cursus vitae, bibendum nec libero.</p>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <img src="" alt="">
-                </div>
-                <div>
-                  <h2 class="fonts-2">Amanda Azevedo</h2>
-                </div>
-                <div>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget tellus ipsum. Curabitur
-                    Integer gravida euismod velit, quis consequat arcu aliquet ac. Sed tortor dui, condimentum eu
-                    cursus vitae, bibendum nec libero.</p>
-                </div>
-              </div>
+            <div class="carousel-item active">
+              <img
+                src="/images/banners/banner-home2.png"
+                class="img-fluid w-100"
+                alt="..."
+              />
+            </div>
+            <div class="carousel-item active">
+              <img
+                src="/images/banners/banner-home3.png"
+                class="img-fluid w-100"
+                alt="..."
+              />
             </div>
           </div>
         </div>
-        <img src="/images/banners/home-wave-1.svg" alt="" class="img-fluid w-100">
-      </div>
-    </div>
-    <div class="text-center pb-5">
-      <h2 class="fonts-1">Principais categorias</h2>
-    </div>
-    <div class="bg-purplegradient mt-md-5">
-      <img src="/images/banners/home-wave-2.svg" alt="" class="img-fluid w-100">
-      <div class="container">
-        <div class="categorias-container bg-white">
-          <div class="categorias">
-            <div class="row text-center text-purple-600">
-              <div class="col-6">
-                <a href="/reparo"><img src="/images/icons/categorias/reparos.svg" alt="" /></a>
-                <p>Reparos</p>
+        <div>
+          <div class="container text-white pb-5">
+            <div class="my-3">
+              <form class="search-form" onsubmit="alert('Pesquisa');">
+                <button type="submit" class="lupa">
+                  <img src="/images/icons/pesquisar-home.svg" />
+                </button>
+                <input
+                  class="search text-white"
+                  type="text"
+                  aria-label="Search"
+                />
+              </form>
+            </div>
+            <div class="destaques-container text-center pb-5">
+              <h1 class="fonts-1">
+                Nossas parceiras <br />
+                destaques
+              </h1>
+
+              <div class="slider slider-parceiras">
+                <div class="mx-3 my-3" style="width: 115px">
+                  <img
+                    src="/images/colaboradoras-exemplos/colaboradora.png"
+                    alt=""
+                    class="mx-auto"
+                  />
+                </div>
+                <div class="mx-3 my-3" style="width: 115px">
+                  <img
+                    src="/images/colaboradoras-exemplos/colaboradora1.png"
+                    alt=""
+                    class="mx-auto"
+                  />
+                </div>
+                <div class="mx-3 my-3" style="width: 115px">
+                  <img
+                    src="/images/colaboradoras-exemplos/colaboradora2.png"
+                    alt=""
+                    class="mx-auto"
+                  />
+                </div>
+                <div class="mx-3 my-3" style="width: 115px">
+                  <img
+                    src="/images/colaboradoras-exemplos/colaboradora3.png"
+                    alt=""
+                    class="mx-auto"
+                  />
+                </div>
+                <div class="mx-3 my-3" style="width: 115px">
+                  <img
+                    src="/images/colaboradoras-exemplos/colaboradora4.png"
+                    alt=""
+                    class="mx-auto"
+                  />
+                </div>
               </div>
-              <div class="col-6">
-                <a href="/montagem"><img src="images/icons/categorias/montagem.svg" alt="" /></a>
-                <p>Montagem</p>
-              </div>
-              <div class="col-6">
-                <a href="/pintura"><img src="images/icons/categorias/pintura.svg" alt="" /></a>
-                <p>Pintura</p>
-              </div>
-              <div class="col-6">
-                <a href="/manutencao"><img src="images/icons/categorias/manutencao-eletrica.svg" alt="" /> </a>
-                <p>Manutenção elétrica</p>
-              </div>
-              <div class="col-6">
-                <a href="/projetos"><img src="images/icons/categorias/projetos.svg" alt="" /></a>
-                <p>Projetos</p>
-              </div>
-              <div class="col-6">
-                <a href="/construcao"><img src="images/icons/categorias/construcao.svg" alt="" /></a>
-                <p>Construção</p>
+              <div class="slider slider-for text-center">
+                <div>
+                  <div>
+                    <img src="" alt="" />
+                  </div>
+                  <div>
+                    <h2 class="fonts-2">Roberta Andrade</h2>
+                  </div>
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Maecenas eget tellus ipsum. Curabitur blandit, turpis nec
+                      interdum fringilla, nisl nibh egestas ipsum, in tempus
+                      nisl enim ut quam. Integer gravida euismod velit, quis
+                      consequat arcu aliquet ac. Sed tortor dui, condimentum eu.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <img src="" alt="" />
+                  </div>
+                  <div>
+                    <h2 class="fonts-2">Matilde Lima</h2>
+                  </div>
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Maecenas eget tellus ipsum. Curabitur blandit, turpis nec
+                      interdum fringilla, nisl nibh egestas ipsum, in tempus
+                      nisl enim ut quam. Integer gravida euismod velit, quis
+                      consequat arcu aliquet ac. Sed tortor dui, condimentum eu
+                      cursus vitae, bibendum nec libero.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <img src="" alt="" />
+                  </div>
+                  <div>
+                    <h2 class="fonts-2">Manuela Barros</h2>
+                  </div>
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet, blandit, turpis nec interdum
+                      fringilla, nisl nibh egestas ipsum, in tempus nisl enim ut
+                      quam. Integer gravida euismod velit, quis consequat arcu
+                      aliquet ac. Sed tortor dui, condimentum eu cursus vitae,
+                      bibendum nec libero.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <img src="" alt="" />
+                  </div>
+                  <div>
+                    <h2 class="fonts-2">Fernanda Lopes</h2>
+                  </div>
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Maecenas eget tellus ipsum. Curabitur blandit, turpis nec
+                      interdum fringilla, nisl nibh egestas ipsum, in tempus
+                      nisl enim ut quam. Integer gravida euismod velit, quis
+                      consequat arcu aliquet ac. Sed tortor dui, condimentum eu
+                      cursus vitae, bibendum nec libero.
+                    </p>
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <img src="" alt="" />
+                  </div>
+                  <div>
+                    <h2 class="fonts-2">Amanda Azevedo</h2>
+                  </div>
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Maecenas eget tellus ipsum. Curabitur Integer gravida
+                      euismod velit, quis consequat arcu aliquet ac. Sed tortor
+                      dui, condimentum eu cursus vitae, bibendum nec libero.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+          <img
+            src="/images/banners/home-wave-1.svg"
+            alt=""
+            class="img-fluid w-100"
+          />
         </div>
-        <img src="/images/banners/categorias-bottom.svg" alt="" class="img-fluid w-100 mb-4">
       </div>
-    </div>
-  </main>
+      <div class="text-center pb-5">
+        <h2 class="fonts-1">Principais categorias</h2>
+      </div>
+      <div class="bg-purplegradient mt-md-5">
+        <img
+          src="/images/banners/home-wave-2.svg"
+          alt=""
+          class="img-fluid w-100"
+        />
+        <div class="container">
+          <div class="categorias-container bg-white">
+            <div class="categorias">
+              <div class="row text-center text-purple-600">
+                <div class="col-6">
+                  <a href="/reparo"
+                    ><img src="/images/icons/categorias/reparos.svg" alt=""
+                  /></a>
+                  <p>Reparos</p>
+                </div>
+                <div class="col-6">
+                  <a href="/montagem"
+                    ><img src="images/icons/categorias/montagem.svg" alt=""
+                  /></a>
+                  <p>Montagem</p>
+                </div>
+                <div class="col-6">
+                  <a href="/pintura"
+                    ><img src="images/icons/categorias/pintura.svg" alt=""
+                  /></a>
+                  <p>Pintura</p>
+                </div>
+                <div class="col-6">
+                  <a href="/manutencao"
+                    ><img
+                      src="images/icons/categorias/manutencao-eletrica.svg"
+                      alt=""
+                    />
+                  </a>
+                  <p>Manutenção elétrica</p>
+                </div>
+                <div class="col-6">
+                  <a href="/projetos"
+                    ><img src="images/icons/categorias/projetos.svg" alt=""
+                  /></a>
+                  <p>Projetos</p>
+                </div>
+                <div class="col-6">
+                  <a href="/construcao"
+                    ><img src="images/icons/categorias/construcao.svg" alt=""
+                  /></a>
+                  <p>Construção</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <img
+            src="/images/banners/categorias-bottom.svg"
+            alt=""
+            class="img-fluid w-100 mb-4"
+          />
+        </div>
+      </div>
+    </main>
 
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-1.11.0.min.js"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//code.jquery.com/jquery-migrate-1.2.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+    ></script>
+    <script>
+      $(".slider-for").slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: ".slider-parceiras",
+      });
 
-  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-    crossorigin="anonymous"></script>
-  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-  <script>
-    $('.slider-for').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: false,
-      fade: true,
-      asNavFor: '.slider-parceiras'
-    });
+      $(".slider-parceiras").slick({
+        asNavFor: ".slider-for",
+        arrows: false,
+        speed: 300,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        focusOnSelect: true,
+        centerMode: true,
+        centerPadding: "60px",
+        variableWidth: true,
+        slidesToShow: 3,
+        responsive: [
+          {
+            breakpoint: 768,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: "40px",
+              slidesToShow: 3,
+              variableWidth: false,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              arrows: false,
+              centerMode: true,
+              centerPadding: "0px",
+              slidesToShow: 1,
+              variableWidth: true,
+            },
+          },
+        ],
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        $("body").css("overflow-y", "hidden");
 
-    $('.slider-parceiras').slick({
-      asNavFor: '.slider-for',
-      arrows: false,
-      speed: 300,
-      autoplay: true,
-      autoplaySpeed: 5000,
-      focusOnSelect: true,
-      centerMode: true,
-      centerPadding: '60px',
-      variableWidth: true,
-      slidesToShow: 3,
-      responsive: [
-        {
-          breakpoint: 768,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '40px',
-            slidesToShow: 3,
-            variableWidth: false,
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            arrows: false,
-            centerMode: true,
-            centerPadding: '0px',
-            slidesToShow: 1,
-            variableWidth: true,
-          }
-        }
-      ]
-    });
-  </script>
-  <div class="fake-menu"></div>
-  <%- include("./../../components/menu/index.ejs") %>
-</body>
+        $(".oportunidade").show();
+        $(".proposito").hide();
+        $(".escolha-especialistas").hide();
 
+        $(".inf-bw").show();
+
+        $(".skip").click(function () {
+          $(".inf-bw").hide();
+          $("body").css("overflow-y", "unset");
+        });
+
+        $(".slide1").click(function () {
+          $(".slide1").addClass("checked");
+          $(".slide2").removeClass("checked");
+          $(".slide3").removeClass("checked");
+          $(".slide-inf").addClass("image-inf");
+          $(".slide-inf").removeClass("image-inf2");
+          $(".slide-inf").removeClass("image-inf3");
+          $(".oportunidade").show();
+          $(".proposito").hide();
+          $(".escolha-especialistas").hide();
+        });
+        $(".slide2").click(function () {
+          $(".slide2").addClass("checked");
+          $(".slide1").removeClass("checked");
+          $(".slide3").removeClass("checked");
+          $(".slide-inf").addClass("image-inf2");
+          $(".slide-inf").removeClass("image-inf");
+          $(".slide-inf").removeClass("image-inf3");
+          $(".escolha-especialistas").show();
+          $(".proposito").hide();
+          $(".oportunidade").hide();
+        });
+        $(".slide3").click(function () {
+          $(".slide3").addClass("checked");
+          $(".slide2").removeClass("checked");
+          $(".slide1").removeClass("checked");
+          $(".slide-inf").addClass("image-inf3");
+          $(".slide-inf").removeClass("image-inf2");
+          $(".slide-inf").removeClass("image-inf");
+          $(".proposito").show();
+          $(".escolha-especialistas").hide();
+          $(".oportunidade").hide();
+        });
+      });
+    </script>
+    <div class="fake-menu"></div>
+    <%- include("./../../components/menu/index.ejs") %>
+  </body>
 </html>

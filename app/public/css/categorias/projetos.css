@@ -1,0 +1,54 @@
+.works-categories{
+    position: relative;
+    }
+    
+    .works-categories::before{
+      content: "";
+      position: absolute;
+      height: 1px;
+      width: 845px;
+      bottom: 0;
+      background-color: #ddb0ff;
+      transition: all .45s ease-in-out;
+      }
+    
+    .works-categories::after{
+    content: "";
+    position: absolute;
+    height: 4px;
+    bottom: 0;
+    border-radius: 2px 2px 0 0;
+    background-color: #fff;
+    transition: all .45s ease-in-out;
+    }
+    
+    .construcao-screen-tag::after{
+    transform: translateX(270px);
+    left: 0;
+    width: 90px;
+    }
+    
+    .manutencao-screen-tag::after{
+    transform: translateX(417px);
+    left: 0;
+    width: 160px;
+    }
+    
+    .montagem-screen-tag::after{
+    transform: translateX(131px);
+    left: 0;
+    width: 88px;
+    }
+    
+    .projetos-screen-tag::after{
+    transform: translateX(10px);
+    left: 0;
+    width: 70px;
+    }
+    
+    .reparos-screen-tag::after{
+    transform: translateX(747px);
+    left: 0;
+    width: 70px;
+    }
+    
