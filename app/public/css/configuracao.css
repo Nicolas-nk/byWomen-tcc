@@ -1,9 +1,4 @@
-.profile-picture {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 20px 0;
-}
+
 
 .box-config {
   background-color: #fff;
@@ -23,6 +18,30 @@ input {
  input:focus {
   outline: 0;
   color: #000;
+}
+
+#userImage{
+  display: none;
+}
+.profile-picture-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.profile-picture-img {
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background .3s;
+}
+
+.profile-picture-img:hover{
+  background-color: rgb(180, 180, 180);
+  border: 5px solid rgb(180, 180, 180);
 }
 
 .change {
