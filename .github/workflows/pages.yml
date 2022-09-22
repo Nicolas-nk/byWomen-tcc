@@ -30,7 +30,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.4.1
         with:
-          node-version-file: '.nvmrc'
+          node-version: 16.13.0
           architecture: 'x64' # optional, x64 or x86. If not specified, x64 will be used by default
       - run: npm ci
       - run: npm test
