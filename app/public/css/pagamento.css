@@ -1,0 +1,80 @@
+.card-cred {
+    width: 320px;
+    height: 200px;
+    background: rgb(149, 22, 255);
+    background: linear-gradient(53deg, rgba(149, 22, 255, 1) 0%, rgba(91, 11, 158, 1) 50%, rgba(36, 0, 64, 1) 100%);
+    border-radius: 25px;
+    box-shadow: 0px 5px 15px -3px rgba(0, 0, 0, 0.5);
+    transform: rotate(-75deg);
+    margin: 0 auto;
+    position: relative;
+    top: 200px;
+}
+
+.card-transparent {
+    width: 320px;
+    height: 200px;
+    background-color: #fff;
+    opacity: 50%;
+    border-radius: 25px;
+    box-shadow: 0px 5px 15px -3px rgba(0, 0, 0, 0.5);
+    transform: rotate(75deg);
+    backdrop-filter: blur(25px);
+    margin: 0 auto;
+}
+
+.finish{
+    position: relative;
+    top: 150px;
+}
+
+p{
+    text-align: center;
+    color: #3C096C;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.finish a{
+    text-decoration: none;
+}
+
+.circle{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    right: 30px;
+    bottom: 15px;
+    background-color: #fff;
+    opacity: 35%;
+}
+
+.second-circle{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    right: 45px;
+    bottom: 15px;
+    background-color: #fff;
+    opacity: 35%;
+}
+
+.return{
+    position: relative;
+    width: 75px;
+    height: 70px;
+    background-color: #3C096C;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.return span{
+    color: #fff;
+    font-size: 60px;
+    margin-bottom: 15px;
+}
