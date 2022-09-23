@@ -1,23 +1,24 @@
 const express = require('express');
-var session = require("express-session");
+const session = require('express-session');
+const MemoryStore = require('memorystore')(session);
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
+
+app.use(session({
+    cookie: { maxAge: 86400000 },
+    store: new MemoryStore({
+      checkPeriod: 86400000 // prune expired entries every 24h
+    }),
+    resave: false,
+    saveUninitialized: true,
+    secret: 'keyboard cat'
+}));
 
 app.use(express.static('app/public'));
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
-
-app.use(
-    session({
-      secret: "keyboard cat",
-      resave: false,
-      saveUninitialized: false,
-      cookie: {
-        maxAge: 7 * 24 * 3600 * 1000,
-      }
-  }));
 
 app.set('view engine', 'ejs');
 app.set('views', './app/views');

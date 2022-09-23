@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/configuracao.css" />
-        <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/menu.css">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -22,8 +22,9 @@
             <div class="container">
                 <nav class="header-navbar">
                     <div class="header-components">
-                        <a href="javascript:void(0)" onClick="history.go(-1); return false;"><img
-                                src="/images/icons/header/return.svg" alt="" /></a>
+                        <a href="javascript:void(0)" onClick="history.go(-1); return false;">
+                            <img src="/images/icons/header/return.svg" alt="" />
+                        </a>
                     </div>
                 </nav>
             </div>
@@ -33,11 +34,13 @@
         <form action="/auth/configuracao" method="POST">
             <div class="box-config mt-0 container">
                 <div class="contents-box">
-                    <div class="profile-picture">
-                        <img src="images/profile/config-profile-pic.png" alt="">
+                    <label for="userImage" class="profile-picture-container">
+                        <img src="images/profile/config-profile-pic.png" alt="" class="profile-picture-img"
+                            id="profile-picture-img">
                         <span>Alterar imagem de perfil</span>
                         <img src="images/icons/setapurple.svg" alt="">
-                    </div>
+                    </label>
+                    <input type="file" id="userImage" name="userImage" accept="image/*">
                     <div class="change">
                         <label for="">Nome de usuário:</label>
                         <input type="text" name="nome" id="nome" value="<%= usu_autenticado_nome %>">
@@ -61,12 +64,12 @@
             <div class="box-config container">
                 <div class="contents-box">
                     <div class="change">
-                        <% if(usu_autenticado_cep === null){ %>
+                        <% if(usu_autenticado_cep===null){ %>
                             <label for="">Adicionar CEP</label>
-                            <% }else{ %>                             
+                            <% }else{ %>
                                 <label for="">Alterar CEP</label>
-                            <% } %>
-                                <input type="text" name="cep" id="cep" value=<%=usu_autenticado_cep%>>
+                                <% } %>
+                                    <input type="text" name="cep" id="cep" value=<%=usu_autenticado_cep%>>
                     </div>
                 </div>
             </div>
@@ -89,6 +92,30 @@
     </div>
     <div class="fake-menu"></div>
     <%- include('./../../components/menu/index.ejs') %>
+
+        <script>
+            let photo = document.getElementById('profile-picture-img');
+            let file = document.getElementById('userImage');
+
+            photo.addEventListener('click', () => {
+                file.click();
+            });
+
+            file.addEventListener('change', () => {
+
+                if (file.files.length <= 0) {
+                    return;
+                }
+
+                let reader = new FileReader();
+
+                reader.onload = () => {
+                    photo.src = reader.result;
+                }
+
+                reader.readAsDataURL(file.files[0]);
+            });
+        </script>
 </body>
 
 </html>
