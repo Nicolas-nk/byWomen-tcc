@@ -78,7 +78,7 @@ input.search:focus-visible {
 
 .image-inf{
   max-width: 540px;
-  height: 100vh;
+  height: 100%;
   background-position-y: 60%;
   background-image: url(../images/banners/ajuda.jpg);
   object-fit: cover;
@@ -88,7 +88,7 @@ input.search:focus-visible {
 
 .image-inf2{
   max-width: 540px;
-  height: 100vh;
+  height: 100%;
   background-position-y: 60%;
   background-image: url(../images/banners/escolher-especialista.jpg); 
   object-fit: cover;
@@ -98,7 +98,7 @@ input.search:focus-visible {
 
 .image-inf3{
   max-width: 540px;
-  height: 100vh;
+  height: 100%;
   background-position-y: 0%;
   background-image: url(../images/banners/proposito.jpg);
   object-fit: cover;
