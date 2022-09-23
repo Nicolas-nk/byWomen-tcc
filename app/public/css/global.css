@@ -73,9 +73,14 @@ body {
 }
 .bg-pink {
   background-color: #f5e8ff;
+  min-height: 750px;
+  height: 100vh;
 }
 .bg-white {
   color: #fff;
+}
+.bg-purple-0{
+  background-color: #F5F5F5;
 }
 .bg-purple-100 {
   color: #c77dff;
