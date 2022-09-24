@@ -1,30 +1,36 @@
 /*Menu*/
 
 .input span {
-    font-size: 22px;
-    color: #240046;
-  }
-  
-  .input h1 {
-    text-align: start;
-    color: #240046;
-    font-size: 22px;
-  }
-  
-  .redes {
-    margin-left: 0;
-    margin-top: 30px;
-  }
-  
-  .input-line {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-decoration: none;
-    cursor: pointer;
-    padding-top: 20px;
-  }
-  
-  .line hr {
-    max-width: 90vw;
-  }
+  font-size: 22px;
+  color: #240046;
+}
+
+.input h1 {
+  text-align: start;
+  color: #240046;
+  font-size: 22px;
+}
+
+.redes {
+  margin-left: 0;
+  margin-top: 30px;
+}
+
+.input-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  padding-top: 20px;
+}
+.btn-close {
+  padding: 0 !important;
+  width: auto;
+  height: auto;
+  background: none;
+  opacity: 0.75;
+}
+.btn-close:focus {
+  box-shadow: none;
+}

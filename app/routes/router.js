@@ -78,7 +78,7 @@ router.get("/cadastre-se", function (req, res) {
   res.render("pages/cadastre-se/index", req.session);
 });
 
-router.get("/construcao", function (req, res) {
+router.get("/Construcao", function (req, res) {
   autenticado =
     req.session.autenticado === true
       ? { autenticado: req.session.usu_autenticado_id }
@@ -86,7 +86,7 @@ router.get("/construcao", function (req, res) {
   res.render("pages/subcategorias-servicos/construção/index", req.session);
 });
 
-router.get("/reparo", function (req, res) {
+router.get("/Reparos", function (req, res) {
   autenticado =
     req.session.autenticado === true
       ? { autenticado: req.session.usu_autenticado_id }
@@ -94,7 +94,7 @@ router.get("/reparo", function (req, res) {
   res.render("pages/subcategorias-servicos/reparos/index", req.session);
 });
 
-router.get("/projeto", function (req, res) {
+router.get("/Projetos", function (req, res) {
   autenticado =
     req.session.autenticado === true
       ? { autenticado: req.session.usu_autenticado_id }
@@ -102,7 +102,7 @@ router.get("/projeto", function (req, res) {
   res.render("pages/subcategorias-servicos/projetos/index", req.session);
 });
 
-router.get("/montagem", function (req, res) {
+router.get("/Montagens", function (req, res) {
   autenticado =
     req.session.autenticado === true
       ? { autenticado: req.session.usu_autenticado_id }
@@ -110,7 +110,7 @@ router.get("/montagem", function (req, res) {
   res.render("pages/subcategorias-servicos/montagem/index", req.session);
 });
 
-router.get("/manutencao-eletrica", function (req, res) {
+router.get("/Manutencao-eletrica", function (req, res) {
   autenticado =
     req.session.autenticado === true
       ? { autenticado: req.session.usu_autenticado_id }

@@ -9,10 +9,19 @@
   </div>
 </nav>
 
-<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style="width: 100vw; z-index: 5000;">
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel"
+  style="width: 100vw; z-index: 5000;">
   <div class="bg-pink container " style="height: 100vh; max-width: 540px;">
     <div class="offcanvas-header px-0 py-4">
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"><img
+          src="images/icons/header/returnpurple.svg" alt="voltar"></button>
+      <% if(autenticado===true){ %>
+        <% }else if(autenticado !==true){ %>
+          <div class="header-components">
+            <a href="/login"><span class="text-purple-600">Que tal logar?</span></a>
+            <a href="/login"><img src="images/icons/login.svg" alt=""></a>
+          </div>
+          <% } %>
     </div>
     <aside class="line">
       <div class="input">
