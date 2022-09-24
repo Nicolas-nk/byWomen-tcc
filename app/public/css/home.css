@@ -44,12 +44,12 @@ input.search:focus-visible {
 }
 
 .slider-parceiras img {
-  -moz-transform: scale(0.70);
-  -ms-transform: scale(0.70);
-  -o-transform: scale(0.70);
-  -webkit-transform: scale(0.70);
+  -moz-transform: scale(0.7);
+  -ms-transform: scale(0.7);
+  -o-transform: scale(0.7);
+  -webkit-transform: scale(0.7);
   opacity: 0.6;
-  transform: scale(0.70);
+  transform: scale(0.7);
   transition: all 300ms ease;
   margin-left: auto;
   margin-right: auto;
@@ -64,21 +64,26 @@ input.search:focus-visible {
   margin: 0;
 }
 
-.categorias-container{
-    box-shadow: 0px -10px 20px -3px rgba(0,0,0,0.1);
-    -webkit-box-shadow: 0px -10px 20px -3px rgba(0,0,0,0.1); 
-    border-radius: 25px 25px 0 0;
-    position: relative;
-    margin-top: -100px;
+.categorias-container {
+  box-shadow: 0px -10px 20px -3px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px -10px 20px -3px rgba(0, 0, 0, 0.1);
+  border-radius: 25px 25px 0 0;
+  position: relative;
+  margin-top: -100px;
 }
+
 .categorias {
   background: transparent;
   padding: 30px;
 }
-
-.image-inf{
+.slide-inf-img {
   max-width: 540px;
   height: 100%;
+  margin-bottom: 0 !important;
+  background-color: #7b2cbf;
+}
+.image-inf1 {
+  height: 100vh;
   background-position-y: 60%;
   background-image: url(../images/banners/ajuda.jpg);
   object-fit: cover;
@@ -86,19 +91,17 @@ input.search:focus-visible {
   background-size: cover;
 }
 
-.image-inf2{
-  max-width: 540px;
-  height: 100%;
+.image-inf2 {
+  height: 100vh;
   background-position-y: 60%;
-  background-image: url(../images/banners/escolher-especialista.jpg); 
+  background-image: url(../images/banners/escolher-especialista.jpg);
   object-fit: cover;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.image-inf3{
-  max-width: 540px;
-  height: 100%;
+.image-inf3 {
+  height: 100vh;
   background-position-y: 0%;
   background-image: url(../images/banners/proposito.jpg);
   object-fit: cover;
@@ -106,17 +109,17 @@ input.search:focus-visible {
   background-size: cover;
 }
 
-.contents-inf{
+.contents-inf {
   width: 100%;
   height: 100%;
   position: absolute;
 }
 
-.inf-bw::-webkit-scrollbar{
+.inf-bw::-webkit-scrollbar {
   display: none;
 }
 
-.inf-bw{
+.inf-bw {
   width: 100%;
   height: 100%;
   max-width: 540px;
@@ -126,110 +129,111 @@ input.search:focus-visible {
   overflow-y: auto;
 }
 
-.mask-gradient{
-  background: rgb(255,255,255);
-  background: linear-gradient(180deg, rgba(255,255,255,0.06) 12%, rgba(36,0,70,0) 28%, rgba(36,0,64,0.7) 65%);  
+.slide-inf {
+  position: absolute;
+  padding-bottom: 60px;
+  margin-bottom: 46px;
+  bottom: 20px;
+  width: 100%;
+}
+
+.slide-inf .slick-dots {
+  position: absolute;
+  padding-bottom: 28px;
+}
+.slick-dots li {
+  margin: 0 10px;
+}
+.slide-inf .slick-dots li button:before {
+ font-size: 18px;
+  color: #fff;
+}
+
+.inf-text {
+  padding-top: 50vh;
+  color: #fff;
+  text-align: center;
+}
+.inf-text p:nth-child(1) {
+  line-height: 34px;
+  margin-bottom: 0;
+}
+.inf-text p:nth-child(2) {
+  line-height: 20px;
+  margin-bottom: 0;
+  margin-top: 16px;
+}
+
+.mask-gradient {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.06) 12%,
+    rgba(36, 0, 70, 0) 28%,
+    rgba(36, 0, 64, 0.7) 65%
+  );
   width: 100%;
   height: 100%;
   position: absolute;
   bottom: 0;
 }
 
-.header-mask{
+.header-mask {
   top: 0;
   padding-top: 10px;
   width: 100%;
   max-width: 540px !important;
   height: 100px;
-  transition: all .5s ease-in-out;
-  background: rgb(255,255,255);
-  background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(36,0,70,0) 4%, rgba(36,0,66,0.5) 60%, rgba(36,0,64,0.7) 100%);  
+  transition: all 0.5s ease-in-out;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(36, 0, 70, 0) 4%,
+    rgba(36, 0, 66, 0.5) 60%,
+    rgba(36, 0, 64, 0.7) 100%
+  );
   backdrop-filter: blur(2.5px);
   position: fixed;
 }
 
-
-.header-inf{
+.header-inf {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.header-inf a{
+.header-inf a {
   text-decoration: none;
   color: #fff;
 }
-.header-inf a:hover{
+.header-inf a:hover {
   color: #fff;
 }
 
-.header-inf img{
+.header-inf img {
   width: 150px;
   height: auto;
 }
 
-.inf-contents{
+.nav-banner {
+  text-align: center;
+}
+
+.skip {
   position: absolute;
-  bottom: 20px;
-}
-
-.inf-text{
-  color: #fff;
-  text-align: center;
-}
-.inf-text p:nth-child(1){
-  line-height: 34px;
-}
-.inf-text p:nth-child(2){
-  line-height: 20px;
-}
-
-.nav-banner{
-  text-align: center;
-}
-
-.nav-inf {
-  padding-top: 60px;
-  padding-bottom: 10px;
-  display: flex;
-  flex-direction: column;
-}
-
-.nav-inf span{
-  color: #fff;
-}
-
-.nav-inf input{
-  display: none;
-}
-
-.nav-inf label{
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  border: 1px solid #fff;
+  bottom: 30px;
   cursor: pointer;
-}
-
-.nav-inf .checked{
-  background-color: #fff;
-  transition: all .5s ease-in-out;
-}
-
-.nav-inf :nth-child(2){
-  margin: 0 20px;
-}
-
-.skip{
-  cursor: pointer;
+  color: #fff;
 }
 
 @media (min-width: 500px) {
-  .image-inf3{
+  .image-inf3 {
     background-position-y: 10%;
   }
 
-  .image-inf2, .image-inf{
+  .image-inf2,
+  .image-inf1 {
     background-position-y: 40%;
   }
 }
