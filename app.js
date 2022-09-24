@@ -6,9 +6,9 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(session({
-    cookie: { maxAge: 86400000 },
+    cookie: { maxAge: 2629800000 },
     store: new MemoryStore({
-      checkPeriod: 86400000 // prune expired entries every 24h
+      checkPeriod: 2629800000
     }),
     resave: false,
     saveUninitialized: true,

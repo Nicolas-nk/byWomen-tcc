@@ -1,7 +1,21 @@
+h1{
+    margin: 0;
+    font-weight: 400;
+}
+
+hr{
+    width: 55px;
+    height: 2px;
+    opacity: 1;
+    background-color: #3C096C;
+    border: none;
+    margin: 0;
+}
+
 .option-card{
     position: relative;
     width: 320px;
-    margin: 30px 0;
+    margin: 40px 0;
 }
 
 span.cred, span.deb{
@@ -124,4 +138,43 @@ input:focus{
     margin-top: 30px;
     width: 320px;
 }
+
+/*Metodo de pagamento*/
+
+.text-pay{
+    color: #3C096C;
+}
+
+.option, .option-2, .option-3{
+    height: 100px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px -3px rgba(0, 0, 0, 0.5);
+  }
+
+  .banks{
+    margin-left: 8px;
+  }
+
+  label{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #240046;
+    border-style: double;
+    background-color: #fff;
+    transition: all ease-in-out 0.2s;
+  }
+
+  .checked{
+    background-color: #3C096C;
+    transition: all ease-in-out 0.2s;
+  }
+
+  input[type = "radio"]{
+    display: none;
+  }
+
+  .value-pay{
+    color: #3C096C;
+  }
 

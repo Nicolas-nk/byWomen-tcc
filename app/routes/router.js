@@ -158,4 +158,20 @@ router.get("/favoritos", function (req, res) {
   res.render("pages/favoritos/index", req.session);
 });
 
+router.get("/cartao", function (req, res) {
+  res.render("pages/cartao/index");
+});
+
+router.get("/pagamento", function (req, res) {
+  res.render("pages/sucesso/index");
+});
+
+router.get("/crieperfil", function (req, res) {
+  res.render("pages/criePerfil/index");
+});
+
+router.get("/formapagamento", function (req, res) {
+  res.render("pages/pagamento/index");
+});
+
 module.exports = router;
