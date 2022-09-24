@@ -6,110 +6,112 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar cartão</title>
-    <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/cartao.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="icon" href="/images/logo/logo-aba.svg">
+  <link rel="stylesheet" href="css/reset.css" />    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/cartao.css" />
 </head>
 
 <body>
-      <div class="container">
-            <div class="mx-auto d-flex align-items-center justify-content-center option-card option-deb"
-                style="background-color: #F5E8FF; border-radius: 15px; height: 40px;">
-                <div class="d-flex justify-content-around" style="width: 100%;">
-                    <span class="fonts-4 bg-purple-500 deb">Débito</span>
-                    <span class="fonts-4 bg-purple-500 cred">Crédito</span>
-                </div>
-            </div>
-            <div class="card-cred mx-auto">
-                <div class="circle"></div>
-                <div class="second-circle"></div>
-                <div id="js-text-block" data-text="" class="name fonts-3"></div>
-                <div id="js-number-block" data-text="" class="number-card fonts-3"></div>
-                <div id="js-date-block" data-text="" class="date fonts-3"></div>
-            </div>
-            <div class="inf-card">
-                <label for="nomeTitular">Nome do titular</label>
-                <input type="text" name="" id="nomeTitular" value="">
-                <label for="numeroCard">Número do cartão</label>
-                <input type="text" name="" id="numeroCard">
-                <div class="date-cvv">
-                    <div>
-                        <label for="cvv">CVV</label>
-                        <input type="text" name="" id="cvv">
-                    </div>
-                    <div>
-                        <label for="data">Data de validade</label>
-                        <input type="text" name="" id="data">
-                    </div>
-                </div>
-                <div class="save-card">
-                    <p>Deseja salvar este cartão?</p>
-                </div>
+    <div class="container">
+        <h1 class="fonts-3" style="color: #240046;">Cadastrar cartão</h1>
+        <hr>
+        <div class="mx-auto d-flex align-items-center justify-content-center option-card option-deb"
+            style="background-color: #F5E8FF; border-radius: 15px; height: 40px;">
+            <div class="d-flex justify-content-around" style="width: 100%;">
+                <span class="fonts-4 bg-purple-500 deb">Débito</span>
+                <span class="fonts-4 bg-purple-500 cred">Crédito</span>
             </div>
         </div>
+        <div class="card-cred mx-auto">
+            <div class="circle"></div>
+            <div class="second-circle"></div>
+            <div id="js-text-block" data-text="" class="name fonts-3"></div>
+            <div id="js-number-block" data-text="" class="number-card fonts-3"></div>
+            <div id="js-date-block" data-text="" class="date fonts-3"></div>
+        </div>
+        <div class="inf-card">
+            <label for="nomeTitular">Nome do titular</label>
+            <input type="text" name="" id="nomeTitular" value="">
+            <label for="numeroCard">Número do cartão</label>
+            <input type="text" name="" id="numeroCard">
+            <div class="date-cvv">
+                <div>
+                    <label for="cvv">CVV</label>
+                    <input type="text" name="" id="cvv">
+                </div>
+                <div>
+                    <label for="data">Data de validade</label>
+                    <input type="text" name="" id="data">
+                </div>
+            </div>
+            <div class="save-card">
+                <p>Deseja salvar este cartão?</p>
+            </div>
+        </div>
+    </div>
 
-        <script src="https://code.jquery.com/jquery-2.2.4.min.js"
-            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-        <script>
-            $('.cred').click(function () {
-                $('.option-card').removeClass('option-deb')
-                $('.option-card').addClass('option-cred')
-            })
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script>
+        $('.cred').click(function () {
+            $('.option-card').removeClass('option-deb')
+            $('.option-card').addClass('option-cred')
+        })
 
-            $('.deb').click(function () {
-                $('.option-card').addClass('option-deb')
-                $('.option-card').removeClass('option-cred')
-            })
+        $('.deb').click(function () {
+            $('.option-card').addClass('option-deb')
+            $('.option-card').removeClass('option-cred')
+        })
 
-            $('.cred').click(function () {
-                $('.option-card').removeClass('option-deb')
-                $('.option-card').addClass('option-cred')
-            })
-        </script>
-        <script>
-                (() => {
-                    const jsTextBlock = document.getElementById('js-text-block')
-                        , jsNumberBlock = document.getElementById('js-number-block')
-                        , jsDateBlock = document.getElementById('js-date-block')
-                        , jsTextInput = document.getElementById('nomeTitular')
-                        , jsNumberInput = document.getElementById('numeroCard')
-                        , jsDateInput = document.getElementById('data')
+        $('.cred').click(function () {
+            $('.option-card').removeClass('option-deb')
+            $('.option-card').addClass('option-cred')
+        })
+    </script>
+    <script>
+            (() => {
+                const jsTextBlock = document.getElementById('js-text-block')
+                    , jsNumberBlock = document.getElementById('js-number-block')
+                    , jsDateBlock = document.getElementById('js-date-block')
+                    , jsTextInput = document.getElementById('nomeTitular')
+                    , jsNumberInput = document.getElementById('numeroCard')
+                    , jsDateInput = document.getElementById('data')
 
-                    if ((jsTextInput.value).length === 0) {
-                        jsTextBlock.innerHTML = 'Nome do titular'
-                    }
+                if ((jsTextInput.value).length === 0) {
+                    jsTextBlock.innerHTML = 'Nome do titular'
+                }
 
-                    if ((jsNumberInput.value).length === 0) {
-                        jsNumberBlock.innerHTML = '9999 9999 9999 9999'
-                    }
+                if ((jsNumberInput.value).length === 0) {
+                    jsNumberBlock.innerHTML = '9999 9999 9999 9999'
+                }
 
-                    if ((jsDateInput.value).length === 0) {
-                        jsDateBlock.innerHTML = 'mm/aa'
-                    }
+                if ((jsDateInput.value).length === 0) {
+                    jsDateBlock.innerHTML = 'mm/aa'
+                }
 
-                    jsTextInput.addEventListener('input', () => {
-                        jsTextBlock.setAttribute('data-text', jsTextInput.value)
+                jsTextInput.addEventListener('input', () => {
+                    jsTextBlock.setAttribute('data-text', jsTextInput.value)
 
-                        jsTextBlock.innerHTML = jsTextBlock.getAttribute('data-text')
-                    })
+                    jsTextBlock.innerHTML = jsTextBlock.getAttribute('data-text')
+                })
 
-                    jsNumberInput.addEventListener('input', () => {
-                        jsNumberBlock.setAttribute('data-text', jsNumberInput.value)
+                jsNumberInput.addEventListener('input', () => {
+                    jsNumberBlock.setAttribute('data-text', jsNumberInput.value)
 
-                        jsNumberBlock.innerHTML = jsNumberBlock.getAttribute('data-text')
-                    })
+                    jsNumberBlock.innerHTML = jsNumberBlock.getAttribute('data-text')
+                })
 
-                    jsDateInput.addEventListener('input', () => {
-                        jsDateBlock.setAttribute('data-text', jsDateInput.value)
+                jsDateInput.addEventListener('input', () => {
+                    jsDateBlock.setAttribute('data-text', jsDateInput.value)
 
-                        jsDateBlock.innerHTML = jsDateBlock.getAttribute('data-text')
-                    })
+                    jsDateBlock.innerHTML = jsDateBlock.getAttribute('data-text')
+                })
 
-                })()
-        </script>
+            })()
+    </script>
 </body>
 
 </html>

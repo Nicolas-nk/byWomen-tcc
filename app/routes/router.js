@@ -166,4 +166,12 @@ router.get("/pagamento", function (req, res) {
   res.render("pages/sucesso/index");
 });
 
+router.get("/crieperfil", function (req, res) {
+  res.render("pages/criePerfil/index");
+});
+
+router.get("/formapagamento", function (req, res) {
+  res.render("pages/pagamento/index");
+});
+
 module.exports = router;
