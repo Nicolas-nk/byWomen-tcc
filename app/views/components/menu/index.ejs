@@ -50,6 +50,13 @@
           <span>Política de privacidade</span>
           <img src="images/icons/setapurple.svg" alt="" />
         </a>
+        <% if(autenticado===true){ %>
+          <hr />
+          <a class="input-line" href="/sair">
+            <span>Sair</span>
+            <img src="images/icons/setapurple.svg" alt="" />
+          </a>
+          <% }else if(autenticado !==true){}%>
 
         <hr />
         <h1 class="text">
