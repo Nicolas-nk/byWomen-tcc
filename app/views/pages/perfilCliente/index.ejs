@@ -32,9 +32,11 @@
       </div>
       <div class="profile-image">
         <%if(usu_autenticado_foto !==null){%>
-        <div class="profile-picture-img mx-auto" id="profile-picture-img" style="background-image: url(data:image/jpeg;base64,<%= usu_autenticado_foto %>) ;"></div>
+        <div class="profile-picture-img mx-auto border-profile-img" id="profile-picture-img" style="background-image: url('data:image/jpeg;base64,<%= usu_autenticado_foto %>') ;">
+          <div class="mask-profile-img"></div>
+        </div>
         <%}else{%>
-        <img src="images/profile/perfil.png" alt="" class="mx-auto d-block">
+        <img src="images/profile/perfil.png" alt="" class="mx-auto d-block border-profile-img">
         <%}%>
         <h1 class="fonts-1 text-center text-purple-600">
             <%= usu_autenticado_nome %>

@@ -41,7 +41,7 @@
             <div class="profile-picture-img">
               <%if(usu_autenticado_foto !==null){%>
                 <div class="new-profile-picture d-none" id="new-profile-picture"></div>
-                <div class="user-profile-picture" id="user-profile-picture" style="background-image: url(data:image/jpeg;base64,<%= usu_autenticado_foto %>) ;">
+                <div class="user-profile-picture" id="user-profile-picture" style="background-image: url('data:image/jpeg;base64,<%= usu_autenticado_foto %>') ;">
               </div>
               <%}else{%>
                 <div class="new-profile-picture d-none" id="new-profile-picture"></div>
@@ -106,10 +106,32 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script>
-  $(document).ready(function() {
-    var urlimg = "data:image/jpeg;base64," + usu_autenticado_foto;
 
-    function continueUserImage(urlimg) {
+    $(document).ready(function() {
+      $("#userImage").change(function() {
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          $("#without-profile-picture").addClass("d-none");
+          $("#user-profile-picture").addClass("d-none");
+          $("#new-profile-picture").removeClass("d-none");
+          $("#new-profile-picture").addClass("d-block");
+          $("#new-profile-picture").css("background-image", "url(" + reader.result + ")");
+        }
+        reader.readAsDataURL(event.target.files[0]);
+      })
+      $("#tel").click(function(event) {
+        if ($(this).val().length == 15) {
+          $("#tel").mask("(00) 00000-0009")
+        } else {
+          $("#tel").mask("(00) 0000-00009")
+        }
+      })
+    });
+    addEventListener("load", () => {
+      var urlimg = "data:image/jpeg;base64,<%= usu_autenticado_foto %>";
+      continueUserImage(urlimg);
+    });
+    function continueUserImage(urlimg){
       getImg(urlimg, (imgBlob) => {
         let fileName = "profile-picture.jpg";
         let file = new File([imgBlob], fileName, {
@@ -121,28 +143,15 @@
         document.querySelector("#userImage").files = container.files;
       })
     }
-
-    $("#userImage").change(function() {
-      var reader = new FileReader();
-      reader.onloadend = function() {
-        $("#without-profile-picture").addClass("d-none");
-        $("#user-profile-picture").addClass("d-none");
-        $("#new-profile-picture").removeClass("d-none");
-        $("#new-profile-picture").addClass("d-block");
-        $("#new-profile-picture").css("background-image", "url(" + reader.result + ")");
-      }
-      reader.readAsDataURL(event.target.files[0]);
-    })
-    $("#tel").click(function(event) {
-      if ($(this).val().length == 15) {
-        $("#tel").mask("(00) 00000-0009")
-      } else {
-        $("#tel").mask("(00) 0000-00009")
-      }
-    })
-
-  }); <
-  /script>
+    function getImg(urlimg, callback){
+      var xhr = new XMLHttpRequest();
+      xhr.onload = function() {
+          callback(xhr.response);
+      };
+      xhr.open('GET', urlimg);
+      xhr.responseType = 'blob';
+      xhr.send();
+    }
+  </script>
 </body>
-
 </html>

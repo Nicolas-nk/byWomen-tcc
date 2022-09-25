@@ -34,7 +34,22 @@
   top: 0;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.border-profile-img{
+  border: solid 6px #fff;
   border-radius: 100%;
+}
+.mask-profile-img{
+background: rgb(255, 255, 255);
+background: linear-gradient(
+  180deg,
+  transparent,
+  #7B2CBF
+);
+opacity: .35;
+width: 100%;
+height: 100%;
+border-radius: 100%;
 }
 
 .slide {
