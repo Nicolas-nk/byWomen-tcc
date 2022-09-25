@@ -1,7 +1,6 @@
 /*Pedidos de serviços*/
 
 h1.name {
-    margin: 40px 0 0 0;
     text-align: start;
   }
   
@@ -28,8 +27,7 @@ h1.name {
   
   .box {
     padding: 0px 5%;
-    max-width: 400px;
-    margin: 50px 5%;
+    margin: 50px 0;
   }
   
   .requests {

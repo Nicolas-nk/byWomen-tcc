@@ -289,7 +289,39 @@
   border-radius: 15px;
 }
 
-.text-edit {
+.or{
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.or:before, .or:after{
+  content: "";
+  vertical-align: middle;
+  display: inline-block;
+  width: 40%;
+  height: 2px;
+  position: relative;
+  background-color: #240046;
+}
+
+.or:before {
+  right: 0.5em;
+  top: 50%;
+  transform: translate(0, -50%);
+  margin-left: -50%;
+  position: absolute;
+}
+
+.or:after {
+  left: 0.5em;
+  bottom: 50%;
+  transform: translate(0, 50%);
+  margin-right: -50%;
+  position: absolute;
+}
+
+.text-edit{
   width: 90%;
   position: relative;
   display: flex;
