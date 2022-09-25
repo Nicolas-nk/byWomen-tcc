@@ -16,69 +16,67 @@
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="css/cartao.css" />
-    <title>Forma de pagamento</title>
+    <title>By Women - Adicionar Forma De Pagamento</title>
 </head>
 
 <body>
     <%- include("./../../components/header/index.ejs") %>
-    <div class="container">
-        <h1 class="fonts-3 mt-5 text-pay">Método de pagamento</h1>
-        <hr>
-        <div class="option mt-5 px-2 mx-auto bg-purple-0 d-flex align-items-center justify-content-between">
-            <div class="">
-                <div class="d-flex align-items-center">
-                    <div>
-                        <img src="images/icons/cartao/cartao.svg" alt="">
+        <div class="container">
+            <h1 class="fonts-3 mt-5 text-pay">Método de pagamento</h1>
+            <hr>
+            <div class="option mt-5 px-2 mx-auto bg-purple-0 d-flex align-items-center justify-content-between">
+                <div class="">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <img src="images/icons/cartao/cartao.svg" alt="">
+                        </div>
+                        <div>
+                            <span class="fonts-5">Cartão de <br>Crédito/Débito</span>
+                        </div>
                     </div>
-                    <div>
-                        <span class="fonts-5">Cartão de <br>Crédito/Débito</span>
+                    <div class="banks mt-1">
+                        <img src="images/icons/cartao/bank1.svg" alt="">
+                        <img src="images/icons/cartao/bank2.svg" alt="">
+                        <img src="images/icons/cartao/bank3.svg" alt="">
+                        <img src="images/icons/cartao/bank4.svg" alt="">
                     </div>
                 </div>
-                <div class="banks mt-1">
-                    <img src="images/icons/cartao/bank1.svg" alt="">
-                    <img src="images/icons/cartao/bank2.svg" alt="">
-                    <img src="images/icons/cartao/bank3.svg" alt="">
-                    <img src="images/icons/cartao/bank4.svg" alt="">
-                </div>
+                <input type="radio" id="select1" name="select">
+                <label for="select1" class="label1"></label>
             </div>
-            <input type="radio" id="select1" name="select">
-            <label for="select1" class="label1"></label>
-        </div>
-        <div class="option-2 mt-3 px-2 mx-auto bg-purple-0 d-flex align-items-center justify-content-between">
-            <div class="">
-                <div class="d-flex align-items-center">
-                    <div>
-                        <img src="images/icons/cartao/boleto.svg" alt="">
-                    </div>
-                    <div>
-                        <span class="fonts-5">Boleto bancário</span>
+            <div class="option-2 mt-3 px-2 mx-auto bg-purple-0 d-flex align-items-center justify-content-between">
+                <div class="">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <img src="images/icons/cartao/boleto.svg" alt="">
+                        </div>
+                        <div>
+                            <span class="fonts-5">Boleto bancário</span>
+                        </div>
                     </div>
                 </div>
+                <input type="radio" id="select2" name="select">
+                <label for="select2" class="label2"></label>
             </div>
-            <input type="radio" id="select2" name="select">
-            <label for="select2" class="label2"></label>
-        </div>
-        <div class="option-3 mt-3 px-2 mx-auto bg-purple-0 d-flex align-items-center justify-content-between">
-            <div class="">
-                <div class="d-flex align-items-center">
-                    <div>
-                        <img src="images/icons/cartao/pix.svg" alt="">
-                    </div>
-                    <div>
-                        <span class="fonts-5">Pix</span>
+            <div class="option-3 mt-3 px-2 mx-auto bg-purple-0 d-flex align-items-center justify-content-between">
+                <div class="">
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <img src="images/icons/cartao/pix.svg" alt="">
+                        </div>
+                        <div>
+                            <span class="fonts-5">Pix</span>
+                        </div>
                     </div>
                 </div>
+                <input type="radio" id="select3" name="select">
+                <label for="select3" class="label3"></label>
             </div>
-            <input type="radio" id="select3" name="select">
-            <label for="select3" class="label3"></label>
+            <div class="mt-4">
+                <span class="fonts-3 value-pay">Valor total:</span>
+                <!-- valor a pagar -->
+            </div>
         </div>
-        <div class="mt-4">
-            <span class="fonts-3 value-pay">Valor total:</span>
-            <!-- valor a pagar -->
-        </div>
-    </div>
-    <div class="fake-menu"></div>
-    <%- include("./../../components/menu/index.ejs") %>
 
         <script src="https://code.jquery.com/jquery-2.2.4.min.js"
             integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -99,6 +97,8 @@
                 $('.label1').removeClass('checked')
             });
         </script>
+        <%- include("./../../components/menu/index.ejs") %>
+        <div class="fake-menu"></div>
 </body>
 
 </html>

@@ -6,7 +6,7 @@ function addStateConstrucao() {
 function addStateReparo() {
     let stateObj = { id: "100"};
 
-    window.history.pushState(stateObj, "Reparo", "/Reparo");
+    window.history.pushState(stateObj, "Reparo", "/Reparos");
 }
 function addStateManutencao() {
     let stateObj = { id: "100"};
@@ -16,10 +16,10 @@ function addStateManutencao() {
 function addStateMontagem() {
     let stateObj = { id: "100"};
 
-    window.history.pushState(stateObj, "Montagem", "/Montagem");
+    window.history.pushState(stateObj, "Montagem", "/Montagens");
 }
 function addStateProjeto() {
     let stateObj = { id: "100"};
 
-    window.history.pushState(stateObj, "Projeto", "/Projeto");
+    window.history.pushState(stateObj, "Projeto", "/Projetos");
 }

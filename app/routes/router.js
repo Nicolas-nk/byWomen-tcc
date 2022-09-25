@@ -121,10 +121,6 @@ router.get("/Manutencao-eletrica", function (req, res) {
   );
 });
 
-router.get("/certificacao", function (req, res) {
-  res.render("pages/certificacao/index", req.session);
-});
-
 router.get("/fotoperfil", function (req, res) {
   res.render("pages/formColaboradora/fotoperfil/index", req.session);
 });
