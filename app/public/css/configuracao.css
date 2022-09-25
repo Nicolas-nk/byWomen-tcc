@@ -30,17 +30,42 @@ input {
   margin: 20px 0;
   cursor: pointer;
 }
-
 .profile-picture-img {
+  position: relative;
   width: 115px;
   height: 115px;
-  border-radius: 50%;
+  border-radius: 100%;
   cursor: pointer;
   transition: background .3s;
 }
 
-.profile-picture-img:hover{
-  background-color: rgb(180, 180, 180);
+.without-profile-picture{
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+.user-profile-picture{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 100%;
+}
+.new-profile-picture{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 100%;
+  z-index: 2;
+}
+.new-profile-picture:hover, .without-profile-picture:hover{
   border: 5px solid rgb(180, 180, 180);
 }
 

@@ -1,171 +1,180 @@
 /*Perfil Cliente*/
 
 .favorite {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-  
-  .box-jobs {
-    margin-top: 50px;
-    position: relative;
-    margin-left: 0;
-    margin-right: 0;
-  }
-  
-  .jobs-contract {
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-  
-  .wallpaper {
-    height: 175px;
-  }
-  
-  .profile-image {
-    position: relative;
-  }
-  
-  .slide {
-    max-width: 540px;
-    overflow: hidden;
-    margin-top: 150px;
-    border-radius: 10px;
-  }
-  
-.banner{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.box-jobs {
+  margin-top: 50px;
+  position: relative;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.jobs-contract {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.wallpaper {
+  height: 175px;
+}
+
+.profile-image {
+  position: relative;
+}
+.profile-picture-img {
+  max-width: 200px;
+  height: 200px;
+  left: 0;
+  top: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 100%;
+}
+
+.slide {
+  max-width: 540px;
+  overflow: hidden;
+  margin-top: 150px;
+  border-radius: 10px;
+}
+
+.banner {
   width: 100%;
 }
 
-  .banner img{
-    max-width: 540px;
-    width: 100%;
-    height: 100%;
-    position: relative;
-  }
-  
-  .button-banner {
-    display: none;
-  }
-  
-  #slide1:checked ~ .banners {
-    margin-left: 0;
-  }
-  
-  #slide2:checked ~ .banners {
-    margin-left: -100%;
-  }
-  
-  #slide3:checked ~ .banners {
-    margin-left: -200%;
-  }
-  
-  .bar:hover {
-    background-color: #fff;
-  }
-  
-  .banners {
-    display: flex;
-    width: 300%;
-    height: 100%;
-    transition: 0.6s;
-  }
-  
-  .navigation {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    top: -22px;
-  }
-  
-  .bar {
-    width: 10px;
-    height: 10px;
-    border: 2px solid #fff;
-    margin: 6px;
-    border-radius: 15px;
-    cursor: pointer;
-    position: relative;
-  }
-  
-  .banner-bg {
-    width: 70%;
-    padding: 0 0 0 15px;
-    border-radius: 10px 0 0 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  .banners p,
-  .banner-bg img {
-    font-size: 12px;
-    margin-top: 10px;
-  }
-  
-  .text-banner {
-    display: flex;
-  }
-  
-  .banner-bg p,
-  .banner-bg h1 {
-    text-align: start;
-    color: white;
-  }
-  
-  .banner-bg h1 {
-    margin-top: 0;
-  }
-  
-  .banner-second-bg {
-    width: 30%;
-    padding: 20px 0 0 20px;
-    border-radius: 0 10px 10px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .banner-third {
-    width: 100%;
-    height: 113px;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .midia-banners {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100px;
-    margin-top: 5px;
-  }
-  
-  .banner-third p,
-  .banner-third h1 {
-    color: white;
-  }
-  
-  .first-color {
-    background-color: #240046;
-  }
-  
-  .second-color {
-    background-color: #9d4edd;
-  }
-  
-  .third-color {
-    background-color: #7b2cbf;
-  }
+.banner img {
+  max-width: 540px;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
 
-  /*Perfil Colaboradora*/
+.button-banner {
+  display: none;
+}
 
-.badges{
+#slide1:checked ~ .banners {
+  margin-left: 0;
+}
+
+#slide2:checked ~ .banners {
+  margin-left: -100%;
+}
+
+#slide3:checked ~ .banners {
+  margin-left: -200%;
+}
+
+.bar:hover {
+  background-color: #fff;
+}
+
+.banners {
+  display: flex;
+  width: 300%;
+  height: 100%;
+  transition: 0.6s;
+}
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -22px;
+}
+
+.bar {
+  width: 10px;
+  height: 10px;
+  border: 2px solid #fff;
+  margin: 6px;
+  border-radius: 15px;
+  cursor: pointer;
+  position: relative;
+}
+
+.banner-bg {
+  width: 70%;
+  padding: 0 0 0 15px;
+  border-radius: 10px 0 0 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.banners p,
+.banner-bg img {
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.text-banner {
+  display: flex;
+}
+
+.banner-bg p,
+.banner-bg h1 {
+  text-align: start;
+  color: white;
+}
+
+.banner-bg h1 {
+  margin-top: 0;
+}
+
+.banner-second-bg {
+  width: 30%;
+  padding: 20px 0 0 20px;
+  border-radius: 0 10px 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-third {
+  width: 100%;
+  height: 113px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.midia-banners {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+  margin-top: 5px;
+}
+
+.banner-third p,
+.banner-third h1 {
+  color: white;
+}
+
+.first-color {
+  background-color: #240046;
+}
+
+.second-color {
+  background-color: #9d4edd;
+}
+
+.third-color {
+  background-color: #7b2cbf;
+}
+
+/*Perfil Colaboradora*/
+
+.badges {
   width: 100%;
   max-width: 540px;
   display: flex;
@@ -175,7 +184,7 @@
   margin-top: 150px;
 }
 
-.badge{
+.badge {
   background: #9d4edd;
   color: #3c096c;
   padding: 5px;
@@ -185,42 +194,42 @@
   text-align: center;
 }
 
-.profile-nav{
-  box-shadow: 0px 5px 15px -3px rgba(0,0,0,0.5);
+.profile-nav {
+  box-shadow: 0px 5px 15px -3px rgba(0, 0, 0, 0.5);
   border-radius: 7px;
 }
 
-.profile-nav img{
+.profile-nav img {
   width: 45px;
   margin-bottom: 10px;
 }
 
-.description{
+.description {
   position: relative;
   margin-top: 20px;
 }
 
-.description p{
+.description p {
   font-weight: 200;
   font-size: 14px;
   margin-bottom: 30px;
   color: #000;
 }
 
-.description span{
+.description span {
   font-size: 16px;
   font-weight: 600;
 }
 
-.redes-profile{
+.redes-profile {
   margin-top: 5px;
 }
 
-.redes-profile img{
+.redes-profile img {
   max-width: 30px;
 }
 
-.your-work{
+.your-work {
   background-image: url("/images/trabalho.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -230,7 +239,7 @@
   position: relative;
 }
 
-.info-work{
+.info-work {
   position: relative;
   top: 92%;
   display: flex;
@@ -238,11 +247,11 @@
   justify-content: end;
 }
 
-.info-work span{
+.info-work span {
   color: #fff;
 }
 
-.info-work img{
+.info-work img {
   margin: 5px;
 }
 
@@ -251,11 +260,11 @@
   font-size: 22px;
   font-weight: 300;
 }
-.your-licenses::-webkit-scrollbar{
+.your-licenses::-webkit-scrollbar {
   display: none;
 }
 
-.your-licenses{
+.your-licenses {
   width: 100%;
   height: 180px;
   overflow-x: auto;
@@ -264,23 +273,23 @@
   margin-top: 10px;
 }
 
-.box-licenses{
+.box-licenses {
   display: flex;
   width: 500px;
   height: 100%;
-  transition: 0.6s; 
+  transition: 0.6s;
   touch-action: manipulation;
   gap: 10px;
 }
 
-.license{
+.license {
   height: 150px;
   width: 150px;
   background-color: #3c096c;
   border-radius: 15px;
 }
 
-.text-edit{
+.text-edit {
   width: 90%;
   position: relative;
   display: flex;
@@ -288,32 +297,32 @@
   justify-content: center;
 }
 
-.text-edit img{
+.text-edit img {
   position: relative;
   left: 90%;
 }
 
-.text-edit h1{
+.text-edit h1 {
   text-align: center;
 }
 
-.edit{
+.edit {
   background-color: #fff;
   width: 90vw;
   height: 100vh;
 }
 
-.edit h1{
+.edit h1 {
   text-align: center;
 }
 
-.box-edit{
+.box-edit {
   display: flex;
   gap: 5px;
 }
 
-.edit-work{
-  background-color: #5A189A;
+.edit-work {
+  background-color: #5a189a;
   width: 140px;
   height: 202px;
   display: flex;
@@ -322,8 +331,8 @@
   border-radius: 28px;
 }
 
-.edit-license{
-  background-color: #5A189A;
+.edit-license {
+  background-color: #5a189a;
   width: 130px;
   height: 130px;
   display: flex;
@@ -332,7 +341,7 @@
   border-radius: 10px;
 }
 
-.btn-edit{
+.btn-edit {
   background-color: transparent;
   color: #000;
   width: 100%;
@@ -345,11 +354,9 @@
   margin-top: 50px;
 }
 
-.btn-edit:hover{
+.btn-edit:hover {
   cursor: pointer;
   transition: 0.6 ease;
   background-color: #240046;
   color: #fff;
 }
-
-  

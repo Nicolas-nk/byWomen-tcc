@@ -3,8 +3,10 @@ var bcrypt = require("bcryptjs");
 var salt = bcrypt.genSaltSync(12);
 var dbConnection = require("../../config/database");
 const { v4: uuidv4 } = require("uuid");
+const multer = require("multer");
 
 const { body, validationResult } = require("express-validator");
+const { response } = require("express");
 
 const router = express.Router();
 
@@ -13,8 +15,8 @@ router.post(
 
   body("nome").isLength({ min: 5, max: 100 }),
   body("tel").isLength({ min: 5, max: 20 }),
-  body("email").isLength({ min: 5, max: 100 }),
-  body("senha").isLength({ min: 4, max: 255 }),
+  body("email").isEmail().withMessage("Insira um e-mail válido!"),
+  body("senha").isLength({ min: 4, max: 100 }),
 
   function (req, res) {
     const errors = validationResult(req);
@@ -37,10 +39,9 @@ router.post(
       dadosForm,
       function (error, results, fields) {
         if (error) throw error;
-        // Neat!
-        res.redirect("/login");
       }
     );
+    res.redirect("/login");
   }
 );
 
@@ -70,7 +71,13 @@ router.post(
             req.session.usu_autenticado_email = results[0].email;
             req.session.usu_autenticado_tel = results[0].num_tel;
             req.session.usu_autenticado_cep = results[0].cep;
-            req.session.usu_autenticado_foto = results[0].foto_perfil;
+            /* req.session.usu_autenticado_foto = results[0].foto_perfil; */
+            if (results[0].foto_perfil == undefined) {
+              req.session.usu_autenticado_foto = null;
+            } else {
+              req.session.usu_autenticado_foto =
+                results[0].foto_perfil.toString("base64");
+            }
           }
         }
 
@@ -80,34 +87,48 @@ router.post(
   }
 );
 
+const imageMemoryStorage = multer.memoryStorage();
+const uploadImage = multer({ storage: imageMemoryStorage });
+
 router.post(
   "/configuracao",
+  uploadImage.single("userImage"),
 
   function (req, res) {
+    let fileContent;
+    if (!req.file) {
+      fileContent = null;
+    } else {
+      fileContent = req.file.buffer;
+    }
+
     var dadosForm = {
-      id_usuario: req.session.usu_autenticado_id,
       nome: req.body.nome,
-      tel: req.body.tel,
       email: req.body.email,
+      tel: req.body.tel,
       cep: req.body.cep,
+      fotoPerfil: fileContent,
+      id_usuario: req.session.usu_autenticado_id,
       /* senha: bcrypt.hashSync(req.body.senha, salt), */
     };
 
     dbConnection.query(
-      "UPDATE usuario SET nome = ?, email = ?, num_tel = ?, cep = ? WHERE id_usuario = ?",
+      "UPDATE usuario SET nome = ?, email = ?, num_tel = ?, cep = ?, foto_perfil = ? WHERE id_usuario = ?",
       [
         dadosForm.nome,
         dadosForm.email,
         dadosForm.tel,
         dadosForm.cep,
+        dadosForm.fotoPerfil,
         dadosForm.id_usuario,
       ],
       function (error, results, fields) {
         if (error) throw error;
       }
     );
-    
-    dbConnection.query(
+
+    setTimeout( function(){
+      dbConnection.query(
       "SELECT * FROM usuario WHERE id_usuario = ?",
       [req.session.usu_autenticado_id],
       function (error, results, fields) {
@@ -117,11 +138,16 @@ router.post(
         req.session.usu_autenticado_email = results[0].email;
         req.session.usu_autenticado_tel = results[0].num_tel;
         req.session.usu_autenticado_cep = results[0].cep;
-        req.session.usu_autenticado_foto = results[0].foto_perfil;
+        if (results[0].foto_perfil == undefined) {
+          req.session.usu_autenticado_foto = null;
+        } else {
+          req.session.usu_autenticado_foto =
+            results[0].foto_perfil.toString("base64");
+        }
 
         res.redirect("/perfil");
       }
-    );
+    );}, 200);
   }
 );
 

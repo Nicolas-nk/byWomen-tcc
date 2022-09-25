@@ -2,122 +2,147 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/images/logo/logo-aba.svg"><link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/reset.css" />    <link rel="stylesheet" href="css/configuracao.css" />
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/menu.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/images/logo/logo-aba.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/configuracao.css" />
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/menu.css">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <title>Configurações</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <title>Configurações</title>
 </head>
 
 <body>
 
-    <header>
-        <div class="navbar bg-purplegradient m-0" style="max-width: 540px;">
-            <div class="container">
-                <nav class="header-navbar">
-                    <div class="header-components">
-                        <a href="javascript:void(0)" onClick="history.go(-1); return false;">
-                            <img src="/images/icons/header/return.svg" alt="" />
-                        </a>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
-    <div class="bg-pink">
-        <form action="/auth/configuracao" method="POST">
-            <div class="box-config mt-0 container">
-                <div class="contents-box">
-                    <label for="userImage" class="profile-picture-container">
-                        <img src="images/profile/config-profile-pic.png" alt="" class="profile-picture-img"
-                            id="profile-picture-img">
-                        <span>Alterar imagem de perfil</span>
-                        <img src="images/icons/setapurple.svg" alt="">
-                    </label>
-                    <input type="file" id="userImage" name="userImage" accept="image/*">
-                    <div class="change">
-                        <label for="">Nome de usuário:</label>
-                        <input type="text" name="nome" id="nome" value="<%= usu_autenticado_nome %>">
-                    </div>
-                </div>
-            </div>
-            <div class="box-config container">
-                <div class="contents-box">
-                    <div class="change">
-
-                        <label for="">Alterar número de telefone:</label>
-                        <input type="tel" name="tel" id="tel" value="<%=usu_autenticado_tel  %>">
-                    </div>
-                    <div class="change">
-                        <label for="">Alterar email:</label>
-                        <input type="email" name="email" id="email" value="<%=usu_autenticado_email  %>">
-                    </div>
-
-                </div>
-            </div>
-            <div class="box-config container">
-                <div class="contents-box">
-                    <div class="change">
-                        <% if(usu_autenticado_cep===null){ %>
-                            <label for="">Adicionar CEP</label>
-                            <% }else{ %>
-                                <label for="">Alterar CEP</label>
-                                <% } %>
-                                    <input type="text" name="cep" id="cep" value=<%=usu_autenticado_cep%>>
-                    </div>
-                </div>
-            </div>
-            <div class="box-config container">
-                <div class="contents-box">
-                    <div class="change">
-                        <label for="">Alterar senha</label>
-                        <input type="password" name="senha" id="senha">
-                    </div>
-                    <div class="change">
-                        <label for="">Confirmar senha</label>
-                        <input type="password" name="confirmSenha" id="confirmSenha">
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex justify-content-center pb-5">
-                <button type="submit" class="btn-config">Salvar alterações</button>
-            </div>
-        </form>
+  <header>
+    <div class="navbar bg-purplegradient m-0" style="max-width: 540px;">
+      <div class="container">
+        <nav class="header-navbar">
+          <div class="header-components">
+            <a href="javascript:void(0)" onClick="history.go(-1); return false;">
+              <img src="/images/icons/header/return.svg" alt="" />
+            </a>
+          </div>
+        </nav>
+      </div>
     </div>
-    <div class="fake-menu"></div>
-    <%- include('./../../components/menu/index.ejs') %>
+  </header>
+  <div class="bg-pink">
+    <form action="/auth/configuracao" method="POST" enctype="multipart/form-data">
+      <div class="box-config mt-0 container">
+        <div class="contents-box">
+          <label for="userImage" class="profile-picture-container">
+            <div class="profile-picture-img">
+              <%if(usu_autenticado_foto !==null){%>
+                <div class="new-profile-picture d-none" id="new-profile-picture"></div>
+                <div class="user-profile-picture" id="user-profile-picture" style="background-image: url(data:image/jpeg;base64,<%= usu_autenticado_foto %>) ;">
+              </div>
+              <%}else{%>
+                <div class="new-profile-picture d-none" id="new-profile-picture"></div>
+                <img src="images/profile/perfil.png" alt="Sem foto de perfil" class="without-profile-picture" id="without-profile-picture">
+              <% } %>
+            </div>
+            <span>Alterar imagem de perfil</span>
+            <img src="images/icons/setapurple.svg" alt="">
+          </label>
+          <input type="file" id="userImage" name="userImage" accept="image/*">
+          <div class="change">
+            <label for="nome">Nome de usuário:</label>
+            <input type="text" name="nome" id="nome" value="<%= usu_autenticado_nome %>">
+          </div>
+        </div>
+      </div>
+      <div class="box-config container">
+        <div class="contents-box">
+          <div class="change">
 
-        <script>
-            let photo = document.getElementById('profile-picture-img');
-            let file = document.getElementById('userImage');
+            <label for="tel">Alterar número de telefone:</label>
+            <input type="tel" name="tel" id="tel" value="<%=usu_autenticado_tel  %>">
+          </div>
+          <div class="change">
+            <label for="email">Alterar email:</label>
+            <input type="email" name="email" id="email" value="<%=usu_autenticado_email  %>">
+          </div>
 
-            photo.addEventListener('click', () => {
-                file.click();
-            });
+        </div>
+      </div>
+      <div class="box-config container">
+        <div class="contents-box">
+          <div class="change">
+            <% if(usu_autenticado_cep===null){ %>
+            <label for="">Adicionar CEP</label>
+            <% }else{ %>
+            <label for="">Alterar CEP</label>
+            <% } %>
+            <input type="text" name="cep" id="cep" value=<%=usu_autenticado_cep%>>
+          </div>
+        </div>
+      </div>
+      <div class="box-config container">
+        <div class="contents-box">
+          <div class="change">
+            <label for="senha">Alterar senha</label>
+            <input type="password" name="senha" id="senha">
+          </div>
+          <div class="change">
+            <label for="confirmSenha">Confirmar senha</label>
+            <input type="password" name="confirmSenha" id="confirmSenha">
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center pb-5">
+        <button type="submit" class="btn-config">Salvar alterações</button>
+      </div>
+    </form>
+  </div>
+  <div class="fake-menu"></div>
+  <%- include('./../../components/menu/index.ejs') %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+  $(document).ready(function() {
+    var urlimg = "data:image/jpeg;base64," + usu_autenticado_foto;
 
-            file.addEventListener('change', () => {
+    function continueUserImage(urlimg) {
+      getImg(urlimg, (imgBlob) => {
+        let fileName = "profile-picture.jpg";
+        let file = new File([imgBlob], fileName, {
+          type: "image/jpeg",
+          lastModified: new Date().getTime()
+        }, 'utf-8');
+        let container = new DataTransfer();
+        container.items.add(file);
+        document.querySelector("#userImage").files = container.files;
+      })
+    }
 
-                if (file.files.length <= 0) {
-                    return;
-                }
+    $("#userImage").change(function() {
+      var reader = new FileReader();
+      reader.onloadend = function() {
+        $("#without-profile-picture").addClass("d-none");
+        $("#user-profile-picture").addClass("d-none");
+        $("#new-profile-picture").removeClass("d-none");
+        $("#new-profile-picture").addClass("d-block");
+        $("#new-profile-picture").css("background-image", "url(" + reader.result + ")");
+      }
+      reader.readAsDataURL(event.target.files[0]);
+    })
+    $("#tel").click(function(event) {
+      if ($(this).val().length == 15) {
+        $("#tel").mask("(00) 00000-0009")
+      } else {
+        $("#tel").mask("(00) 0000-00009")
+      }
+    })
 
-                let reader = new FileReader();
-
-                reader.onload = () => {
-                    photo.src = reader.result;
-                }
-
-                reader.readAsDataURL(file.files[0]);
-            });
-        </script>
+  }); <
+  /script>
 </body>
 
 </html>
