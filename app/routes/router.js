@@ -126,19 +126,25 @@ router.get("/certificacao", function (req, res) {
 });
 
 router.get("/fotoperfil", function (req, res) {
-  res.render("pages/fotoperfil/index", req.session);
+  res.render("pages/formColaboradora/fotoperfil/index", req.session);
+});
+router.get("/fotoservico", function (req, res) {
+  res.render("pages/formColaboradora/addservico/index", req.session);
 });
 router.get("/capacitacao", function (req, res) {
-  res.render("pages/capacitacao/index", req.session);
+  res.render("pages/formColaboradora/capacitacao/index", req.session);
+});
+router.get("/crieperfil", function (req, res) {
+  res.render("pages/formColaboradora/criePerfil/index");
+});
+router.get("/selecioneProf", function (req, res) {
+  res.render("pages/formColaboradora/selecioneProf/index", req.session);
 });
 router.get("/servicosSolicitados", function (req, res) {
   res.render("pages/servicosSolicitados/index", req.session);
 });
 router.get("/colaboradorasFavoritas", function (req, res) {
   res.render("pages/colaboradorasFavoritas/index", req.session);
-});
-router.get("/selecioneProf", function (req, res) {
-  res.render("pages/selecioneProf/index", req.session);
 });
 router.get("/editarperfil", function (req, res) {
   res.render("pages/editarperfil/index", req.session);
@@ -164,10 +170,6 @@ router.get("/cartao", function (req, res) {
 
 router.get("/pagamento", function (req, res) {
   res.render("pages/sucesso/index");
-});
-
-router.get("/crieperfil", function (req, res) {
-  res.render("pages/criePerfil/index");
 });
 
 router.get("/formapagamento", function (req, res) {
