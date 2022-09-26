@@ -62,10 +62,6 @@ router.get("/servicos", function (req, res) {
   res.render("pages/serviços/index", req.session);
 });
 
-router.get("/menu-logon", function (req, res) {
-  res.render("pages/menuHamburger-logado/index", req.session);
-});
-
 router.get("/recuperar-senha", function (req, res) {
   res.render("pages/recuperar/index", req.session);
 });
@@ -134,8 +130,12 @@ router.get("/fotoservico", function (req, res) {
 router.get("/capacitacao", function (req, res) {
   res.render("pages/formColaboradora/capacitacao/index", req.session);
 });
-router.get("/crieperfil", function (req, res) {
-  res.render("pages/formColaboradora/criePerfil/index");
+router.get("/criePerfil", function (req, res) {
+  if (req.session.autenticado === true) {
+    res.render("pages/formColaboradora/criePerfil/index", req.session);
+  } else {
+    res.redirect("/login");
+  } 
 });
 router.get("/selecioneProf", function (req, res) {
   res.render("pages/formColaboradora/selecioneProf/index", req.session);

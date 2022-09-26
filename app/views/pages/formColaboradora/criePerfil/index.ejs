@@ -2,53 +2,64 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crie seu perfil</title>
-    <link rel="icon" href="/images/logo/logo-aba.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/global.css" />
-    <link rel="stylesheet" href="css/cadastrocolaboradora.css" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>By Women - Crie seu perfil</title>
+  <link rel="icon" href="/images/logo/logo-aba.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/cadastrocolaboradora.css" />
 </head>
 
 <body>
-    <div class="container bg-pink">
+  <div class="container bg-pink">
         <div class="header-navbar">
-            <a href="javascript:void(0)" onClick="history.go(-1); return false;" class="header-components">
-                <img src="images/icons/header/returnpurple.svg" alt="voltar">
-            </a>
+        <a href="javascript:void(0)" onClick="history.go(-1); return false;" class="header-components">
+            <img src="images/icons/header/returnpurple.svg" alt="voltar">
+        </a>
         </div>
-        <h1 class="text-center mt-5 fonts-3">Crie seu perfil!</h1>
-        <div class="add-img-profile mx-auto my-4">
-            <img src="/images/profile/perfil.png" alt="">
-            <div class="edit-img-profile">
-                <img src="images/icons/header/lapis.svg" alt="">
+        <h1 class="text-center mt-5 fonts-2">Crie seu perfil!</h1>
+        <p class="text-center mt-2">Complete todas as informações <br> para se tornar uma de nossas parceiras</p>
+        <form action="">
+           
+                <a href="/fotoperfil">
+                    <div href="" class="add-img-profile mx-auto my-4">
+                        <%if(usu_autenticado_foto !==null){%>   
+                            <div class="profile-img mx-auto" id="profile-picture-img" style="background-image: url('data:image/jpeg;base64,<%= usu_autenticado_foto %>') ;">
+                                <div class="mask-profile-img"></div>
+                            </div>
+                        <%}else{%>
+                            <img src="/images/profile/perfil.png" alt="">
+                        <% } %> 
+                        <div class="edit-img-profile">
+                            <img src="images/icons/header/lapis.svg" alt="">
+                        </div>
+                    </div>
+                </a>
+            
+            <div class="badges">
+                <div class="add-badge text-center"><span>+</span></div>
             </div>
-        </div>
-        <div class="badges">
-            <div class="add-badge"><span>+</span></div>
-        </div>
-        <hr class="mx-auto" style="width: 80%;">
-        <div class="biography mt-5">
-            <span>Biografia</span>
-            <input type="text">
-        </div>
-        <div class="works mt-5">
-            <span>Principais Trabalhos</span>
-            <!-- carrossel -->
-        </div>
-        <div class="certificate mt-5">
-            <span>Licenças e certificações</span>
-            <!-- carrossel -->
-        </div>
-        <button class="bg-purplegradient">Salvar</button>
+            <hr class="mx-auto" style="width: 80%;">
+            <div class="biography mt-5">
+                <label for="">Biografia</label>
+                <textarea></textarea>
+            </div>
+            <div class="works mt-5">
+                <label for="">Principais Trabalhos</label>
+                <!-- carrossel -->
+            </div>
+            <div class="certificate mt-5">
+                <label for="">Licenças e certificações</label>
+                <!-- carrossel -->
+            </div>
+            <button type="submit" class="bg-purplegradient">Salvar</button>
+        </form>
     </div>
 </body>
 
