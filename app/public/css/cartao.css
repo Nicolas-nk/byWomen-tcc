@@ -44,7 +44,7 @@ span.cred, span.deb{
 }
 
 .card-cred{
-    height: 245px;
+    height: 230px;
     margin: 0 0 30px 0;
     background: rgb(149,22,255);
     background: linear-gradient(53deg, rgba(149,22,255,1) 0%, rgba(91,11,158,1) 50%, rgba(36,0,64,1) 100%);
@@ -86,21 +86,21 @@ input:focus{
 .name{
     color: #fff;
     position: absolute;
-    bottom: 15px;
-    left: 30px;
+    bottom: 30px;
+    left: 25px;
 }
 
 .number-card{
     color: #fff;
     position: absolute;
     bottom: 60px;
-    left: 30px; 
+    left: 25px; 
 }
 
 .date{
     color: #fff;
     position: absolute;
-    right: 30px;
+    right: 25px;
     top: 15px; 
 }
 
@@ -109,7 +109,7 @@ input:focus{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    left: 30px;
+    left: 25px;
     top: 15px;
     background-color: #fff;
     opacity: 35%;
@@ -120,7 +120,7 @@ input:focus{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    left: 45px;
+    left: 40px;
     top: 15px;
     background-color: #fff;
     opacity: 35%;
@@ -149,16 +149,6 @@ input:focus{
     margin-left: 8px;
   }
 
-/*   label{
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 1px solid #240046;
-    border-style: double;
-    background-color: #fff;
-    transition: all ease-in-out 0.2s;
-  } */
-
   .checked{
     background-color: #3C096C;
     transition: all ease-in-out 0.2s;
@@ -170,5 +160,11 @@ input:focus{
 
   .value-pay{
     color: #3C096C;
+  }
+
+  @media (min-width: 380px) {
+    .card-cred{
+        height: 270px;
+    }
   }
 

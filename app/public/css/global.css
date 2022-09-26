@@ -73,8 +73,7 @@ body {
 }
 .bg-pink {
   background-color: #f5e8ff;
-  min-height: 750px;
-  height: 100vh;
+  min-height: 100vh;
 }
 .bg-white {
   color: #fff;
