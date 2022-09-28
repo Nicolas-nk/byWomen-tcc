@@ -276,15 +276,6 @@ border-radius: 100%;
   margin-top: 10px;
 }
 
-.box-licenses {
-  display: flex;
-  width: 500px;
-  height: 100%;
-  transition: 0.6s;
-  touch-action: manipulation;
-  gap: 10px;
-}
-
 .license {
   height: 150px;
   width: 150px;

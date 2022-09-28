@@ -62,33 +62,37 @@
             <div class="plan-text">
                 <h1 class="plan-title">Informações do plano:</h1>
             </div>
-            <div class="plan-1">
-                <p>Valor fixo de R$ 09,90 á vista. Após assinar o plano, você terá como principal benefício um destaque
-                    na
-                    área
-                    escolhida,
-                    fazendo com que seu trabalho tenha mais visibilidade durante o período definido do plano que você
-                    solicitou.
-                </p>
-            </div>
-            <div class="plan-2">
-                <p>
-                    Valor modificado de 17,99 á vista, alteração no valor com desconto de 10% do valor fixo. Após
-                    assinar o
-                    plano, você terá como principal benefício um destaque na área escolhida, fazendo com que seu
-                    trabalho
-                    tenha
-                    mais visibilidade durante o período definido do plano que você solicitou.
-                </p>
-            </div>
-            <div class="plan-3">
-                <p>
-                    Valor modificado de 32,99 á vista, alteração no valor com desconto de 30% do valor fixo. Após
-                    assinar o
-                    plano, você terá como principal benefício um destaque na área escolhida, fazendo com que seu
-                    trabalho
-                    tenha
-                    mais visibilidade durante o período definido do plano que você solicitou. </p>
+            <div class="plan-content mb-5">
+                <div class="plan-1">
+                    <p>Valor fixo de R$ 09,90 á vista. Após assinar o plano, você terá como principal benefício um
+                        destaque
+                        na
+                        área
+                        escolhida,
+                        fazendo com que seu trabalho tenha mais visibilidade durante o período definido do plano que
+                        você
+                        solicitou.
+                    </p>
+                </div>
+                <div class="plan-2">
+                    <p>
+                        Valor modificado de 17,99 á vista, alteração no valor com desconto de 10% do valor fixo. Após
+                        assinar o
+                        plano, você terá como principal benefício um destaque na área escolhida, fazendo com que seu
+                        trabalho
+                        tenha
+                        mais visibilidade durante o período definido do plano que você solicitou.
+                    </p>
+                </div>
+                <div class="plan-3">
+                    <p>
+                        Valor modificado de 32,99 á vista, alteração no valor com desconto de 30% do valor fixo. Após
+                        assinar o
+                        plano, você terá como principal benefício um destaque na área escolhida, fazendo com que seu
+                        trabalho
+                        tenha
+                        mais visibilidade durante o período definido do plano que você solicitou. </p>
+                </div>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
@@ -100,23 +104,23 @@
             $('.plan-3').hide();
             $(document).ready(function () {
                 $(".btn-text-1").click(function () {
-                    $('.plan-1').toggle(100)
-                    $('.plan-2').hide(100)
-                    $('.plan-3').hide(100)
+                    $('.plan-1').toggle()
+                    $('.plan-2').hide()
+                    $('.plan-3').hide()
                 });
             });
             $(document).ready(function () {
                 $(".btn-text-2").click(function () {
-                    $('.plan-2').toggle(100)
-                    $('.plan-1').hide(100)
-                    $('.plan-3').hide(100)
+                    $('.plan-2').toggle()
+                    $('.plan-1').hide()
+                    $('.plan-3').hide()
                 });
             });
             $(document).ready(function () {
                 $(".btn-text-3").click(function () {
-                    $('.plan-3').toggle(100)
-                    $('.plan-2').hide(100)
-                    $('.plan-1').hide(100)
+                    $('.plan-3').toggle()
+                    $('.plan-2').hide()
+                    $('.plan-1').hide()
                 });
             });
         </script>
