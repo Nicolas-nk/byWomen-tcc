@@ -10,10 +10,10 @@ router.get("/", function (req, res) {
       : { autenticado: null };
   colaboradora_autenticado =
     req.session.colaboradora_autenticado === true
-      ? { colaboradora_autenticado: req.session.usu_colaboradora_autenticado_id }
+      ? {
+          colaboradora_autenticado: req.session.usu_colaboradora_autenticado_id,
+        }
       : { colaboradora_autenticado: null };
-
-      console.log(req.session.colaboradora_autenticado)
 
   res.render("pages/home/index", req.session);
 });
@@ -32,9 +32,9 @@ router.get("/sair", function (req, res) {
 
 router.get("/perfil", function (req, res) {
   if (req.session.autenticado === true) {
-    if(req.session.colaboradora_autenticado === true){
+    if (req.session.colaboradora_autenticado === true) {
       res.render("pages/perfilColaboradora/index", req.session);
-    }else{
+    } else {
       res.render("pages/perfilCliente/index", req.session);
     }
   } else {
@@ -47,20 +47,17 @@ router.get("/crie-perfil-profissional", function (req, res) {
     res.render("pages/formColaboradora/criePerfil/index", req.session);
   } else {
     res.redirect("/login");
-  } 
+  }
 });
 
 router.get("/editarperfil", function (req, res) {
   if (req.session.autenticado === true) {
-    if(req.session.usu_colaboradora_autenticado_id !== undefined){
-      res.render("pages/formColaboradora/criePerfil/index", req.session);
-    }else{
-      res.redirect("/login");
-    }
+    res.render("pages/formColaboradora/criePerfil/index", req.session);
+  } else if (req.session.colaboradora_autenticado === true) {
+    res.render("pages/formColaboradora/criePerfil/index", req.session);
   } else {
     res.redirect("/login");
   }
-  res.render("pages/formColaboradora/criePerfil/index", req.session);
 });
 
 router.get("/configuracao", function (req, res) {

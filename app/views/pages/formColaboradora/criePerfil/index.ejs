@@ -23,7 +23,7 @@
         <img src="images/icons/header/returnpurple.svg" alt="voltar">
       </a>
     </div>
-    <% if(usu_colaboradora_autenticado_id !== undefined){ %>
+    <% if(colaboradora_autenticado === true){ %>
     <h1 class="text-center mt-5 fonts-2">Atualize seu perfil!</h1>
     <% }else{  %>
     <h1 class="text-center mt-5 fonts-2">Crie seu perfil!</h1>
@@ -31,10 +31,10 @@
     <% } %>
 
     <form action="auth/crie-perfil-profissional" method="POST">
-      <% if(usu_colaboradora_autenticado_id !== undefined){ %>
+      <% if(colaboradora_autenticado === true){ %>
       <a href="/configuracao">
         <div href="" class="add-img-profile mx-auto my-4">
-          <%if(usu_autenticado_foto !==null){%>
+          <%if(usu_autenticado_foto !== null){%>
           <div class="profile-img mx-auto" id="profile-picture-img" style="background-image: url('data:image/jpeg;base64,<%= usu_autenticado_foto %>') ;">
             <div class="mask-profile-img"></div>
           </div>
@@ -49,7 +49,7 @@
       <% }else{  %>
       <a href="/fotoperfil">
         <div href="" class="add-img-profile mx-auto my-4">
-          <%if(usu_autenticado_foto !==null){%>
+          <%if(usu_autenticado_foto !== null){%>
           <div class="profile-img mx-auto" id="profile-picture-img" style="background-image: url('data:image/jpeg;base64,<%= usu_autenticado_foto %>') ;">
             <div class="mask-profile-img"></div>
           </div>
@@ -69,7 +69,7 @@
       <hr class="mx-auto" style="width: 80%;">
       <div class="biography mt-5">
         <label for="">Biografia</label>
-        <textarea oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' name="descricao" id="descricao"></textarea>
+        <textarea oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' name="descricao" id="descricao"><% if(colaboradora_autenticado === true){ %><%= usu_colaboradora_autenticado_descricao %><% }else{} %></textarea>
       </div>
       <div class="works mt-5">
         <label>Principais Trabalhos</label>

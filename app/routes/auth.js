@@ -75,7 +75,7 @@ router.post(
         [dadosForm.id_usuario],
         function (error, results, fields) {
           if (error) throw error;
-
+          req.session.colaboradora_autenticado = true;
           req.session.usu_colaboradora_autenticado_id =
             results[0].id_colaboradora;
           req.session.usu_colaboradora_autenticado_descricao =
@@ -204,7 +204,7 @@ router.post(
             req.session.usu_autenticado_foto =
               results[0].foto_perfil.toString("base64");
           }
-          if (req.session.usu_colaboradora_autenticado_id !== undefined) {
+          if (req.session.colaboradora_autenticado === true) {
             res.redirect("/editarperfil");
           } else {
             res.redirect("/perfil");
