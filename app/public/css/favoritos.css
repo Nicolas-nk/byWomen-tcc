@@ -35,3 +35,12 @@
     margin: 0 10px 0 0;
     background-color: #240046;
   }
+
+  hr{
+    width: 55px;
+    height: 2px;
+    opacity: 1;
+    background-color: #3C096C;
+    border: none;
+    margin: 0;
+  }

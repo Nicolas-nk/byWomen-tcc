@@ -1,5 +1,6 @@
 const { json } = require("express");
 var express = require("express");
+var dbConnection = require("../../config/database");
 var router = express.Router();
 
 router.get("/", function (req, res) {
@@ -7,6 +8,12 @@ router.get("/", function (req, res) {
     req.session.autenticado === true
       ? { autenticado: req.session.usu_autenticado_id }
       : { autenticado: null };
+  colaboradora_autenticado =
+    req.session.colaboradora_autenticado === true
+      ? { colaboradora_autenticado: req.session.usu_colaboradora_autenticado_id }
+      : { colaboradora_autenticado: null };
+
+      console.log(req.session.colaboradora_autenticado)
 
   res.render("pages/home/index", req.session);
 });
@@ -25,10 +32,35 @@ router.get("/sair", function (req, res) {
 
 router.get("/perfil", function (req, res) {
   if (req.session.autenticado === true) {
-    res.render("pages/perfilCliente/index", req.session);
+    if(req.session.colaboradora_autenticado === true){
+      res.render("pages/perfilColaboradora/index", req.session);
+    }else{
+      res.render("pages/perfilCliente/index", req.session);
+    }
   } else {
     res.redirect("/login");
   }
+});
+
+router.get("/crie-perfil-profissional", function (req, res) {
+  if (req.session.autenticado === true) {
+    res.render("pages/formColaboradora/criePerfil/index", req.session);
+  } else {
+    res.redirect("/login");
+  } 
+});
+
+router.get("/editarperfil", function (req, res) {
+  if (req.session.autenticado === true) {
+    if(req.session.usu_colaboradora_autenticado_id !== undefined){
+      res.render("pages/formColaboradora/criePerfil/index", req.session);
+    }else{
+      res.redirect("/login");
+    }
+  } else {
+    res.redirect("/login");
+  }
+  res.render("pages/formColaboradora/criePerfil/index", req.session);
 });
 
 router.get("/configuracao", function (req, res) {
@@ -39,19 +71,14 @@ router.get("/configuracao", function (req, res) {
   }
 });
 
-router.get("/pedidos", function (req, res) {
-  res.render("pages/pedidosServiços/index", req.session);
-});
-
-router.get("/menu", function (req, res) {
-  res.render("pages/menuHamburger-logoff/index", req.session);
-});
-
-router.get("/perfil-colaboradora", function (req, res) {
-  res.render("pages/perfilColaboradora/index", req.session);
-});
 router.get("/perfilColaboradora", function (req, res) {
   res.render("pages/perfilColaboradora-visãoCliente/index", req.session);
+});
+router.get("/historico", function (req, res) {
+  res.render("pages/historico/index", req.session);
+});
+router.get("/pedidos", function (req, res) {
+  res.render("pages/pedidos/index", req.session);
 });
 
 router.get("/planos", function (req, res) {
@@ -59,7 +86,7 @@ router.get("/planos", function (req, res) {
 });
 
 router.get("/servicos", function (req, res) {
-  res.render("pages/serviços/index", req.session);
+  res.render("pages/servicos/index", req.session);
 });
 
 router.get("/recuperar-senha", function (req, res) {
@@ -126,24 +153,11 @@ router.get("/fotoservico", function (req, res) {
 router.get("/capacitacao", function (req, res) {
   res.render("pages/formColaboradora/capacitacao/index", req.session);
 });
-router.get("/criePerfil", function (req, res) {
-  if (req.session.autenticado === true) {
-    res.render("pages/formColaboradora/criePerfil/index", req.session);
-  } else {
-    res.redirect("/login");
-  } 
-});
 router.get("/selecioneProf", function (req, res) {
   res.render("pages/formColaboradora/selecioneProf/index", req.session);
 });
-router.get("/servicosSolicitados", function (req, res) {
-  res.render("pages/servicosSolicitados/index", req.session);
-});
 router.get("/colaboradorasFavoritas", function (req, res) {
   res.render("pages/colaboradorasFavoritas/index", req.session);
-});
-router.get("/editarperfil", function (req, res) {
-  res.render("pages/editarperfil/index", req.session);
 });
 router.get("/todasCategorias", function (req, res) {
   res.render("pages/todasCategorias/index", req.session);

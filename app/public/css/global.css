@@ -76,31 +76,31 @@ body {
   min-height: 100vh;
 }
 .bg-white {
-  color: #fff;
+  background-color: #fff;
 }
 .bg-purple-0 {
-  background-color: #f5f5f5;
+  background-background-color: #f5f5f5;
 }
 .bg-purple-100 {
-  color: #c77dff;
+  background-color: #c77dff;
 }
 .bg-purple-200 {
-  color: #9d4edd;
+  background-color: #9d4edd;
 }
 .bg-purple-300 {
-  color: #7b2cbf;
+  background-color: #7b2cbf;
 }
 .bg-purple-400 {
-  color: #5a189a;
+  background-color: #5a189a;
 }
 .bg-purple-500 {
-  color: #3c096c;
+  background-color: #3c096c;
 }
 .bg-purple-600 {
-  color: #240046;
+  background-color: #240046;
 }
 .bg-black {
-  color: #000;
+  background-color: #000;
 }
 
 /* Texto */

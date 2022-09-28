@@ -6,7 +6,6 @@ const { v4: uuidv4 } = require("uuid");
 const multer = require("multer");
 
 const { body, validationResult } = require("express-validator");
-const { response } = require("express");
 
 const router = express.Router();
 
@@ -42,6 +41,50 @@ router.post(
       }
     );
     res.redirect("/login");
+  }
+);
+router.post(
+  "/crie-perfil-profissional",
+
+  body("descricao").isLength({ min: 0, max: 500 }),
+
+  function (req, res) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      console.log(errors);
+      // return res.render("pages/html", { erros: errors, dados: req.body });
+      return res.json(errors);
+    }
+
+    var dadosForm = {
+      id_colaboradora: uuidv4(),
+      id_usuario: req.session.usu_autenticado_id,
+      descricao: req.body.descricao,
+    };
+
+    dbConnection.query(
+      "INSERT INTO usuario_colaboradora SET ?",
+      dadosForm,
+      function (error, results, fields) {
+        if (error) throw error;
+      }
+    );
+    setTimeout(function () {
+      dbConnection.query(
+        "SELECT * FROM usuario_colaboradora WHERE id_usuario = ?",
+        [dadosForm.id_usuario],
+        function (error, results, fields) {
+          if (error) throw error;
+
+          req.session.usu_colaboradora_autenticado_id =
+            results[0].id_colaboradora;
+          req.session.usu_colaboradora_autenticado_descricao =
+            results[0].descricao;
+
+          res.redirect("/perfil");
+        }
+      );
+    }, 200);
   }
 );
 
@@ -80,10 +123,27 @@ router.post(
             }
           }
         }
-
-        res.redirect("/");
       }
     );
+    setTimeout(function () {
+      dbConnection.query(
+        "SELECT * FROM usuario_colaboradora WHERE id_usuario = ?",
+        [req.session.usu_autenticado_id],
+        function (error, results, fields) {
+          if (error) throw error;
+          var total = Object.keys(results).length;
+          if (total == 1) {
+            req.session.colaboradora_autenticado = true;
+            req.session.usu_colaboradora_autenticado_id =
+              results[0].id_colaboradora;
+            req.session.usu_colaboradora_autenticado_descricao =
+              results[0].descricao;
+          }
+
+          res.redirect("/");
+        }
+      );
+    }, 200);
   }
 );
 
@@ -127,27 +187,31 @@ router.post(
       }
     );
 
-    setTimeout( function(){
+    setTimeout(function () {
       dbConnection.query(
-      "SELECT * FROM usuario WHERE id_usuario = ?",
-      [req.session.usu_autenticado_id],
-      function (error, results, fields) {
-        if (error) throw error;
+        "SELECT * FROM usuario WHERE id_usuario = ?",
+        [req.session.usu_autenticado_id],
+        function (error, results, fields) {
+          if (error) throw error;
 
-        req.session.usu_autenticado_nome = results[0].nome;
-        req.session.usu_autenticado_email = results[0].email;
-        req.session.usu_autenticado_tel = results[0].num_tel;
-        req.session.usu_autenticado_cep = results[0].cep;
-        if (results[0].foto_perfil == undefined) {
-          req.session.usu_autenticado_foto = null;
-        } else {
-          req.session.usu_autenticado_foto =
-            results[0].foto_perfil.toString("base64");
+          req.session.usu_autenticado_nome = results[0].nome;
+          req.session.usu_autenticado_email = results[0].email;
+          req.session.usu_autenticado_tel = results[0].num_tel;
+          req.session.usu_autenticado_cep = results[0].cep;
+          if (results[0].foto_perfil == undefined) {
+            req.session.usu_autenticado_foto = null;
+          } else {
+            req.session.usu_autenticado_foto =
+              results[0].foto_perfil.toString("base64");
+          }
+          if (req.session.usu_colaboradora_autenticado_id !== undefined) {
+            res.redirect("/editarperfil");
+          } else {
+            res.redirect("/perfil");
+          }
         }
-
-        res.redirect("/perfil");
-      }
-    );}, 200);
+      );
+    }, 200);
   }
 );
 
