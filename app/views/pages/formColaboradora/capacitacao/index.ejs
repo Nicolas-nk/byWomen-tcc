@@ -28,22 +28,25 @@
                 </a>
             </div>
 
-            <div class="add mx-auto">
+            <div class="mx-auto">
                 <div class="text-form mt-5">
-                    <h1 class="fonts-2 mx-auto">Adicione um documento que comprove sua capacitação</h1>
+                    <h1 class="fonts-2 mx-auto text-center">Adicione um documento que comprove sua capacitação</h1>
                 </div>
-                <div class="mt-3">
-                    <img class="rounded mx-auto d-block" src="images/icons/form/capacitacao.svg" alt="">
-                </div>
-                <form action="">
-                    <div class="input-cad">
-                        <input type="text" placeholder="Atividade realizada">
+                <form action="" class="form">
+                    <div class="mt-3">
+                        <img class="rounded mx-auto d-block" src="images/icons/form/capacitacao.svg" alt="">
                     </div>
-                    <div class="input-cad">
-                        <input type="date" placeholder="Data de Emissão do Certificado">
+                    <div class="input-cad mt-4">
+                        <label for="">Atividade realizada</label>
+                        <textarea oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' name="descricao" id="descricao" class="mt-2"><% if(colaboradora_autenticado === true){ %><% }else{} %></textarea>
                     </div>
-                    <div class="input-cad">
-                        <input type="text" placeholder="Orgão emissor">
+                    <div class="mt-3">
+                        <label for="">Data de Emissão do Certificado</label>
+                        <input type="date" class="mt-2">
+                    </div>
+                    <div class="input-cad mt-3">
+                        <label for="">Orgão emissor</label>
+                        <input type="text" class="mt-2">
                     </div>
                     <div class="inf-cad">
                         <div class="anexar-img">
@@ -51,7 +54,9 @@
                         </div>
                         <p>Adicione uma imagem do seu certificado</p>
                     </div>
-                    <button class="bg-purplegradient">Cadastrar</button>
+                    <div class="button-picture">
+                        <button class="bg-purplegradient">Cadastrar</button>
+                    </div>
                 </form>
             </div>
         </div>

@@ -28,14 +28,14 @@
                 </a>
             </div>
         </div>
-        <div class="add mx-auto mt-5">
+        <div class="mx-auto mt-5">
             <%if(usu_autenticado_foto !==null){%>
                 <h1>Altere sua foto de perfil.</h1>
             <%}else{%>
-                <h1>Adicione uma foto para seu perfil.</h1>
+                <h1 class="text-center fonts-2">Adicione uma foto para seu perfil.</h1>
             <% } %>
-            <form action="">
-                <div class="profile-picture-img mt-3 mx-auto">
+            <form action="" class="d-flex form" style="flex-direction: column;">
+                <div class="profile-picture-img mt-3 mx-auto">  
                     <label for="userImage">
                     <%if(usu_autenticado_foto !==null){%>
                         <div class="new-profile-picture d-none" id="new-profile-picture"></div>
@@ -47,14 +47,14 @@
                     <% } %>
                     </label>
                 </div>
-                <span>
+                <h1 class="fonts-1 text-center text-color-500 mt-3">
                     <%= usu_autenticado_nome %>
-                </span>
+                </h1>
                 <label for="userImage" class="anexar-img mt-5">
                     <span>Anexar imagem</span>
                 </label>
                 <input type="file" id="userImage" name="userImage" accept="image/*">
-                <button class="bg-purplegradient btn-cad">Adicionar foto</button>
+                <div class="button-picture"><button class="bg-purplegradient btn-cad">Adicionar foto</button></div>
             </form>
         </div>
     </div>

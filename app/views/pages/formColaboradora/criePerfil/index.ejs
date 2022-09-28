@@ -30,73 +30,65 @@
     <p class="text-center mt-2">Complete todas as informações <br> para se tornar uma de nossas parceiras</p>
     <% } %>
 
-    <form action="auth/crie-perfil-profissional" method="POST">
-      <% if(colaboradora_autenticado === true){ %>
+    <% if(colaboradora_autenticado === true){ %>
+    <form action="auth/atualizar-perfil-profissional" method="POST">
       <a href="/configuracao">
-        <div href="" class="add-img-profile mx-auto my-4">
-          <%if(usu_autenticado_foto !== null){%>
-          <div class="profile-img mx-auto" id="profile-picture-img" style="background-image: url('data:image/jpeg;base64,<%= usu_autenticado_foto %>') ;">
-            <div class="mask-profile-img"></div>
-          </div>
-          <%}else{%>
-          <img src="/images/profile/perfil.png" alt="">
-          <% } %>
-          <div class="edit-img-profile">
-            <img src="images/icons/header/settings.svg" alt="">
-          </div>
-        </div>
-      </a>
-      <% }else{  %>
-      <a href="/fotoperfil">
-        <div href="" class="add-img-profile mx-auto my-4">
-          <%if(usu_autenticado_foto !== null){%>
-          <div class="profile-img mx-auto" id="profile-picture-img" style="background-image: url('data:image/jpeg;base64,<%= usu_autenticado_foto %>') ;">
-            <div class="mask-profile-img"></div>
-          </div>
-          <%}else{%>
-          <img src="/images/profile/perfil.png" alt="">
-          <% } %>
-          <div class="edit-img-profile">
-            <img src="images/icons/header/lapis.svg" alt="">
-          </div>
-        </div>
-      </a>
-      <% } %>
+        <% }else{  %>
+        <form action="auth/crie-perfil-profissional" method="POST">
+          <a href="/fotoperfil">
+            <% } %>
+            <div href="" class="add-img-profile mx-auto my-4">
+              <%if(usu_autenticado_foto !== null){%>
+              <div class="profile-img mx-auto" id="profile-picture-img" style="background-image: url('data:image/jpeg;base64,<%= usu_autenticado_foto %>') ;">
+                <div class="mask-profile-img"></div>
+              </div>
+              <%}else{%>
+              <img src="/images/profile/perfil.png" alt="">
+              <% } %>
+              <div class="edit-img-profile">
+                <% if(colaboradora_autenticado === true){ %>
+                <img src="images/icons/header/settings.svg" alt="">
+                <% }else{  %>
+                <img src="images/icons/header/lapis.svg" alt="">
+                <% } %>
+              </div>
+            </div>
+          </a>
 
-      <div class="mt-5 d-flex badges-contents justify-content-center">
-        <a href="/selecioneProf" class="add-badge text-center"><span>+</span></a>
-      </div>
-      <hr class="mx-auto" style="width: 80%;">
-      <div class="biography mt-5">
-        <label for="">Biografia</label>
-        <textarea oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' name="descricao" id="descricao"><% if(colaboradora_autenticado === true){ %><%= usu_colaboradora_autenticado_descricao %><% }else{} %></textarea>
-      </div>
-      <div class="works mt-5">
-        <label>Principais Trabalhos</label>
-        <div class="your-class mt-3 d-flex">
-          <div class="add-work bg-purple-500">
-              <div class="add"><span class="text-white fonts-1">+</span></div>
+          <div class="mt-5 d-flex badges-contents justify-content-center">
+            <a href="/selecioneProf" class="add-badge text-center"><span>+</span></a>
           </div>
-          <div class="add-work bg-white">
-              <div class="mask-shadow"></div>
+          <hr class="mx-auto" style="width: 80%;">
+          <div class="biography mt-5">
+            <label for="">Biografia</label>
+            <textarea oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' name="descricao" id="descricao"><% if(colaboradora_autenticado === true){ %><%= usu_colaboradora_autenticado_descricao %><% }else{} %></textarea>
           </div>
-      </div>
-        <!-- carrossel -->
-      </div>
-      <div class="certificate mt-5">
-        <label>Licenças e certificações</label>
-        <!-- carrossel -->
-        <div class="your-class mt-3 d-flex">
-          <div class="add-certificate bg-purple-500">
-              <div class="add"><span class="text-white fonts-1">+</span></div>
+          <div class="works mt-5">
+            <label>Principais Trabalhos</label>
+            <div class="your-class mt-3 d-flex">
+              <a href="fotoservico" class="add-work bg-purple-500">
+                <div class="add"><span class="text-white fonts-1">+</span></div>
+              </a>
+              <div class="add-work bg-white">
+                <div class="mask-shadow"></div>
+              </div>
+            </div>
+            <!-- carrossel -->
           </div>
-          <div class="add-certificate bg-white">
-              <div class="mask-shadow"></div>
+          <div class="certificate mt-5">
+            <label>Licenças e certificações</label>
+            <!-- carrossel -->
+            <div class="your-class mt-3 d-flex">
+              <a href="/capacitacao" class="add-certificate bg-purple-500">
+                <div class="add"><span class="text-white fonts-1">+</span></div>
+              </a>
+              <div class="add-certificate bg-white">
+                <div class="mask-shadow"></div>
+              </div>
+            </div>
           </div>
-      </div>
-      </div>
-      <div class=""><button type="submit" class="bg-purplegradient">Salvar</button></div>
-    </form>
+          <button type="submit" class="bg-purplegradient">Salvar</button>
+        </form>
   </div>
 </body>
 

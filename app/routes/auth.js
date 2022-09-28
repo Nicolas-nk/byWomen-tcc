@@ -89,6 +89,19 @@ router.post(
 );
 
 router.post(
+  "/excluir-perfil",
+
+  function (req, res) {
+    dbConnection.query(
+      "DELETE FROM usuario WHERE id_usuario = ?",
+      [req.session.usu_autenticado_id],
+      req.session.destroy(),
+      res.redirect("/")
+    );
+  }
+);
+
+router.post(
   "/login",
 
   function (req, res) {
@@ -209,6 +222,34 @@ router.post(
           } else {
             res.redirect("/perfil");
           }
+        }
+      );
+    }, 200);
+  }
+);
+router.post(
+  "/atualizar-perfil-profissional",
+
+  function (req, res) {
+
+    var dadosForm = {
+      descricao: req.body.descricao,
+    };
+    dbConnection.query(
+      "UPDATE usuario_colaboradora SET ?",
+      dadosForm,
+      function (error, results, fields) {
+        if (error) throw error;
+      }
+    );
+    setTimeout(function () {
+      dbConnection.query(
+        "SELECT * FROM usuario_colaboradora WHERE id_colaboradora = ?",
+        [req.session.usu_colaboradora_autenticado_id],
+        function (error, results, fields) {
+          if (error) throw error;
+          req.session.usu_colaboradora_autenticado_descricao = results[0].descricao;
+          res.redirect("/perfil");
         }
       );
     }, 200);

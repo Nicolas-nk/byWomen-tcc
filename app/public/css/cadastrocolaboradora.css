@@ -150,6 +150,17 @@ button {
   flex: 1;
 }
 
+.form{
+  height: 90%;
+}
+
+.button-picture{
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+
 /*Capacitação cad*/
 
 .add h1 {
@@ -310,4 +321,15 @@ input.search:focus-visible {
   border-radius: 5px;
   color: #fff;
   font-size: 18px;
+}
+
+@media (min-height: 700px){
+  .form{
+    height: 80%;
+  }
+}
+@media (max-height: 770px){
+  .button-picture{
+    position: relative;
+  }
 }
