@@ -2,105 +2,104 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>By Women - Adicione Foto Ao Seu Perfil</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="icon" href="/images/logo/logo-aba.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/cadastrocolaboradora.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>By Women - Adicione Foto Ao Seu Perfil</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="icon" href="/images/logo/logo-aba.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/cadastrocolaboradora.css">
 </head>
 
 <body>
-    <div class="container bg-pink">
-        <div>
-            <div class="header-navbar">
-                <a href="javascript:void(0)" onClick="history.go(-1); return false;" class="header-components">
-                    <img src="images/icons/header/returnpurple.svg" alt="voltar">
-                </a>
-            </div>
-        </div>
-        <div class="mx-auto mt-5">
-            <%if(usu_autenticado_foto !==null){%>
-                <h1 class="text-center fonts-2">Altere sua foto de perfil.</h1>
-            <%}else{%>
-                <h1 class="text-center fonts-2">Adicione uma foto para seu perfil.</h1>
-            <% } %>
-            <form action="/auth/fotoperfil" method="POST" enctype="multipart/form-data" class="d-flex form" style="flex-direction: column;">
-                <div class="profile-picture-img mt-3 mx-auto">  
-                    <label for="userImage">
-                        <div class="new-profile-picture d-none" id="new-profile-picture"></div>
-                    <%if(usu_autenticado_foto !==null){%>
-                        <div class="user-profile-picture" id="user-profile-picture" style="background-image: url('data:image/jpeg;base64,<%= usu_autenticado_foto %>') ;">
-                    </div>
-                    <%}else{%>
-                        <img src="images/icons/form/fotoadd.svg" alt="Sem foto de perfil" class="without-profile-picture d-block" id="without-profile-picture">
-                    <% } %>
-                    </label>
-                </div>
-                <h1 class="fonts-1 text-center text-color-500 mt-3">
-                    <%= usu_autenticado_nome %>
-                </h1>
-                <label for="userImage" class="anexar-img mt-5">
-                    <span>Anexar imagem</span>
-                </label>
-                <input type="file" id="userImage" name="userImage" accept="image/*">
-                <div class="button-picture">
-                    <button type="submit" class="bg-purplegradient btn-cad">Adicionar foto</button>
-                </div>
-            </form>
-        </div>
+  <div class="container bg-pink">
+    <div>
+      <div class="header-navbar">
+        <a href="javascript:void(0)" onClick="history.go(-1); return false;" class="header-components">
+          <img src="images/icons/header/returnpurple.svg" alt="voltar">
+        </a>
+      </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
+    <div class="mx-auto mt-5">
+      <%if(usu_autenticado_foto !==null){%>
+      <h1 class="text-center fonts-2">Altere sua foto de perfil.</h1>
+      <%}else{%>
+      <h1 class="text-center fonts-2">Adicione uma foto para seu perfil.</h1>
+      <% } %>
+      <form action="/auth/fotoperfil" method="POST" enctype="multipart/form-data" class="d-flex form" style="flex-direction: column;">
+        <div class="profile-picture-img mt-3 mx-auto">
+          <label for="userImage">
+            <div class="new-profile-picture d-none" id="new-profile-picture"></div>
+            <%if(usu_autenticado_foto !==null){%>
+            <div class="user-profile-picture" id="user-profile-picture" style="background-image: url('data:image/jpeg;base64,<%= usu_autenticado_foto %>') ;">
+            </div>
+            <%}else{%>
+            <img src="images/icons/form/fotoadd.svg" alt="Sem foto de perfil" class="without-profile-picture d-block" id="without-profile-picture">
+            <% } %>
+          </label>
+        </div>
+        <h1 class="fonts-1 text-center text-color-500 mt-3">
+          <%= usu_autenticado_nome %>
+        </h1>
+        <label for="userImage" class="anexar-img mt-5">
+          <span>Anexar imagem</span>
+        </label>
+        <input type="file" id="userImage" name="userImage" accept="image/*">
+        <div class="button-picture">
+          <button type="submit" class="bg-purplegradient btn-cad">Adicionar foto</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    $(document).ready(function() {
+      $("#userImage").change(function() {
+        var reader = new FileReader();
+        reader.onloadend = function() {
+          $("#without-profile-picture").addClass("d-none");
+          $("#user-profile-picture").addClass("d-none");
+          $("#new-profile-picture").removeClass("d-none");
+          $("#new-profile-picture").addClass("d-block");
+          $("#new-profile-picture").css("background-image", "url(" + reader.result + ")");
+        }
+        reader.readAsDataURL(event.target.files[0]);
+      })
+    });
+    addEventListener("load", () => {
+      var urlimg = "data:image/jpeg;base64,<%= usu_autenticado_foto %>";
+      continueUserImage(urlimg);
+    });
 
-        $(document).ready(function() {
-        $("#userImage").change(function() {
-            var reader = new FileReader();
-            reader.onloadend = function() {
-            $("#without-profile-picture").addClass("d-none");
-            $("#user-profile-picture").addClass("d-none");
-            $("#new-profile-picture").removeClass("d-none");
-            $("#new-profile-picture").addClass("d-block");
-            $("#new-profile-picture").css("background-image", "url(" + reader.result + ")");
-            }
-            reader.readAsDataURL(event.target.files[0]);
-        })
-        });
-        addEventListener("load", () => {
-        var urlimg = "data:image/jpeg;base64,<%= usu_autenticado_foto %>";
-        continueUserImage(urlimg);
-        });
-        function continueUserImage(urlimg){
-        getImg(urlimg, (imgBlob) => {
-            let fileName = "profile-picture.jpg";
-            let file = new File([imgBlob], fileName, {
-            type: "image/jpeg",
-            lastModified: new Date().getTime()
-            }, 'utf-8');
-            let container = new DataTransfer();
-            container.items.add(file);
-            document.querySelector("#userImage").files = container.files;
-        })
-        }
-        function getImg(urlimg, callback){
-        var xhr = new XMLHttpRequest();
-        xhr.onload = function() {
-            callback(xhr.response);
-        };
-        xhr.open('GET', urlimg);
-        xhr.responseType = 'blob';
-        xhr.send();
-        }
-    </script>
+    function continueUserImage(urlimg) {
+      getImg(urlimg, (imgBlob) => {
+        let fileName = "profile-picture.jpg";
+        let file = new File([imgBlob], fileName, {
+          type: "image/jpeg",
+          lastModified: new Date().getTime()
+        }, 'utf-8');
+        let container = new DataTransfer();
+        container.items.add(file);
+        document.querySelector("#userImage").files = container.files;
+      })
+    }
+
+    function getImg(urlimg, callback) {
+      var xhr = new XMLHttpRequest();
+      xhr.onload = function() {
+        callback(xhr.response);
+      };
+      xhr.open('GET', urlimg);
+      xhr.responseType = 'blob';
+      xhr.send();
+    }
+  </script>
 </body>
 
 </html>

@@ -105,7 +105,7 @@ router.get("/fotoperfil", function (req, res) {
     res.redirect("/login");
   }
 });
-router.get("/trabalho-realizado/:cod_trabalho", function (req, res) {
+router.get("/trabalho-realizado", function (req, res) {
   if (req.session.colaboradora_autenticado === true) {
     res.render("pages/formColaboradora/trabalhoRealizado/index", req.session);
   } else if (req.session.autenticado === true) {
@@ -114,7 +114,7 @@ router.get("/trabalho-realizado/:cod_trabalho", function (req, res) {
     res.redirect("/login");
   }
 });
-router.get("/certificacao/:cod_certificacao", function (req, res) {
+router.get("/certificacao", function (req, res) {
   res.render("pages/formColaboradora/certificacao/index", req.session);
 });
 router.get("/profissao", function (req, res) {
