@@ -133,8 +133,7 @@ button {
   border-radius: 100%;
   z-index: 2;
 }
-.new-profile-picture:hover,
-.without-profile-picture:hover {
+.new-profile-picture:hover {
   border: 5px solid rgb(180, 180, 180);
 }
 

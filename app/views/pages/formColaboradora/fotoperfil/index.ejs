@@ -30,19 +30,18 @@
         </div>
         <div class="mx-auto mt-5">
             <%if(usu_autenticado_foto !==null){%>
-                <h1>Altere sua foto de perfil.</h1>
+                <h1 class="text-center fonts-2">Altere sua foto de perfil.</h1>
             <%}else{%>
                 <h1 class="text-center fonts-2">Adicione uma foto para seu perfil.</h1>
             <% } %>
-            <form action="" class="d-flex form" style="flex-direction: column;">
+            <form action="/auth/fotoperfil" method="POST" enctype="multipart/form-data" class="d-flex form" style="flex-direction: column;">
                 <div class="profile-picture-img mt-3 mx-auto">  
                     <label for="userImage">
-                    <%if(usu_autenticado_foto !==null){%>
                         <div class="new-profile-picture d-none" id="new-profile-picture"></div>
+                    <%if(usu_autenticado_foto !==null){%>
                         <div class="user-profile-picture" id="user-profile-picture" style="background-image: url('data:image/jpeg;base64,<%= usu_autenticado_foto %>') ;">
                     </div>
                     <%}else{%>
-                        <div class="new-profile-picture d-none" id="new-profile-picture"></div>
                         <img src="images/icons/form/fotoadd.svg" alt="Sem foto de perfil" class="without-profile-picture d-block" id="without-profile-picture">
                     <% } %>
                     </label>
@@ -54,7 +53,9 @@
                     <span>Anexar imagem</span>
                 </label>
                 <input type="file" id="userImage" name="userImage" accept="image/*">
-                <div class="button-picture"><button class="bg-purplegradient btn-cad">Adicionar foto</button></div>
+                <div class="button-picture">
+                    <button type="submit" class="bg-purplegradient btn-cad">Adicionar foto</button>
+                </div>
             </form>
         </div>
     </div>

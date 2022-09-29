@@ -98,6 +98,55 @@ router.get("/cadastre-se", function (req, res) {
   res.render("pages/cadastre-se/index", req.session);
 });
 
+router.get("/fotoperfil", function (req, res) {
+  if (req.session.autenticado === true) {
+    res.render("pages/formColaboradora/fotoperfil/index", req.session);
+  } else {
+    res.redirect("/login");
+  }
+});
+router.get("/trabalho-realizado/:cod_trabalho", function (req, res) {
+  if (req.session.colaboradora_autenticado === true) {
+    res.render("pages/formColaboradora/trabalhoRealizado/index", req.session);
+  } else if (req.session.autenticado === true) {
+    res.redirect("/");
+  } else {
+    res.redirect("/login");
+  }
+});
+router.get("/certificacao/:cod_certificacao", function (req, res) {
+  res.render("pages/formColaboradora/certificacao/index", req.session);
+});
+router.get("/profissao", function (req, res) {
+  res.render("pages/formColaboradora/profissao/index", req.session);
+});
+router.get("/todas-categorias", function (req, res) {
+  res.render("pages/todasCategorias/index", req.session);
+});
+router.get("/todos-servicos", function (req, res) {
+  res.render("pages/todosServiços/index", req.session);
+});
+
+router.get("/perfilColaboradora", function (req, res) {
+  res.render("pages/perfilColaboradora-visãoCliente/index", req.session);
+});
+
+router.get("/favoritos", function (req, res) {
+  res.render("pages/favoritos/index", req.session);
+});
+
+router.get("/cartao", function (req, res) {
+  res.render("pages/cartao/index");
+});
+
+router.get("/pagamento", function (req, res) {
+  res.render("pages/sucesso/index");
+});
+
+router.get("/forma-pagamento", function (req, res) {
+  res.render("pages/pagamento/index");
+});
+
 router.get("/Construcao", function (req, res) {
   autenticado =
     req.session.autenticado === true
@@ -139,48 +188,6 @@ router.get("/Manutencao-eletrica", function (req, res) {
     "pages/subcategorias-servicos/manutencao-eletrica/index",
     req.session
   );
-});
-
-router.get("/fotoperfil", function (req, res) {
-  res.render("pages/formColaboradora/fotoperfil/index", req.session);
-});
-router.get("/fotoservico", function (req, res) {
-  res.render("pages/formColaboradora/addservico/index", req.session);
-});
-router.get("/capacitacao", function (req, res) {
-  res.render("pages/formColaboradora/capacitacao/index", req.session);
-});
-router.get("/selecioneProf", function (req, res) {
-  res.render("pages/formColaboradora/selecioneProf/index", req.session);
-});
-router.get("/colaboradorasFavoritas", function (req, res) {
-  res.render("pages/colaboradorasFavoritas/index", req.session);
-});
-router.get("/todasCategorias", function (req, res) {
-  res.render("pages/todasCategorias/index", req.session);
-});
-router.get("/todosServicos", function (req, res) {
-  res.render("pages/todosServiços/index", req.session);
-});
-
-router.get("/perfilColaboradora", function (req, res) {
-  res.render("pages/perfilColaboradora-visãoCliente/index", req.session);
-});
-
-router.get("/favoritos", function (req, res) {
-  res.render("pages/favoritos/index", req.session);
-});
-
-router.get("/cartao", function (req, res) {
-  res.render("pages/cartao/index");
-});
-
-router.get("/pagamento", function (req, res) {
-  res.render("pages/sucesso/index");
-});
-
-router.get("/formapagamento", function (req, res) {
-  res.render("pages/pagamento/index");
 });
 
 module.exports = router;
