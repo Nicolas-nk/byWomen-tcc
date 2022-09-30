@@ -4,6 +4,8 @@ var salt = bcrypt.genSaltSync(12);
 var dbConnection = require("../../config/database");
 const { v4: uuidv4 } = require("uuid");
 const multer = require("multer");
+const imageMemoryStorage = multer.memoryStorage();
+const uploadImage = multer({ storage: imageMemoryStorage });
 
 const { body, validationResult } = require("express-validator");
 
@@ -160,9 +162,6 @@ router.post(
   }
 );
 
-const imageMemoryStorage = multer.memoryStorage();
-const uploadImage = multer({ storage: imageMemoryStorage });
-
 router.post(
   "/configuracao",
   uploadImage.single("userImage"),
@@ -246,7 +245,7 @@ router.post(
 
     dbConnection.query(
       "UPDATE usuario SET foto_perfil = ? WHERE id_usuario = ?",
-      [dadosForm.fotoPerfil,dadosForm.id_usuario],
+      [dadosForm.fotoPerfil, dadosForm.id_usuario],
       function (error, results, fields) {
         if (error) throw error;
       }
@@ -269,6 +268,38 @@ router.post(
         }
       );
     }, 200);
+  }
+);
+router.post(
+  "/add-certificacao",
+  uploadImage.single("foto_certificacao"),
+
+  function (req, res) {
+    let fileContent;
+    if (!req.file) {
+      fileContent = null;
+    } else {
+      fileContent = req.file.buffer;
+    }
+
+    var dadosForm = {
+      cod_certificacao: uuidv4(),
+      nome_curso: req.body.nome_curso,
+      atividade_realizada: req.body.atividade_realizada,
+      data_emissao: req.body.data_emissao,
+      orgao_emissor: req.body.orgao_emissor,
+      foto_certificacao: fileContent,
+      id_colaboradora: req.session.colaboradora_autenticado,
+    };
+
+    dbConnection.query(
+      "INSERT INTO certificacao SET ?",
+      dadosForm,
+      function (error, results, fields) {
+        if (error) throw error;
+        res.redirect("/crie-perfil-profissional")
+      }
+    );
   }
 );
 

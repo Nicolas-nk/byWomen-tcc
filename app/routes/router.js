@@ -106,19 +106,27 @@ router.get("/fotoperfil", function (req, res) {
   }
 });
 router.get("/trabalho-realizado", function (req, res) {
-  if (req.session.colaboradora_autenticado === true) {
+  if (req.session.autenticado === true) {
     res.render("pages/formColaboradora/trabalhoRealizado/index", req.session);
-  } else if (req.session.autenticado === true) {
-    res.redirect("/");
   } else {
     res.redirect("/login");
   }
 });
 router.get("/certificacao", function (req, res) {
-  res.render("pages/formColaboradora/certificacao/index", req.session);
+  if (req.session.autenticado === true) {
+    res.render("pages/formColaboradora/certificacao/index", req.session);
+  } else {
+    res.redirect("/login");
+  }
 });
 router.get("/profissao", function (req, res) {
-  res.render("pages/formColaboradora/profissao/index", req.session);
+  if (req.session.colaboradora_autenticado === true) {
+    res.render("pages/formColaboradora/profissao/index", req.session);
+  } else if (req.session.autenticado === true) {
+    res.redirect("/");
+  } else {
+    res.redirect("/login");
+  }
 });
 router.get("/todas-categorias", function (req, res) {
   res.render("pages/todasCategorias/index", req.session);

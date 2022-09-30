@@ -52,6 +52,7 @@ input {
   top: 0;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   border-radius: 100%;
 }
 .new-profile-picture{
@@ -62,6 +63,7 @@ input {
   top: 0;
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   border-radius: 100%;
   z-index: 2;
 }

@@ -23,7 +23,7 @@ CREATE TABLE usuario (
     num_tel varchar(20),
     senha varchar(255),
     cep varchar(10),
-    foto_perfil varchar(255)
+    foto_perfil longblob
 );
 
 CREATE TABLE usuario_colaboradora (
@@ -37,7 +37,7 @@ CREATE TABLE usuario_colaboradora (
 );
 
 CREATE TABLE favoritos (
-	cod_fav bigint primary key,
+	cod_fav VARCHAR(36) primary key,
     id_colaboradora VARCHAR(36),
     cod_cat_servico bigint,
     id_usuario VARCHAR(36),
@@ -56,27 +56,27 @@ CREATE TABLE comentarios(
 );
 
 CREATE TABLE certificacao(
-	cod_certificacao bigint primary key,
-    orgao_emissor varchar(100),
+	cod_certificacao VARCHAR(36) primary key,
     nome_curso varchar (100),
+    atividade_realizada varchar(500),
     data_emissao date,
+    orgao_emissor varchar(100),
+    foto_certificacao longblob,
     id_colaboradora varchar(36),
     foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora)
 );
 
 CREATE TABLE trabalhos_realizados(
-	cod_trabalho bigint primary key,
+	cod_trabalho VARCHAR(36) primary key,
     titulo varchar(100),
     descricao varchar(500),
-    imagem_trabalho varchar (255),
+    imagem_trabalho longblob,
     id_colaboradora varchar(36),
-    cod_cat_servico bigint,
-    foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora),
-    foreign key (cod_cat_servico) references categoria_servico (cod_cat_servico)
+    foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora)
 );
 
 CREATE TABLE tipo_servico(
-	cod_tipo_servico bigint primary key,
+	cod_tipo_servico VARCHAR(36) primary key,
     nome_tipo_servico varchar(100),
     img_tipo_servico varchar(255),
     cod_cat_servico bigint,
@@ -84,46 +84,46 @@ CREATE TABLE tipo_servico(
 );
 
 CREATE TABLE profissao(
-	cod_profissao bigint primary key,
+	cod_profissao VARCHAR(36) primary key,
     nome_profissao varchar(100),
-    cod_tipo_servico bigint,
+    cod_tipo_servico VARCHAR(36),
     foreign key (cod_tipo_servico) references tipo_servico (cod_tipo_servico)
 );
 
 CREATE TABLE profissao_colaboradora(
 	id_colaboradora varchar(36),
-    cod_profissao bigint,
+    cod_profissao VARCHAR(36),
 	primary key (id_colaboradora, cod_profissao),
     foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora),
     foreign key (cod_profissao) references profissao (cod_profissao)
 );
 
 CREATE TABLE servico(
-	cod_servico bigint primary key,
+	cod_servico VARCHAR(36) primary key,
     cep varchar(15),
     data_hora_servico datetime,
     complemento_local varchar(100),
     num_local int,
     id_colaboradora varchar(36),
-    cod_tipo_servico bigint,
+    cod_tipo_servico VARCHAR(36),
     foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora),
     foreign key (cod_tipo_servico) references tipo_servico (cod_tipo_servico)
 );
 
 CREATE TABLE solicitacao(
-	cod_solicitacao bigint primary key,
+	cod_solicitacao VARCHAR(36) primary key,
     mensagem varchar(500),
     status_solicitacao varchar(50),
     data_requisicao date,
     periodo varchar(50),
-    cod_tipo_servico bigint,
+    cod_tipo_servico VARCHAR(36),
     id_usuario VARCHAR(36),
     foreign key (cod_tipo_servico) references tipo_servico (cod_tipo_servico),
     foreign key (id_usuario) references usuario (id_usuario)
 );
 
 CREATE TABLE solicitacao_colaboradora(
-	cod_solicitacao bigint,
+	cod_solicitacao VARCHAR(36),
     id_colaboradora varchar(36),
     foreign key (cod_solicitacao) references solicitacao (cod_solicitacao),
     foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora)
