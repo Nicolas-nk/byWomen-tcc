@@ -227,6 +227,10 @@ input.search:focus-visible {
   color: #fff;
 }
 
+.fake-menu{
+  padding-bottom: 45px;
+}
+
 @media (min-width: 500px) {
   .image-inf3 {
     background-position-y: 10%;
