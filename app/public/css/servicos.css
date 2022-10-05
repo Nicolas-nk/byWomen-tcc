@@ -1,122 +1,147 @@
 /*Tela de Serviços*/
 
 .services hr {
-    max-width: 540px;
-  }
-  
-  .margin{
-    margin-top: 30px;
-  }
-  
-  .service-details{
-    width: 90%;
-  }
+  max-width: 540px;
+}
 
-  .service-details input{
-    border-top: 0;
-    border-left: 0;
-    border-right: 0;
-    border-bottom: 1px solid #000;
-    color: #000;
-    background: none;
-    position: relative;
-    margin-top: 30px;
-    width: 100%;
-  }
-  
-  .service-details input::placeholder{
-    color: #000;
-  }
-  
-  .profession-pic {
-    background-image: url("/images/trabalhos/montagem.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 500px;
-    position: relative;
-  }
-  
-  .box-transparent {
-    width: 100%;
-    height: 60px;
-    position: sticky;
-    top: 0;
-    opacity: 1;
-    display: flex;
-    align-items: center;
-    z-index: 2;
-  }
-  
-  .close {
-    margin-left: 5%;
-    position: absolute;
-    z-index: 5;
-  }
-  
-  .close span{
-    color: #fff;
-    font-size: 40px;
-    opacity: 1;
-  }
-  
-  .profession {
-    width: 100%;
-    height: 60px;
-    -webkit-box-shadow: 0px 7px 8px 1px rgba(36, 0, 70, 0.58);
-    box-shadow: 0px 7px 8px 1px rgba(36, 0, 70, 0.58);
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-  }
-  
-  .profession h1 {
-    text-align: end;
-    width: 100%;
-    margin: 0 5%;
-    font-size: 20px;
-    font-weight: 200;
-    color: #3c096c;
-  }
-  
-  .text {
-    margin-top: 20px;
-  }
-  
-  .text h1 {
-    font-size: 20px;
-    font-weight: 300;
-    text-align: center;
-  }
-  
-  .test {
-    width: 100vw;
-    height: 5000px;
-  }
-  
-  .fixed {
-    position: sticky;
-    top: 0;
-    width: 100vw;
-    max-width: 540px;
-    z-index: 2;
-  }
-  
-  .btn-servicos button{
-    background-color: transparent;
-    color: #000;
-    width: 80%;
-    max-width: 400px;
-    height: 43px;
-    border: 3px solid;
-    border-color: #240046;
-    border-radius: 25px;
-    margin-top: 90px;
-    font-size: 18px;
-  }
-  
-  .btn-servico:hover {
-    background-color: #240046;
-    color: white;
-    transition: all 0.2s ease;
-    cursor: pointer;
-  }
+.margin {
+  margin-top: 30px;
+}
+
+.service-details {
+  width: 90%;
+}
+
+.service-details input {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 1px solid #000;
+  color: #000;
+  background: none;
+  position: relative;
+  margin-top: 30px;
+  width: 100%;
+}
+
+.service-details input::placeholder {
+  color: #000;
+}
+
+.profession-pic {
+  background-image: url("/images/trabalhos/montagem.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 500px;
+  position: relative;
+}
+
+.mask {
+  background: rgb(90,24,154);
+  background: linear-gradient(0deg, rgba(90,24,154,0.053658963585434205) 0%, rgba(60,9,108,0.20211834733893552) 43%, rgba(36,0,70,0.4009978991596639) 88%);
+  box-shadow: 0px 33px 25px 0px rgba(90,24,154,0.053658963585434205);
+  height: 100px;
+  width: 100%;
+}
+
+.box-transparent {
+  width: 100%;
+  height: 0;
+  position: sticky;
+  top: 0;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+}
+
+.close {
+  left: 5%;
+  bottom: -20px;
+  position: absolute;
+  z-index: 5;
+}
+
+.close:before {
+  content: "";
+  width: 35px;
+  height: 5px;
+  position: absolute;
+  background-color: #fff;
+  opacity: 1;
+  transform: rotate(45deg);
+}
+
+.close:after {
+  content: "";
+  width: 35px;
+  height: 5px;
+  position: absolute;
+  background-color: #fff;
+  opacity: 1;
+  transform: rotate(-45deg);
+}
+
+.profession {
+  width: 100%;
+  height: 60px;
+  -webkit-box-shadow: 0px 7px 8px 1px rgba(36, 0, 70, 0.58);
+  box-shadow: 0px 7px 8px 1px rgba(36, 0, 70, 0.58);
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  z-index: 2000;
+  position: relative;
+}
+
+.profession h1 {
+  text-align: end;
+  width: 100%;
+  margin: 0 5%;
+  font-size: 20px;
+  font-weight: 200;
+  color: #3c096c;
+}
+
+.text {
+  margin-top: 20px;
+}
+
+.text h1 {
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.test {
+  width: 100vw;
+  height: 5000px;
+}
+
+.fixed {
+  position: sticky;
+  top: 0;
+  width: 100vw;
+  max-width: 540px;
+  z-index: 2;
+}
+
+.btn-servicos button {
+  background-color: transparent;
+  color: #000;
+  width: 80%;
+  max-width: 400px;
+  height: 43px;
+  border: 3px solid;
+  border-color: #240046;
+  border-radius: 25px;
+  margin-top: 90px;
+  font-size: 18px;
+}
+
+.btn-servico:hover {
+  background-color: #240046;
+  color: white;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}

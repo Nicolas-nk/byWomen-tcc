@@ -101,14 +101,25 @@ hr.title {
   font-size: 28px;
 }
 
+.plan-content{
+  position: relative;
+  height: 100px;
+}
+
 .price span {
   float: left;
 }
 
-.plan-text h1,
-.plan-1 p,
-.plan-2 p,
-.plan-3 p {
+.plan-1 ,
+.plan-2 ,
+.plan-3  {
+  text-align: start;
+  margin-top: 20px;
+  position: absolute;
+  transition: all ease-in-out 0.5s;
+}
+
+.plan-text h1{
   text-align: start;
   margin-top: 20px;
 }

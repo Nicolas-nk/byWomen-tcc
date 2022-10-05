@@ -30,17 +30,44 @@ input {
   margin: 20px 0;
   cursor: pointer;
 }
-
 .profile-picture-img {
+  position: relative;
   width: 115px;
   height: 115px;
-  border-radius: 50%;
+  border-radius: 100%;
   cursor: pointer;
   transition: background .3s;
 }
 
-.profile-picture-img:hover{
-  background-color: rgb(180, 180, 180);
+.without-profile-picture{
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+.user-profile-picture{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 100%;
+}
+.new-profile-picture{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 100%;
+  z-index: 2;
+}
+.new-profile-picture:hover, .without-profile-picture:hover{
   border: 5px solid rgb(180, 180, 180);
 }
 
@@ -61,12 +88,11 @@ input {
   background: transparent;
   color: #000;
   width: 100%;
-  height: 43px;
+  width: 260px;
+  height: 45px;
   border: 3px solid;
   border-color: #240046;
   border-radius: 25px;
   font-size: 18px;
-  max-width: 400px;
-  margin-top: 50px;
   position: relative;
 }

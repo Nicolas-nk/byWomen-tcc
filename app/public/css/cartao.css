@@ -14,7 +14,6 @@ hr{
 
 .option-card{
     position: relative;
-    width: 320px;
     margin: 40px 0;
 }
 
@@ -35,18 +34,17 @@ span.cred, span.deb{
 .option-deb::after{
     width: 45%;
     left: 0;
-    transform: translate(5%);
+    transform: translate(10px);
 }
 
 .option-cred::after{
     width: 45%;
     left: 0;
-    transform: translate(168px);
+    transform: translate(115%);
 }
 
 .card-cred{
-    width: 320px;
-    height: 200px;
+    height: 230px;
     margin: 0 0 30px 0;
     background: rgb(149,22,255);
     background: linear-gradient(53deg, rgba(149,22,255,1) 0%, rgba(91,11,158,1) 50%, rgba(36,0,64,1) 100%);
@@ -64,12 +62,10 @@ span.cred, span.deb{
 .inf-card label{
     text-align: start;
     width: 100%;
-    max-width: 320px;
 }
 
 .inf-card input{
     width: 100%;
-    max-width: 320px;
     border: #C5C5C5 0.5px solid;
     border-radius: 10px;
     height: 40px;
@@ -77,7 +73,6 @@ span.cred, span.deb{
 
 .date-cvv{
     display: flex;
-    max-width: 320px;
 }
 
 .inf-card .date-cvv input{
@@ -91,21 +86,21 @@ input:focus{
 .name{
     color: #fff;
     position: absolute;
-    bottom: 15px;
-    left: 30px;
+    bottom: 30px;
+    left: 25px;
 }
 
 .number-card{
     color: #fff;
     position: absolute;
     bottom: 60px;
-    left: 30px; 
+    left: 25px; 
 }
 
 .date{
     color: #fff;
     position: absolute;
-    right: 30px;
+    right: 25px;
     top: 15px; 
 }
 
@@ -114,7 +109,7 @@ input:focus{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    left: 30px;
+    left: 25px;
     top: 15px;
     background-color: #fff;
     opacity: 35%;
@@ -125,7 +120,7 @@ input:focus{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    left: 45px;
+    left: 40px;
     top: 15px;
     background-color: #fff;
     opacity: 35%;
@@ -136,7 +131,49 @@ input:focus{
     flex-direction: row;
     justify-content: space-between;
     margin-top: 30px;
-    width: 320px;
+    align-items: center;
+    width: 100%;
+}
+
+input[type = checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+#check-switch{
+    cursor: pointer;
+    width: 75px;
+    height: 35px;
+    background: grey;
+    display: block;
+    border-radius: 25px;
+    position: relative;
+}
+
+#check-switch:after{
+    content: "";
+    position: absolute;
+    top: 5px;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border-radius: 30px;
+    transition:all 0.5s ease-in-out;
+}
+
+input:checked + #check-switch{
+    background: #7b2cbf;
+}
+
+input:checked + #check-switch:after{
+    left: calc(65% - 5px);
+/*     transform: translate(-100%); */
+    transition:all 0.5s ease-in-out;
+}
+
+#check-switch:active:after{
+    width: 25px;
 }
 
 /*Metodo de pagamento*/
@@ -155,16 +192,6 @@ input:focus{
     margin-left: 8px;
   }
 
-  label{
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 1px solid #240046;
-    border-style: double;
-    background-color: #fff;
-    transition: all ease-in-out 0.2s;
-  }
-
   .checked{
     background-color: #3C096C;
     transition: all ease-in-out 0.2s;
@@ -176,5 +203,11 @@ input:focus{
 
   .value-pay{
     color: #3C096C;
+  }
+
+  @media (min-width: 380px) {
+    .card-cred{
+        height: 270px;
+    }
   }
 
