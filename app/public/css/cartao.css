@@ -131,6 +131,49 @@ input:focus{
     flex-direction: row;
     justify-content: space-between;
     margin-top: 30px;
+    align-items: center;
+    width: 100%;
+}
+
+input[type = checkbox]{
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+#check-switch{
+    cursor: pointer;
+    width: 75px;
+    height: 35px;
+    background: grey;
+    display: block;
+    border-radius: 25px;
+    position: relative;
+}
+
+#check-switch:after{
+    content: "";
+    position: absolute;
+    top: 5px;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border-radius: 30px;
+    transition:all 0.5s ease-in-out;
+}
+
+input:checked + #check-switch{
+    background: #7b2cbf;
+}
+
+input:checked + #check-switch:after{
+    left: calc(65% - 5px);
+/*     transform: translate(-100%); */
+    transition:all 0.5s ease-in-out;
+}
+
+#check-switch:active:after{
+    width: 25px;
 }
 
 /*Metodo de pagamento*/
