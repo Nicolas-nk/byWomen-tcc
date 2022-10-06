@@ -27,9 +27,9 @@
     </div>
     <% if(session.colaboradora_autenticado==true){ %>
     <h1 class="text-center mt-5 fonts-2">Atualize seu perfil!</h1>
+    <p class="text-center mt-2">Complete todas as informações <br> para ter seu perfil melhor ranqueado</p>
     <% }else{ %>
-    <h1 class="text-center mt-5 fonts-2">Crie seu perfil!</h1>
-    <p class="text-center mt-2">Complete todas as informações <br> para se tornar uma de nossas parceiras</p>
+    <h1 class="text-center mt-5 fonts-2">Crie seu perfil profissional!</h1>
     <% } %>
 
     <% if(session.colaboradora_autenticado==true){ %>
@@ -58,7 +58,7 @@
           </a>
           <% if(session.colaboradora_autenticado===true){ %>
           <div class="mt-5 d-flex badges-contents justify-content-center">
-            <a href="/selecioneProf" class="add-badge text-center"><span>+</span></a>
+            <a href="/profissao" class="add-badge text-center"><span>+</span></a>
           </div>
           <% }else{ %>
           <% } %>
@@ -77,11 +77,11 @@
                 <div class="add"><span class="text-white fonts-1">+</span></div>
               </a>
               <% trabalhos_realizados.forEach(function(trabalhos_realizados){ %>
-                <div class="add-work bg-white">
-                  <div class="mask-shadow"></div>
-                </div>
-                <% }); %>
-              
+              <div class="add-work bg-white">
+                <div class="mask-shadow"><%= trabalhos_realizados.titulo %> </div>
+              </div>
+              <% }); %>
+
             </div>
           </div>
 
@@ -92,8 +92,10 @@
                 <div class="add"><span class="text-white fonts-1">+</span></div>
               </a>
               <% certificacoes.forEach(function(certificacoes){ %>
-              <div class="add-certificate" style="background-image: ;">
-                <div class="mask-shadow"></div>
+              <div class="add-certificate">
+                <div class="h-100 w-100" style="background-image: url('data:image/jpeg;base64,<%= certificacoes.foto_certificacao %>');">
+                  <div class="mask-shadow"><%= certificacoes.nome_curso %></div>
+                </div>
               </div>
               <% }); %>
             </div>

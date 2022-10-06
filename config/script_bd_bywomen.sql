@@ -5,7 +5,7 @@ USE bywomen;
 CREATE TABLE categoria_servico (
 	cod_cat_servico bigint primary key,
     nome_cat_servico varchar(100)
-);
+)ENGINE=InnoDB;
 
 CREATE TABLE planos (
  cod_plano int primary key auto_increment,
@@ -13,7 +13,7 @@ CREATE TABLE planos (
  valor_plano decimal(4,2),
  periodo varchar(50),
  beneficios varchar(350)
-);
+)ENGINE=InnoDB;
 
 CREATE TABLE usuario (
 	id_usuario VARCHAR(36) primary key,
@@ -24,7 +24,7 @@ CREATE TABLE usuario (
     senha varchar(255),
     cep varchar(10),
     foto_perfil longblob
-);
+)ENGINE=InnoDB;
 
 CREATE TABLE usuario_colaboradora (
 	id_colaboradora VARCHAR(36),
@@ -32,28 +32,28 @@ CREATE TABLE usuario_colaboradora (
     descricao varchar(500),
     cod_plano int,
     primary key(id_colaboradora, id_usuario),
-    foreign key (id_usuario) references usuario (id_usuario),
+    CONSTRAINT foreign key (id_usuario) references usuario (id_usuario) on delete cascade,
     foreign key (cod_plano) references planos (cod_plano)
-);
+)ENGINE=InnoDB;
 
 CREATE TABLE favoritos (
 	cod_fav VARCHAR(36) primary key,
     id_colaboradora VARCHAR(36),
     cod_cat_servico bigint,
     id_usuario VARCHAR(36),
-    foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora),
-    foreign key (cod_cat_servico) references categoria_servico (cod_cat_servico),
-    foreign key (id_usuario) references usuario (id_usuario)
-);
+    CONSTRAINT foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora) on delete cascade,
+    CONSTRAINT foreign key (cod_cat_servico) references categoria_servico (cod_cat_servico) on delete cascade,
+    CONSTRAINT foreign key (id_usuario) references usuario (id_usuario) on delete cascade
+)ENGINE=InnoDB;
 
 CREATE TABLE comentarios(
 	cod_comentario VARCHAR(36),
     conteudo varchar (500),
     id_colaboradora varchar(36),
     id_usuario VARCHAR(36),
-	foreign key (id_usuario) references usuario (id_usuario),
-    foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora)
-);
+	CONSTRAINT foreign key (id_usuario) references usuario (id_usuario) on delete cascade,
+    CONSTRAINT foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora) on delete cascade
+)ENGINE=InnoDB;
 
 CREATE TABLE certificacao(
 	cod_certificacao VARCHAR(36) primary key,
@@ -63,8 +63,8 @@ CREATE TABLE certificacao(
     orgao_emissor varchar(100),
     foto_certificacao longblob,
     id_colaboradora varchar(36),
-    foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora)
-);
+    CONSTRAINT foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora) on delete cascade
+)ENGINE=InnoDB;
 
 CREATE TABLE trabalhos_realizados(
 	cod_trabalho VARCHAR(36) primary key,
@@ -72,31 +72,31 @@ CREATE TABLE trabalhos_realizados(
     descricao varchar(500),
     imagem_trabalho longblob,
     id_colaboradora varchar(36),
-    foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora)
-);
+    CONSTRAINT foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora) on delete cascade
+)ENGINE=InnoDB;
 
 CREATE TABLE tipo_servico(
 	cod_tipo_servico VARCHAR(36) primary key,
     nome_tipo_servico varchar(100),
     img_tipo_servico varchar(255),
     cod_cat_servico bigint,
-    foreign key (cod_cat_servico) references categoria_servico (cod_cat_servico)
-);
+    CONSTRAINT foreign key (cod_cat_servico) references categoria_servico (cod_cat_servico) on delete cascade
+)ENGINE=InnoDB;
 
 CREATE TABLE profissao(
 	cod_profissao VARCHAR(36) primary key,
     nome_profissao varchar(100),
     cod_tipo_servico VARCHAR(36),
-    foreign key (cod_tipo_servico) references tipo_servico (cod_tipo_servico)
-);
+    CONSTRAINT foreign key (cod_tipo_servico) references tipo_servico (cod_tipo_servico) on delete cascade
+)ENGINE=InnoDB;
 
 CREATE TABLE profissao_colaboradora(
 	id_colaboradora varchar(36),
     cod_profissao VARCHAR(36),
 	primary key (id_colaboradora, cod_profissao),
-    foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora),
-    foreign key (cod_profissao) references profissao (cod_profissao)
-);
+    CONSTRAINT foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora) on delete cascade,
+    CONSTRAINT foreign key (cod_profissao) references profissao (cod_profissao) on delete cascade
+)ENGINE=InnoDB;
 
 CREATE TABLE servico(
 	cod_servico VARCHAR(36) primary key,
@@ -106,9 +106,9 @@ CREATE TABLE servico(
     num_local int,
     id_colaboradora varchar(36),
     cod_tipo_servico VARCHAR(36),
-    foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora),
-    foreign key (cod_tipo_servico) references tipo_servico (cod_tipo_servico)
-);
+    CONSTRAINT foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora) on delete cascade,
+    CONSTRAINT foreign key (cod_tipo_servico) references tipo_servico (cod_tipo_servico) on delete cascade
+)ENGINE=InnoDB;
 
 CREATE TABLE solicitacao(
 	cod_solicitacao VARCHAR(36) primary key,
@@ -118,13 +118,13 @@ CREATE TABLE solicitacao(
     periodo varchar(50),
     cod_tipo_servico VARCHAR(36),
     id_usuario VARCHAR(36),
-    foreign key (cod_tipo_servico) references tipo_servico (cod_tipo_servico),
-    foreign key (id_usuario) references usuario (id_usuario)
-);
+    CONSTRAINT foreign key (cod_tipo_servico) references tipo_servico (cod_tipo_servico) on delete cascade,
+    CONSTRAINT foreign key (id_usuario) references usuario (id_usuario) on delete cascade
+)ENGINE=InnoDB;
 
 CREATE TABLE solicitacao_colaboradora(
 	cod_solicitacao VARCHAR(36),
     id_colaboradora varchar(36),
-    foreign key (cod_solicitacao) references solicitacao (cod_solicitacao),
-    foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora)
-);
+    CONSTRAINT foreign key (cod_solicitacao) references solicitacao (cod_solicitacao) on delete cascade,
+	CONSTRAINT foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora) on delete cascade
+)ENGINE=InnoDB;
