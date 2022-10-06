@@ -46,51 +46,6 @@ router.post(
   }
 );
 router.post(
-  "/crie-perfil-profissional",
-
-  body("descricao").isLength({ min: 0, max: 500 }),
-
-  function (req, res) {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      console.log(errors);
-      // return res.render("pages/html", { erros: errors, dados: req.body });
-      return res.json(errors);
-    }
-
-    var dadosForm = {
-      id_colaboradora: uuidv4(),
-      id_usuario: req.session.usu_autenticado_id,
-      descricao: req.body.descricao,
-    };
-
-    dbConnection.query(
-      "INSERT INTO usuario_colaboradora SET ?",
-      dadosForm,
-      function (error, results, fields) {
-        if (error) throw error;
-      }
-    );
-    setTimeout(function () {
-      dbConnection.query(
-        "SELECT * FROM usuario_colaboradora WHERE id_usuario = ?",
-        [dadosForm.id_usuario],
-        function (error, results, fields) {
-          if (error) throw error;
-          req.session.colaboradora_autenticado = true;
-          req.session.usu_colaboradora_autenticado_id =
-            results[0].id_colaboradora;
-          req.session.usu_colaboradora_autenticado_descricao =
-            results[0].descricao;
-
-          res.redirect("/perfil");
-        }
-      );
-    }, 200);
-  }
-);
-
-router.post(
   "/excluir-perfil",
 
   function (req, res) {
@@ -161,7 +116,6 @@ router.post(
     }, 200);
   }
 );
-
 router.post(
   "/configuracao",
   uploadImage.single("userImage"),
@@ -221,6 +175,78 @@ router.post(
           } else {
             res.redirect("/perfil");
           }
+        }
+      );
+    }, 200);
+  }
+);
+router.post(
+  "/crie-perfil-profissional",
+
+  body("descricao").isLength({ min: 0, max: 500 }),
+
+  function (req, res) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      console.log(errors);
+      // return res.render("pages/html", { erros: errors, dados: req.body });
+      return res.json(errors);
+    }
+
+    var dadosForm = {
+      id_colaboradora: uuidv4(),
+      id_usuario: req.session.usu_autenticado_id,
+      descricao: req.body.descricao,
+    };
+
+    dbConnection.query(
+      "INSERT INTO usuario_colaboradora SET ?",
+      dadosForm,
+      function (error, results, fields) {
+        if (error) throw error;
+      }
+    );
+    setTimeout(function () {
+      dbConnection.query(
+        "SELECT * FROM usuario_colaboradora WHERE id_usuario = ?",
+        [dadosForm.id_usuario],
+        function (error, results, fields) {
+          if (error) throw error;
+          req.session.colaboradora_autenticado = true;
+          req.session.usu_colaboradora_autenticado_id =
+            results[0].id_colaboradora;
+          req.session.usu_colaboradora_autenticado_descricao =
+            results[0].descricao;
+
+          res.redirect("/perfil");
+        }
+      );
+    }, 200);
+  }
+);
+router.post(
+  "/atualizar-perfil-profissional",
+
+  function (req, res) {
+    var dadosForm = {
+      descricao: req.body.descricao,
+    };
+    dbConnection.query(
+      "UPDATE usuario_colaboradora SET ?",
+      dadosForm,
+      function (error, results, fields) {
+        if (error) throw error;
+      }
+    );
+    setTimeout(function () {
+      dbConnection.query(
+        "SELECT * FROM usuario_colaboradora WHERE id_colaboradora = ?",
+        [req.session.usu_colaboradora_autenticado_id],
+        function (error, results, fields) {
+          if (error) throw error;
+          req.session.usu_colaboradora_autenticado_descricao =
+            results[0].descricao;
+          res.redirect("/perfil");
         }
       );
     }, 200);
@@ -289,7 +315,7 @@ router.post(
       data_emissao: req.body.data_emissao,
       orgao_emissor: req.body.orgao_emissor,
       foto_certificacao: fileContent,
-      id_colaboradora: req.session.colaboradora_autenticado,
+      id_colaboradora: req.session.usu_colaboradora_autenticado_id,
     };
 
     dbConnection.query(
@@ -297,38 +323,39 @@ router.post(
       dadosForm,
       function (error, results, fields) {
         if (error) throw error;
-        res.redirect("/crie-perfil-profissional")
       }
     );
+    res.redirect("/editarperfil");
   }
 );
-
 router.post(
-  "/atualizar-perfil-profissional",
+  "/add-trabalho",
+  uploadImage.single("imagem_trabalho"),
 
   function (req, res) {
+    let fileContent;
+    if (!req.file) {
+      fileContent = null;
+    } else {
+      fileContent = req.file.buffer;
+    }
+
     var dadosForm = {
+      cod_trabalho: uuidv4(),
+      titulo: req.body.titulo,
       descricao: req.body.descricao,
+      imagem_trabalho: fileContent,
+      id_colaboradora: req.session.usu_colaboradora_autenticado_id,
     };
+
     dbConnection.query(
-      "UPDATE usuario_colaboradora SET ?",
+      "INSERT INTO trabalhos_realizados SET ?",
       dadosForm,
       function (error, results, fields) {
         if (error) throw error;
       }
     );
-    setTimeout(function () {
-      dbConnection.query(
-        "SELECT * FROM usuario_colaboradora WHERE id_colaboradora = ?",
-        [req.session.usu_colaboradora_autenticado_id],
-        function (error, results, fields) {
-          if (error) throw error;
-          req.session.usu_colaboradora_autenticado_descricao =
-            results[0].descricao;
-          res.redirect("/perfil");
-        }
-      );
-    }, 200);
+    res.redirect("/editarperfil");
   }
 );
 

@@ -170,6 +170,10 @@ body {
   padding: 5px 0 10px 0;
 }
 
+.itens{
+  cursor: pointer;
+}
+
 .navbar,
 .wallpaper {
   position: relative;
