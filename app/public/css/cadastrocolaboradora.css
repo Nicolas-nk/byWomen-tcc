@@ -4,7 +4,8 @@ h1 {
   font-weight: 600;
 }
 
-input, textarea {
+input,
+textarea {
   border-top: none;
   border-left: none;
   border-right: none;
@@ -15,7 +16,8 @@ input, textarea {
   color: #000;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   outline: none;
 }
 
@@ -44,6 +46,7 @@ input:focus, textarea:focus {
   color: #fff;
   font-size: 18px;
 }
+
 .profile-img {
   max-width: 150px;
   height: 150px;
@@ -54,6 +57,7 @@ input:focus, textarea:focus {
   background-position: center;
   border-radius: 100%;
 }
+
 .mask-profile-img {
   background: rgb(255, 255, 255);
   background: linear-gradient(180deg, transparent, #7b2cbf);
@@ -92,6 +96,7 @@ button {
 #userImage {
   display: none;
 }
+
 .profile-picture-img {
   position: relative;
   width: 190px;
@@ -106,6 +111,7 @@ button {
   height: 100%;
   border-radius: 100%;
 }
+
 .user-profile-picture {
   position: absolute;
   width: 100%;
@@ -117,6 +123,7 @@ button {
   background-position: center;
   border-radius: 100%;
 }
+
 .new-profile-picture {
   position: absolute;
   width: 100%;
@@ -129,6 +136,7 @@ button {
   border-radius: 100%;
   z-index: 2;
 }
+
 .new-profile-picture:hover {
   border: 5px solid rgb(180, 180, 180);
 }
@@ -145,11 +153,11 @@ button {
   flex: 1;
 }
 
-.form{
+.form {
   height: 90%;
 }
 
-.button-picture{
+.button-picture {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -170,6 +178,7 @@ button {
   height: 190px;
   border-radius: 100%;
 }
+
 .user-imagem_trabalho {
   position: absolute;
   width: 100%;
@@ -181,6 +190,7 @@ button {
   background-position: center;
   border-radius: 15px;
 }
+
 .new-imagem_trabalho {
   position: absolute;
   width: 100%;
@@ -210,6 +220,7 @@ button {
   height: 190px;
   border-radius: 100%;
 }
+
 .user-foto_certificacao {
   position: absolute;
   width: 100%;
@@ -221,6 +232,7 @@ button {
   background-position: center;
   border-radius: 15px;
 }
+
 .new-foto_certificacao {
   position: absolute;
   width: 100%;
@@ -290,8 +302,14 @@ button {
   margin: 0 15px 0 0;
 }
 
-.add-certificate{
-  width: 130px;
+.course {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+
+.add-certificate {
+  width: 200px;
   height: 130px;
   border-radius: 20px;
   display: flex;
@@ -312,13 +330,13 @@ button {
 }
 
 .mask-shadow {
-  background: rgb(255, 255, 255);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(119, 118, 118, 0.2038834951456311) 50%,
-      rgba(0, 0, 0, 0.2508090614886731) 88%,
-      rgba(0, 0, 0, 0.40453074433656955) 100%);
-      height: 100%;
-      width: 100%;
-      border-radius: 20px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.40453074433656955) 0%,
+      rgba(119, 118, 118, 0.2038834951456311) 50%,
+      rgba(0, 0, 0, 0.2508090614886731) 68%,
+      rgba(0, 0, 0, 0.8) 100%);
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
 }
 
 .biography span,
@@ -341,6 +359,7 @@ button {
   color: #5a189a;
   font-size: 18px;
 }
+
 .add-badge {
   background-color: rgb(157, 78, 221, 0.35);
   padding: 6px;
@@ -357,8 +376,7 @@ button {
 input.search {
   font-size: 26px;
   display: block;
-  background: rgba(157, 78, 221, 0.35);
-  box-shadow: 0 0 5px 0 rgba(31, 38, 135, 0.37);
+  background: rgba(90, 24, 154, 1);
   backdrop-filter: blur(9.5px);
   -webkit-backdrop-filter: blur(9.5px);
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -394,13 +412,14 @@ input.search:focus-visible {
   font-size: 18px;
 }
 
-@media (min-height: 700px){
-  .form{
+@media (min-height: 700px) {
+  .form {
     height: 80%;
   }
 }
-@media (max-height: 850px){
-  .button-picture{
+
+@media (max-height: 850px) {
+  .button-picture {
     position: relative;
   }
 }

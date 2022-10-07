@@ -1333,13 +1333,6 @@ hr.title{
   justify-content: space-around;
 }
 
-.license{
-  height: 150px;
-  width: 150px;
-  background-color: #3c096c;
-  border-radius: 15px;
-}
-
 .text-edit{
   width: 90%;
   position: relative;

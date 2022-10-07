@@ -277,13 +277,6 @@ border-radius: 100%;
   margin-top: 10px;
 }
 
-.license {
-  height: 150px;
-  width: 150px;
-  background-color: #3c096c;
-  border-radius: 15px;
-}
-
 .or{
   text-align: center;
   overflow: hidden;
@@ -387,3 +380,31 @@ border-radius: 100%;
   background-color: #240046;
   color: #fff;
 }
+
+.mask-shadow {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.40453074433656955) 0%,
+      rgba(119, 118, 118, 0.2038834951456311) 50%,
+      rgba(0, 0, 0, 0.2508090614886731) 68%,
+      rgba(0, 0, 0, 0.8) 100%);
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+}
+
+.course {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+
+.add-certificate {
+  width: 200px;
+  height: 130px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 15px 0 0;
+}
+

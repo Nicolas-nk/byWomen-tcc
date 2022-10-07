@@ -4,7 +4,6 @@ const MemoryStore = require('memorystore')(session);
 
 const app = express();
 const port = process.env.PORT || 3000;
-
 app.use(session({
     cookie: { maxAge: 86400000 },
     store: new MemoryStore({
@@ -22,6 +21,7 @@ app.use(express.json());
 
 app.set('view engine', 'ejs');
 app.set('views', './app/views');
+app.locals.baseURL = "localhost:3000"
 
 var rotas = require('./app/routes/router');
 app.use('/', rotas);

@@ -78,9 +78,11 @@
                 <div class="add"><span class="text-white fonts-1">+</span></div>
               </a>
               <% trabalhos_realizados.forEach(function(trabalhos_realizados){ %>
-              <div class="add-work bg-white">
-                <div class="mask-shadow"><%= trabalhos_realizados.titulo %> </div>
-              </div>
+              <a href="<%=" /trabalho-realizado/"+ trabalhos_realizados.cod_trabalho %>" class="add-work">
+                <div class="h-100 w-100 bg-image" style="background-image: url('data:image/jpeg;base64,<%= trabalhos_realizados.imagem_trabalho %>'); border-radius: 20px;">
+                  <div class="mask-shadow"><span class="course text-white"><%= trabalhos_realizados.titulo %></span></div>
+                </div>
+              </a>
               <% }); %>
 
             </div>
@@ -93,11 +95,11 @@
                 <div class="add"><span class="text-white fonts-1">+</span></div>
               </a>
               <% certificacoes.forEach(function(certificacoes){ %>
-              <div class="add-certificate">
-                <div class="h-100 w-100" style="background-image: url('data:image/jpeg;base64,<%= certificacoes.foto_certificacao %>');">
-                  <div class="mask-shadow"><%= certificacoes.nome_curso %></div>
+              <a href="<%='/certificacao/'+ certificacoes.cod_certificacao %>" class="add-certificate">
+                <div class="h-100 w-100 bg-image" style="background-image: url('data:image/jpeg;base64,<%= certificacoes.foto_certificacao %>'); border-radius: 20px;">
+                  <div class="mask-shadow"><span class="course text-white"><%= certificacoes.nome_curso %></span></div>
                 </div>
-              </div>
+              </a>
               <% }); %>
             </div>
           </div>

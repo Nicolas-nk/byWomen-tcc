@@ -35,6 +35,9 @@ body {
 body::-webkit-scrollbar{
 	display: none;
 }
+.menu-scroll::-webkit-scrollbar{
+	display: none;
+}
 ol, ul {
 	list-style: none;
 }

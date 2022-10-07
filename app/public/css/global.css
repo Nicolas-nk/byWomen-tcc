@@ -102,6 +102,11 @@ body {
 .bg-black {
   background-color: #000;
 }
+.bg-image{
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 /* Texto */
 
@@ -245,6 +250,10 @@ body {
   width: 80%;
   display: flex;
   justify-content: center;
+}
+
+a{
+  text-decoration: none;
 }
 
 /* Small devices (landscape phones, 540px and up) */

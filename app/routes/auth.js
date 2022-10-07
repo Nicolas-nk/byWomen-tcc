@@ -305,7 +305,7 @@ router.post(
     if (!req.file) {
       fileContent = null;
     } else {
-      fileContent = req.file.buffer;
+      fileContent = req.file.buffer.toString('base64');
     }
 
     var dadosForm = {
@@ -337,7 +337,7 @@ router.post(
     if (!req.file) {
       fileContent = null;
     } else {
-      fileContent = req.file.buffer;
+      fileContent = req.file.buffer.toString('base64');
     }
 
     var dadosForm = {

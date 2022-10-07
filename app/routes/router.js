@@ -58,15 +58,43 @@ router.get("/excluir-perfil", function (req, res) {
 });
 
 router.get("/perfil", function (req, res) {
-  if (req.session.autenticado === true) {
-    if (req.session.colaboradora_autenticado === true) {
-      res.render("pages/perfilColaboradora/index", req.session);
-    } else {
-      res.render("pages/perfilCliente/index", req.session);
+  dbConnection.query(
+    "SELECT * FROM trabalhos_realizados WHERE id_colaboradora = ?",
+    [req.session.usu_colaboradora_autenticado_id],
+    (error, results) => {
+      if (error) {
+        return reject(error);
+      }
+      req.trabalhos_realizados = results;
+
+      setTimeout(function () {
+        dbConnection.query(
+          "SELECT * FROM certificacao WHERE id_colaboradora = ?",
+          [req.session.usu_colaboradora_autenticado_id],
+          (error, results) => {
+            if (error) {
+              return reject(error);
+            }
+            req.certificacoes = results;
+
+            if (req.session.autenticado === true) {
+              if (req.session.colaboradora_autenticado === true) {
+                res.render("pages/perfilColaboradora/index", {
+                  session: req.session,
+                  trabalhos_realizados: req.trabalhos_realizados,
+                  certificacoes: req.certificacoes,
+                });
+              } else {
+                res.render("pages/perfilCliente/index", req.session);
+              }
+            } else {
+              res.redirect("/login");
+            }
+          }
+        );
+      }, 200);
     }
-  } else {
-    res.redirect("/login");
-  }
+  );
 });
 
 router.get("/crie-perfil-profissional", function (req, res) {
@@ -89,33 +117,30 @@ router.get("/editarperfil", function (req, res) {
       }
       req.trabalhos_realizados = results;
 
-      dbConnection.query(
-        "SELECT * FROM certificacao WHERE id_colaboradora = ?",
-        [req.session.usu_colaboradora_autenticado_id],
-        (error, results) => {
-          if (error) {
-            return reject(error);
-          }
-          req.certificacoes = results;
-          if (results.foto_certificacao == undefined) {
-            results.foto_certificacao = null;
-          } else {
-            results.foto_certificacao.toString("base64");
-          }
+      setTimeout(function () {
+        dbConnection.query(
+          "SELECT * FROM certificacao WHERE id_colaboradora = ?",
+          [req.session.usu_colaboradora_autenticado_id],
+          (error, results) => {
+            if (error) {
+              return reject(error);
+            }
+            req.certificacoes = results;
 
-          if (req.session.colaboradora_autenticado === true) {
-            res.render("pages/formColaboradora/criePerfil/index", {
-              session: req.session,
-              trabalhos_realizados: req.trabalhos_realizados,
-              certificacoes: req.certificacoes,
-            });
-          } else if (req.session.autenticado === true) {
-            res.redirect("/home");
-          } else {
-            res.redirect("/login");
+            if (req.session.colaboradora_autenticado === true) {
+              res.render("pages/formColaboradora/criePerfil/index", {
+                session: req.session,
+                trabalhos_realizados: req.trabalhos_realizados,
+                certificacoes: req.certificacoes,
+              });
+            } else if (req.session.autenticado === true) {
+              res.redirect("/home");
+            } else {
+              res.redirect("/login");
+            }
           }
-        }
-      );
+        );
+      }, 200);
     }
   );
 });
@@ -130,6 +155,72 @@ router.get("/configuracao", function (req, res) {
 
 router.get("/perfilColaboradora", function (req, res) {
   res.render("pages/perfilColaboradora-visãoCliente/index", req.session);
+});
+router.get("/trabalho-realizado", function (req, res) {
+  if (req.session.autenticado === true) {
+    res.render("pages/formColaboradora/trabalhoRealizado/index", req.session);
+  } else {
+    res.redirect("/login");
+  }
+});
+router.get("/trabalho-realizado/:id", function (req, res) {
+  dbConnection.query(
+    "SELECT * FROM trabalhos_realizados WHERE ?",
+    { cod_trabalho: req.params.id },
+    (error, results) => {
+      if (error) {
+        return reject(error);
+      }
+      req.trabalhos_realizados = results;
+      req.trabalhos_realizados.id_colaboradora = results[0].id_colaboradora;
+      if (
+        req.session.usu_colaboradora_autenticado_id ==
+        req.trabalhos_realizados.id_colaboradora
+      ) {
+        res.render("pages/formColaboradora/trabalhoRealizado/index", {
+          session: req.session,
+          trabalhos_realizados: req.certificacao,
+        });
+      } else if (req.session.autenticado === true) {
+        res.redirect("/");
+      } else {
+        res.redirect("/login");
+      }
+    }
+  );
+});
+router.get("/certificacao", function (req, res) {
+  if (req.session.autenticado === true) {
+    res.render("pages/formColaboradora/certificacao/index", req.session);
+  } else {
+    res.redirect("/login");
+  }
+});
+router.get("/certificacao/:id", function (req, res) {
+  dbConnection.query(
+    "SELECT * FROM certificacao WHERE ?",
+    { cod_certificacao: req.params.id },
+    (error, results) => {
+      if (error) {
+        return reject(error);
+      }
+      req.certificacao = results;
+      req.certificacao.id_colaboradora = results[0].id_colaboradora;
+      if (
+        req.session.usu_colaboradora_autenticado_id ==
+        req.certificacao.id_colaboradora
+      ) {
+        res.render("pages/formColaboradora/certificacao/index", {
+          session: req.session,
+          certificacao: req.certificacao,
+        });
+      } else if (req.session.autenticado === true) {
+        res.redirect("/");
+      } else {
+        res.redirect("/login");
+      }
+    }
+  );
 });
 router.get("/historico", function (req, res) {
   res.render("pages/historico/index", req.session);
@@ -165,26 +256,13 @@ router.get("/fotoperfil", function (req, res) {
     res.redirect("/login");
   }
 });
-router.get("/trabalho-realizado", function (req, res) {
-  if (req.session.autenticado === true) {
-    res.render("pages/formColaboradora/trabalhoRealizado/index", req.session);
-  } else {
-    res.redirect("/login");
-  }
-});
-router.get("/certificacao", function (req, res) {
-  if (req.session.autenticado === true) {
-    res.render("pages/formColaboradora/certificacao/index", req.session);
-  } else {
-    res.redirect("/login");
-  }
-});
+
 router.get("/profissao", function (req, res) {
   if (req.session.autenticado === true) {
     res.render("pages/formColaboradora/profissao/index", req.session);
-  } /* else if (req.session.autenticado === true) {
+  } else if (req.session.autenticado === true) {
     res.redirect("/");
-  }  */else {
+  } else {
     res.redirect("/login");
   }
 });
