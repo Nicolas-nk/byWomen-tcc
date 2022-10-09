@@ -78,15 +78,22 @@
       </p>
     </div>
     <section>
+      <% if(trabalhos_realizados === null){}else{ %>
       <div class="">
         <h1 class="text-start fonts-2">Trabalhos</h1>
       </div>
-      <div class="your-work mt-2">
-        <div class="info-work">
-          <span>Clique e veja informação do trabalho</span>
-          <img src="images/icons/clique.svg" alt="">
+      <div class="carrossel-trabalhos mt-3 mb-5">
+        <% trabalhos_realizados.forEach(function(trabalhos_realizados){ %>
+        <div class="your-work mt-2 mx-1" style="background-image: url('data:image/jpeg;base64,<%= trabalhos_realizados.imagem_trabalho %>');">
+          <div class="info-work">
+            <span>Clique e veja informação do trabalho</span>
+            <img src="images/icons/clique.svg" alt="">
+          </div>
         </div>
+        <% }); %>
       </div>
+      <% } %>
+      <% if(certificacoes === null){}else{ %>
       <div class="mt-5">
         <h1 class="text-start fonts-2">Lincenças e certificados</h1>
       </div>
@@ -99,6 +106,12 @@
         </div>
         <% }); %>
       </div>
+      <% } %>
+      <% if(certificacoes === null){ %>
+      <a href="/editarperfil">Completar perfil</a>
+      <% }else if(certificacoes === null){ %>
+      <a href="/editarperfil">Completar perfil</a>
+      <% }else{} %>
     </section>
     <div class="fake-menu"></div>
   </div>
@@ -112,8 +125,9 @@
       dots: true,
       arrows: false,
       infinite: false,
-      centerPadding: "60px",
-      slidesToShow: 3.1,
+      centerMode: true,
+      centerPadding: "25px",
+      slidesToShow: 1,
     });
     $('.carrossel-certificacoes').slick({
       dots: true,

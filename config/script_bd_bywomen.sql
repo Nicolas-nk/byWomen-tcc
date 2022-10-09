@@ -84,7 +84,7 @@ CREATE TABLE tipo_servico(
 )ENGINE=InnoDB;
 
 CREATE TABLE profissao(
-	cod_profissao VARCHAR(36) primary key,
+	cod_profissao int primary key auto_increment,
     nome_profissao varchar(100),
     cod_tipo_servico VARCHAR(36),
     CONSTRAINT foreign key (cod_tipo_servico) references tipo_servico (cod_tipo_servico) on delete cascade

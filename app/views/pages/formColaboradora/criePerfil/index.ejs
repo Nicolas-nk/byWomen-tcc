@@ -80,7 +80,9 @@
               <% trabalhos_realizados.forEach(function(trabalhos_realizados){ %>
               <a href="<%=" /trabalho-realizado/"+ trabalhos_realizados.cod_trabalho %>" class="add-work">
                 <div class="h-100 w-100 bg-image" style="background-image: url('data:image/jpeg;base64,<%= trabalhos_realizados.imagem_trabalho %>'); border-radius: 20px;">
-                  <div class="mask-shadow"><span class="course text-white"><%= trabalhos_realizados.titulo %></span></div>
+                  <div class="mask-shadow"><span class="course text-white">
+                      <%= trabalhos_realizados.titulo %>
+                    </span></div>
                 </div>
               </a>
               <% }); %>
@@ -97,7 +99,9 @@
               <% certificacoes.forEach(function(certificacoes){ %>
               <a href="<%='/certificacao/'+ certificacoes.cod_certificacao %>" class="add-certificate">
                 <div class="h-100 w-100 bg-image" style="background-image: url('data:image/jpeg;base64,<%= certificacoes.foto_certificacao %>'); border-radius: 20px;">
-                  <div class="mask-shadow"><span class="course text-white"><%= certificacoes.nome_curso %></span></div>
+                  <div class="mask-shadow"><span class="course text-white">
+                      <%= certificacoes.nome_curso %>
+                    </span></div>
                 </div>
               </a>
               <% }); %>
@@ -112,19 +116,31 @@
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script>
-    $('.carrossel-trabalhos').slick({
-      dots: true,
-      arrows: false,
-      infinite: false,
-      centerPadding: "60px",
-      slidesToShow: 3.1,
-    });
-    $('.carrossel-certificacoes').slick({
-      dots: true,
-      arrows: false,
-      infinite: false,
-      centerPadding: "60px",
-      slidesToShow: 2.1,
+    (function() {
+      if (window.localStorage) {
+        if (!localStorage.getItem('firstLoad')) {
+          localStorage['firstLoad'] = true;
+          window.location.reload();
+        } else
+          localStorage.removeItem('firstLoad');
+      }
+    })();
+
+    $(document).ready(function() {
+      $('.carrossel-trabalhos').slick({
+        dots: true,
+        arrows: false,
+        infinite: false,
+        centerPadding: "60px",
+        slidesToShow: 3.1,
+      });
+      $('.carrossel-certificacoes').slick({
+        dots: true,
+        arrows: false,
+        infinite: false,
+        centerPadding: "60px",
+        slidesToShow: 2.1,
+      });
     });
   </script>
 </body>
