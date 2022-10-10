@@ -358,6 +358,11 @@ button {
   border-radius: 5px;
   color: #5a189a;
   font-size: 18px;
+  width: auto;
+  height: auto;
+  margin: auto;
+  left: auto;
+  transform: translate(0);
 }
 
 .add-badge {
@@ -410,6 +415,11 @@ input.search:focus-visible {
   border-radius: 5px;
   color: #fff;
   font-size: 18px;
+  width: auto;
+  height: auto;
+  margin: auto;
+  left: auto;
+  transform: translate(0);
 }
 
 @media (min-height: 700px) {

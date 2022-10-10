@@ -211,6 +211,8 @@ border-radius: 100%;
 .description {
   position: relative;
   margin-top: 20px;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .description p {

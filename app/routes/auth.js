@@ -358,5 +358,38 @@ router.post(
     res.redirect("/editarperfil");
   }
 );
+router.post(
+  "/add-profissao",
+  function (req, res) {
+    var dadosForm = {
+      cod_profissao: req.body.cod_profissao,
+      id_colaboradora: req.session.usu_colaboradora_autenticado_id,
+    };
+    dbConnection.query(
+      "INSERT INTO profissao_colaboradora SET ?",
+      dadosForm,
+      function (error, results, fields) {
+        if (error) throw error;
+        res.redirect("/profissao");
+      }
+    );
+  }
+);
+router.post(
+  "/remove-profissao",
+  function (req, res) {
+    var dadosForm = {
+      cod_profissao: req.body.cod_profissao,
+    };
+    dbConnection.query(
+      "DELETE FROM profissao_colaboradora WHERE ?",
+      dadosForm,
+      function (error, results, fields) {
+        if (error) throw error;
+        res.redirect("/profissao");
+      }
+    );
+  }
+);
 
 module.exports = router;
