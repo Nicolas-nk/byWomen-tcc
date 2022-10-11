@@ -49,7 +49,7 @@
               <img src="/images/profile/perfil.png" alt="">
               <% } %>
               <div class="edit-img-profile">
-                <% if(colaboradora_autenticado===true){ %>
+                <% if(session.colaboradora_autenticado===true){ %>
                 <img src="images/icons/header/settings.svg" alt="">
                 <% }else{ %>
                 <img src="images/icons/header/lapis.svg" alt="">
@@ -60,6 +60,9 @@
           <% if(session.colaboradora_autenticado===true){ %>
           <div class="mt-5 d-flex badges-contents justify-content-center">
             <a href="/profissao" class="add-badge text-center"><span>+</span></a>
+            <% profissao_selecionada_colaboradora.forEach(function(profissao_selecionada_colaboradora){ %>
+            <a href = "/profissao" class="badges my-0 mx-0"><%= profissao_selecionada_colaboradora.nome_profissao %></a>
+            <% }); %>
           </div>
           <% }else{ %>
           <% } %>

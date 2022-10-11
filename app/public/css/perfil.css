@@ -189,15 +189,16 @@ border-radius: 100%;
 }
 
 .badge {
-  background: #9d4edd;
-  color: #3c096c;
-  padding: 5px;
+  background-color: rgb(157, 78, 221, 0.35);
+  padding: 6px;
   border-radius: 5px;
-  min-width: 90px;
-  height: 26px;
-  text-align: center;
+  color: #5a189a;
+  font-size: 18px;
+  width: auto;
+  height: auto;
+  transform: translate(0);
+  font-weight: 400;
 }
-
 .profile-nav {
   box-shadow: 0px 5px 15px -3px rgba(0, 0, 0, 0.5);
   border-radius: 7px;

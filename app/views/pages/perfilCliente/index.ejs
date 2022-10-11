@@ -32,15 +32,15 @@
         </nav>
       </div>
       <div class="profile-image">
-        <%if(usu_autenticado_foto !==null){%>
-        <div class="profile-picture-img mx-auto border-profile-img" id="profile-picture-img" style="background-image: url('data:image/jpeg;base64,<%= usu_autenticado_foto %>') ;">
+        <%if(session.usu_autenticado_foto !==null){%>
+        <div class="profile-picture-img mx-auto border-profile-img" id="profile-picture-img" style="background-image: url('data:image/jpeg;base64,<%= session.usu_autenticado_foto %>') ;">
           <div class="mask-profile-img"></div>
         </div>
         <%}else{%>
         <img src="images/profile/perfil.png" alt="" class="mx-auto d-block border-profile-img">
         <%}%>
         <h1 class="fonts-1 text-center text-purple-600">
-            <%= usu_autenticado_nome %>
+            <%= session.usu_autenticado_nome %>
         </h1>
       </div>
     </div>
@@ -86,13 +86,6 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
   <script>
-    $(document).ready(function() {
-      $("#profile-picture-img").css({
-        "background-image": "url(" + {
-          usu_autenticado_foto
-        } + ");"
-      });
-    });
     let contador = 1;
 
     setInterval(function() {

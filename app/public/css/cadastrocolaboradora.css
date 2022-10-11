@@ -365,6 +365,14 @@ button {
   transform: translate(0);
 }
 
+.add-badge:hover{
+  color: #240046;
+}
+
+.badges:hover{
+  color: #240046;
+}
+
 .add-badge {
   background-color: rgb(157, 78, 221, 0.35);
   padding: 6px;
@@ -420,6 +428,13 @@ input.search:focus-visible {
   margin: auto;
   left: auto;
   transform: translate(0);
+  border: solid 1.5px #5a189a;
+}
+
+.new-badges:hover{
+  background-color: transparent;
+  color: #5a189a;
+  transition: all ease-in-out 0.2s;
 }
 
 @media (min-height: 700px) {

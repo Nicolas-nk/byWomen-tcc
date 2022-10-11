@@ -16,21 +16,21 @@
 <body>
   <div class="container bg-pink">
     <div class="header-navbar">
-      <a href="javascript:void(0)" onClick="history.go(-1); return false;" class="header-components">
+      <a href="/editarperfil" class="header-components">
         <img src="images/icons/header/returnpurple.svg" alt="voltar">
       </a>
     </div>
     <h1 class="fonts-2 mt-5 text-center">Escolha suas <br>especializações</h1>
     <p class="text-center mt-2">Mostre suas especializações para quem <br>acessar seu perfil</p>
-    <div class="mt-5 d-flex badges-contents">
+    <div class="mt-5 d-flex justify-content-center badges-contents">
       <% profissao_selecionada_colaboradora.forEach(function(profissao_selecionada_colaboradora){ %>
       <form action="auth/remove-profissao" method="POST">
         <input type="text" name="cod_profissao" id="<%= profissao_selecionada_colaboradora.nome_profissao %>" value="<%= profissao_selecionada_colaboradora.cod_profissao %>" class="d-none">
         <button type="submit" class="badges"><%= profissao_selecionada_colaboradora.nome_profissao %></button>
       </form>
       <% }); %>
-        
     </div>
+    <button onclick="location.href = '/editarperfil';" class="bg-purplegradient mt-5 mb-2 button-picture">Salvar</button>
     <hr>
     <div class="my-3">
       <form class="search-form" onsubmit="alert('Pesquisa');">
@@ -48,7 +48,6 @@
       </form>
       <% }); %>
     </div>
-    <button class="bg-purplegradient mt-4 button-picture">Cadastrar</button>
   </div>
 </body>
 

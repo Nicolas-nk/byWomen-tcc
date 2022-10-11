@@ -43,7 +43,7 @@
           </div>
           <div class="input-cad mt-4">
             <label for="descricao">Descrição</label>
-            <textarea oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' name="descricao" id="descricao" class="mt-2"><% if(colaboradora_autenticado === true){ %><% }else{} %></textarea>
+            <textarea oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' name="descricao" id="descricao" class="mt-2"><% if(session.colaboradora_autenticado === true){ %><% }else{} %></textarea>
           </div>
           <div class="inf-cad">
             <label for="imagem_trabalho" class="anexar-img">

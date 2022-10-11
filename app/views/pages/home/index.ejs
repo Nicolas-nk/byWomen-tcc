@@ -85,11 +85,11 @@
           <img src="/images/logo/logo.svg" alt="logo ByWomen" />
         </div>
         <div class="col-auto">
-          <% if(autenticado===true){ %>
+          <% if(session.autenticado===true){ %>
             <a href="/perfil">
               <img src="/images/icons/header/usuario.svg" alt="" />
             </a>
-            <% }else if(autenticado !==true){ %>
+            <% }else if(session.autenticado !==true){ %>
               <a href="/login"><img src="/images/icons/header/usuario.svg" alt="" /></a>
               <% } %>
         </div>
