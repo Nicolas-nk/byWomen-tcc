@@ -126,7 +126,7 @@ router.get("/perfil", function (req, res) {
         }
       );
     } else {
-      res.render("pages/perfilCliente/index", { session: req.session });
+      res.render("pages/perfilCliente/index", { session: req.session});
     }
   } else {
     res.redirect("/login");
