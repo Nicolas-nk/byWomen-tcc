@@ -10,10 +10,12 @@
   <link rel="icon" href="/images/logo/logo-aba.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/cadastrocolaboradora.css" />
@@ -27,99 +29,111 @@
       </a>
     </div>
     <% if(session.colaboradora_autenticado==true){ %>
-    <h1 class="text-center mt-5 fonts-2">Atualize seu perfil!</h1>
-    <p class="text-center mt-2">Complete todas as informações <br> para ter seu perfil melhor ranqueado</p>
-    <% }else{ %>
-    <h1 class="text-center mt-5 fonts-2">Crie seu perfil profissional!</h1>
-    <% } %>
+      <h1 class="text-center mt-5 fonts-2">Atualize seu perfil!</h1>
+      <p class="text-center mt-2">Complete todas as informações <br> para ter seu perfil melhor ranqueado</p>
+      <% }else{ %>
+        <h1 class="text-center mt-5 fonts-2">Crie seu perfil profissional!</h1>
+        <% } %>
 
-    <% if(session.colaboradora_autenticado==true){ %>
-    <form action="auth/atualizar-perfil-profissional" method="POST">
-      <a href="/configuracao">
-        <% }else{ %>
-        <form action="auth/crie-perfil-profissional" method="POST">
-          <a href="/fotoperfil">
-            <% } %>
-            <div href="" class="add-img-profile mx-auto my-4">
-              <%if(session.usu_autenticado_foto !==null){%>
-              <div class="profile-img mx-auto" id="profile-picture-img" style="background-image: url('data:image/jpeg;base64,<%= session.usu_autenticado_foto %>') ;">
-                <div class="mask-profile-img"></div>
-              </div>
-              <%}else{%>
-              <img src="/images/profile/perfil.png" alt="">
-              <% } %>
-              <div class="edit-img-profile">
-                <% if(session.colaboradora_autenticado===true){ %>
-                <img src="images/icons/header/settings.svg" alt="">
+          <% if(session.colaboradora_autenticado==true){ %>
+            <form action="auth/atualizar-perfil-profissional" method="POST">
+              <a href="/configuracao">
                 <% }else{ %>
-                <img src="images/icons/header/lapis.svg" alt="">
-                <% } %>
-              </div>
-            </div>
-          </a>
-          <% if(session.colaboradora_autenticado===true){ %>
-          <div class="mt-5 d-flex badges-contents justify-content-center">
-            <a href="/profissao" class="add-badge text-center"><span>+</span></a>
-            <% profissao_selecionada_colaboradora.forEach(function(profissao_selecionada_colaboradora){ %>
-            <a href = "/profissao" class="badges my-0 mx-0"><%= profissao_selecionada_colaboradora.nome_profissao %></a>
-            <% }); %>
-          </div>
-          <% }else{ %>
-          <% } %>
+                  <form action="auth/crie-perfil-profissional" method="POST">
+                    <a href="/fotoperfil">
+                      <% } %>
+                        <div href="" class="add-img-profile mx-auto my-4">
+                          <%if(session.usu_autenticado_foto !==null){%>
+                            <div class="profile-img mx-auto" id="profile-picture-img"
+                              style="background-image: url('data:image/jpeg;base64,<%= session.usu_autenticado_foto %>') ;">
+                              <div class="mask-profile-img"></div>
+                            </div>
+                            <%}else{%>
+                              <img src="/images/profile/perfil.png" alt="">
+                              <% } %>
+                                <div class="edit-img-profile">
+                                  <% if(session.colaboradora_autenticado===true){ %>
+                                    <img src="images/icons/header/settings.svg" alt="">
+                                    <% }else{ %>
+                                      <img src="images/icons/header/lapis.svg" alt="">
+                                      <% } %>
+                                </div>
+                        </div>
+                    </a>
+                    <% if(session.colaboradora_autenticado===true){ %>
+                      <div class="mt-5 d-flex badges-contents justify-content-center">
+                        <a href="/profissao" class="add-badge text-center"><span>+</span></a>
+                        <% profissao_selecionada_colaboradora.forEach(function(profissao_selecionada_colaboradora){ %>
+                          <a href="/profissao" class="badges my-0 mx-0">
+                            <%= profissao_selecionada_colaboradora.nome_profissao %>
+                          </a>
+                          <% }); %>
+                      </div>
+                      <% }else{ %>
+                        <% } %>
 
-          <hr class="mx-auto" style="width: 80%;">
-          <div class="biography mt-5">
-            <label for="">Biografia</label>
-            <textarea oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' name="descricao" id="descricao"><% if(session.colaboradora_autenticado === true){ %><%= session.usu_colaboradora_autenticado_descricao %><% }else{} %></textarea>
-          </div>
+                          <hr class="mx-auto" style="width: 80%;">
+                          <div class="biography mt-5">
+                            <label for="">Biografia</label>
+                            <textarea oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1'
+                              name="descricao"
+                              id="descricao"><% if(session.colaboradora_autenticado === true){ %><%= session.usu_colaboradora_autenticado_descricao %><% }else{} %></textarea>
+                          </div>
 
-          <% if(session.colaboradora_autenticado===true){ %>
-          <div class="works mt-5">
-            <label>Principais Trabalhos</label>
-            <div class="carrossel-trabalhos mt-3">
-              <a href="/trabalho-realizado" class="add-work bg-purple-500" style="display: flex; width: 140px!important;">
-                <div class="add"><span class="text-white fonts-1">+</span></div>
-              </a>
-              <% trabalhos_realizados.forEach(function(trabalhos_realizados){ %>
-              <a href="<%=" /trabalho-realizado/"+ trabalhos_realizados.cod_trabalho %>" class="add-work">
-                <div class="h-100 w-100 bg-image" style="background-image: url('data:image/jpeg;base64,<%= trabalhos_realizados.imagem_trabalho %>'); border-radius: 20px;">
-                  <div class="mask-shadow"><span class="course text-white">
-                      <%= trabalhos_realizados.titulo %>
-                    </span></div>
-                </div>
-              </a>
-              <% }); %>
+                          <% if(session.colaboradora_autenticado===true){ %>
+                            <div class="works mt-5">
+                              <label>Principais Trabalhos</label>
+                              <div class="carrossel-trabalhos mt-3">
+                                <a href="/trabalho-realizado" class="add-work bg-purple-500"
+                                  style="display: flex; width: 140px!important;">
+                                  <div class="add"><span class="text-white fonts-1">+</span></div>
+                                </a>
+                                <% trabalhos_realizados.forEach(function(trabalhos_realizados){ %>
+                                  <a href="<%=" /trabalho-realizado/"+ trabalhos_realizados.cod_trabalho %>"
+                                    class="add-work">
+                                    <div class="h-100 w-100 bg-image"
+                                      style="background-image: url('data:image/jpeg;base64,<%= trabalhos_realizados.imagem_trabalho %>'); border-radius: 20px;">
+                                      <div class="mask-shadow"><span class="course text-white">
+                                          <%= trabalhos_realizados.titulo %>
+                                        </span></div>
+                                    </div>
+                                  </a>
+                                  <% }); %>
 
-            </div>
-          </div>
+                              </div>
+                            </div>
 
-          <div class="certificate mt-5">
-            <label>Licenças e certificações</label>
-            <div class="carrossel-certificacoes mt-3">
-              <a href="/certificacao" class="add-certificate bg-purple-500" style="display: flex;">
-                <div class="add"><span class="text-white fonts-1">+</span></div>
-              </a>
-              <% certificacoes.forEach(function(certificacoes){ %>
-              <a href="<%='/certificacao/'+ certificacoes.cod_certificacao %>" class="add-certificate">
-                <div class="h-100 w-100 bg-image" style="background-image: url('data:image/jpeg;base64,<%= certificacoes.foto_certificacao %>'); border-radius: 20px;">
-                  <div class="mask-shadow"><span class="course text-white">
-                      <%= certificacoes.nome_curso %>
-                    </span></div>
-                </div>
-              </a>
-              <% }); %>
-            </div>
-          </div>
-          <% }else{} %>
+                            <div class="certificate mt-5">
+                              <label>Licenças e certificações</label>
+                              <div class="carrossel-certificacoes mt-3">
+                                <a href="/certificacao" class="add-certificate bg-purple-500" style="display: flex;">
+                                  <div class="add"><span class="text-white fonts-1">+</span></div>
+                                </a>
+                                <% certificacoes.forEach(function(certificacoes){ %>
+                                  <a href="<%='/certificacao/'+ certificacoes.cod_certificacao %>"
+                                    class="add-certificate">
+                                    <div class="h-100 w-100 bg-image"
+                                      style="background-image: url('data:image/jpeg;base64,<%= certificacoes.foto_certificacao %>'); border-radius: 20px;">
+                                      <div class="mask-shadow"><span class="course text-white">
+                                          <%= certificacoes.nome_curso %>
+                                        </span></div>
+                                    </div>
+                                  </a>
+                                  <% }); %>
+                              </div>
+                            </div>
+                            <% }else{} %>
 
-          <button type="submit" class="bg-purplegradient">Salvar</button>
-        </form>
+                              <button type="submit" class="bg-purplegradient">Salvar</button>
+                  </form>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script>
-    (function() {
+    (function () {
       if (window.localStorage) {
         if (!localStorage.getItem('firstLoad')) {
           localStorage['firstLoad'] = true;
@@ -129,7 +143,7 @@
       }
     })();
 
-    $(document).ready(function() {
+    $(document).ready(function () {
       $('.carrossel-trabalhos').slick({
         dots: true,
         arrows: false,
@@ -146,6 +160,6 @@
       });
     });
   </script>
-</body>
+  </body>
 
 </html>
