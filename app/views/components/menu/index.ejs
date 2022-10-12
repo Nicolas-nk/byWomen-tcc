@@ -1,49 +1,24 @@
 <nav class="menu bg-purplegradient">
   <div class="menu-itens">
     <a href="/" class=""><img src="images/icons/menu/home.svg" alt="" /></a>
-    <a href="/todas-categorias" class="itens"
-      ><img src="images/icons/menu/categorias.svg" alt=""
-    /></a>
-    <a href="/favoritos" class="itens"
-      ><img src="images/icons/menu/favoritos.svg" alt=""
-    /></a>
-    <div
-      class="itens"
-      data-bs-toggle="offcanvas"
-      data-bs-target="#offcanvasRight"
-      aria-controls="offcanvasRight"
-      data-placement="right"
-      data-disableScrolling="false"
-    >
+    <a href="/todas-categorias" class="itens"><img src="images/icons/menu/categorias.svg" alt="" /></a>
+    <a href="/favoritos" class="itens"><img src="images/icons/menu/favoritos.svg" alt="" /></a>
+    <div class="itens" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" data-placement="right" data-disableScrolling="false">
       <img src="images/icons/menu/menu-hamburguer.svg" alt="" />
     </div>
   </div>
 </nav>
 
-<div
-  class="offcanvas offcanvas-end"
-  tabindex="-1"
-  id="offcanvasRight"
-  aria-labelledby="offcanvasRightLabel"
-  d
-  style="width: 100vw; z-index: 5000"
->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" d style="width: 100vw; z-index: 5000">
   <div class="bg-pink container" style="height: 100vh; max-width: 540px">
     <div class="menu-scroll" style="height: 100%; overflow-y: auto;">
       <div class="offcanvas-header px-0 py-4">
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        >
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
           <img src="images/icons/header/returnpurple.svg" alt="voltar" />
         </button>
-        <% if(autenticado===true){ %> <% }else if(autenticado !==true){ %>
+        <% if(session.autenticado===true){}else if(session.autenticado !==true){ %>
         <div class="header-components">
-          <a href="/login"
-            ><span class="text-purple-600">Que tal logar?</span></a
-          >
+          <a href="/login"><span class="text-purple-600">Que tal logar?</span></a>
           <a href="/login"><img src="images/icons/login.svg" alt="" /></a>
         </div>
         <% } %>
@@ -75,13 +50,13 @@
             <span>Política de privacidade</span>
             <img src="images/icons/setapurple.svg" alt="" />
           </a>
-          <% if(autenticado===true){ %>
+          <% if(session.autenticado===true){ %>
           <hr />
           <a class="input-line" href="/sair">
             <span>Sair</span>
             <img src="images/icons/setapurple.svg" alt="" />
           </a>
-          <% }else if(autenticado !==true){}%>
+          <% }else if(session.autenticado !==true){}%>
 
           <hr />
           <h1 class="text">
@@ -91,25 +66,13 @@
           </h1>
           <div class="redes">
             <a href="https://www.instagram.com/bywomen.tcc/">
-              <img
-                src="images/icons/redes/instagram.svg"
-                alt="instagram: @bywomen.tcc"
-              />
+              <img src="images/icons/redes/instagram.svg" alt="instagram: @bywomen.tcc" />
             </a>
             <a href="https://www.facebook.com/people/By-Women/100086565515816/">
-              <img
-                src="images/icons/redes/facebook.svg"
-                alt="facebook: By Women"
-              />
+              <img src="images/icons/redes/facebook.svg" alt="facebook: By Women" />
             </a>
-            <a
-              target="_blank"
-              href="https://www.youtube.com/channel/UCk47-7wLNJ8xlhkqk5PKr2g"
-            >
-              <img
-                src="images/icons/redes/youtube.svg"
-                alt="youtube By Women"
-              />
+            <a target="_blank" href="https://www.youtube.com/channel/UCk47-7wLNJ8xlhkqk5PKr2g">
+              <img src="images/icons/redes/youtube.svg" alt="youtube By Women" />
             </a>
           </div>
           <hr style="padding-bottom: 60px; margin: 0" />

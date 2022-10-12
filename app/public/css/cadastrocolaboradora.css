@@ -358,6 +358,19 @@ button {
   border-radius: 5px;
   color: #5a189a;
   font-size: 18px;
+  width: auto;
+  height: auto;
+  margin: auto;
+  left: auto;
+  transform: translate(0);
+}
+
+.add-badge:hover{
+  color: #240046;
+}
+
+.badges:hover{
+  color: #240046;
 }
 
 .add-badge {
@@ -410,6 +423,18 @@ input.search:focus-visible {
   border-radius: 5px;
   color: #fff;
   font-size: 18px;
+  width: auto;
+  height: auto;
+  margin: auto;
+  left: auto;
+  transform: translate(0);
+  border: solid 1.5px #5a189a;
+}
+
+.new-badges:hover{
+  background-color: transparent;
+  color: #5a189a;
+  transition: all ease-in-out 0.2s;
 }
 
 @media (min-height: 700px) {
