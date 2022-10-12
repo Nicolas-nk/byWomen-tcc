@@ -23,7 +23,6 @@ router.post(
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       console.log(errors);
-      // return res.render("pages/html", { erros: errors, dados: req.body });
       return res.json(errors);
     }
 
@@ -61,21 +60,26 @@ router.post(
 router.post(
   "/login",
 
-  function (req, res) {
+  async function (req, res) {
     var dadosForm = {
       login: req.body.email,
       senha: req.body.senha,
       keepSession: req.body.keepSession,
     };
 
-    dbConnection.query(
+    await dbConnection.query(
       "SELECT * FROM usuario WHERE nome = ? or email = ?",
       [dadosForm.login, dadosForm.login],
-      function (error, results, fields) {
+      async function (error, results, fields) {
         if (error) throw error;
         var total = Object.keys(results).length;
 
-        if (total == 1) {
+        if (total < 1) {
+          return res.render("pages/login/index", {
+            erro: true,
+            mensagem: "Email e/ou senha incorretos!",
+          });
+        } else if (total == 1) {
           if (bcrypt.compareSync(dadosForm.senha, results[0].senha)) {
             req.session.autenticado = true;
             req.session.usu_autenticado_id = results[0].id_usuario;
@@ -91,29 +95,34 @@ router.post(
               req.session.usu_autenticado_foto =
                 results[0].foto_perfil.toString("base64");
             }
+
+            await dbConnection.query(
+              "SELECT * FROM usuario_colaboradora WHERE id_usuario = ?",
+              [req.session.usu_autenticado_id],
+              function (error, results, fields) {
+                if (error) throw error;
+                var total = Object.keys(results).length;
+                if (total == 1) {
+                  req.session.colaboradora_autenticado = true;
+                  req.session.usu_colaboradora_autenticado_id =
+                    results[0].id_colaboradora;
+                  req.session.usu_colaboradora_autenticado_descricao =
+                    results[0].descricao;
+                }
+                res.redirect("/");
+              }
+            );
+
+            
+          } else {
+            return res.render("pages/login/index", {
+              erro: true,
+              mensagem: "Email e/ou senha incorretos!",
+            });
           }
         }
       }
     );
-    setTimeout(function () {
-      dbConnection.query(
-        "SELECT * FROM usuario_colaboradora WHERE id_usuario = ?",
-        [req.session.usu_autenticado_id],
-        function (error, results, fields) {
-          if (error) throw error;
-          var total = Object.keys(results).length;
-          if (total == 1) {
-            req.session.colaboradora_autenticado = true;
-            req.session.usu_colaboradora_autenticado_id =
-              results[0].id_colaboradora;
-            req.session.usu_colaboradora_autenticado_descricao =
-              results[0].descricao;
-          }
-
-          res.redirect("/");
-        }
-      );
-    }, 200);
   }
 );
 router.post(
@@ -305,7 +314,7 @@ router.post(
     if (!req.file) {
       fileContent = null;
     } else {
-      fileContent = req.file.buffer.toString('base64');
+      fileContent = req.file.buffer.toString("base64");
     }
 
     var dadosForm = {
@@ -337,7 +346,7 @@ router.post(
     if (!req.file) {
       fileContent = null;
     } else {
-      fileContent = req.file.buffer.toString('base64');
+      fileContent = req.file.buffer.toString("base64");
     }
 
     var dadosForm = {
@@ -358,38 +367,32 @@ router.post(
     res.redirect("/editarperfil");
   }
 );
-router.post(
-  "/add-profissao",
-  function (req, res) {
-    var dadosForm = {
-      cod_profissao: req.body.cod_profissao,
-      id_colaboradora: req.session.usu_colaboradora_autenticado_id,
-    };
-    dbConnection.query(
-      "INSERT INTO profissao_colaboradora SET ?",
-      dadosForm,
-      function (error, results, fields) {
-        if (error) throw error;
-        res.redirect("/profissao");
-      }
-    );
-  }
-);
-router.post(
-  "/remove-profissao",
-  function (req, res) {
-    var dadosForm = {
-      cod_profissao: req.body.cod_profissao,
-    };
-    dbConnection.query(
-      "DELETE FROM profissao_colaboradora WHERE ?",
-      dadosForm,
-      function (error, results, fields) {
-        if (error) throw error;
-        res.redirect("/profissao");
-      }
-    );
-  }
-);
+router.post("/add-profissao", function (req, res) {
+  var dadosForm = {
+    cod_profissao: req.body.cod_profissao,
+    id_colaboradora: req.session.usu_colaboradora_autenticado_id,
+  };
+  dbConnection.query(
+    "INSERT INTO profissao_colaboradora SET ?",
+    dadosForm,
+    function (error, results, fields) {
+      if (error) throw error;
+      res.redirect("/profissao");
+    }
+  );
+});
+router.post("/remove-profissao", function (req, res) {
+  var dadosForm = {
+    cod_profissao: req.body.cod_profissao,
+  };
+  dbConnection.query(
+    "DELETE FROM profissao_colaboradora WHERE ?",
+    dadosForm,
+    function (error, results, fields) {
+      if (error) throw error;
+      res.redirect("/profissao");
+    }
+  );
+});
 
 module.exports = router;

@@ -23,7 +23,7 @@
     <div class="container bg-pink">
       <div class="header-navbar">
         <a href="javascript:void(0)" onClick="history.go(-1); return false;" class="header-components">
-          <img src="images/icons/header/returnpurple.svg" alt="voltar">
+          <img src="<%=baseURL%>images/icons/header/returnpurple.svg" alt="voltar">
         </a>
       </div>
 
@@ -34,8 +34,8 @@
         <form action="/auth/add-certificacao" method="POST" enctype="multipart/form-data" class="form">
           <div class="mt-3 mx-auto foto_certificacao-container">
             <div class="new-foto_certificacao d-none" id="new-foto_certificacao"></div>
-            <%if(true !==true){%>
-            <div class="user-foto_certificacao" id="user-foto_certificacao" style="background-image: url('data:image/jpeg;base64,<%=  %>') ;">
+            <%if(certificacao.foto_certificacao !== null){%>
+            <div class="user-foto_certificacao" id="user-foto_certificacao" style="background-image: url('data:image/jpeg;base64,<%= certificacao.foto_certificacao %>') ;">
             </div>
             <%}else{%>
             <img class="rounded mx-auto d-block" src="<%=baseURL%>images/icons/form/capacitacao.svg" alt="" class="without-foto_certificacao d-block" id="without-foto_certificacao">
@@ -43,11 +43,11 @@
           </div>
           <div class="input-cad mt-3">
             <label for="nome_curso">Nome da certificação</label>
-            <input type="text" class="mt-2" name="nome_curso" id="nome_curso">
+            <input type="text" class="mt-2" name="nome_curso" id="nome_curso" value="<%= certificacao.nome_curso %>">
           </div>
           <div class="input-cad mt-4">
             <label for="atividade_realizada">Atividade realizada</label>
-            <textarea oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' name="atividade_realizada" id="atividade_realizada" class="mt-2"><% if(session.colaboradora_autenticado === true){ %><% }else{} %></textarea>
+            <textarea oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' name="atividade_realizada" id="atividade_realizada" class="mt-2"><% if(session.colaboradora_autenticado === true){ %><%= certificacao.atividade_realizada %><% }else{} %></textarea>
           </div>
           <div class="mt-3">
             <label for="data_emissao">Data de Emissão</label>
@@ -55,7 +55,7 @@
           </div>
           <div class="input-cad mt-3">
             <label for="orgao_emissor">Orgão emissor</label>
-            <input type="text" class="mt-2" name="orgao_emissor" id="orgao_emissor">
+            <input type="text" class="mt-2" name="orgao_emissor" id="orgao_emissor" value="<%= certificacao.orgao_emissor %>">
           </div>
           <div class="inf-cad">
             <label for="foto_certificacao" class="anexar-img">
