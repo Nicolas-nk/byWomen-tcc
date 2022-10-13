@@ -26,10 +26,10 @@
         <div class="text-form mt-5">
           <h1 class="fonts-2 mx-auto text-center">Adicione alguns de seus <br> trabalhos ja realizados</h1>
         </div>
-        <% if(trabalhos_realizados.cod_trabalho !== null){ %>
+        <% if(trabalhos_realizados.cod_trabalho === null){ %>
         <form action="/auth/add-trabalho" method="POST" enctype="multipart/form-data" class="form">
           <% }else{ %>
-          <form action="/auth/add-trabalho" method="POST" enctype="multipart/form-data" class="form">
+          <form action="<%="/auth/update-trabalho/"+ trabalhos_realizados.cod_trabalho %>" method="POST" enctype="multipart/form-data" class="form">
             <% } %>
 
             <div class="mt-3 mx-auto imagem_trabalho-container">
@@ -60,6 +60,10 @@
               <button type="submit" class="bg-purplegradient">Salvar</button>
             </div>
           </form>
+          <% if(trabalhos_realizados.cod_trabalho === null){}else{ %>
+          <a href="<%="/remove-trabalho/"+ trabalhos_realizados.cod_trabalho %>">Remover trabalho</a>
+          <% } %>
+
       </div>
     </div>
   </div>

@@ -261,14 +261,15 @@
   display: flex;
   align-items: center;
   justify-content: end;
+  margin: 10px 20px;
+}
+
+.info-work img{
+  margin-left: 10px;
 }
 
 .info-work span {
   color: #fff;
-}
-
-.info-work img {
-  margin: 5px;
 }
 
 .your-profile {
@@ -415,11 +416,11 @@
       rgba(0, 0, 0, 0.7) 75%,
       rgba(0, 0, 0, 1) 100%);
   position: absolute;
-  height: 50%;
+  height: 30%;
   width: 100%;
   border-radius: 20px;
   bottom: 0;
-  transition: all ease-in-out .15s;
+  transition: all ease-in-out .3s;
 }
 
 .shadow-description.your-work .title-work,
@@ -428,21 +429,42 @@
   z-index: 2;
   display: block;
   color: #fff;
-  animation: animate-div .15s;
+  animation: animate-div .5s;
 }
-.shadow-description.your-work .title-work{
-  left: 20px;
-  top: 20px;
-}
-.shadow-description.your-work .description-work{
-  left: 20px;
-  top: 50px;
-}
-
 
 @keyframes animate-div {
   from { opacity: 0.6; margin-top: 410px;}
   to { opacity: 1;margin-top: 0px;}
+}
+
+.shadow-description.your-work .title-work{
+  margin: 0 20px;
+  top: 20px;
+}
+
+.shadow-description.your-work .description-work{
+  margin: 0 20px;
+  top: 50px;
+}
+
+.btn-add-inf{
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 260px;
+  height: 45px;
+  border: 3px solid;
+  border-color: #240046;
+  border-radius: 25px;
+  position: relative;
+  margin: 20px 0;
+}
+
+.btn-add-inf a{
+  font-size: 18px;
+  color: #000;
+  text-decoration-style: none;
 }
 
 .shadow-description.your-work .info-work{
@@ -451,7 +473,7 @@
 
 .your-work .title-work, .your-work .description-work{
   display: none;
-  transition: all ease-in-out .15s;
+  transition: all ease-in-out .5s;
 }
 
 .course {

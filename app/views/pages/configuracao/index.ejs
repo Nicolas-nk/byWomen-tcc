@@ -82,7 +82,7 @@
                 <% }else{ %>
                   <label for="cep">Alterar CEP</label>
               <% } %>
-              <input type="text" name="cep" id="cep" value=<% if(session.usu_autenticado_cep !== null){ %><%=session.usu_autenticado_cep%>><% } else {null}%>
+              <input type="text" name="cep" id="cep" value="<% if(session.usu_autenticado_cep !== null){ %><%=session.usu_autenticado_cep%><% } else {null}%>">
 
             </div>
           </div>

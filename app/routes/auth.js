@@ -112,8 +112,6 @@ router.post(
                 res.redirect("/");
               }
             );
-
-            
           } else {
             return res.render("pages/login/index", {
               erro: true,
@@ -309,7 +307,7 @@ router.post(
   "/add-certificacao",
   uploadImage.single("foto_certificacao"),
 
-  function (req, res) {
+  async function (req, res) {
     let fileContent;
     if (!req.file) {
       fileContent = null;
@@ -327,7 +325,7 @@ router.post(
       id_colaboradora: req.session.usu_colaboradora_autenticado_id,
     };
 
-    dbConnection.query(
+    await dbConnection.query(
       "INSERT INTO certificacao SET ?",
       dadosForm,
       function (error, results, fields) {
@@ -338,10 +336,50 @@ router.post(
   }
 );
 router.post(
+  "/update-certificacao/:id",
+  uploadImage.single("foto_certificacao"),
+
+  async function (req, res) {
+    let fileContent;
+    if (!req.file) {
+      fileContent = null;
+    } else {
+      fileContent = req.file.buffer.toString("base64");
+    }
+
+    var dadosForm = {
+      nome_curso: req.body.nome_curso,
+      atividade_realizada: req.body.atividade_realizada,
+      data_emissao: req.body.data_emissao,
+      orgao_emissor: req.body.orgao_emissor,
+      foto_certificacao: fileContent,
+    };
+
+    await dbConnection.query(
+      "UPDATE certificacao SET ?",
+      [dadosForm, req.params.id],
+      function (error, results, fields) {
+        if (error) throw error;
+      }
+    );
+    res.redirect("/editarperfil");
+  }
+);
+router.post("/remove-certificacao/:id", function (req, res) {
+  dbConnection.query(
+    "DELETE FROM certificacao WHERE ?",
+    req.params.id,
+    function (error, results, fields) {
+      if (error) throw error;
+      res.redirect("/editarperfil");
+    }
+  );
+});
+router.post(
   "/add-trabalho",
   uploadImage.single("imagem_trabalho"),
 
-  function (req, res) {
+  async function (req, res) {
     let fileContent;
     if (!req.file) {
       fileContent = null;
@@ -357,7 +395,7 @@ router.post(
       id_colaboradora: req.session.usu_colaboradora_autenticado_id,
     };
 
-    dbConnection.query(
+    await dbConnection.query(
       "INSERT INTO trabalhos_realizados SET ?",
       dadosForm,
       function (error, results, fields) {
@@ -367,6 +405,44 @@ router.post(
     res.redirect("/editarperfil");
   }
 );
+router.post(
+  "/update-trabalho/:id",
+  uploadImage.single("imagem_trabalho"),
+
+  async function (req, res) {
+    let fileContent;
+    if (!req.file) {
+      fileContent = null;
+    } else {
+      fileContent = req.file.buffer.toString("base64");
+    }
+
+    var dadosForm = {
+      titulo: req.body.titulo,
+      descricao: req.body.descricao,
+      imagem_trabalho: fileContent,
+    };
+
+    await dbConnection.query(
+      "UPDATE trabalhos_realizados SET ? WHERE cod_trabalho = ?",
+      [dadosForm, req.params.id],
+      function (error, results, fields) {
+        if (error) throw error;
+      }
+    );
+    res.redirect("/editarperfil");
+  }
+);
+router.post("/remove-trabalho/:id", function (req, res) {
+  dbConnection.query(
+    "DELETE FROM trabalhos_realizados WHERE ?",
+    req.params.id,
+    function (error, results, fields) {
+      if (error) throw error;
+      res.redirect("/editarperfil");
+    }
+  );
+});
 router.post("/add-profissao", function (req, res) {
   var dadosForm = {
     cod_profissao: req.body.cod_profissao,

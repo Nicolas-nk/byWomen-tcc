@@ -249,33 +249,14 @@
       <img src="/images/banners/home-wave-2.svg" alt="" class="img-fluid w-100" />
       <div class="container">
         <div class="categorias-container bg-white">
-          <div class="categorias">
-            <div class="row text-center text-purple-600">
-              <div class="col-6 mb-3">
-                <a href="/Reparos"><img src="/images/icons/categorias/reparos.svg" alt="icone serviços de reparos" /></a>
-                <p>Reparos</p>
-              </div>
-              <div class="col-6 mb-3">
-                <a href="/Montagens"><img src="images/icons/categorias/montagem.svg" alt="icone serviços de montagem" /></a>
-                <p>Montagem</p>
-              </div>
-              <div class="col-6 mb-3">
-                <a href="/pintura"><img src="images/icons/categorias/pintura.svg" alt="icone serviços de pintura" /></a>
-                <p>Pintura</p>
-              </div>
-              <div class="col-6 mb-3">
-                <a href="/Manutencao-eletrica"><img src="images/icons/categorias/manutencao-eletrica.svg" alt="icone serviços de manutenção eletrica" />
-                </a>
-                <p>Manutenção elétrica</p>
-              </div>
-              <div class="col-6 mb-3">
-                <a href="/Projetos"><img src="images/icons/categorias/projetos.svg" alt="icone serviços de projetos" /></a>
-                <p>Projetos</p>
-              </div>
-              <div class="col-6 mb-3">
-                <a href="/Construcao"><img src="images/icons/categorias/construcao.svg" alt="icone serviços de construção" /></a>
-                <p>Construção</p>
-              </div>
+          <div class="categorias pb-0">
+            <div class="row text-center text-purple-600 justify-content-center">
+              <% categoria_servico.forEach(function(categoria_servico){ %>
+                <div class="col-6 mb-3">
+                  <a href="/categorias-profissoes/<%= categoria_servico.cod_cat_servico %>"><img src="/images/icons/categorias/<%= categoria_servico.imagem_categoria %>" alt="icone <%= categoria_servico.nome_cat_servico %>" class="img-fluid"/></a>
+                  <p><%= categoria_servico.nome_cat_servico %></p>
+                </div>
+                <% }); %>
             </div>
           </div>
         </div>

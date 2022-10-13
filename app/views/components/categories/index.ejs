@@ -1,29 +1,12 @@
 <div class="categorias">
-    <div class="row text-center text-purple-600">
+  <div class="row text-center text-purple-600 justify-content-center">
+    <% categoria_servico.forEach(function(categoria_servico){ %>
       <div class="col-6 mb-3">
-        <a href="/Reparos"><img src="/images/icons/categorias/reparos.svg" alt="" /></a>
-        <p>Reparos</p>
+        <a href="/categorias-profissoes/<%= categoria_servico.cod_cat_servico %>"><img src="/images/icons/categorias/<%= categoria_servico.imagem_categoria %>" alt="icone <%= categoria_servico.nome_cat_servico %>" class="img-fluid"/></a>
+        <p>
+          <%= categoria_servico.nome_cat_servico %>
+        </p>
       </div>
-      <div class="col-6 mb-3">
-        <a href="/Montagens"><img src="images/icons/categorias/montagem.svg" alt="" /></a>
-        <p>Montagem</p>
-      </div>
-      <div class="col-6 mb-3">
-        <a href="/pintura"><img src="images/icons/categorias/pintura.svg" alt="" /></a>
-        <p>Pintura</p>
-      </div>
-      <div class="col-6 mb-3">
-        <a href="/Manutencao-eletrica"><img src="images/icons/categorias/manutencao-eletrica.svg" alt="" />
-        </a>
-        <p>Manutenção elétrica</p>
-      </div>
-      <div class="col-6 mb-3">
-        <a href="/Projetos"><img src="images/icons/categorias/projetos.svg" alt="" /></a>
-        <p>Projetos</p>
-      </div>
-      <div class="col-6 mb-3">
-        <a href="/Construcao"><img src="images/icons/categorias/construcao.svg" alt="" /></a>
-        <p>Construção</p>
-      </div>
-    </div>
+      <% }); %>
   </div>
+</div>

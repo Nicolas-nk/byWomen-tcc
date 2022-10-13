@@ -40,15 +40,33 @@
         <input class="search text-white" type="text" aria-label="Search" />
       </form>
     </div>
-    <div class="mt-5 d-flex badges-contents">
+    <div class="my-5 d-flex badges-contents">
+      <span id="limit" class="mb-3 d-none">Você pode adicionar até cinco especializações</span>
+
       <% profissao.forEach(function(profissao){ %>
+      <% if (profissao_selecionada_colaboradora.length == 5) { %>
+      <button class="new-badges limit m-0"><%= profissao.nome_profissao %></button>
+      <% } else { %>
       <form action="auth/add-profissao" method="POST">
         <input type="text" name="cod_profissao" id="<%= profissao.nome_profissao %>" value="<%= profissao.cod_profissao %>" class="d-none">
         <button type="submit" class="new-badges"><%= profissao.nome_profissao %> </button>
       </form>
-      <% }); %>
+      <% }}); %>
+    </div>
+    <div>
+      <p>Não encontrou sua profissão? envie nos qual é a sua profissão ou uma sujestão de melhoria: form</p>
     </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    $(document).ready(function() {
+      $(".limit").click(function() {
+        $("#limit").removeClass("d-none");
+        $("#limit").addClass("d-block");
+        $(window).scrollTop($("#limit").offset().top - 200);
+      });
+    })
+  </script>
 </body>
 
 </html>
