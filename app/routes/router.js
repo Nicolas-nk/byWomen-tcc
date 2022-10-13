@@ -450,46 +450,49 @@ router.get("/forma-pagamento", function (req, res) {
   res.render("pages/pagamento/index", { session: req.session });
 });
 
-router.get("/categorias-profissoes/:id", async function (req, res) {
+router.get("/categorias-profissoes/:id", function (req, res) {
   autenticado =
     req.session.autenticado === true
       ? { autenticado: req.session.usu_autenticado_id }
       : { autenticado: null };
-  await dbConnection.query(
+  dbConnection.query(
     "SELECT * FROM categoria_servico WHERE ?",
-    {cod_cat_servico: req.params.id},
+    { cod_cat_servico: req.params.id },
     (error, results) => {
       if (error) {
         return console.log(error);
       }
       req.selected_categoria_servico = results;
-    }
-  );
-  await dbConnection.query(
-    "SELECT * FROM categoria_servico WHERE cod_cat_servico <> ?",
-    [req.params.id],
-    (error, results) => {
-      if (error) {
-        return reject(error);
-      }
-      req.categoria_servico = results;
-      console.log(req.categoria_servico);
-    }
-  );
-  await dbConnection.query(
-    "SELECT * FROM profissao WHERE ?",
-    {cod_cat_servico: req.params.id},
-    (error, results) => {
-      if (error) {
-        return reject(error);
-      }
-      req.profissao = results;
-      res.render("pages/categorias_profissoes/index", {
-        session: req.session,
-        selected_categoria_servico: req.selected_categoria_servico,
-        categoria_servico: req.categoria_servico,
-        profissao: req.profissao,
-      });
+      setTimeout(function () {
+        dbConnection.query(
+          "SELECT * FROM categoria_servico WHERE cod_cat_servico <> ?",
+          [req.params.id],
+          (error, results) => {
+            if (error) {
+              return reject(error);
+            }
+            req.categoria_servico = results;
+            setTimeout(function () {
+              dbConnection.query(
+                "SELECT * FROM profissao WHERE ?",
+                { cod_cat_servico: req.params.id },
+                (error, results) => {
+                  if (error) {
+                    return reject(error);
+                  }
+                  req.profissao = results;
+                  res.render("pages/categorias_profissoes/index", {
+                    session: req.session,
+                    selected_categoria_servico: req.selected_categoria_servico,
+                    categoria_servico: req.categoria_servico,
+                    profissao: req.profissao,
+                  });
+                }
+              );
+            }, 200);
+          }
+        );
+      }, 200);
     }
   );
 });
@@ -497,7 +500,7 @@ router.get("/categorias-profissoes/:id", async function (req, res) {
 router.get("/solicitar/:id", async function (req, res) {
   await dbConnection.query(
     "SELECT * FROM profissao WHERE ?",
-    {cod_profissao: req.params.id},
+    { cod_profissao: req.params.id },
     (error, results) => {
       if (error) {
         return reject(error);
