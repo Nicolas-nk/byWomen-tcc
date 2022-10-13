@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  <div class="bg-purplegradient-bottom" style="height: 100vh;">
+  <div class="bg-purplegradient-bottom pb-5">
     <div class="container">
       <header class="header-navbar">
         <a href="javascript:void(0)" onClick="history.go(-1); return false;" class="header-components">
@@ -44,11 +44,7 @@
                 <div class="number-tel">
                   <input type="tel" placeholder="Número de telefone" name="tel" id="tel" class="form-group">
                 </div>
-                <div class="button">
-                  <input type="button" class="next" value="Próximo">
-                </div>
-              </fieldset>
-              <fieldset id="step2">
+                <hr class="mt-4 mx-auto" style="max-width: 100px;">
                 <div class="email">
                   <input type="email" placeholder="E-mail" name="email" id="email">
                 </div>
@@ -56,14 +52,14 @@
                   <input type="password" placeholder="Senha" name="senha" id="senha">
                 </div>
                 <div class="password">
-                  <input type="password" placeholder="Confirma senha" name="conf_senha" id="conf_senha">
+                  <input type="password" placeholder="Confirmar senha" name="conf_senha" id="conf_senha">
                 </div>
                 <div class="check log-into text-start">
                   <input type="checkbox" name="termos" id="termos">
                   <span>Eu li e concordo com os <a href="">Termos de uso</a> e a <a href="">Politica de privacidade</a></span>
                 </div>
                 <div class="button">
-                  <button type="submit">Finalizar</button>
+                  <button type="submit" class="next">Finalizar</button>
                 </div>
               </fieldset>
             </form>
@@ -152,14 +148,6 @@
             },
           }
         });
-        if (form.valid() === true) {
-          if ($('#step1').is(":visible")) {
-            current_fs = $('#step1');
-            next_fs = $('#step2');
-          }
-          next_fs.show();
-          current_fs.hide();
-        }
       });
 
     })
