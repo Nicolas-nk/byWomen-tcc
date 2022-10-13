@@ -90,67 +90,62 @@
       $.validator.addMethod("tel", function(value, element) {
         return /(\(?\d{2}\)?\s)?(\d{4,5}\-\d{4})/.test(value);
       }, "Número inválido");
-
-      $(".next").click(function() {
-        var form = $("#myform");
-        form.validate({
-          errorElement: 'span',
-          errorClass: 'help-block',
-          rules: {
-            nome: {
-              required: true,
-              minlength: 3,
-              maxlength: 100
-            },
-            tel: {
-              required: true,
-              tel: true
-            },
-            email: {
-              required: true,
-              EmailRegex: true
-            },
-            senha: {
-              required: true,
-              minlength: 8
-            },
-            conf_senha: {
-              required: true,
-              equalTo: '#senha',
-            },
-            termos: {
-              required: true,
-            },
+      $("#myform").validate({
+        errorElement: 'span',
+        errorClass: 'help-block',
+        rules: {
+          nome: {
+            required: true,
+            minlength: 3,
+            maxlength: 100
           },
-          messages: {
-            nome: {
-              required: "Preencha esse campo",
-              minlength: "Mínimo 3 caracteres",
-              maxlength: "Não ultrapasse 100 caracteres"
-            },
-            tel: {
-              required: "Preencha esse campo"
-            },
-            email: {
-              required: "Preencha esse campo",
-              email: "Insira um formato de e-mail válido"
-            },
-            senha: {
-              required: "Preencha esse campo",
-              minlength: "Mínimo 8 dígitos"
-            },
-            conf_senha: {
-              required: "Preencha esse campo",
-              equalTo: "As senhas não são compatíveis",
-            },
-            termos: {
-              required: "Você precisa aceitar",
-            },
-          }
-        });
+          tel: {
+            required: true,
+            tel: true
+          },
+          email: {
+            required: true,
+            EmailRegex: true
+          },
+          senha: {
+            required: true,
+            minlength: 8
+          },
+          conf_senha: {
+            required: true,
+            equalTo: '#senha',
+          },
+          termos: {
+            required: true,
+          },
+        },
+        messages: {
+          nome: {
+            required: "Preencha esse campo",
+            minlength: "Mínimo 3 caracteres",
+            maxlength: "Não ultrapasse 100 caracteres"
+          },
+          tel: {
+            required: "Preencha esse campo"
+          },
+          email: {
+            required: "Preencha esse campo",
+            email: "Insira um formato de e-mail válido"
+          },
+          senha: {
+            required: "Preencha esse campo",
+            minlength: "Mínimo 8 dígitos"
+          },
+          conf_senha: {
+            required: "Preencha esse campo",
+            equalTo: "As senhas não são compatíveis",
+          },
+          termos: {
+            required: "Você precisa aceitar",
+          },
+        }
       });
-
-    })
+    });
   </script>
 </body>
 
