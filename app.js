@@ -21,7 +21,7 @@ app.use(express.json());
 
 app.set('view engine', 'ejs');
 app.set('views', './app/views');
-app.locals.baseURL = "http://localhost:3000/"
+app.locals.baseURL = "https://by-women-testes.herokuapp.com/"
 
 var rotas = require('./app/routes/router');
 app.use('/', rotas);
