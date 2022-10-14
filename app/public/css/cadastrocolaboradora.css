@@ -350,6 +350,7 @@ button {
   flex-wrap: wrap;
   justify-content: left;
   gap: 10px;
+  column-gap: 12px;
 }
 
 .badges {
@@ -418,22 +419,22 @@ input.search:focus-visible {
 }
 
 .new-badges {
-  background-color: #5a189a;
+  background-color: transparent;
   padding: 6px;
   border-radius: 5px;
-  color: #fff;
+  color: #5a189a;
   font-size: 18px;
   width: auto;
   height: auto;
   margin: auto;
   left: auto;
   transform: translate(0);
-  border: solid 1.5px #5a189a;
+  border: solid 1.9px #5a189a;
 }
 
 .new-badges:hover{
-  background-color: transparent;
-  color: #5a189a;
+  background-color: #5a189a;
+  color: #fff;
   transition: all ease-in-out 0.2s;
 }
 

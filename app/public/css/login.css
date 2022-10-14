@@ -120,7 +120,7 @@
     margin-top: 35px;
   }
   
-  .button a, .button button{
+  .button a, .button button, .button .next{
     width: 98%;
     height: 35px;
     border-radius: 30px;

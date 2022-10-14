@@ -18,7 +18,7 @@
     background-color: #240046;
   }
 
-  hr{
+  hr.title{
     width: 55px;
     height: 2px;
     opacity: 1;

@@ -12,12 +12,6 @@
   transition: all .45s ease-in-out;
 }
 
-.construcao-screen-tag::after {
-  transform: translateX(12px);
-  left: 0;
-  width: 90px;
-}
-
 .manutencao-screen-tag::after {
   transform: translateX(274px);
   left: 0;

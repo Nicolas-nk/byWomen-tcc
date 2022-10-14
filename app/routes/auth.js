@@ -13,17 +13,35 @@ const router = express.Router();
 
 router.post(
   "/cadastre-se",
-
-  body("nome").isLength({ min: 5, max: 100 }),
-  body("tel").isLength({ min: 5, max: 20 }),
-  body("email").isEmail().withMessage("Insira um e-mail válido!"),
-  body("senha").isLength({ min: 4, max: 100 }),
+  body("nome").isLength({ min: 3 }).withMessage("Mínimo 3 caracteres"),
+  body("nome").not().isEmpty().withMessage("Preencha esse campo"),
+  body("nome")
+    .isLength({ max: 100 })
+    .withMessage("Não ultrapasse 100 caracteres"),
+  body("tel", "Número inválido")
+    .escape()
+    .exists({ checkFalsy: true })
+    .matches(/(\(?\d{2}\)?\s)?(\d{4,5}\-\d{4})/),
+  body("tel").not().isEmpty().withMessage("Preencha esse campo"),
+  body("email", "Insira um formato de e-mail válido").isEmail(),
+  body("email").not().isEmpty().withMessage("Preencha esse campo"),
+  body("senha").isLength({ min: 8, max: 100 }).withMessage("Mínimo 8 dígitos!"),
+  body("senha", "Preencha esse campo").not().isEmpty(),
+  body("conf_senha", "As senhas não são compatíveis").custom(
+    (value, { req }) => value === req.body.senha
+  ),
+  body("termos", "Você precisa aceitar os Termos de uso").exists({
+    checkFalsy: true,
+  }),
 
   function (req, res) {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      console.log(errors);
-      return res.json(errors);
+      return res.render("pages/cadastre-se/index", {
+        erros: errors,
+        valores: req.body,
+      });
+      
     }
 
     var dadosForm = {
@@ -33,15 +51,37 @@ router.post(
       email: req.body.email,
       senha: bcrypt.hashSync(req.body.senha, salt),
     };
-
     dbConnection.query(
-      "INSERT INTO usuario SET ?",
-      dadosForm,
-      function (error, results, fields) {
+      "SELECT * FROM usuario WHERE email = ?",
+      [dadosForm.email],
+      async function (error, results, fields) {
         if (error) throw error;
+        var total = Object.keys(results).length;
+
+        if (total == 1) {
+          return res.render("pages/cadastre-se/index", {
+            "erros":  {
+              errors: [
+                {
+              value: '',
+              msg: 'Este endereço de email já foi usado. escolha outro',
+              param: 'email',
+              location: 'body'
+            }]
+            }, "valores": req.body
+          });
+        } else if (total < 1) {
+          dbConnection.query(
+            "INSERT INTO usuario SET ?",
+            dadosForm,
+            function (error, results, fields) {
+              if (error) throw error;
+            }
+          );
+        }
+        res.redirect("/login");
       }
     );
-    res.redirect("/login");
   }
 );
 router.post(
@@ -68,8 +108,8 @@ router.post(
     };
 
     await dbConnection.query(
-      "SELECT * FROM usuario WHERE nome = ? or email = ?",
-      [dadosForm.login, dadosForm.login],
+      "SELECT * FROM usuario WHERE email = ?",
+      [dadosForm.login],
       async function (error, results, fields) {
         if (error) throw error;
         var total = Object.keys(results).length;
@@ -112,8 +152,6 @@ router.post(
                 res.redirect("/");
               }
             );
-
-            
           } else {
             return res.render("pages/login/index", {
               erro: true,
@@ -309,7 +347,7 @@ router.post(
   "/add-certificacao",
   uploadImage.single("foto_certificacao"),
 
-  function (req, res) {
+  async function (req, res) {
     let fileContent;
     if (!req.file) {
       fileContent = null;
@@ -327,7 +365,7 @@ router.post(
       id_colaboradora: req.session.usu_colaboradora_autenticado_id,
     };
 
-    dbConnection.query(
+    await dbConnection.query(
       "INSERT INTO certificacao SET ?",
       dadosForm,
       function (error, results, fields) {
@@ -338,10 +376,50 @@ router.post(
   }
 );
 router.post(
+  "/update-certificacao/:id",
+  uploadImage.single("foto_certificacao"),
+
+  async function (req, res) {
+    let fileContent;
+    if (!req.file) {
+      fileContent = null;
+    } else {
+      fileContent = req.file.buffer.toString("base64");
+    }
+
+    var dadosForm = {
+      nome_curso: req.body.nome_curso,
+      atividade_realizada: req.body.atividade_realizada,
+      data_emissao: req.body.data_emissao,
+      orgao_emissor: req.body.orgao_emissor,
+      foto_certificacao: fileContent,
+    };
+
+    await dbConnection.query(
+      "UPDATE certificacao SET ?",
+      [dadosForm, req.params.id],
+      function (error, results, fields) {
+        if (error) throw error;
+      }
+    );
+    res.redirect("/editarperfil");
+  }
+);
+router.post("/remove-certificacao/:id", function (req, res) {
+  dbConnection.query(
+    "DELETE FROM certificacao WHERE ?",
+    req.params.id,
+    function (error, results, fields) {
+      if (error) throw error;
+      res.redirect("/editarperfil");
+    }
+  );
+});
+router.post(
   "/add-trabalho",
   uploadImage.single("imagem_trabalho"),
 
-  function (req, res) {
+  async function (req, res) {
     let fileContent;
     if (!req.file) {
       fileContent = null;
@@ -357,7 +435,7 @@ router.post(
       id_colaboradora: req.session.usu_colaboradora_autenticado_id,
     };
 
-    dbConnection.query(
+    await dbConnection.query(
       "INSERT INTO trabalhos_realizados SET ?",
       dadosForm,
       function (error, results, fields) {
@@ -367,6 +445,44 @@ router.post(
     res.redirect("/editarperfil");
   }
 );
+router.post(
+  "/update-trabalho/:id",
+  uploadImage.single("imagem_trabalho"),
+
+  async function (req, res) {
+    let fileContent;
+    if (!req.file) {
+      fileContent = null;
+    } else {
+      fileContent = req.file.buffer.toString("base64");
+    }
+
+    var dadosForm = {
+      titulo: req.body.titulo,
+      descricao: req.body.descricao,
+      imagem_trabalho: fileContent,
+    };
+
+    await dbConnection.query(
+      "UPDATE trabalhos_realizados SET ? WHERE cod_trabalho = ?",
+      [dadosForm, req.params.id],
+      function (error, results, fields) {
+        if (error) throw error;
+      }
+    );
+    res.redirect("/editarperfil");
+  }
+);
+router.post("/remove-trabalho/:id", function (req, res) {
+  dbConnection.query(
+    "DELETE FROM trabalhos_realizados WHERE ?",
+    req.params.id,
+    function (error, results, fields) {
+      if (error) throw error;
+      res.redirect("/editarperfil");
+    }
+  );
+});
 router.post("/add-profissao", function (req, res) {
   var dadosForm = {
     cod_profissao: req.body.cod_profissao,

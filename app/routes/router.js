@@ -14,7 +14,19 @@ router.get("/", function (req, res) {
           colaboradora_autenticado: req.session.usu_colaboradora_autenticado_id,
         }
       : { colaboradora_autenticado: null };
-  res.render("pages/home/index", { session: req.session });
+  dbConnection.query(
+    "SELECT * FROM categoria_servico LIMIT 6",
+    (error, results) => {
+      if (error) {
+        return reject(error);
+      }
+      req.categoria_servico = results;
+      res.render("pages/home/index", {
+        session: req.session,
+        categoria_servico: req.categoria_servico,
+      });
+    }
+  );
 });
 
 router.get("/login", function (req, res) {
@@ -33,7 +45,6 @@ router.get("/sair", function (req, res) {
 });
 router.get("/excluir-perfil", function (req, res) {
   if (req.session.autenticado === true) {
-    console.log(req.session.colaboradora_autenticado)
     if (req.session.colaboradora_autenticado === true) {
       dbConnection.query(
         " DELETE FROM usuario_colaboradora WHERE id_colaboradora = ?",
@@ -126,7 +137,7 @@ router.get("/perfil", function (req, res) {
         }
       );
     } else {
-      res.render("pages/perfilCliente/index", { session: req.session});
+      res.render("pages/perfilCliente/index", { session: req.session });
     }
   } else {
     res.redirect("/login");
@@ -230,9 +241,15 @@ router.get("/perfilColaboradora", function (req, res) {
 });
 router.get("/trabalho-realizado", function (req, res) {
   if (req.session.autenticado === true) {
+    req.trabalhos_realizados = {
+      cod_trabalho: null,
+      titulo: null,
+      descricao: null,
+      imagem_trabalho: null,
+    };
     res.render("pages/formColaboradora/trabalhoRealizado/index", {
       session: req.session,
-      trabalhos_realizados: null,
+      trabalhos_realizados: req.trabalhos_realizados,
     });
   } else {
     res.redirect("/login");
@@ -266,8 +283,17 @@ router.get("/trabalho-realizado/:id", function (req, res) {
 });
 router.get("/certificacao", function (req, res) {
   if (req.session.autenticado === true) {
+    req.certificacao = {
+      cod_certificacao: null,
+      nome_curso: null,
+      atividade_realizada: null,
+      data_emissao: null,
+      orgao_emissor: null,
+      foto_certificacao: null,
+    };
     res.render("pages/formColaboradora/certificacao/index", {
       session: req.session,
+      certificacao: req.certificacao,
     });
   } else {
     res.redirect("/login");
@@ -364,10 +390,6 @@ router.get("/planos", function (req, res) {
   res.render("pages/planos/index", { session: req.session });
 });
 
-router.get("/servicos", function (req, res) {
-  res.render("pages/servicos/index", { session: req.session });
-});
-
 router.get("/recuperar-senha", function (req, res) {
   res.render("pages/recuperar/index", { session: req.session });
 });
@@ -377,26 +399,39 @@ router.get("/recuperar-senha-passo2", function (req, res) {
 });
 
 router.get("/cadastre-se", function (req, res) {
-  res.render("pages/cadastre-se/index", { session: req.session });
+  res.render("pages/cadastre-se/index", { "erros": null, "valores": ""});
 });
 
 router.get("/fotoperfil", function (req, res) {
   if (req.session.autenticado === true) {
-    res.render("pages/formColaboradora/fotoperfil/index", { session: req.session });
+    res.render("pages/formColaboradora/fotoperfil/index", {
+      session: req.session,
+    });
   } else {
     res.redirect("/login");
   }
 });
 
 router.get("/todas-categorias", function (req, res) {
-  res.render("pages/todasCategorias/index", { session: req.session });
+  dbConnection.query("SELECT * FROM categoria_servico", (error, results) => {
+    if (error) {
+      return reject(error);
+    }
+    req.categoria_servico = results;
+    res.render("pages/todasCategorias/index", {
+      session: req.session,
+      categoria_servico: req.categoria_servico,
+    });
+  });
 });
-router.get("/todos-servicos", function (req, res) {
+router.get("/pesquisar", function (req, res) {
   res.render("pages/todosServiços/index", { session: req.session });
 });
 
 router.get("/perfilColaboradora", function (req, res) {
-  res.render("pages/perfilColaboradora-visãoCliente/index", { session: req.session });
+  res.render("pages/perfilColaboradora-visãoCliente/index", {
+    session: req.session,
+  });
 });
 
 router.get("/favoritos", function (req, res) {
@@ -404,23 +439,79 @@ router.get("/favoritos", function (req, res) {
 });
 
 router.get("/cartao", function (req, res) {
-  res.render("pages/cartao/index");
+  res.render("pages/cartao/index", { session: req.session });
 });
 
 router.get("/pagamento", function (req, res) {
-  res.render("pages/sucesso/index");
+  res.render("pages/sucesso/index", { session: req.session });
 });
 
 router.get("/forma-pagamento", function (req, res) {
-  res.render("pages/pagamento/index");
+  res.render("pages/pagamento/index", { session: req.session });
 });
 
-router.get("/Construcao", function (req, res) {
+router.get("/categorias-profissoes/:id", function (req, res) {
   autenticado =
     req.session.autenticado === true
       ? { autenticado: req.session.usu_autenticado_id }
       : { autenticado: null };
-  res.render("pages/categorias_profissoes/index", { session: req.session });
+  dbConnection.query(
+    "SELECT * FROM categoria_servico WHERE ?",
+    { cod_cat_servico: req.params.id },
+    (error, results) => {
+      if (error) {
+        return console.log(error);
+      }
+      req.selected_categoria_servico = results;
+      setTimeout(function () {
+        dbConnection.query(
+          "SELECT * FROM categoria_servico WHERE cod_cat_servico <> ?",
+          [req.params.id],
+          (error, results) => {
+            if (error) {
+              return reject(error);
+            }
+            req.categoria_servico = results;
+            setTimeout(function () {
+              dbConnection.query(
+                "SELECT * FROM profissao WHERE ?",
+                { cod_cat_servico: req.params.id },
+                (error, results) => {
+                  if (error) {
+                    return reject(error);
+                  }
+                  req.profissao = results;
+                  res.render("pages/categorias_profissoes/index", {
+                    session: req.session,
+                    selected_categoria_servico: req.selected_categoria_servico,
+                    categoria_servico: req.categoria_servico,
+                    profissao: req.profissao,
+                  });
+                }
+              );
+            }, 200);
+          }
+        );
+      }, 200);
+    }
+  );
+});
+
+router.get("/solicitar/:id", async function (req, res) {
+  await dbConnection.query(
+    "SELECT * FROM profissao WHERE ?",
+    { cod_profissao: req.params.id },
+    (error, results) => {
+      if (error) {
+        return reject(error);
+      }
+      req.profissao = results[0];
+      res.render("pages/solicitar/index", {
+        session: req.session,
+        profissao: req.profissao,
+      });
+    }
+  );
 });
 
 module.exports = router;

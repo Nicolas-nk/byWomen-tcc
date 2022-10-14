@@ -5,6 +5,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7B2CBF">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#7B2CBF">
+  <meta name="msapplication-navbutton-color" content="#7B2CBF">
   <meta name="robots" content="index, follow">
   <title>By Women - Crie seu perfil</title>
   <link rel="icon" href="/images/logo/logo-aba.svg">
@@ -110,7 +113,7 @@
                                   <div class="add"><span class="text-white fonts-1">+</span></div>
                                 </a>
                                 <% certificacoes.forEach(function(certificacoes){ %>
-                                  <a href="<%='/certificacao/'+ certificacoes.cod_certificacao %>"
+                                  <a href="<%="/certificacao/"+ certificacoes.cod_certificacao %>"
                                     class="add-certificate">
                                     <div class="h-100 w-100 bg-image"
                                       style="background-image: url('data:image/jpeg;base64,<%= certificacoes.foto_certificacao %>'); border-radius: 20px;">
@@ -133,7 +136,7 @@
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script>
-    (function () {
+/*     (function () {
       if (window.localStorage) {
         if (!localStorage.getItem('firstLoad')) {
           localStorage['firstLoad'] = true;
@@ -141,7 +144,7 @@
         } else
           localStorage.removeItem('firstLoad');
       }
-    })();
+    })(); */
 
     $(document).ready(function () {
       $('.carrossel-trabalhos').slick({

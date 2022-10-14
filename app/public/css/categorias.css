@@ -1,61 +1,7 @@
 /*Categorias*/
 
-.categories-slide{
-  display: flex;
-  align-items: center;
-}
-
-.categories-slide p.arrow-r{
-  font-size: 30px;
-  color: #fff;
-  position: absolute;
-  right: 0;
-  margin-bottom: 4px;
-  padding: 0 15px;
-}
-
-.categories-slide p.arrow-l{
-  font-size: 30px;
-  color: #fff;
-  position: absolute;
-  left: 0px;
-  margin-bottom: 4px;
-  padding: 0 15px;
-}
-
-.arrows-r{
-  z-index: 2500;
-  position: absolute;
-  width: 51px;
-  height: 50px;
-  background-color: #3c096c;
-  right: 0;
-}
-
-.arrows-l{
-  z-index: 2500;
-  position: absolute;
-  width: 51px;
-  height: 50px;
-  background-color: #3c096c;
-  left: 0;
-}
-
-.works {
-  flex-wrap: wrap;
-  position: relative;
-  gap: 10px;
-  max-width: 540px;
-}
-
 .works-categories::-webkit-scrollbar{
-    display: none;
-}
-
-.slide-works{
-  width: 100%;
-  height: 50px;
-  background-color: #3c096c;
+  display: none;
 }
 
 .categories-slide{
@@ -66,30 +12,15 @@
 }
 
 .works-categories{
-  height: 100%;
-  align-items: center;
-  column-gap: 32px;
-  touch-action: manipulation;
-  display: flex;
-  overflow-x: auto;
+  background-color: #3c096c;
 }
 
-.slide-tag span{
-  display: flex;
-  justify-content: center;  
-}
 .slide-tag{
-  margin: 0 15px;
-}
-
-span.manutecao-text{
-  width: 160px;
+  padding: 10px 17px;
+  position: relative;
 }
 
 .slide-tag:hover{
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
 }
 
@@ -103,10 +34,19 @@ span.manutecao-text{
   opacity: 1;
 }
 
+.slide-tag a{
+  text-decoration: none;
+  color: #fff;
+  opacity: .9;
+}
+
+.slide-tag a{
+  color: #fff;
+  opacity: 1;
+}
+
 .work-pic {
   height: 256px;
-  width: 100%;
-  max-width: 400px;
   margin-top: 50px;
   border-radius: 20px;
   align-items: center;
@@ -132,6 +72,17 @@ span.manutecao-text{
   margin-right: 10px;
   color: #3c096c;
   font-size: 20px;
+}
+
+.slide-tag-selected:after{
+  content: '';
+  height: 5px;
+  width: 100%;
+  background-color: #fff;
+  position: absolute;
+  border-radius: 15px 15px 0 0;
+  bottom: 0;
+  left: 0;
 }
 
 .construcao a, .montagem a, .manutencao a, .reparos a, .projetos a{

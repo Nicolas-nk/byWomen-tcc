@@ -4,7 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7B2CBF">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#7B2CBF">
+  <meta name="msapplication-navbutton-color" content="#7B2CBF">
   <title>By Women</title>
   <meta name="robots" content="index, follow">
   <meta name="description"
@@ -71,7 +74,7 @@
       </div>
       <div class="header-mask container">
         <div class="header-inf">
-          <img src="/images/logo/logo-extenso.svg" alt="" />
+          <img src="/images/logo/logo-extenso.png" alt="" />
           <a href="/login"><span>Entrar</span></a>
         </div>
       </div>
@@ -249,33 +252,14 @@
       <img src="/images/banners/home-wave-2.svg" alt="" class="img-fluid w-100" />
       <div class="container">
         <div class="categorias-container bg-white">
-          <div class="categorias">
-            <div class="row text-center text-purple-600">
-              <div class="col-6 mb-3">
-                <a href="/Reparos"><img src="/images/icons/categorias/reparos.svg" alt="icone serviços de reparos" /></a>
-                <p>Reparos</p>
-              </div>
-              <div class="col-6 mb-3">
-                <a href="/Montagens"><img src="images/icons/categorias/montagem.svg" alt="icone serviços de montagem" /></a>
-                <p>Montagem</p>
-              </div>
-              <div class="col-6 mb-3">
-                <a href="/pintura"><img src="images/icons/categorias/pintura.svg" alt="icone serviços de pintura" /></a>
-                <p>Pintura</p>
-              </div>
-              <div class="col-6 mb-3">
-                <a href="/Manutencao-eletrica"><img src="images/icons/categorias/manutencao-eletrica.svg" alt="icone serviços de manutenção eletrica" />
-                </a>
-                <p>Manutenção elétrica</p>
-              </div>
-              <div class="col-6 mb-3">
-                <a href="/Projetos"><img src="images/icons/categorias/projetos.svg" alt="icone serviços de projetos" /></a>
-                <p>Projetos</p>
-              </div>
-              <div class="col-6 mb-3">
-                <a href="/Construcao"><img src="images/icons/categorias/construcao.svg" alt="icone serviços de construção" /></a>
-                <p>Construção</p>
-              </div>
+          <div class="categorias pb-0">
+            <div class="row text-center text-purple-600 justify-content-center">
+              <% categoria_servico.forEach(function(categoria_servico){ %>
+                <div class="col-6 mb-3">
+                  <a href="/categorias-profissoes/<%= categoria_servico.cod_cat_servico %>"><img src="/images/icons/categorias/<%= categoria_servico.imagem_categoria %>" alt="icone <%= categoria_servico.nome_cat_servico %>" class="img-fluid"/></a>
+                  <p><%= categoria_servico.nome_cat_servico %></p>
+                </div>
+                <% }); %>
             </div>
           </div>
         </div>
@@ -284,7 +268,9 @@
     </div>
   </main>
 
-
+  <div class="fake-menu"></div>
+  <%- include("./../../components/menu/index.ejs") %>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
     integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -383,8 +369,6 @@
       });
     });
   </script>
-  <div class="fake-menu"></div>
-  <%- include("./../../components/menu/index.ejs") %>
 </body>
 
 </html>
