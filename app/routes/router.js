@@ -399,7 +399,7 @@ router.get("/recuperar-senha-passo2", function (req, res) {
 });
 
 router.get("/cadastre-se", function (req, res) {
-  res.render("pages/cadastre-se/index", { session: req.session });
+  res.render("pages/cadastre-se/index", { "erros": null, "valores": ""});
 });
 
 router.get("/fotoperfil", function (req, res) {
