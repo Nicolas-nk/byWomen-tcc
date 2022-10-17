@@ -279,8 +279,8 @@ router.post(
       descricao: req.body.descricao,
     };
     dbConnection.query(
-      "UPDATE usuario_colaboradora SET ?",
-      dadosForm,
+      "UPDATE usuario_colaboradora SET descricao = ? WHERE id_colaboradora = ?",
+      [req.body.descricao, req.session.usu_colaboradora_autenticado_id],
       function (error, results, fields) {
         if (error) throw error;
       }
@@ -418,6 +418,7 @@ router.post("/remove-certificacao/:id", function (req, res) {
 router.post(
   "/add-trabalho",
   uploadImage.single("imagem_trabalho"),
+  
 
   async function (req, res) {
     let fileContent;
