@@ -447,6 +447,48 @@
   top: 50px;
 }
 
+.certificate:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.popup-image{
+  background: rgba(0, 0, 0, .8);
+  width: 100%;
+  height: 100vh;
+  max-width: 540px;
+  z-index: 5000;
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inf-certificate{
+  background-color: #fff;
+  width: 90%;
+  height: 70%;
+  z-index: 5001;
+  border-radius: 10px;
+}
+
+.certificate-popup{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 20px;
+  width: 100%;
+  height: 80%;
+  margin-top: 20px;
+}
+
+.close{
+  position: inherit;
+  right: 20px;
+  top: 20px;
+}
+
 .btn-add-inf{
   background: transparent;
   display: flex;
@@ -480,6 +522,17 @@
   position: absolute;
   bottom: 15px;
   left: 15px;
+}
+
+.name-course {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.name-course{
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .add-certificate {
