@@ -11,8 +11,8 @@ router.get("/", function (req, res) {
   colaboradora_autenticado =
     req.session.colaboradora_autenticado === true
       ? {
-          colaboradora_autenticado: req.session.usu_colaboradora_autenticado_id,
-        }
+        colaboradora_autenticado: req.session.usu_colaboradora_autenticado_id,
+      }
       : { colaboradora_autenticado: null };
   dbConnection.query(
     "SELECT * FROM categoria_servico LIMIT 6",
@@ -124,6 +124,7 @@ router.get("/perfil", function (req, res) {
                               certificacoes: req.certificacoes,
                               profissao_selecionada_colaboradora:
                                 req.profissao_selecionada_colaboradora,
+                              certificacao_pag: null
                             });
                           }
                         );
@@ -232,6 +233,7 @@ router.get("/perfil/:id", function (req, res) {
                                           certificacoes: req.certificacoes,
                                           profissao_selecionada_colaboradora:
                                             req.profissao_selecionada_colaboradora,
+                                          certificacao_pag: null
                                         }
                                       );
                                     }
@@ -435,6 +437,235 @@ router.get("/certificacao/:id", function (req, res) {
         res.redirect("/");
       } else {
         res.redirect("/login");
+      }
+    }
+  );
+});
+router.get("/perfil/certificacao/:cod_certificacao", function (req, res) {
+  if (req.session.autenticado === true) {
+    if (req.session.colaboradora_autenticado === true) {
+      dbConnection.query(
+        "SELECT cod_profissao FROM profissao_colaboradora WHERE id_colaboradora = ?",
+        [req.session.usu_colaboradora_autenticado_id],
+        (error, results) => {
+          if (error) {
+            return reject(error);
+          }
+          req.profissao_colaboradora = [];
+          if (results.length > 0) {
+            for (let i = 0; i < results.length; i++) {
+              req.profissao_colaboradora[i] = results[i].cod_profissao;
+            }
+          } else {
+            req.profissao_colaboradora = 0;
+          }
+          setTimeout(function () {
+            dbConnection.query(
+              "SELECT * FROM profissao WHERE cod_profissao IN (?)",
+              [req.profissao_colaboradora],
+              (error, results) => {
+                if (error) {
+                  console.log(error);
+                }
+                req.profissao_selecionada_colaboradora = results;
+                setTimeout(function () {
+                  dbConnection.query(
+                    "SELECT * FROM trabalhos_realizados WHERE id_colaboradora = ?",
+                    [req.session.usu_colaboradora_autenticado_id],
+                    (error, results) => {
+                      if (error) {
+                        return reject(error);
+                      }
+                      req.trabalhos_realizados =
+                        results[0] !== undefined ? results : null;
+                      setTimeout(function () {
+                        dbConnection.query(
+                          "SELECT * FROM certificacao WHERE id_colaboradora = ?",
+                          [req.session.usu_colaboradora_autenticado_id],
+                          (error, results) => {
+                            if (error) {
+                              return reject(error);
+                            }
+                            req.certificacoes =
+                              results[0] !== undefined ? results : null;
+                            setTimeout(function () {
+                              dbConnection.query(
+                                "SELECT * FROM certificacao WHERE id_colaboradora = ?",
+                                [req.session.usu_colaboradora_autenticado_id],
+                                (error, results) => {
+                                  if (error) {
+                                    return reject(error);
+                                  }
+                                  req.certificacoes =
+                                    results[0] !== undefined ? results : null;
+                                  setTimeout(function () {
+                                    dbConnection.query(
+                                      "SELECT * FROM certificacao WHERE cod_certificacao = ?",
+                                      [req.params.cod_certificacao],
+                                      (error, results) => {
+                                        if (error) {
+                                          return reject(error);
+                                        }
+                                        req.certificacao_pag =
+                                          results[0] !== undefined ? results : null;
+                                        console.log(req.certificacao_pag)
+                                        res.render("pages/perfilColaboradora/index", {
+                                          session: req.session,
+                                          trabalhos_realizados: req.trabalhos_realizados,
+                                          certificacoes: req.certificacoes,
+                                          profissao_selecionada_colaboradora:
+                                            req.profissao_selecionada_colaboradora,
+                                          certificacao_pag: req.certificacao_pag,
+                                        });
+                                      }
+                                    );
+                                  }, 200);
+                                }
+                              );
+                            }, 200);
+                          }
+                        );
+                      }, 200);
+                    }
+                  );
+                }, 200);
+              }
+            );
+          }, 200);
+        }
+      );
+    } else {
+      res.render("pages/perfilCliente/index", { session: req.session });
+    }
+  } else {
+    res.redirect("/login");
+  }
+});
+router.get("/perfil/:id/certificacao/:cod_certificacao", function (req, res) {
+  dbConnection.query(
+    "SELECT * FROM usuario WHERE id_usuario = ?",
+    [req.params.id],
+    async function (error, results, fields) {
+      if (error) throw error;
+
+      var total = Object.keys(results).length;
+
+      if (total == 1) {
+        req.usu_visitado = results[0];
+        req.usu_visitado.usu_nome = results[0].nome;
+        req.usu_visitado.usu_email = results[0].email;
+        req.usu_visitado.usu_tel = results[0].num_tel;
+        if (results[0].foto_perfil == undefined) {
+          req.usu_visitado.usu_foto = null;
+        } else {
+          req.usu_visitado.usu_foto = results[0].foto_perfil.toString("base64");
+        }
+        setTimeout(function () {
+          dbConnection.query(
+            "SELECT * FROM usuario_colaboradora WHERE id_usuario = ?",
+            [req.params.id],
+            function (error, results, fields) {
+              if (error) throw error;
+              var total = Object.keys(results).length;
+              if (total == 1) {
+                req.usu_visitado.usu_colaboradora_id =
+                  results[0].id_colaboradora;
+                req.usu_visitado.usu_colaboradora_descricao =
+                  results[0].descricao;
+
+                dbConnection.query(
+                  "SELECT cod_profissao FROM profissao_colaboradora WHERE id_colaboradora = ?",
+                  [req.usu_visitado.usu_colaboradora_id],
+                  (error, results) => {
+                    if (error) {
+                      return reject(error);
+                    }
+                    req.profissao_colaboradora = [];
+                    if (results.length > 0) {
+                      for (let i = 0; i < results.length; i++) {
+                        req.profissao_colaboradora[i] =
+                          results[i].cod_profissao;
+                      }
+                    } else {
+                      req.profissao_colaboradora = 0;
+                    }
+                    setTimeout(function () {
+                      dbConnection.query(
+                        "SELECT * FROM profissao WHERE cod_profissao IN (?)",
+                        [req.profissao_colaboradora],
+                        (error, results) => {
+                          if (error) {
+                            console.log(error);
+                          }
+                          req.profissao_selecionada_colaboradora = results;
+                          setTimeout(function () {
+                            dbConnection.query(
+                              "SELECT * FROM trabalhos_realizados WHERE id_colaboradora = ?",
+                              [req.usu_visitado.usu_colaboradora_id],
+                              (error, results) => {
+                                if (error) {
+                                  return reject(error);
+                                }
+                                req.trabalhos_realizados =
+                                  results[0] !== undefined ? results : null;
+                                setTimeout(function () {
+                                  dbConnection.query(
+                                    "SELECT * FROM certificacao WHERE id_colaboradora = ?",
+                                    [req.usu_visitado.usu_colaboradora_id],
+                                    (error, results) => {
+                                      if (error) {
+                                        return reject(error);
+                                      }
+                                      req.certificacoes =
+                                        results[0] !== undefined
+                                          ? results
+                                          : null;
+                                      setTimeout(function () {
+                                        dbConnection.query(
+                                          "SELECT * FROM certificacao WHERE cod_certificacao = ?",
+                                          [req.params.cod_certificacao],
+                                          (error, results) => {
+                                            if (error) {
+                                              return reject(error);
+                                            }
+                                            req.certificacao_pag =
+                                              results[0] !== undefined ? results : null;
+                                            console.log(req.certificacao_pag)
+                                            res.render(
+                                              "pages/perfilColaboradora-visãoCliente/index",
+                                              {
+                                                session: req.session,
+                                                usu_visitado: req.usu_visitado,
+                                                trabalhos_realizados:
+                                                  req.trabalhos_realizados,
+                                                certificacoes: req.certificacoes,
+                                                profissao_selecionada_colaboradora:
+                                                  req.profissao_selecionada_colaboradora,
+                                                certificacao_pag: req.certificacao_pag
+                                              }
+                                            );
+                                          }
+                                        );
+                                      }, 200);
+                                    }
+                                  );
+                                }, 200);
+                              }
+                            );
+                          }, 200);
+                        }
+                      );
+                    }, 200);
+                  }
+                );
+              } else {
+                res.json("nao encontrado");
+              }
+            }
+          );
+        }, 200);
+      } else {
+        res.json("nao encontrado");
       }
     }
   );
