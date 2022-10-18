@@ -50,6 +50,7 @@ router.post(
       num_tel: req.body.tel,
       email: req.body.email,
       senha: bcrypt.hashSync(req.body.senha, salt),
+      criadoEm: new Date(),
     };
     dbConnection.query(
       "SELECT * FROM usuario WHERE email = ?",
@@ -244,6 +245,7 @@ router.post(
       id_colaboradora: uuidv4(),
       id_usuario: req.session.usu_autenticado_id,
       descricao: req.body.descricao,
+      criadoEm: new Date(),
     };
 
     dbConnection.query(
@@ -490,13 +492,32 @@ router.post("/add-profissao", function (req, res) {
     id_colaboradora: req.session.usu_colaboradora_autenticado_id,
   };
   dbConnection.query(
-    "INSERT INTO profissao_colaboradora SET ?",
-    dadosForm,
+    "SELECT * FROM profissao_colaboradora WHERE cod_profissao = ? AND id_colaboradora = ?",
+    [dadosForm.cod_profissao, dadosForm.id_colaboradora],
     function (error, results, fields) {
       if (error) throw error;
-      res.redirect("/profissao");
+      if(results[0] === undefined){
+        dbConnection.query(
+          "INSERT INTO profissao_colaboradora SET ?",
+          dadosForm,
+          function (error, results, fields) {
+            if (error) throw error;
+            res.redirect("/profissao");
+          }
+        );
+      }else{
+        dbConnection.query(
+          "DELETE FROM profissao_colaboradora WHERE id_colaboradora = ?",
+          [dadosForm.id_colaboradora],
+          function (error, results, fields) {
+            if (error) throw error;
+            res.redirect("/profissao");
+          }
+        );       
+      }
     }
   );
+  
 });
 router.post("/remove-profissao", function (req, res) {
   var dadosForm = {
@@ -510,6 +531,40 @@ router.post("/remove-profissao", function (req, res) {
       res.redirect("/profissao");
     }
   );
+});
+router.post("/favoritos", function (req, res) {
+  var dadosForm = {
+    cod_fav: uuidv4(),
+    id_colaboradora: req.body.id_colaboradora,
+    id_usuario: req.session.usu_autenticado_id,
+  };
+  dbConnection.query(
+    "SELECT * FROM favoritos WHERE id_colaboradora = ? AND id_usuario = ?",
+    [dadosForm.id_colaboradora, dadosForm.id_usuario],
+    function (error, results, fields) {
+      if (error) throw error;
+      if(results[0] === undefined){
+        dbConnection.query(
+          "INSERT INTO favoritos SET ?",
+          dadosForm,
+          function (error, results, fields) {
+            if (error) throw error;
+            res.redirect('back');
+          }
+        );
+      }else{
+        dbConnection.query(
+          "DELETE FROM favoritos WHERE id_colaboradora = ? AND id_usuario = ?",
+          [dadosForm.id_colaboradora, dadosForm.id_usuario],
+          function (error, results, fields) {
+            if (error) throw error;
+            res.redirect('back');
+          }
+        );       
+      }
+    }
+  );
+  
 });
 
 module.exports = router;

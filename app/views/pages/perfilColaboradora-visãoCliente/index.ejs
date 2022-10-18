@@ -38,13 +38,26 @@
           </div>
           <% } %>
           <% if (usu_visitado.usu_colaboradora_id !== session.usu_colaboradora_autenticado_id) { %>
+          <% if(session.autenticado){ %>
           <div class="header-components">
-            <img src="<%=baseURL%>images/icons/header/favoritar.svg" alt="" />
+            <form action="<%=baseURL%>auth/favoritos" method="POST">
+              <input type="text" name="id_colaboradora" id="id_colaboradora" value="<%= usu_visitado.usu_colaboradora_id %>" class="d-none">
+              <button type="submit" class="btn p-0">
+                <% if(favoritado === true){  %>
+                  <img src="<%=baseURL%>images/icons/header/favoritar-full.svg" alt="" />
+                  <% } else { %>
+                    <img src="<%=baseURL%>images/icons/header/favoritar.svg" alt="" />
+                 <% } %> 
+              </button>
+            </form>
+            <% }else{ %>
+            <a href="/login" class="btn p-0"><img src="<%=baseURL%>images/icons/header/favoritar.svg" alt="" /></a>
+            <% } %>
           </div>
           <% } else{%>
-            <div class="header-components">
-              <a href="/editarperfil"><img src="<%=baseURL%>images/icons/header/lapis.svg" alt="" /></a>
-            </div>
+          <div class="header-components">
+            <a href="/editarperfil"><img src="<%=baseURL%>images/icons/header/lapis.svg" alt="" /></a>
+          </div>
           <% } %>
         </nav>
         <div class="profile-image">
@@ -55,7 +68,7 @@
             <div class="mask-profile-img"></div>
           </div>
           <%}else{%>
-          <img src="images/profile/perfil.png" alt="" class="mx-auto d-block border-profile-img" />
+          <img src="<%=baseURL%>images/profile/perfil.png" alt="" class="mx-auto d-block border-profile-img" />
           <%}%>
               <h1 class="fonts-1 text-center text-purple-600">
                 <%= usu_visitado.usu_nome %>

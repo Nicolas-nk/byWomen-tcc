@@ -21,10 +21,59 @@ router.get("/", function (req, res) {
         return reject(error);
       }
       req.categoria_servico = results;
-      res.render("pages/home/index", {
-        session: req.session,
-        categoria_servico: req.categoria_servico,
-      });
+      setTimeout(function () {
+        dbConnection.query(
+          "SELECT * FROM usuario_colaboradora ORDER BY criadoEm LIMIT 10",
+          (error, results) => {
+            if (error) {
+              return console.log(error);
+            }
+            req.usuario_colaboradoras_destaque = results;
+            setTimeout(function () {
+              req.usuario_colaboradoras_destaque_id = [];
+              for (
+                let i = 0;
+                i < req.usuario_colaboradoras_destaque.length;
+                i++
+              ) {
+                req.usuario_colaboradoras_destaque_id[i] =
+                  req.usuario_colaboradoras_destaque[i].id_usuario;
+              }
+              dbConnection.query(
+                "SELECT * FROM usuario WHERE id_usuario in (?) ORDER BY criadoEm",
+                [req.usuario_colaboradoras_destaque_id],
+                (error, results) => {
+                  if (error) {
+                    return console.log(error);
+                  }
+                  for (
+                    let i = 0;
+                    i < req.usuario_colaboradoras_destaque.length;
+                    i++
+                  ) {
+                    req.usuario_colaboradoras_destaque[i].nome =
+                      results[i].nome;
+                    if (results[i].foto_perfil == undefined) {
+                      req.usuario_colaboradoras_destaque[i].foto_perfil = null;
+                    } else {
+                      req.usuario_colaboradoras_destaque[i].foto_perfil =
+                        results[i].foto_perfil.toString("base64");
+                    }
+                  }
+                }
+              );
+            }, 200);
+            setTimeout(function () {
+              res.render("pages/home/index", {
+                session: req.session,
+                categoria_servico: req.categoria_servico,
+                usuario_colaboradoras_destaque:
+                  req.usuario_colaboradoras_destaque,
+              });
+            }, 300);
+          }
+        );
+      }, 200);
     }
   );
 });
@@ -222,18 +271,39 @@ router.get("/perfil/:id", function (req, res) {
                                         results[0] !== undefined
                                           ? results
                                           : null;
-                                      res.render(
-                                        "pages/perfilColaboradora-visãoCliente/index",
-                                        {
-                                          session: req.session,
-                                          usu_visitado: req.usu_visitado,
-                                          trabalhos_realizados:
-                                            req.trabalhos_realizados,
-                                          certificacoes: req.certificacoes,
-                                          profissao_selecionada_colaboradora:
-                                            req.profissao_selecionada_colaboradora,
-                                        }
-                                      );
+                                      setTimeout(function () {
+                                        dbConnection.query(
+                                          "SELECT * FROM favoritos WHERE id_colaboradora = ? AND id_usuario = ?",
+                                          [
+                                            req.usu_visitado
+                                              .usu_colaboradora_id,
+                                              req.session.usu_autenticado_id
+                                          ],
+                                          (error, results) => {
+                                            if (error) {
+                                              return reject(error);
+                                            }
+                                            req.favoritado =
+                                              results[0] !== undefined
+                                                ? true
+                                                : null;
+                                            res.render(
+                                              "pages/perfilColaboradora-visãoCliente/index",
+                                              {
+                                                session: req.session,
+                                                usu_visitado: req.usu_visitado,
+                                                favoritado: req.favoritado,
+                                                trabalhos_realizados:
+                                                  req.trabalhos_realizados,
+                                                certificacoes:
+                                                  req.certificacoes,
+                                                profissao_selecionada_colaboradora:
+                                                  req.profissao_selecionada_colaboradora,
+                                              }
+                                            );
+                                          }
+                                        );
+                                      }, 200);
                                     }
                                   );
                                 }, 200);
@@ -346,12 +416,6 @@ router.get("/configuracao", function (req, res) {
   } else {
     res.redirect("/login");
   }
-});
-
-router.get("/perfilColaboradora", function (req, res) {
-  res.render("pages/perfilColaboradora-visãoCliente/index", {
-    session: req.session,
-  });
 });
 router.get("/trabalho-realizado", function (req, res) {
   if (req.session.autenticado === true) {
@@ -542,14 +606,22 @@ router.get("/pesquisar", function (req, res) {
   res.render("pages/todosServiços/index", { session: req.session });
 });
 
-router.get("/perfilColaboradora", function (req, res) {
-  res.render("pages/perfilColaboradora-visãoCliente/index", {
-    session: req.session,
-  });
-});
-
 router.get("/favoritos", function (req, res) {
-  res.render("pages/favoritos/index", { session: req.session });
+  dbConnection.query(
+    "SELECT * FROM favoritos WHERE id_usuario = ?",
+    [req.session.usu_autenticado_id],
+    (error, results) => {
+      if (error) {
+        return reject(error);
+      }
+      req.favoritos = results;
+      console.log(req.favoritos);
+      res.render("pages/favoritos/index", {
+        session: req.session,
+        favoritos: req.favoritos,
+      });
+    }
+  );
 });
 
 router.get("/cartao", function (req, res) {
@@ -655,7 +727,7 @@ router.get("/solicitar/:id", async function (req, res) {
                   }
                   setTimeout(function () {
                     dbConnection.query(
-                      "SELECT * FROM usuario WHERE id_usuario IN (?)",
+                      "SELECT * FROM usuario WHERE id_usuario IN (?) ORDER BY criadoEm",
                       [req.usuario_colaboradoras_profissao],
                       (error, results) => {
                         if (error) {
@@ -680,48 +752,58 @@ router.get("/solicitar/:id", async function (req, res) {
                         } else {
                           req.usuario_colaboradoras_profissao = null;
                         }
-
-                        setTimeout(async function () {
-                          for (
-                            let i = 0;
-                            i < req.usuario_colaboradoras_profissao.length;
-                            i++
-                          ) {
-                            await dbConnection.query(
-                              "SELECT * FROM usuario_colaboradora WHERE id_usuario = ?",
-                              [req.usuario_colaboradoras_profissao[i].id_usuario],
-                              (error, results) => {
-                                if (error) {
-                                  console.log(error);
-                                }
-                                req.usuario_colaboradoras_profissao[
-                                  i
-                                ].descricao = [];
-                                req.usuario_colaboradoras_profissao[
-                                  i
-                                ].id_colaboradora = [];
-                                for (let x = 0; x < results.length; x++) {
+                        if (req.usuario_colaboradoras_profissao === null) {
+                          res.render("pages/solicitar/index", {
+                            session: req.session,
+                            profissao: req.profissao,
+                            usuario_colaboradoras_profissao:
+                              req.usuario_colaboradoras_profissao,
+                          });
+                        } else {
+                          setTimeout(async function () {
+                            for (
+                              let i = 0;
+                              i < req.usuario_colaboradoras_profissao.length;
+                              i++
+                            ) {
+                              await dbConnection.query(
+                                "SELECT * FROM usuario_colaboradora WHERE id_usuario = ?",
+                                [
+                                  req.usuario_colaboradoras_profissao[i]
+                                    .id_usuario,
+                                ],
+                                (error, results) => {
+                                  if (error) {
+                                    console.log(error);
+                                  }
                                   req.usuario_colaboradoras_profissao[
                                     i
-                                  ].descricao[x] = results[x].descricao;
+                                  ].descricao = [];
                                   req.usuario_colaboradoras_profissao[
                                     i
-                                  ].id_colaboradora[x] =
-                                    results[x].id_colaboradora;
+                                  ].id_colaboradora = [];
+                                  for (let x = 0; x < results.length; x++) {
+                                    req.usuario_colaboradoras_profissao[
+                                      i
+                                    ].descricao[x] = results[x].descricao;
+                                    req.usuario_colaboradoras_profissao[
+                                      i
+                                    ].id_colaboradora[x] =
+                                      results[x].id_colaboradora;
+                                  }
                                 }
-                              }
-                            );
-                          }
-                          setTimeout(function () {
-                            console.log(req.usuario_colaboradoras_profissao);
-                            res.render("pages/solicitar/index", {
-                              session: req.session,
-                              profissao: req.profissao,
-                              usuario_colaboradoras_profissao:
-                                req.usuario_colaboradoras_profissao,
-                            });
-                          }, 300);
-                        }, 200);
+                              );
+                            }
+                            setTimeout(function () {
+                              res.render("pages/solicitar/index", {
+                                session: req.session,
+                                profissao: req.profissao,
+                                usuario_colaboradoras_profissao:
+                                  req.usuario_colaboradoras_profissao,
+                              });
+                            }, 300);
+                          }, 200);
+                        }
                       }
                     );
                   }, 200);

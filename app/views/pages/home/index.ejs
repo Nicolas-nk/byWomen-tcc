@@ -10,8 +10,7 @@
   <meta name="msapplication-navbutton-color" content="#7B2CBF">
   <title>By Women</title>
   <meta name="robots" content="index, follow">
-  <meta name="description"
-    content="A ByWomen é uma plataforma de agregação de serviços, desenvolvida para mulheres
+  <meta name="description" content="A ByWomen é uma plataforma de agregação de serviços, desenvolvida para mulheres
    que precisam de serviços e para prestadora de serviços que necessitam de renda fixa ou adicional, 
    visando interligar essas duas pessoas e tornar o hambiente mais confortável para as duas partes.">
   <link rel="canonical" href="bywomen.com.br">
@@ -21,13 +20,11 @@
   <link rel="icon" href="/images/logo/logo-aba.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-  rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/home.css" />
   <link rel="stylesheet" href="css/menu.css" />
@@ -89,12 +86,12 @@
         </div>
         <div class="col-auto">
           <% if(session.autenticado===true){ %>
-            <a href="/perfil">
-              <img src="/images/icons/header/usuario.svg" alt="" />
-            </a>
-            <% }else if(session.autenticado !==true){ %>
-              <a href="/login"><img src="/images/icons/header/usuario.svg" alt="" /></a>
-              <% } %>
+          <a href="/perfil">
+            <img src="/images/icons/header/usuario.svg" alt="" />
+          </a>
+          <% }else if(session.autenticado !==true){ %>
+          <a href="/login"><img src="/images/icons/header/usuario.svg" alt="" /></a>
+          <% } %>
         </div>
       </nav>
     </div>
@@ -107,8 +104,7 @@
             <img src="/images/banners/banner-home1.png" class="img-fluid w-100" alt="..." usemap="#image-map" />
 
             <map name="image-map">
-              <area target="_self" alt="torne-se colaboradora" title="torne-se colaboradora" href="..."
-                coords="20,137,165,195" shape="rect" />
+              <area target="_self" alt="torne-se colaboradora" title="torne-se colaboradora" href="..." coords="20,137,165,195" shape="rect" />
             </map>
           </div>
           <div class="carousel-item active">
@@ -136,147 +132,68 @@
             </h1>
 
             <div class="slider slider-parceiras">
-              <div class="mx-3 my-3" style="width: 115px">
-                <img src="/images/colaboradoras-exemplos/colaboradora.png" alt="parceiras" class="mx-auto" />
+              <% usuario_colaboradoras_destaque.forEach(function(usuario_colaboradoras_destaque){ %>
+              <div class="mx-3 my-3 profile-profissionais-image" style="width: 115px">
+                <%if(usuario_colaboradoras_destaque.foto_perfil !== null){%>
+                <div class="profile-card-profissionais-picture-img mx-auto" style="
+                                    background-image: url('data:image/jpeg;base64,<%= usuario_colaboradoras_destaque.foto_perfil %>');
+                                  ">
+                  <div class="mask-profissionais-profile-img"></div>
+                </div>
+                <%}else{%>
+                <img src="<%=baseURL%>images/profile/perfil.png" alt="" class="profile-card-profissionais-picture-img mx-auto d-block" style="width: 115px" />
+                <%}%>
               </div>
-              <div class="mx-3 my-3" style="width: 115px">
-                <img src="/images/colaboradoras-exemplos/colaboradora1.png" alt="parceiras" class="mx-auto" />
+              <% }); %>
               </div>
-              <div class="mx-3 my-3" style="width: 115px">
-                <img src="/images/colaboradoras-exemplos/colaboradora2.png" alt="parceiras" class="mx-auto" />
-              </div>
-              <div class="mx-3 my-3" style="width: 115px">
-                <img src="/images/colaboradoras-exemplos/colaboradora3.png" alt="parceiras" class="mx-auto" />
-              </div>
-              <div class="mx-3 my-3" style="width: 115px">
-                <img src="/images/colaboradoras-exemplos/colaboradora4.png" alt="parceiras" class="mx-auto" />
-              </div>
-            </div>
-            <div class="slider slider-for text-center">
-              <div>
+              <div class="slider slider-for text-center">
+                <% usuario_colaboradoras_destaque.forEach(function(usuario_colaboradoras_destaque){ %>
                 <div>
-                  <img src="" alt="" />
+                  <div>
+                    <h2 class="fonts-2"><%= usuario_colaboradoras_destaque.nome %> </h2>
+                  </div>
+                  <div>
+                    <p>
+                      <%= usuario_colaboradoras_destaque.descricao %>
+                    </p>
+                  </div>
+                  <a href="/perfil/<%= usuario_colaboradoras_destaque.id_usuario %> ">ver perfil</a>
                 </div>
-                <div>
-                  <h2 class="fonts-2">Roberta Andrade</h2>
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Maecenas eget tellus ipsum. Curabitur blandit, turpis nec
-                    interdum fringilla, nisl nibh egestas ipsum, in tempus
-                    nisl enim ut quam. Integer gravida euismod velit, quis
-                    consequat arcu aliquet ac. Sed tortor dui, condimentum eu.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <img src="" alt="" />
-                </div>
-                <div>
-                  <h2 class="fonts-2">Matilde Lima</h2>
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Maecenas eget tellus ipsum. Curabitur blandit, turpis nec
-                    interdum fringilla, nisl nibh egestas ipsum, in tempus
-                    nisl enim ut quam. Integer gravida euismod velit, quis
-                    consequat arcu aliquet ac. Sed tortor dui, condimentum eu
-                    cursus vitae, bibendum nec libero.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <img src="" alt="" />
-                </div>
-                <div>
-                  <h2 class="fonts-2">Manuela Barros</h2>
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet, blandit, turpis nec interdum
-                    fringilla, nisl nibh egestas ipsum, in tempus nisl enim ut
-                    quam. Integer gravida euismod velit, quis consequat arcu
-                    aliquet ac. Sed tortor dui, condimentum eu cursus vitae,
-                    bibendum nec libero.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <img src="" alt="" />
-                </div>
-                <div>
-                  <h2 class="fonts-2">Fernanda Lopes</h2>
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Maecenas eget tellus ipsum. Curabitur blandit, turpis nec
-                    interdum fringilla, nisl nibh egestas ipsum, in tempus
-                    nisl enim ut quam. Integer gravida euismod velit, quis
-                    consequat arcu aliquet ac. Sed tortor dui, condimentum eu
-                    cursus vitae, bibendum nec libero.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <img src="" alt="" />
-                </div>
-                <div>
-                  <h2 class="fonts-2">Amanda Azevedo</h2>
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Maecenas eget tellus ipsum. Curabitur Integer gravida
-                    euismod velit, quis consequat arcu aliquet ac. Sed tortor
-                    dui, condimentum eu cursus vitae, bibendum nec libero.
-                  </p>
-                </div>
+                <% }); %>
               </div>
             </div>
           </div>
+          <img src="/images/banners/home-wave-1.svg" alt="" class="img-fluid w-100" />
         </div>
-        <img src="/images/banners/home-wave-1.svg" alt="" class="img-fluid w-100" />
       </div>
-    </div>
-    <div class="text-center pb-5">
-      <h2 class="fonts-1">Principais categorias</h2>
-    </div>
-    <div class="bg-purplegradient mt-md-5">
-      <img src="/images/banners/home-wave-2.svg" alt="" class="img-fluid w-100" />
-      <div class="container">
-        <div class="categorias-container bg-white">
-          <div class="categorias pb-0">
-            <div class="row text-center text-purple-600 justify-content-center">
-              <% categoria_servico.forEach(function(categoria_servico){ %>
+      <div class="text-center pb-5">
+        <h2 class="fonts-1">Principais categorias</h2>
+      </div>
+      <div class="bg-purplegradient mt-md-5">
+        <img src="/images/banners/home-wave-2.svg" alt="" class="img-fluid w-100" />
+        <div class="container">
+          <div class="categorias-container bg-white">
+            <div class="categorias pb-0">
+              <div class="row text-center text-purple-600 justify-content-center">
+                <% categoria_servico.forEach(function(categoria_servico){ %>
                 <div class="col-6 mb-3">
-                  <a href="/categorias-profissoes/<%= categoria_servico.cod_cat_servico %>"><img src="/images/icons/categorias/<%= categoria_servico.imagem_categoria %>" alt="icone <%= categoria_servico.nome_cat_servico %>" class="img-fluid"/></a>
+                  <a href="/categorias-profissoes/<%= categoria_servico.cod_cat_servico %>"><img src="/images/icons/categorias/<%= categoria_servico.imagem_categoria %>" alt="icone <%= categoria_servico.nome_cat_servico %>" class="img-fluid" /></a>
                   <p><%= categoria_servico.nome_cat_servico %></p>
                 </div>
                 <% }); %>
+              </div>
             </div>
           </div>
+          <img src="/images/banners/categorias-bottom.svg" alt="" class="img-fluid w-100 mb-4" />
         </div>
-        <img src="/images/banners/categorias-bottom.svg" alt="" class="img-fluid w-100 mb-4" />
       </div>
-    </div>
   </main>
 
   <div class="fake-menu"></div>
   <%- include("./../../components/menu/index.ejs") %>
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-    integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
-    crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script>
@@ -319,8 +236,7 @@
       centerPadding: "60px",
       variableWidth: true,
       slidesToShow: 3,
-      responsive: [
-        {
+      responsive: [{
           breakpoint: 768,
           settings: {
             arrows: false,
@@ -344,7 +260,7 @@
     });
   </script>
   <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
       if (!window.localStorage.getItem("inf_bwArray")) {
         $("body").css("overflow-y", "hidden");
         $(".inf-bw").removeClass("d-none");
@@ -356,9 +272,10 @@
       }
 
       var inf_bwArray = JSON.parse(localStorage.getItem('inf_bwArray') || '[]');
-      $(".skip").click(function () {
+      $(".skip").click(function() {
         var hide_inf_bw = JSON.stringify({
-          show: "no", timestamp: new Date().getTime()
+          show: "no",
+          timestamp: new Date().getTime()
         });
         inf_bwArray.push(hide_inf_bw);
         localStorage.setItem('inf_bwArray', JSON.stringify(inf_bwArray));
