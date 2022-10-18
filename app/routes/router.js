@@ -11,8 +11,8 @@ router.get("/", function (req, res) {
   colaboradora_autenticado =
     req.session.colaboradora_autenticado === true
       ? {
-        colaboradora_autenticado: req.session.usu_colaboradora_autenticado_id,
-      }
+          colaboradora_autenticado: req.session.usu_colaboradora_autenticado_id,
+        }
       : { colaboradora_autenticado: null };
   dbConnection.query(
     "SELECT * FROM categoria_servico LIMIT 6",
@@ -88,10 +88,12 @@ router.get("/login", function (req, res) {
     res.redirect("/");
   }
 });
+
 router.get("/sair", function (req, res) {
   req.session.destroy();
   res.redirect("/");
 });
+
 router.get("/excluir-perfil", function (req, res) {
   if (req.session.autenticado === true) {
     if (req.session.colaboradora_autenticado === true) {
@@ -173,7 +175,7 @@ router.get("/perfil", function (req, res) {
                               certificacoes: req.certificacoes,
                               profissao_selecionada_colaboradora:
                                 req.profissao_selecionada_colaboradora,
-                              certificacao_pag: null
+                              certificacao_pag: null,
                             });
                           }
                         );
@@ -193,6 +195,7 @@ router.get("/perfil", function (req, res) {
     res.redirect("/login");
   }
 });
+
 router.get("/perfil/:id", function (req, res) {
   dbConnection.query(
     "SELECT * FROM usuario WHERE id_usuario = ?",
@@ -278,7 +281,7 @@ router.get("/perfil/:id", function (req, res) {
                                           [
                                             req.usu_visitado
                                               .usu_colaboradora_id,
-                                              req.session.usu_autenticado_id
+                                            req.session.usu_autenticado_id,
                                           ],
                                           (error, results) => {
                                             if (error) {
@@ -300,6 +303,7 @@ router.get("/perfil/:id", function (req, res) {
                                                   req.certificacoes,
                                                 profissao_selecionada_colaboradora:
                                                   req.profissao_selecionada_colaboradora,
+                                                certificacao_pag: null,
                                               }
                                             );
                                           }
@@ -418,6 +422,7 @@ router.get("/configuracao", function (req, res) {
     res.redirect("/login");
   }
 });
+
 router.get("/trabalho-realizado", function (req, res) {
   if (req.session.autenticado === true) {
     req.trabalhos_realizados = {
@@ -434,6 +439,7 @@ router.get("/trabalho-realizado", function (req, res) {
     res.redirect("/login");
   }
 });
+
 router.get("/trabalho-realizado/:id", function (req, res) {
   dbConnection.query(
     "SELECT * FROM trabalhos_realizados WHERE ?",
@@ -460,6 +466,7 @@ router.get("/trabalho-realizado/:id", function (req, res) {
     }
   );
 });
+
 router.get("/certificacao", function (req, res) {
   if (req.session.autenticado === true) {
     req.certificacao = {
@@ -478,6 +485,7 @@ router.get("/certificacao", function (req, res) {
     res.redirect("/login");
   }
 });
+
 router.get("/certificacao/:id", function (req, res) {
   dbConnection.query(
     "SELECT * FROM certificacao WHERE ?",
@@ -504,6 +512,7 @@ router.get("/certificacao/:id", function (req, res) {
     }
   );
 });
+
 router.get("/perfil/certificacao/:cod_certificacao", function (req, res) {
   if (req.session.autenticado === true) {
     if (req.session.colaboradora_autenticado === true) {
@@ -570,16 +579,22 @@ router.get("/perfil/certificacao/:cod_certificacao", function (req, res) {
                                           return reject(error);
                                         }
                                         req.certificacao_pag =
-                                          results[0] !== undefined ? results : null;
-                                        console.log(req.certificacao_pag)
-                                        res.render("pages/perfilColaboradora/index", {
-                                          session: req.session,
-                                          trabalhos_realizados: req.trabalhos_realizados,
-                                          certificacoes: req.certificacoes,
-                                          profissao_selecionada_colaboradora:
-                                            req.profissao_selecionada_colaboradora,
-                                          certificacao_pag: req.certificacao_pag,
-                                        });
+                                          results[0] !== undefined
+                                            ? results
+                                            : null;
+                                        res.render(
+                                          "pages/perfilColaboradora/index",
+                                          {
+                                            session: req.session,
+                                            trabalhos_realizados:
+                                              req.trabalhos_realizados,
+                                            certificacoes: req.certificacoes,
+                                            profissao_selecionada_colaboradora:
+                                              req.profissao_selecionada_colaboradora,
+                                            certificacao_pag:
+                                              req.certificacao_pag,
+                                          }
+                                        );
                                       }
                                     );
                                   }, 200);
@@ -604,6 +619,7 @@ router.get("/perfil/certificacao/:cod_certificacao", function (req, res) {
     res.redirect("/login");
   }
 });
+
 router.get("/perfil/:id/certificacao/:cod_certificacao", function (req, res) {
   dbConnection.query(
     "SELECT * FROM usuario WHERE id_usuario = ?",
@@ -692,8 +708,9 @@ router.get("/perfil/:id/certificacao/:cod_certificacao", function (req, res) {
                                               return reject(error);
                                             }
                                             req.certificacao_pag =
-                                              results[0] !== undefined ? results : null;
-                                            console.log(req.certificacao_pag)
+                                              results[0] !== undefined
+                                                ? results
+                                                : null;
                                             res.render(
                                               "pages/perfilColaboradora-visãoCliente/index",
                                               {
@@ -701,10 +718,12 @@ router.get("/perfil/:id/certificacao/:cod_certificacao", function (req, res) {
                                                 usu_visitado: req.usu_visitado,
                                                 trabalhos_realizados:
                                                   req.trabalhos_realizados,
-                                                certificacoes: req.certificacoes,
+                                                certificacoes:
+                                                  req.certificacoes,
                                                 profissao_selecionada_colaboradora:
                                                   req.profissao_selecionada_colaboradora,
-                                                certificacao_pag: req.certificacao_pag
+                                                certificacao_pag:
+                                                  req.certificacao_pag,
                                               }
                                             );
                                           }
@@ -733,6 +752,7 @@ router.get("/perfil/:id/certificacao/:cod_certificacao", function (req, res) {
     }
   );
 });
+
 router.get("/profissao", function (req, res) {
   if (req.session.colaboradora_autenticado === true) {
     dbConnection.query("SELECT * FROM profissao", (error, results) => {
@@ -787,9 +807,11 @@ router.get("/profissao", function (req, res) {
     res.redirect("/login");
   }
 });
+
 router.get("/historico", function (req, res) {
   res.render("pages/historico/index", { session: req.session });
 });
+
 router.get("/pedidos", function (req, res) {
   res.render("pages/pedidos/index", { session: req.session });
 });
@@ -832,26 +854,157 @@ router.get("/todas-categorias", function (req, res) {
     });
   });
 });
+
 router.get("/pesquisar", function (req, res) {
   res.render("pages/todosServiços/index", { session: req.session });
 });
 
 router.get("/favoritos", function (req, res) {
-  dbConnection.query(
-    "SELECT * FROM favoritos WHERE id_usuario = ?",
-    [req.session.usu_autenticado_id],
-    (error, results) => {
-      if (error) {
-        return reject(error);
+  if (req.session.autenticado === true) {
+    dbConnection.query(
+      "SELECT id_colaboradora FROM favoritos WHERE id_usuario = ?",
+      [req.session.usu_autenticado_id],
+      (error, results) => {
+        if (error) {
+          return reject(error);
+        }
+        if (results[0] === undefined) {  
+          req.favoritos = "null";
+        } else {
+          req.favoritos = [];
+          for (let i = 0; i < results.length; i++) {
+            req.favoritos[i] = results[i].id_colaboradora;
+          }
+        }
+        setTimeout(function () {
+          dbConnection.query(
+            "SELECT id_usuario FROM usuario_colaboradora WHERE id_colaboradora IN (?)",
+            [req.favoritos],
+            (error, results) => {
+              if (error) {
+                console.log(error);
+              }
+
+              req.usuario_colaboradoras_favoritos = [];
+              if (results.length > 0) {
+                for (let i = 0; i < results.length; i++) {
+                  req.usuario_colaboradoras_favoritos[i] =
+                    results[i].id_usuario;
+                }
+              } else {
+                req.usuario_colaboradoras_favoritos = null;
+              }
+              setTimeout(function () {
+                dbConnection.query(
+                  "SELECT * FROM usuario WHERE id_usuario IN (?)",
+                  [req.usuario_colaboradoras_favoritos],
+                  (error, results) => {
+                    if (error) {
+                      console.log(error);
+                    }
+                    if (results.length > 0) {
+                      req.usuario_colaboradoras_favoritos = JSON.parse(
+                        JSON.stringify(results)
+                      );
+                      for (let i = 0; i < results.length; i++) {
+                        if (results[i].foto_perfil == undefined) {
+                          req.usuario_colaboradoras_favoritos[i].foto_perfil =
+                            null;
+                        } else {
+                          req.usuario_colaboradoras_favoritos[i].foto_perfil =
+                            results[i].foto_perfil.toString("base64");
+                        }
+                      }
+                    } else {
+                      req.usuario_colaboradoras_favoritos = null;
+                    }
+                    if (req.usuario_colaboradoras_favoritos === null) {
+                      res.render("pages/favoritos/index", {
+                        session: req.session,
+                        favoritos: req.favoritos,
+                        usuario_colaboradoras_favoritos:
+                          req.usuario_colaboradoras_favoritos,
+                      });
+                    } else {
+                      setTimeout(async function () {
+                        for (
+                          let i = 0;
+                          i < req.usuario_colaboradoras_favoritos.length;
+                          i++
+                        ) {
+                          await dbConnection.query(
+                            "SELECT * FROM usuario_colaboradora WHERE id_usuario = ?",
+                            [req.usuario_colaboradoras_favoritos[i].id_usuario],
+                            (error, results) => {
+                              if (error) {
+                                return console.log(error);
+                              }
+                              req.usuario_colaboradoras_favoritos[i].descricao =
+                                [];
+                              req.usuario_colaboradoras_favoritos[
+                                i
+                              ].id_colaboradora = [];
+                              for (let x = 0; x < results.length; x++) {
+                                req.usuario_colaboradoras_favoritos[
+                                  i
+                                ].descricao[x] = results[x].descricao;
+                                req.usuario_colaboradoras_favoritos[
+                                  i
+                                ].id_colaboradora[x] =
+                                  results[x].id_colaboradora;
+                              }
+                              setTimeout(function () {
+                                dbConnection.query(
+                                  "SELECT * FROM favoritos WHERE id_colaboradora = ? AND id_usuario = ?",
+                                  [
+                                    req.usuario_colaboradoras_favoritos[i]
+                                      .id_colaboradora,
+                                    req.session.usu_autenticado_id,
+                                  ],
+                                  (error, results) => {
+                                    if (error) {
+                                      return console.log(error);
+                                    }
+                                    req.usuario_colaboradoras_favoritos[
+                                      i
+                                    ].favoritado = [];
+                                    for (let x = 0; x < results.length; x++) {
+                                      req.usuario_colaboradoras_favoritos[
+                                        i
+                                      ].favoritado[x] =
+                                        results[x] !== undefined ? true : null;
+                                    }
+                                  }
+                                );
+                              }, 200);
+                            }
+                          );
+                        }
+                        setTimeout(function () {
+                          res.render("pages/favoritos/index", {
+                            session: req.session,
+                            favoritos: req.favoritos,
+                            usuario_colaboradoras_favoritos:
+                              req.usuario_colaboradoras_favoritos,
+                          });
+                        }, 500);
+                      }, 200);
+                    }
+                  }
+                );
+              }, 200);
+            }
+          );
+        }, 200);
       }
-      req.favoritos = results;
-      console.log(req.favoritos);
-      res.render("pages/favoritos/index", {
-        session: req.session,
-        favoritos: req.favoritos,
-      });
-    }
-  );
+    );
+  } else {
+    res.render("pages/favoritos/index", {
+      session: req.session,
+      favoritos: null,
+      usuario_colaboradoras_favoritos: null,
+    });
+  }
 });
 
 router.get("/cartao", function (req, res) {
@@ -1004,7 +1157,7 @@ router.get("/solicitar/:id", async function (req, res) {
                                 ],
                                 (error, results) => {
                                   if (error) {
-                                    console.log(error);
+                                    return console.log(error);
                                   }
                                   req.usuario_colaboradoras_profissao[
                                     i
@@ -1021,6 +1174,36 @@ router.get("/solicitar/:id", async function (req, res) {
                                     ].id_colaboradora[x] =
                                       results[x].id_colaboradora;
                                   }
+                                  setTimeout(function () {
+                                    dbConnection.query(
+                                      "SELECT * FROM favoritos WHERE id_colaboradora = ? AND id_usuario = ?",
+                                      [
+                                        req.usuario_colaboradoras_profissao[i]
+                                          .id_colaboradora,
+                                        req.session.usu_autenticado_id,
+                                      ],
+                                      (error, results) => {
+                                        if (error) {
+                                          return console.log(error);
+                                        }
+                                        req.usuario_colaboradoras_profissao[
+                                          i
+                                        ].favoritado = [];
+                                        for (
+                                          let x = 0;
+                                          x < results.length;
+                                          x++
+                                        ) {
+                                          req.usuario_colaboradoras_profissao[
+                                            i
+                                          ].favoritado[x] =
+                                            results[x] !== undefined
+                                              ? true
+                                              : null;
+                                        }
+                                      }
+                                    );
+                                  }, 200);
                                 }
                               );
                             }
@@ -1031,7 +1214,7 @@ router.get("/solicitar/:id", async function (req, res) {
                                 usuario_colaboradoras_profissao:
                                   req.usuario_colaboradoras_profissao,
                               });
-                            }, 300);
+                            }, 600);
                           }, 200);
                         }
                       }

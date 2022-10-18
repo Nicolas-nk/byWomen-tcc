@@ -247,12 +247,6 @@
   position: relative;
 }
 
-.mask-shadow {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
 .info-work {
   z-index: 2;
   position: absolute;
@@ -483,7 +477,7 @@
   margin-top: 20px;
 }
 
-.close{
+.close-certficate{
   position: inherit;
   right: 20px;
   top: 20px;
@@ -524,15 +518,9 @@
   left: 15px;
 }
 
-.name-course {
-  position: relative;
-  margin-bottom: 20px;
-}
-
 .name-course{
   font-size: 24px;
   font-weight: 600;
-  text-transform: uppercase;
 }
 
 .add-certificate {
@@ -544,4 +532,14 @@
   justify-content: center;
   position: relative;
   margin: 0 15px 0 0;
+}
+
+.mask-shadow{
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.40453074433656955) 0%,
+  rgba(119, 118, 118, 0.2038834951456311) 50%,
+  rgba(0, 0, 0, 0.2508090614886731) 68%,
+  rgba(0, 0, 0, 0.8) 100%);
+height: 100%;
+width: 100%;
+border-radius: 20px;
 }

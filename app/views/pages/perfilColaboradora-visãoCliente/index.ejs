@@ -77,6 +77,44 @@
       </div>
     </div>
   </header>
+  <% if(certificacao_pag !== null){%>
+    <div class="popup-image" style="max-width: 540px;">
+      <div class="inf-certificate">
+        <div class="bg-purplegradient d-flex align-items-center justify-content-between" style="width: 100%; height: 80px; border-radius: 10px 10px 0 0; padding: 10px;">
+          <span class="name-course text-white">
+            <%= certificacao_pag[0].nome_curso %>
+          </span>
+          <a href="/perfil/<%= usu_visitado.id_usuario %>">
+            <span class="close-cetficate fonts-1 text-white">
+            X
+            </span>
+          </a>
+        </div>
+        <div class="" style="padding: 15px;">
+          <div class="mx-auto" style="width: 304px; height: 190px; border-radius: 20px;">
+            <div class="certificate-popup certificate-pic" style="background-image: url('data:image/jpeg;base64,<%= certificacao_pag[0].foto_certificacao %>');">
+            </div>
+          </div>
+          <div class="mb-2">
+            <span class="fonts-4 text-purple-600">
+              <%= certificacao_pag[0].orgao_emissor %>
+            </span>
+          </div>
+          <div class="mb-4">
+            <div>
+              <span class="fonts-5 text-purple-600">
+                <%= certificacoes.atividade_realizada %>
+              </span>
+            </div>
+            <span class="fonts-4 text-purple-600">
+              <%= certificacao_pag[0].data_emissao %>
+            </span>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+    <% }else{} %>
   <div class="container">
     <div class="badges mx-auto">
       <%
@@ -122,16 +160,18 @@
         <div class="carrossel-certificacoes mt-3 mb-5">
           <% certificacoes.forEach(function(certificacoes){ %>
           <div class="add-certificate mx-1">
-            <div class="h-100 w-100 bg-image" style="
-                    background-image: url('data:image/jpeg;base64,<%= certificacoes.foto_certificacao %>');
-                    border-radius: 20px;
-                  ">
-              <div class="mask-shadow">
-                <span class="course text-white">
-                  <%= certificacoes.nome_curso %>
-                </span>
+            <a href="/perfil/<%= usu_visitado.id_usuario %>/certificacao/<%= certificacoes.cod_certificacao %>">
+              <div class="h-100 w-100 bg-image" style="
+                      background-image: url('data:image/jpeg;base64,<%= certificacoes.foto_certificacao %>');
+                      border-radius: 20px;
+                    ">
+                <div class="mask-shadow">
+                  <span class="course text-white">
+                    <%= certificacoes.nome_curso %>
+                  </span>
+                </div>
               </div>
-            </div>
+            </a>
           </div>
           <% }); %>
         </div>

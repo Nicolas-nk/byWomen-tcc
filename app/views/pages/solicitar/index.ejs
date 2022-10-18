@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="<%=baseURL%>css/reset.css" />
-  <link rel="stylesheet" href="<%=baseURL%>css/servicos.css"/>
+  <link rel="stylesheet" href="<%=baseURL%>css/servicos.css" />
 </head>
 
 <body>
@@ -64,7 +64,20 @@
           <div class="col-6 mb-3">
             <div class="card-profissionais">
               <section class="p-3 card-profissionais-container text-center">
-                <button class="btn save-card-profissionais"><img src="<%=baseURL%>images/icons/header/favoritar.svg" alt=""></button>
+                <% if(session.autenticado){ %>
+                <form action="<%=baseURL%>auth/favoritos" method="POST" class="btn save-card-profissionais">
+                  <input type="text" name="id_colaboradora" id="id_colaboradora" value="<%= usuario_colaboradoras_profissao.id_colaboradora %>" class="d-none">
+                  <button type="submit" class="btn p-0">
+                    <% if(usuario_colaboradoras_profissao.favoritado == 'true' ){  %>
+                      <img src="<%=baseURL%>images/icons/header/favoritar-full.svg" alt="" />
+                      <% } else { %>
+                        <img src="<%=baseURL%>images/icons/header/favoritar.svg" alt="" />
+                    <% } %>
+                  </button>
+                </form>
+                <% }else{ %>
+                <a href="/login" class="btn save-card-profissionais"><img src="<%=baseURL%>images/icons/header/favoritar.svg" alt="" /></a>
+                <% } %>
                 <div class="wallpaper-card-profissionais bg-purplegradient"></div>
                 <div>
                   <a href="/perfil/<%= usuario_colaboradoras_profissao.id_usuario %> ">
