@@ -482,7 +482,7 @@ left: -31px;
 .close:before {
   content: "";
   width: 35px;
-  height: 5px;
+  height: 2px;
   position: absolute;
   background-color: #fff;
   opacity: 1;
@@ -492,7 +492,7 @@ left: -31px;
 .close:after {
   content: "";
   width: 35px;
-  height: 5px;
+  height: 2px;
   position: absolute;
   background-color: #fff;
   opacity: 1;
