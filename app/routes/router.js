@@ -18,7 +18,7 @@ router.get("/", function (req, res) {
     "SELECT * FROM categoria_servico LIMIT 6",
     (error, results) => {
       if (error) {
-        return reject(error);
+        return console.log(error);
       }
       req.categoria_servico = results;
       setTimeout(function () {
@@ -130,7 +130,7 @@ router.get("/perfil", function (req, res) {
         [req.session.usu_colaboradora_autenticado_id],
         (error, results) => {
           if (error) {
-            return reject(error);
+            return console.log(error);
           }
           req.profissao_colaboradora = [];
           if (results.length > 0) {
@@ -155,7 +155,7 @@ router.get("/perfil", function (req, res) {
                     [req.session.usu_colaboradora_autenticado_id],
                     (error, results) => {
                       if (error) {
-                        return reject(error);
+                        return console.log(error);
                       }
                       req.trabalhos_realizados =
                         results[0] !== undefined ? results : null;
@@ -165,7 +165,7 @@ router.get("/perfil", function (req, res) {
                           [req.session.usu_colaboradora_autenticado_id],
                           (error, results) => {
                             if (error) {
-                              return reject(error);
+                              return console.log(error);
                             }
                             req.certificacoes =
                               results[0] !== undefined ? results : null;
@@ -233,7 +233,7 @@ router.get("/perfil/:id", function (req, res) {
                   [req.usu_visitado.usu_colaboradora_id],
                   (error, results) => {
                     if (error) {
-                      return reject(error);
+                      return console.log(error);
                     }
                     req.profissao_colaboradora = [];
                     if (results.length > 0) {
@@ -259,7 +259,7 @@ router.get("/perfil/:id", function (req, res) {
                               [req.usu_visitado.usu_colaboradora_id],
                               (error, results) => {
                                 if (error) {
-                                  return reject(error);
+                                  return console.log(error);
                                 }
                                 req.trabalhos_realizados =
                                   results[0] !== undefined ? results : null;
@@ -269,7 +269,7 @@ router.get("/perfil/:id", function (req, res) {
                                     [req.usu_visitado.usu_colaboradora_id],
                                     (error, results) => {
                                       if (error) {
-                                        return reject(error);
+                                        return console.log(error);
                                       }
                                       req.certificacoes =
                                         results[0] !== undefined
@@ -285,7 +285,7 @@ router.get("/perfil/:id", function (req, res) {
                                           ],
                                           (error, results) => {
                                             if (error) {
-                                              return reject(error);
+                                              return console.log(error);
                                             }
                                             req.favoritado =
                                               results[0] !== undefined
@@ -349,7 +349,7 @@ router.get("/editarperfil", function (req, res) {
     [req.session.usu_colaboradora_autenticado_id],
     (error, results) => {
       if (error) {
-        return reject(error);
+        return console.log(error);
       }
       req.profissao_colaboradora = [];
       if (results.length > 0) {
@@ -374,7 +374,7 @@ router.get("/editarperfil", function (req, res) {
                 [req.session.usu_colaboradora_autenticado_id],
                 (error, results) => {
                   if (error) {
-                    return reject(error);
+                    return console.log(error);
                   }
                   req.trabalhos_realizados = results;
 
@@ -384,7 +384,7 @@ router.get("/editarperfil", function (req, res) {
                       [req.session.usu_colaboradora_autenticado_id],
                       (error, results) => {
                         if (error) {
-                          return reject(error);
+                          return console.log(error);
                         }
                         req.certificacoes = results;
 
@@ -446,7 +446,7 @@ router.get("/trabalho-realizado/:id", function (req, res) {
     { cod_trabalho: req.params.id },
     (error, results) => {
       if (error) {
-        return reject(error);
+        return console.log(error);
       }
       req.trabalhos_realizados = results[0];
       req.trabalhos_realizados.id_colaboradora = results[0].id_colaboradora;
@@ -492,7 +492,7 @@ router.get("/certificacao/:id", function (req, res) {
     { cod_certificacao: req.params.id },
     (error, results) => {
       if (error) {
-        return reject(error);
+        return console.log(error);
       }
       req.certificacao = results[0];
       req.certificacao.id_colaboradora = results[0].id_colaboradora;
@@ -521,7 +521,7 @@ router.get("/perfil/certificacao/:cod_certificacao", function (req, res) {
         [req.session.usu_colaboradora_autenticado_id],
         (error, results) => {
           if (error) {
-            return reject(error);
+            return console.log(error);
           }
           req.profissao_colaboradora = [];
           if (results.length > 0) {
@@ -546,7 +546,7 @@ router.get("/perfil/certificacao/:cod_certificacao", function (req, res) {
                     [req.session.usu_colaboradora_autenticado_id],
                     (error, results) => {
                       if (error) {
-                        return reject(error);
+                        return console.log(error);
                       }
                       req.trabalhos_realizados =
                         results[0] !== undefined ? results : null;
@@ -556,7 +556,7 @@ router.get("/perfil/certificacao/:cod_certificacao", function (req, res) {
                           [req.session.usu_colaboradora_autenticado_id],
                           (error, results) => {
                             if (error) {
-                              return reject(error);
+                              return console.log(error);
                             }
                             req.certificacoes =
                               results[0] !== undefined ? results : null;
@@ -566,7 +566,7 @@ router.get("/perfil/certificacao/:cod_certificacao", function (req, res) {
                                 [req.session.usu_colaboradora_autenticado_id],
                                 (error, results) => {
                                   if (error) {
-                                    return reject(error);
+                                    return console.log(error);
                                   }
                                   req.certificacoes =
                                     results[0] !== undefined ? results : null;
@@ -576,7 +576,7 @@ router.get("/perfil/certificacao/:cod_certificacao", function (req, res) {
                                       [req.params.cod_certificacao],
                                       (error, results) => {
                                         if (error) {
-                                          return reject(error);
+                                          return console.log(error);
                                         }
                                         req.certificacao_pag =
                                           results[0] !== undefined
@@ -657,7 +657,7 @@ router.get("/perfil/:id/certificacao/:cod_certificacao", function (req, res) {
                   [req.usu_visitado.usu_colaboradora_id],
                   (error, results) => {
                     if (error) {
-                      return reject(error);
+                      return console.log(error);
                     }
                     req.profissao_colaboradora = [];
                     if (results.length > 0) {
@@ -683,7 +683,7 @@ router.get("/perfil/:id/certificacao/:cod_certificacao", function (req, res) {
                               [req.usu_visitado.usu_colaboradora_id],
                               (error, results) => {
                                 if (error) {
-                                  return reject(error);
+                                  return console.log(error);
                                 }
                                 req.trabalhos_realizados =
                                   results[0] !== undefined ? results : null;
@@ -693,7 +693,7 @@ router.get("/perfil/:id/certificacao/:cod_certificacao", function (req, res) {
                                     [req.usu_visitado.usu_colaboradora_id],
                                     (error, results) => {
                                       if (error) {
-                                        return reject(error);
+                                        return console.log(error);
                                       }
                                       req.certificacoes =
                                         results[0] !== undefined
@@ -705,7 +705,7 @@ router.get("/perfil/:id/certificacao/:cod_certificacao", function (req, res) {
                                           [req.params.cod_certificacao],
                                           (error, results) => {
                                             if (error) {
-                                              return reject(error);
+                                              return console.log(error);
                                             }
                                             req.certificacao_pag =
                                               results[0] !== undefined
@@ -757,7 +757,7 @@ router.get("/profissao", function (req, res) {
   if (req.session.colaboradora_autenticado === true) {
     dbConnection.query("SELECT * FROM profissao", (error, results) => {
       if (error) {
-        return reject(error);
+        return console.log(error);
       }
       req.profissao = results;
 
@@ -767,7 +767,7 @@ router.get("/profissao", function (req, res) {
           [req.session.usu_colaboradora_autenticado_id],
           (error, results) => {
             if (error) {
-              return reject(error);
+              return console.log(error);
             }
             req.profissao_colaboradora = [];
             if (results.length > 0) {
@@ -845,7 +845,7 @@ router.get("/fotoperfil", function (req, res) {
 router.get("/todas-categorias", function (req, res) {
   dbConnection.query("SELECT * FROM categoria_servico", (error, results) => {
     if (error) {
-      return reject(error);
+      return console.log(error);
     }
     req.categoria_servico = results;
     res.render("pages/todasCategorias/index", {
@@ -866,7 +866,7 @@ router.get("/favoritos", function (req, res) {
       [req.session.usu_autenticado_id],
       (error, results) => {
         if (error) {
-          return reject(error);
+          return console.log(error);
         }
         if (results[0] === undefined) {  
           req.favoritos = "null";
@@ -1038,7 +1038,7 @@ router.get("/categorias-profissoes/:id", function (req, res) {
           [req.params.id],
           (error, results) => {
             if (error) {
-              return reject(error);
+              return console.log(error);
             }
             req.categoria_servico = results;
             setTimeout(function () {
@@ -1047,7 +1047,7 @@ router.get("/categorias-profissoes/:id", function (req, res) {
                 { cod_cat_servico: req.params.id },
                 (error, results) => {
                   if (error) {
-                    return reject(error);
+                    return console.log(error);
                   }
                   req.profissao = results;
                   res.render("pages/categorias_profissoes/index", {
@@ -1072,7 +1072,7 @@ router.get("/solicitar/:id", async function (req, res) {
     [req.params.id],
     (error, results) => {
       if (error) {
-        return reject(error);
+        return console.log(error);
       }
       req.profissao = results[0];
       setTimeout(function () {
@@ -1081,7 +1081,7 @@ router.get("/solicitar/:id", async function (req, res) {
           [req.params.id],
           (error, results) => {
             if (error) {
-              return reject(error);
+              return console.log(error);
             }
             req.colaboradoras_profissao = [];
             if (results.length > 0) {

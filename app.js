@@ -1,9 +1,11 @@
 const express = require('express');
 const session = require('express-session');
 const MemoryStore = require('memorystore')(session);
+const dotenv = require('dotenv');
+dotenv.config({ path: './.env'})
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || process.env.PORTC;
 app.use(session({
     cookie: { maxAge: 86400000 },
     store: new MemoryStore({
@@ -21,7 +23,7 @@ app.use(express.json());
 
 app.set('view engine', 'ejs');
 app.set('views', './app/views');
-app.locals.baseURL = "https://by-women-testes.herokuapp.com/"
+app.locals.baseURL = process.env.URL
 
 var rotas = require('./app/routes/router');
 app.use('/', rotas);
