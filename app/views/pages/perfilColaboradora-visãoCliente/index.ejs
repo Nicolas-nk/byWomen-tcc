@@ -84,14 +84,10 @@
           <span class="name-course text-white">
             <%= certificacao_pag[0].nome_curso %>
           </span>
-          <a href="/perfil/<%= usu_visitado.id_usuario %>">
-            <span class="close-cetficate fonts-1 text-white">
-            X
-            </span>
-          </a>
+          <a href="/perfil/<%= usu_visitado.usu_colaboradora_id %>"><div class="close"></div></a>
         </div>
         <div class="" style="padding: 15px;">
-          <div class="mx-auto" style="width: 304px; height: 190px; border-radius: 20px;">
+          <div class="mx-auto" style=" max-width:304px; height: 190px;">
             <div class="certificate-popup certificate-pic" style="background-image: url('data:image/jpeg;base64,<%= certificacao_pag[0].foto_certificacao %>');">
             </div>
           </div>
