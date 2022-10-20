@@ -424,6 +424,7 @@
   display: block;
   color: #fff;
   animation: animate-div .5s;
+  overflow-wrap: break-word;
 }
 
 @keyframes animate-div {
@@ -439,11 +440,6 @@
 .shadow-description.your-work .description-work{
   margin: 0 20px;
   top: 50px;
-}
-
-.certificate:hover{
-  cursor: pointer;
-  transform: scale(1.1);
 }
 
 .popup-image{
@@ -477,10 +473,30 @@
   margin-top: 20px;
 }
 
-.close-certficate{
-  position: inherit;
-  right: 20px;
-  top: 20px;
+.close {
+position: relative;
+top: -8px;
+left: -31px;
+}
+
+.close:before {
+  content: "";
+  width: 35px;
+  height: 2px;
+  position: absolute;
+  background-color: #fff;
+  opacity: 1;
+  transform: rotate(45deg);
+}
+
+.close:after {
+  content: "";
+  width: 35px;
+  height: 2px;
+  position: absolute;
+  background-color: #fff;
+  opacity: 1;
+  transform: rotate(-45deg);
 }
 
 .btn-add-inf{
@@ -521,6 +537,7 @@
 .name-course{
   font-size: 24px;
   font-weight: 600;
+  width: 80%;
 }
 
 .add-certificate {

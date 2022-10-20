@@ -58,16 +58,14 @@
   <% if(certificacao_pag !== null){%>
   <div class="popup-image" style="max-width: 540px;">
     <div class="inf-certificate">
-      <div class="bg-purplegradient d-flex align-center justify-content-between" style="width: 100%; height: 80px; border-radius: 10px 10px 0 0; padding: 10px;">
-        <span class="close fonts-1 text-white">
-          X
-        </span>
+      <div class="bg-purplegradient d-flex align-items-center justify-content-between" style="width: 100%; height: 80px; border-radius: 10px 10px 0 0; padding: 10px;">
         <span class="name-course text-white">
           <%= certificacao_pag[0].nome_curso %>
         </span>
+        <a href="/perfil"><div class="close"></div></a>
       </div>
       <div style="padding: 15px;">
-        <div class="d-flex align-center justify-content-center" style="width: 100%; height: 190px;">
+        <div class="d-flex mx-auto justify-content-center" style="max-width:304px; height: 190px; ">
           <div class="certificate-popup certificate-pic" style="background-image: url('data:image/jpeg;base64,<%= certificacao_pag[0].foto_certificacao %>');">
           </div>
         </div>
