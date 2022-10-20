@@ -25,10 +25,10 @@
 }
 
 .profession-pic {
-  background-image: url("/images/trabalhos/montagem.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 500px;
+  background-position: center;
+  height: 450px;
   position: relative;
 }
 
