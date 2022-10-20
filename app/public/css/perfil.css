@@ -247,12 +247,6 @@
   position: relative;
 }
 
-.mask-shadow {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
 .info-work {
   z-index: 2;
   position: absolute;
@@ -430,6 +424,7 @@
   display: block;
   color: #fff;
   animation: animate-div .5s;
+  overflow-wrap: break-word;
 }
 
 @keyframes animate-div {
@@ -445,6 +440,63 @@
 .shadow-description.your-work .description-work{
   margin: 0 20px;
   top: 50px;
+}
+
+.popup-image{
+  background: rgba(0, 0, 0, .8);
+  width: 100%;
+  height: 100vh;
+  max-width: 540px;
+  z-index: 5000;
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inf-certificate{
+  background-color: #fff;
+  width: 90%;
+  height: 70%;
+  z-index: 5001;
+  border-radius: 10px;
+}
+
+.certificate-popup{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 20px;
+  width: 100%;
+  height: 80%;
+  margin-top: 20px;
+}
+
+.close {
+position: relative;
+top: -8px;
+left: -31px;
+}
+
+.close:before {
+  content: "";
+  width: 35px;
+  height: 2px;
+  position: absolute;
+  background-color: #fff;
+  opacity: 1;
+  transform: rotate(45deg);
+}
+
+.close:after {
+  content: "";
+  width: 35px;
+  height: 2px;
+  position: absolute;
+  background-color: #fff;
+  opacity: 1;
+  transform: rotate(-45deg);
 }
 
 .btn-add-inf{
@@ -482,6 +534,12 @@
   left: 15px;
 }
 
+.name-course{
+  font-size: 24px;
+  font-weight: 600;
+  width: 80%;
+}
+
 .add-certificate {
   width: 200px;
   height: 130px;
@@ -491,4 +549,14 @@
   justify-content: center;
   position: relative;
   margin: 0 15px 0 0;
+}
+
+.mask-shadow{
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.40453074433656955) 0%,
+  rgba(119, 118, 118, 0.2038834951456311) 50%,
+  rgba(0, 0, 0, 0.2508090614886731) 68%,
+  rgba(0, 0, 0, 0.8) 100%);
+height: 100%;
+width: 100%;
+border-radius: 20px;
 }
