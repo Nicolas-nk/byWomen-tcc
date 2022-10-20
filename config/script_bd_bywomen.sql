@@ -4,16 +4,17 @@ USE bywomen;
 
 CREATE TABLE categoria_servico (
 	cod_cat_servico int primary key auto_increment,
+    imagem_categoria varchar(500),
     nome_cat_servico varchar(100)
 )ENGINE=InnoDB;
-INSERT INTO categoria_servico (nome_cat_servico) VALUES 
-('Assistência Técnica'),
-('Autos'),
-('Construção'),
-('Design e Tecnologia'),
-('Moda e Beleza'),
-('Reformas e Reparos'),
-('Serviços Domesticos');
+INSERT INTO categoria_servico (imagem_categoria, nome_cat_servico) VALUES 
+('assistencia-tecnica.svg', 'Assistência Técnica'),
+('autos.svg', 'Autos'),
+('construcao.svg', 'Construção'),
+('design-tecnologia.svg','Design e Tecnologia'),
+('moda-beleza.svg', 'Moda e Beleza'),
+('reformas-reparos.svg', 'Reformas e Reparos'),
+('servicos-domesticos.svg','Serviços Domesticos');
 
 CREATE TABLE planos (
  cod_plano int primary key auto_increment,
@@ -40,6 +41,7 @@ CREATE TABLE usuario_colaboradora (
     id_usuario VARCHAR(36),
     descricao varchar(500),
     cod_plano int,
+    criadoEm datetime,
     primary key(id_colaboradora, id_usuario),
     CONSTRAINT foreign key (id_usuario) references usuario (id_usuario) on delete cascade,
     foreign key (cod_plano) references planos (cod_plano)
@@ -93,62 +95,57 @@ CREATE TABLE profissao(
 )ENGINE=InnoDB;
 
 INSERT INTO profissao (nome_profissao, foto_profissao, cod_cat_servico) VALUES 
-("Técnica em manutenção de pc's", '',1),
-('Profissional de áudio', '',1),
-('Antenista', '',1),
-('Eletricista', '',1),
-('Instaladora de eletrodomésticos', '',1),
-('Mecânica', '',2),
-('Borracheira', '',2),
-('Funileira', '',2),
-('Pintora de veículos', '',2),
-('Importadora de peças', '',2),
-('Instrutora de autoescola', '',2),
-('Consultora automotivo', '',2),
-('Pedreira', '',3),
-('Encanadora', '',3),
-('Marmorista', '',3),
-('Vidraceira', '',3),
-('Arquiteta', '',3),
-('Engenheira', '',3),
-('Enpreiteira', '', 3),
-('Designer de interiores', '',3),
-('Desenvolvedora de sistemas', '',4),
-('Web designer', '',4),
-('Marketing', '',4),
-('UX e UI designer', '',4),
-('Desenvolvedora de games', '',4),
-('Designer gráfica', '',4),
-('Fotógrafa', '',4),
-('Video maker', '', 4),
-('Redatora', '', 4),
-('Estilista', '',5),
-('Designer de acessórios', '',5),
-('Modelista', '',5),
-('Desenhista', '',5),
-('Costureira', '',5),
-('Cabeleireira', '',5),
-('Manicura', '', 5),
-('Pedicure', '',5),
-('Esteticista', '',5),
-('Designer de sobrancelhas', '',5),
-('Maquiadora', '',5),
-('Massagista', '',5),
-('Piscineira', '', 6),
-('Faxineira', '', 6),
-('Soldadora', '',6),
-('Chaveira', '',6),
-('Azulejista', '',6),
-('Diarista', '',7),
-('Cozinheira', '',7),
-('Babá', '',7),
-('Motorista', '',7),
-('Governanta', '',7),
-('Cuidadora de idosos', '',7),
-('Jardineira', '', 7),
-('Arrumadeira', '',7),
-('Lavandeira', '',7),
-('Passadeira', '',7);
+("Técnica em manutenção de pc's", 'tecnica-em-manutencao.jpg',1),
+('Profissional de áudio', 'profissional-de-audio.jpg',1),
+('Antenista', 'antenista.jpg',1),
+('Eletricista', 'eletricista.jpg',1),
+
+('Mecânica', 'mecanica.jpg',2),
+('Importadora de peças', 'importadora-de-pecas.jpg',2),
+('Instrutora de autoescola', 'instrutora-de-autoescola.jpg',2),
+('Consultora automotiva', 'consultora-automotiva.jpg',2),
+
+('Pedreira', 'pedreira.jpg',3),
+('Encanadora', 'encanadora.jpg',3),
+('Azulejista', 'azulejista.jpg',3),
+('Vidraceira', 'vidraceira.jpg',3),
+('Arquiteta', 'arquiteta.jpg',3),
+('Engenheira', 'engenheira.jpg',3),
+('Empreiteira', 'empreiteira.jpg',3),
+('Designer de interiores', 'designer-de-interiores.jpg',3),
+
+('Desenvolvedora de sistemas', 'desenvolvedora.jpg',4),
+('Marketing', 'marketing.jpg',4),
+('Designer', 'designer.jpg',4),
+('Fotógrafa', 'fotografa.jpg',4),
+('Video maker', 'video-maker.jpg', 4),
+('Redatora', 'redatora.jpg', 4),
+
+('Estilista', 'estilista.jpg',5),
+('Designer de acessorios', 'designer-de-acessorios.jpg',5),
+('Modelista', 'modelista.jpg',5),
+('Costureira', 'costureira.jpg',5),
+('Cabeleireira', 'cabeleireira.jpg',5),
+('Manicure e pedicure', 'manicure-e-pedicure.jpg',5),
+('Esteticista', 'esteticista.jpg',5),
+('Designer de sobrancelhas', 'designer-de-sobrancelhas.jpg',5),
+('Maquiadora', 'maquiadora.jpg',5),
+('Massagista', 'massagista.jpg',5),
+
+('Azulejista', 'azulejista.jpg',6),
+('Jardineira', 'jardineira.jpg',6),
+('Soldadora', 'soldadora.jpg',6),
+('Chaveira', 'chaveira.jpg',6),
+('Piscineira', 'piscineira.jpg',6),
+
+('Diarista', 'diarista.jpg',7),
+('Cozinheira', 'cozinheira.jpg',7),
+('Babá', 'baba.jpg',7),
+('Motorista', 'motorista.jpg',7),
+('Governanta', 'governanta.jpg',7),
+('Cuidadora de idosos', 'cuidadora-de-idosos.jpg',7);
+
+
 
 CREATE TABLE profissao_colaboradora(
 	id_colaboradora varchar(36),
