@@ -29,7 +29,7 @@
       <div class="profession-pic" style="background-image: url('<%=baseURL%>images/profissoes/<%= profissao.foto_profissao %>');">
         <div class="box-transparent">
           <div class="mask">
-            <a href="javascript:void(0)" onClick="history.go(-1); return false;">
+            <a href="/categorias-profissoes/<%= profissao.cod_cat_servico %> ">
               <div class="close"></div>
             </a>
           </div>
@@ -42,17 +42,33 @@
           <%= profissao.nome_profissao %>
         </h1>
       </div>
-      <div class="container pb-5">
-        <div class="mx-auto service-details">
-          <input type="text" placeholder="Especifique oque você precisa:">
+      <form action="/auth/solicitar/<%= profissao.cod_profissao %> " method="POST" class="container pb-5">
+        <div class="mt-4 mx-auto service-details" maxlength="500">
+          <label for="mensagem">Escreva aqui oque você precisa:</label>
+          <textarea oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1'
+            name="mensagem"
+            id="mensagem" class="mt-1" maxlength="500"></textarea>
         </div>
         <div class="mx-auto service-details">
-          <input type="date" placeholder="Prazo para cumprimento do serviço:">
+          <input type="text" onfocus="(this.type='date')" name="periodo" id="periodo" placeholder="Data de preferência para a realização:">
         </div>
+        <% if(sended.value === 1) { %>
+          <div class="mt-3">
+            <span class="text-purple-500"><%= sended.mensagem %> </span>
+          </div>
+          <% } else if (sended.value === 2){ %>
+            <div class="mt-3">
+              <span class="text-purple-500"><%= sended.mensagem %> </span>
+          </div>
+          <% } else if (sended.value === 3){ %>
+            <div class="mt-3">
+            <a href="/login" class="text-purple-500"><u><%= sended.mensagem %></u></a>
+          </div>
+          <% } %>
         <div class="btn-servicos d-flex justify-content-center">
-          <button>Solicitar serviço</button>
+          <button type="submit">Solicitar serviço</button>
         </div>
-      </div>
+      </form>
       <% if(usuario_colaboradoras_profissao === null){} else { %>
       <hr>
       <div class="container pb-5">
