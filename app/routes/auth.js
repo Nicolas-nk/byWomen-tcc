@@ -41,7 +41,6 @@ router.post(
         erros: errors,
         valores: req.body,
       });
-      
     }
 
     var dadosForm = {
@@ -61,15 +60,17 @@ router.post(
 
         if (total == 1) {
           return res.render("pages/cadastre-se/index", {
-            "erros":  {
+            erros: {
               errors: [
                 {
-              value: '',
-              msg: 'Este endereço de email já foi usado. escolha outro',
-              param: 'email',
-              location: 'body'
-            }]
-            }, "valores": req.body
+                  value: "",
+                  msg: "Este endereço de email já foi usado. escolha outro",
+                  param: "email",
+                  location: "body",
+                },
+              ],
+            },
+            valores: req.body,
           });
         } else if (total < 1) {
           dbConnection.query(
@@ -420,7 +421,6 @@ router.post("/remove-certificacao/:id", function (req, res) {
 router.post(
   "/add-trabalho",
   uploadImage.single("imagem_trabalho"),
-  
 
   async function (req, res) {
     let fileContent;
@@ -496,7 +496,7 @@ router.post("/add-profissao", function (req, res) {
     [dadosForm.cod_profissao, dadosForm.id_colaboradora],
     function (error, results, fields) {
       if (error) throw error;
-      if(results[0] === undefined){
+      if (results[0] === undefined) {
         dbConnection.query(
           "INSERT INTO profissao_colaboradora SET ?",
           dadosForm,
@@ -505,7 +505,7 @@ router.post("/add-profissao", function (req, res) {
             res.redirect("/profissao");
           }
         );
-      }else{
+      } else {
         dbConnection.query(
           "DELETE FROM profissao_colaboradora WHERE id_colaboradora = ?",
           [dadosForm.id_colaboradora],
@@ -513,11 +513,10 @@ router.post("/add-profissao", function (req, res) {
             if (error) throw error;
             res.redirect("/profissao");
           }
-        );       
+        );
       }
     }
   );
-  
 });
 router.post("/remove-profissao", function (req, res) {
   var dadosForm = {
@@ -532,6 +531,83 @@ router.post("/remove-profissao", function (req, res) {
     }
   );
 });
+router.post("/solicitar/:cod_profissao", function (req, res) {
+  if (req.session.autenticado === true) {
+    var dadosForm = {
+      cod_solicitacao: uuidv4(),
+      mensagem: req.body.mensagem,
+      status_solicitacao: "Pendente",
+      data_requisicao: new Date(),
+      periodo: req.body.periodo,
+      id_usuario: req.session.usu_autenticado_id,
+    };
+    dbConnection.query(
+      "SELECT id_colaboradora FROM profissao_colaboradora WHERE cod_profissao = ?",
+      [req.params.cod_profissao],
+      function (error, results, fields) {
+        if (error) throw error;
+        req.colaboradoras_profissoes = [];
+        if (results.length > 0) {
+          for (let i = 0; i < results.length; i++) {
+            req.colaboradoras_profissoes[i] = results[i].id_colaboradora;
+          }
+        } else {
+          req.colaboradoras_profissoes = null;
+        }
+        if (results.length > 0) {
+          dbConnection.query(
+            "INSERT INTO solicitacao SET ?",
+            dadosForm,
+            function (error, results, fields) {
+              if (error) throw error;
+              setTimeout(async function () {
+                for (let i = 0; i < req.colaboradoras_profissoes.length; i++) {
+                  await dbConnection.query(
+                    "INSERT INTO solicitacao_colaboradora SET cod_solicitacao = ?, id_colaboradora = ?",
+                    [
+                      dadosForm.cod_solicitacao,
+                      req.colaboradoras_profissoes[i],
+                    ],
+                    function (error, results, fields) {
+                      if (error) throw error;
+                      if (
+                        req.colaboradoras_profissoes[i] ==
+                        req.session.usu_colaboradora_autenticado_id
+                      ) {
+                        dbConnection.query(
+                          "DELETE FROM solicitacao_colaboradora WHERE cod_solicitacao = ? AND id_colaboradora = ?",
+                          [
+                            dadosForm.cod_solicitacao,
+                            req.colaboradoras_profissoes[i],
+                          ],
+                          function (error, results, fields) {
+                            if (error) throw error;
+                          }
+                        );
+                      }
+                    }
+                  );
+                }
+                res.redirect("/solicitar/" + req.params.cod_profissao + "/1");
+              }, 200);
+            }
+          );
+        } else {
+          dbConnection.query(
+            "INSERT INTO solicitacao SET ?",
+            dadosForm,
+            function (error, results, fields) {
+              if (error) throw error;
+              res.redirect("/solicitar/" + req.params.cod_profissao + "/2");
+            }
+          );
+        }
+      }
+    );
+  } else {
+    res.redirect("/solicitar/" + req.params.cod_profissao + "/3");
+  }
+});
 router.post("/favoritos", function (req, res) {
   var dadosForm = {
     cod_fav: uuidv4(),
@@ -543,28 +619,27 @@ router.post("/favoritos", function (req, res) {
     [dadosForm.id_colaboradora, dadosForm.id_usuario],
     function (error, results, fields) {
       if (error) throw error;
-      if(results[0] === undefined){
+      if (results[0] === undefined) {
         dbConnection.query(
           "INSERT INTO favoritos SET ?",
           dadosForm,
           function (error, results, fields) {
             if (error) throw error;
-            res.redirect('back');
+            res.redirect("back");
           }
         );
-      }else{
+      } else {
         dbConnection.query(
           "DELETE FROM favoritos WHERE id_colaboradora = ? AND id_usuario = ?",
           [dadosForm.id_colaboradora, dadosForm.id_usuario],
           function (error, results, fields) {
             if (error) throw error;
-            res.redirect('back');
+            res.redirect("back");
           }
-        );       
+        );
       }
     }
   );
-  
 });
 
 module.exports = router;

@@ -8,7 +8,8 @@
   margin-top: 30px;
 }
 
-.service-details input {
+.service-details input,
+.service-details textarea{
   border-top: 0;
   border-left: 0;
   border-right: 0;
@@ -25,10 +26,10 @@
 }
 
 .profession-pic {
-  background-image: url("/images/trabalhos/montagem.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  height: 500px;
+  background-position: center;
+  height: 450px;
   position: relative;
 }
 

@@ -30,7 +30,7 @@
       <div class="profile pt-2">
         <nav class="header-navbar">
           <div class="header-components">
-            <a href="javascript:void(0)" onClick="history.go(-1); return false;"><img src="<%=baseURL%>images/icons/header/return.svg" alt="" /></a>
+            <a href="/"><img src="<%=baseURL%>images/icons/header/return.svg" alt="" /></a>
           </div>
           <% if (usu_visitado.usu_colaboradora_id === session.usu_colaboradora_autenticado_id) { %>
           <div>
@@ -84,7 +84,7 @@
           <span class="name-course text-white">
             <%= certificacao_pag[0].nome_curso %>
           </span>
-          <a href="/perfil/<%= usu_visitado.usu_colaboradora_id %>"><div class="close"></div></a>
+          <a href="/perfil/<%= usu_visitado.id_usuario %>"><div class="close"></div></a>
         </div>
         <div class="" style="padding: 15px;">
           <div class="mx-auto" style=" max-width:304px; height: 190px;">
@@ -125,7 +125,7 @@
       <p><%= usu_visitado.usu_colaboradora_descricao %></p>
     </div>
     <section>
-      <section>
+      <section class="pb-5">
         <% if(trabalhos_realizados===null){}else{ %>
         <div class="">
           <h1 class="text-start fonts-2">Trabalhos</h1>

@@ -47,15 +47,16 @@
   </div>
   <section class="container mb-5">
     <% profissao.forEach(function(profissao){ %>
-        <a href="/solicitar/<%= profissao.cod_profissao %> ">
-    <div class="work-pic"  style="background-image: url(<%=baseURL%>images/trabalhos/obra.jpg);">
-      <div class="tag-work">
-        <span><%= profissao.nome_profissao %> </span>
+    <a href="/solicitar/<%= profissao.cod_profissao %> ">
+      <div class="work-pic" style="background-image: url('<%=baseURL%>images/profissoes/<%= profissao.foto_profissao %>');">
+        <div class="tag-work">
+          <span><%= profissao.nome_profissao %> </span>
+        </div>
       </div>
-    </div>
-</a>
+    </a>
     <% }); %>
   </section>
+  <p class="mt-4 mb-5 px-5">Não encontrou o que procura? <a target="_blank" href="https://forms.gle/r2DuXxJJgtaofdBLA" style="color: #240046; text-decoration: underline;">Envie-nos uma sujestão!</a></p>
   <script src="./../js/index.js"></script>
   <div class="fake-menu"></div>
   <%- include("./../../components/menu/index.ejs") %>

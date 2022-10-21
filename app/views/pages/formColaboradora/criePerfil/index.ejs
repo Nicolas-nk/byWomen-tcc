@@ -80,7 +80,7 @@
                             <label for="">Biografia</label>
                             <textarea oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1'
                               name="descricao"
-                              id="descricao"><% if(session.colaboradora_autenticado === true){ %><%= session.usu_colaboradora_autenticado_descricao %><% }else{} %></textarea>
+                              id="descricao" maxlength="500"><% if(session.colaboradora_autenticado === true){ %><%= session.usu_colaboradora_autenticado_descricao %><% }else{} %></textarea>
                           </div>
 
                           <% if(session.colaboradora_autenticado===true){ %>
