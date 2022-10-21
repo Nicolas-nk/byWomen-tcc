@@ -608,6 +608,58 @@ router.post("/solicitar/:cod_profissao", function (req, res) {
     res.redirect("/solicitar/" + req.params.cod_profissao + "/3");
   }
 });
+router.post("/solicitar-profissional/:id_colaboradora", function (req, res) {
+  if (req.session.autenticado === true) {
+    var dadosForm = {
+      cod_solicitacao: uuidv4(),
+      mensagem: req.body.mensagem,
+      status_solicitacao: "Pendente",
+      data_requisicao: new Date(),
+      periodo: req.body.periodo,
+      id_usuario: req.session.usu_autenticado_id,
+    };
+
+    dbConnection.query(
+      "INSERT INTO solicitacao SET ?",
+      dadosForm,
+      function (error, results, fields) {
+        if (error) throw error;
+        setTimeout(async function () {
+          for (let i = 0; i < req.colaboradoras_profissoes.length; i++) {
+            await dbConnection.query(
+              "INSERT INTO solicitacao_colaboradora SET cod_solicitacao = ?, id_colaboradora = ?",
+              [
+                dadosForm.cod_solicitacao,
+                req.params.id_colaboradora,
+              ],
+              function (error, results, fields) {
+                if (error) throw error;
+                if (
+                  req.colaboradoras_profissoes[i] ==
+                  req.session.usu_colaboradora_autenticado_id
+                ) {
+                  dbConnection.query(
+                    "DELETE FROM solicitacao_colaboradora WHERE cod_solicitacao = ? AND id_colaboradora = ?",
+                    [
+                      dadosForm.cod_solicitacao,
+                      req.colaboradoras_profissoes[i],
+                    ],
+                    function (error, results, fields) {
+                      if (error) throw error;
+                    }
+                  );
+                }
+              }
+            );
+          }
+          res.redirect("/perfil/" + req.params.id_colaboradora + "/1");
+        }, 200);
+      }
+    );
+  } else {
+    res.redirect("/perfil/" + req.params.id_colaboradora + "/3");
+  }
+});
 router.post("/favoritos", function (req, res) {
   var dadosForm = {
     cod_fav: uuidv4(),

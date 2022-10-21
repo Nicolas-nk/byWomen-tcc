@@ -24,7 +24,14 @@
   <link rel="stylesheet" href="<%=baseURL%>css/perfil.css" />
 </head>
 
-<body>
+<% if(certificacao_pag != null){%>
+
+<body style="overflow: hidden;">
+  <% } else {%>
+
+  <body>
+    <%} %>
+  </body>
   <header>
     <div class="wallpaper bg-purplegradient container">
       <div class="profile pt-2">
@@ -44,10 +51,10 @@
               <input type="text" name="id_colaboradora" id="id_colaboradora" value="<%= usu_visitado.usu_colaboradora_id %>" class="d-none">
               <button type="submit" class="btn p-0">
                 <% if(favoritado === true){  %>
-                  <img src="<%=baseURL%>images/icons/header/favoritar-full.svg" alt="" />
-                  <% } else { %>
-                    <img src="<%=baseURL%>images/icons/header/favoritar.svg" alt="" />
-                 <% } %> 
+                <img src="<%=baseURL%>images/icons/header/favoritar-full.svg" alt="" />
+                <% } else { %>
+                <img src="<%=baseURL%>images/icons/header/favoritar.svg" alt="" />
+                <% } %>
               </button>
             </form>
             <% }else{ %>
@@ -78,39 +85,41 @@
     </div>
   </header>
   <% if(certificacao_pag !== null){%>
-    <div class="popup-image" style="max-width: 540px;">
-      <div class="inf-certificate">
-        <div class="bg-purplegradient d-flex align-items-center justify-content-between" style="width: 100%; height: 80px; border-radius: 10px 10px 0 0; padding: 10px;">
-          <span class="name-course text-white">
-            <%= certificacao_pag[0].nome_curso %>
+  <div class="popup-image" style="max-width: 540px;">
+    <div class="inf-certificate">
+      <div class="bg-purplegradient d-flex align-items-center justify-content-between" style="width: 100%; height: 80px; border-radius: 10px 10px 0 0; padding: 10px;">
+        <span class="name-course text-white">
+          <%= certificacao_pag[0].nome_curso %>
+        </span>
+        <a href="/perfil/<%= usu_visitado.id_usuario %>">
+          <div class="close"></div>
+        </a>
+      </div>
+      <div class="" style="padding: 15px;">
+        <div class="mx-auto" style=" max-width:304px; height: 190px;">
+          <div class="certificate-popup certificate-pic" style="background-image: url('data:image/jpeg;base64,<%= certificacao_pag[0].foto_certificacao %>');">
+          </div>
+        </div>
+        <div class="mb-2">
+          <span class="fonts-4 text-purple-600">
+            <%= certificacao_pag[0].orgao_emissor %>
           </span>
-          <a href="/perfil/<%= usu_visitado.id_usuario %>"><div class="close"></div></a>
         </div>
-        <div class="" style="padding: 15px;">
-          <div class="mx-auto" style=" max-width:304px; height: 190px;">
-            <div class="certificate-popup certificate-pic" style="background-image: url('data:image/jpeg;base64,<%= certificacao_pag[0].foto_certificacao %>');">
-            </div>
-          </div>
-          <div class="mb-2">
-            <span class="fonts-4 text-purple-600">
-              <%= certificacao_pag[0].orgao_emissor %>
+        <div class="mb-4">
+          <div>
+            <span class="fonts-5 text-purple-600">
+              <%= certificacoes.atividade_realizada %>
             </span>
           </div>
-          <div class="mb-4">
-            <div>
-              <span class="fonts-5 text-purple-600">
-                <%= certificacoes.atividade_realizada %>
-              </span>
-            </div>
-            <span class="fonts-4 text-purple-600">
-              <%= certificacao_pag[0].data_emissao %>
-            </span>
-          </div>
-  
+          <span class="fonts-4 text-purple-600">
+            <%= certificacao_pag[0].data_emissao %>
+          </span>
         </div>
+
       </div>
     </div>
-    <% }else{} %>
+  </div>
+  <% }else{} %>
   <div class="container">
     <div class="badges mx-auto">
       <%
@@ -172,19 +181,37 @@
           <% }); %>
         </div>
         <% } %>
-        <h1 class="fonts-2 my-4">
+        <% if (usu_visitado.usu_colaboradora_id !== session.usu_colaboradora_autenticado_id) {} else {%>
+        <h2 class="fonts-2 my-4">
           Solicite um serviço para
           <%= usu_visitado.usu_nome %>
-        </h1>
-        <div class="mx-auto service-details">
-          <input type="text" placeholder="Especifique oque você precisa:" />
-        </div>
-        <div class="mx-auto service-details">
-          <input type="date" placeholder="Prazo para cumprimento do serviço:" />
-        </div>
-        <div class="btn-servicos d-flex justify-content-center">
-          <button>Solicitar serviço</button>
-        </div>
+        </h2>
+        <form action="/auth/solicitar-profissional/<%= usu_visitado.usu_colaboradora_id %> " method="POST" class="container pb-5">
+          <div class="mt-4 mx-auto service-details" maxlength="500">
+            <label for="mensagem">Escreva aqui oque você precisa:</label>
+            <textarea oninput='if(this.scrollHeight > this.offsetHeight) this.rows += 1' name="mensagem" id="mensagem" class="mt-1" maxlength="500"></textarea>
+          </div>
+          <div class="mx-auto service-details">
+            <input type="text" onfocus="(this.type='date')" name="periodo" id="periodo" placeholder="Data de preferência para a realização:">
+          </div>
+          <% if(sended.value === 1) { %>
+          <div class="mt-3">
+            <span class="text-purple-500"><%= sended.mensagem %> </span>
+          </div>
+          <% } else if (sended.value === 2){ %>
+          <div class="mt-3">
+            <span class="text-purple-500"><%= sended.mensagem %> </span>
+          </div>
+          <% } else if (sended.value === 3){ %>
+          <div class="mt-3">
+            <a href="/login" class="text-purple-500"><u><%= sended.mensagem %></u></a>
+          </div>
+          <% } %>
+          <div class="btn-servicos d-flex justify-content-center">
+            <button type="submit">Solicitar serviço</button>
+          </div>
+        </form>
+        <% } %>
       </section>
       <div class="fake-menu"></div>
   </div>

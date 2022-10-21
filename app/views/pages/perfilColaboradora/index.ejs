@@ -22,8 +22,12 @@
   <link rel="stylesheet" href="<%=baseURL%>css/reset.css" />
   <link rel="stylesheet" href="<%=baseURL%>css/perfil.css" />
 </head>
-
-<body>
+<% if(certificacao_pag != null){%>
+  <body style="overflow: hidden;">
+<% } else {%>
+    <body>
+<%} %>
+    </body>
   <header>
     <div class="wallpaper bg-purplegradient container">
       <div class="profile pt-2">

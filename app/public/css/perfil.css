@@ -425,7 +425,7 @@
   height: 100vh;
   max-width: 540px;
   z-index: 5000;
-  position: absolute;
+  position: fixed;
   top: 0;
   display: flex;
   align-items: center;
