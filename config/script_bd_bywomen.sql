@@ -114,7 +114,7 @@ INSERT INTO profissao (nome_profissao, foto_profissao, cod_cat_servico) VALUES
 ('Empreiteira', 'empreiteira.jpg',3),
 ('Designer de interiores', 'designer-de-interiores.jpg',3),
 
-('Desenvolvedora de sistemas', 'desenvolvedora.jpg',4),
+('Desenvolvedora', 'desenvolvedora.jpg',4),
 ('Marketing', 'marketing.jpg',4),
 ('Designer', 'designer.jpg',4),
 ('Fotógrafa', 'fotografa.jpg',4),
@@ -170,7 +170,7 @@ CREATE TABLE solicitacao(
     mensagem varchar(500),
     status_solicitacao varchar(50),
     data_requisicao date,
-    periodo varchar(50),
+    periodo date,
     id_usuario VARCHAR(36),
     CONSTRAINT foreign key (id_usuario) references usuario (id_usuario) on delete cascade
 )ENGINE=InnoDB;
@@ -178,6 +178,7 @@ CREATE TABLE solicitacao(
 CREATE TABLE solicitacao_colaboradora(
 	cod_solicitacao VARCHAR(36),
     id_colaboradora varchar(36),
+    primary key (cod_solicitacao, id_colaboradora),
     CONSTRAINT foreign key (cod_solicitacao) references solicitacao (cod_solicitacao) on delete cascade,
 	CONSTRAINT foreign key (id_colaboradora) references usuario_colaboradora (id_colaboradora) on delete cascade
 )ENGINE=InnoDB;
